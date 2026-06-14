@@ -11,6 +11,8 @@ _*.json
 *.log
 .DS_Store
 Thumbs.db
+# archivos de trabajo (no del sitio)
+*.xlsx
 # test artifacts
 test-results
 playwright-report
