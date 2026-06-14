@@ -11,3 +11,7 @@ _*.json
 *.log
 .DS_Store
 Thumbs.db
+# test artifacts
+test-results
+playwright-report
+.playwright
