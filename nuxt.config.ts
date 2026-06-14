@@ -3,7 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
 
-  modules: ['@pinia/nuxt', '@nuxt/image'],
+  modules: ['@pinia/nuxt', '@nuxt/image', '@nuxtjs/supabase'],
+
+  supabase: {
+    // Etapa 1: sin protección/redirect global (/cuenta sigue en "próximamente").
+    // En Etapa 2 protegeremos /cuenta y subrutas. URL y key se leen de SUPABASE_URL / SUPABASE_KEY.
+    redirect: false,
+  },
 
   image: {
     // ipx en local (node); en Vercel se usa la optimización nativa (/_vercel/image)
