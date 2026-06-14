@@ -1,16 +1,28 @@
-<script setup lang="ts">useHead({ title: 'Cambios y garantías — AMANTI' })</script>
+<script setup lang="ts">useHead({ title: 'Garantías y devoluciones — AMANTI' })</script>
 <template>
-  <PageHeader title="Cambios y Garantías" subtitle="Compra con tranquilidad." current="Garantías" />
+  <PageHeader title="Garantías y Devoluciones" subtitle="Compra con tranquilidad." current="Garantías" />
   <div class="prose">
-    <h2>Garantía</h2>
-    <p>Todos nuestros productos cuentan con garantía contra defectos de fábrica por <b>30 días</b> a partir de la entrega.</p>
-    <h2>Cambios y devoluciones</h2>
-    <p>Por razones de higiene y salud, los productos íntimos <b>no admiten devolución</b> una vez abiertos, salvo que presenten un defecto de fábrica.</p>
-    <ul>
-      <li>Si tu producto llegó dañado o con defecto, escríbenos dentro de las 48 horas siguientes a la entrega.</li>
-      <li>Conserva el empaque y comparte fotos o video del problema.</li>
-      <li>Te ayudamos con la reposición o el cambio según el caso.</li>
-    </ul>
-    <div class="note"><p>Para iniciar una garantía, contáctanos por WhatsApp o correo con tu número de pedido.</p></div>
+    <p class="lead">Tu satisfacción y tu salud son lo primero. Aquí te explicamos nuestras garantías y el proceso de devolución.</p>
+
+    <h2>Higiene ante todo</h2>
+    <p>Por la naturaleza íntima de nuestros productos y por motivos de salud e higiene, no aceptamos cambios ni devoluciones de productos abiertos, usados, o cuyo sello o empaque sanitario haya sido removido, salvo defecto de fábrica.</p>
+
+    <h2>Productos con defecto de fábrica</h2>
+    <p>Si tu producto llega con defecto de fábrica o dañado, contáctanos dentro de los 7 días naturales posteriores a la recepción, enviando fotos o video del producto y su empaque a cambios@amanti.mx o por WhatsApp. Una vez validado el defecto te ofreceremos reposición del producto o [reembolso / nota de crédito — CONFIRMAR].</p>
+
+    <h2>Garantía de los productos</h2>
+    <p>Los productos electrónicos (vibradores, succionadores, etc.) cuentan con garantía de [NÚMERO] meses contra defectos de fabricación, según las condiciones del fabricante. No cubre el desgaste normal, el mal uso, ni daños por no seguir las instrucciones de uso y cuidado.</p>
+
+    <h2>Producto equivocado o faltante</h2>
+    <p>Si recibiste un producto distinto al que ordenaste o falta un artículo, avísanos dentro de 7 días y lo resolvemos sin costo para ti.</p>
+
+    <h2>Cómo iniciar una solicitud</h2>
+    <ol>
+      <li>Escríbenos por WhatsApp a [NÚMERO] o al correo cambios@amanti.mx con tu número de pedido.</li>
+      <li>Adjunta fotos o video del producto y su empaque.</li>
+      <li>Nuestro equipo te responderá con los pasos a seguir.</li>
+    </ol>
+
+    <p style="opacity:.6;font-size:.86rem">Última actualización: [FECHA]. Documento sujeto a revisión.</p>
   </div>
 </template>
