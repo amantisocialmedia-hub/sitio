@@ -1,7 +1,26 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const wa = `https://wa.me/${config.public.whatsappPhone}?text=${encodeURIComponent('¡Hola AMANTI! Tengo una pregunta 💜')}`
+const phone = config.public.whatsappPhone
+const wa = `https://wa.me/${phone}?text=${encodeURIComponent('¡Hola AMANTI! Tengo una pregunta 💜')}`
 useHead({ title: 'Contacto — AMANTI' })
+
+const nombre = ref('')
+const correo = ref('')
+const mensaje = ref('')
+const error = ref('')
+const enviado = ref(false)
+const emailOk = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)
+
+function enviar() {
+  error.value = ''
+  if (!nombre.value.trim()) { error.value = 'Escribe tu nombre.'; return }
+  if (!emailOk(correo.value)) { error.value = 'Escribe un correo válido.'; return }
+  if (!mensaje.value.trim()) { error.value = 'Cuéntanos en qué te ayudamos.'; return }
+  const text =
+    `¡Hola AMANTI! Soy ${nombre.value.trim()} (${correo.value.trim()}).\n\n${mensaje.value.trim()}`
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener')
+  enviado.value = true
+}
 </script>
 <template>
   <PageHeader title="Contáctanos" subtitle="¿Dudas antes de comprar? Te respondemos sin juicios." current="Contacto" />
@@ -12,9 +31,17 @@ useHead({ title: 'Contacto — AMANTI' })
   </div>
   <div class="cform">
     <h2 style="text-align:center;margin:14px 0 4px">Envíanos un mensaje</h2>
-    <input placeholder="Tu nombre" />
-    <input type="email" placeholder="Tu correo" />
-    <textarea placeholder="¿En qué te ayudamos?"></textarea>
-    <button class="btn magenta block">Enviar mensaje</button>
+    <template v-if="!enviado">
+      <input v-model="nombre" placeholder="Tu nombre" />
+      <input v-model="correo" type="email" placeholder="Tu correo" />
+      <textarea v-model="mensaje" placeholder="¿En qué te ayudamos?"></textarea>
+      <p v-if="error" style="color:#E8503A;font-size:.9rem;margin:2px 0">{{ error }}</p>
+      <button class="btn magenta block" @click="enviar">Enviar mensaje</button>
+      <p style="font-size:.82rem;opacity:.6;text-align:center;margin-top:8px">Tu mensaje se enviará por WhatsApp para una respuesta más rápida.</p>
+    </template>
+    <div v-else class="note" style="text-align:center">
+      <p>¡Gracias, {{ nombre.split(' ')[0] }}! Te contactaremos pronto. 💜</p>
+      <p style="font-size:.85rem;opacity:.7">Si no se abrió WhatsApp, escríbenos a <a href="mailto:hola@amanti.mx">hola@amanti.mx</a>.</p>
+    </div>
   </div>
 </template>

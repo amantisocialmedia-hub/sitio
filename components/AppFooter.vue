@@ -1,12 +1,27 @@
+<script setup lang="ts">
+const news = ref('')
+const newsErr = ref('')
+const newsOk = ref(false)
+function suscribir() {
+  newsErr.value = ''
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(news.value)) { newsErr.value = 'Escribe un correo válido.'; return }
+  const subject = encodeURIComponent('Suscripción newsletter')
+  const body = encodeURIComponent(`Quiero suscribirme al newsletter de AMANTI con el correo: ${news.value.trim()}`)
+  window.location.href = `mailto:hola@amanti.mx?subject=${subject}&body=${body}`
+  newsOk.value = true
+}
+</script>
 <template>
   <section class="news">
     <div class="wrap">
       <h2>Info &amp; Blog en tu correo</h2>
       <p>Recibe promociones, novedades y ofertas exclusivas. Sin spam.</p>
-      <div class="nf">
-        <input type="email" placeholder="Tu email" />
-        <button class="btn">Enviar</button>
+      <div v-if="!newsOk" class="nf">
+        <input v-model="news" type="email" placeholder="Tu email" @keyup.enter="suscribir" />
+        <button class="btn" @click="suscribir">Enviar</button>
       </div>
+      <p v-if="newsErr && !newsOk" style="color:#FFD9CF;font-size:.85rem;margin-top:8px">{{ newsErr }}</p>
+      <p v-if="newsOk" style="margin-top:10px;font-weight:600">¡Gracias! Te suscribiremos a hola@amanti.mx 💜</p>
       <div class="socials">
         <a href="https://www.facebook.com/profile.php?id=61583596012406" target="_blank" rel="noopener" aria-label="Facebook">f</a>
         <a href="https://www.instagram.com/amanti.wellness/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
