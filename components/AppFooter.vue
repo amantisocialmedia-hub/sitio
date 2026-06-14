@@ -1,0 +1,69 @@
+<template>
+  <section class="news">
+    <div class="wrap">
+      <h2>Info &amp; Blog en tu correo</h2>
+      <p>Recibe promociones, novedades y ofertas exclusivas. Sin spam.</p>
+      <div class="nf">
+        <input type="email" placeholder="Tu email" />
+        <button class="btn">Enviar</button>
+      </div>
+      <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61583596012406" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/amanti.wellness/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+        <a href="https://www.tiktok.com/@amanti.wellness" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fg">
+        <div>
+          <h4>Juguetes Sexuales</h4>
+          <ul>
+            <li><NuxtLink to="/tienda?cat=vibradores">Vibradores</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=masturbadores">Masturbadores</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=dildos">Dildos</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=anal">Anales</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=bdsm">BDSM</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=parejas">Parejas</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=retardantes">Retardantes</NuxtLink></li>
+            <li><NuxtLink to="/tienda?cat=lubricantes">Lubricantes</NuxtLink></li>
+            <li><NuxtLink to="/tienda?sale=1">Rebajas</NuxtLink></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Información</h4>
+          <ul>
+            <li><NuxtLink to="/envios">Formas de Envío</NuxtLink></li>
+            <li><NuxtLink to="/pagos">Formas de Pago</NuxtLink></li>
+            <li><NuxtLink to="/garantias">Cambios y Garantías</NuxtLink></li>
+            <li><NuxtLink to="/terminos">Términos y Condiciones</NuxtLink></li>
+            <li><NuxtLink to="/privacidad">Avisos de Privacidad</NuxtLink></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Atención a Clientes</h4>
+          <ul>
+            <li><NuxtLink to="/nosotros">Nosotros</NuxtLink></li>
+            <li><NuxtLink to="/blog">Blog</NuxtLink></li>
+            <li><NuxtLink to="/faq">Preguntas Frecuentes</NuxtLink></li>
+            <li><NuxtLink to="/contacto">Contáctanos</NuxtLink></li>
+            <li><NuxtLink to="/favoritos">Mis Favoritos</NuxtLink></li>
+          </ul>
+        </div>
+        <div class="fbrand">
+          <div class="mark"><span>amanti</span></div>
+          <p>Sex shop en México con juguetes sexuales para mujeres, hombres y parejas. Vibradores, succionadores, juguetes para parejas y más. Envíos discretos a todo el país.</p>
+        </div>
+      </div>
+      <div class="fbottom">
+        <span>© 2026 AMANTI · Hecho en México 🇲🇽 · +18</span>
+        <div class="pays">
+          <span class="pp">Visa</span><span class="pp">Mastercard</span><span class="pp">Amex</span>
+          <span class="pp">PayPal</span><span class="pp">MercadoPago</span><span class="pp">OXXO</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

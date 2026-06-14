@@ -1,0 +1,13 @@
+.vercel
+node_modules
+.nuxt
+.output
+.env
+.env.*
+fotos_raw
+# carpetas temporales de trabajo (zips, scraping, etc.)
+_*/
+_*.json
+*.log
+.DS_Store
+Thumbs.db

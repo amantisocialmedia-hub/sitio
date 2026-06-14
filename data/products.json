@@ -1,0 +1,4319 @@
+{
+  "categories": [
+    {
+      "slug": "vibradores",
+      "name": "Vibradores",
+      "emoji": "🌙",
+      "blurb": "Succionadores, balas, conejos y varitas. Los favoritos para clítoris, punto G y más.",
+      "image": "/categories/vibradores.png"
+    },
+    {
+      "slug": "dildos",
+      "name": "Dildos",
+      "emoji": "🪐",
+      "blurb": "Realistas y de fantasía: con ventosa, compatibles con arnés y para toda imaginación.",
+      "image": "/categories/dildos.png"
+    },
+    {
+      "slug": "anal",
+      "name": "Anal",
+      "emoji": "🍑",
+      "blurb": "Plugs, cuentas y esenciales de higiene para explorar con calma y seguridad.",
+      "image": "/categories/anal.png"
+    },
+    {
+      "slug": "bdsm",
+      "name": "BDSM",
+      "emoji": "🖤",
+      "blurb": "Kits de bondage, esposas, mordazas y restricciones para todos los niveles.",
+      "image": "/categories/bdsm.png"
+    },
+    {
+      "slug": "parejas",
+      "name": "Parejas",
+      "emoji": "💞",
+      "blurb": "Anillos vibradores y kits para jugar de a dos.",
+      "image": "/categories/parejas.png"
+    },
+    {
+      "slug": "hombre",
+      "name": "Para Él",
+      "emoji": "🔥",
+      "blurb": "Masturbadores, fundas, extensiones y anillos.",
+      "image": "/categories/hombre.png"
+    },
+    {
+      "slug": "arneses",
+      "name": "Arneses",
+      "emoji": "🔗",
+      "blurb": "Strap-ons y arneses con y sin dildo, ajustables a todas las tallas.",
+      "image": "/categories/arneses.png"
+    },
+    {
+      "slug": "masturbadores",
+      "name": "Masturbadores",
+      "emoji": "🔥",
+      "blurb": "Fundas, tubos y texturas para el placer masculino en solitario.",
+      "image": "/categories/masturbadores.png"
+    },
+    {
+      "slug": "retardantes",
+      "name": "Retardantes",
+      "emoji": "⏱️",
+      "blurb": "Sprays, cremas y geles para prolongar el momento.",
+      "image": "/categories/retardantes.png"
+    },
+    {
+      "slug": "lubricantes",
+      "name": "Lubricantes",
+      "emoji": "💧",
+      "blurb": "Lubricantes saborizados y de sensación para todo tipo de juego.",
+      "image": "/categories/lubricantes.png"
+    }
+  ],
+  "products": [
+    {
+      "slug": "tiny-teasers-nubby",
+      "name": "Tiny Teasers Nubby",
+      "brand": "Bodywand",
+      "category": "vibradores",
+      "price": 501,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Mini varita vibradora de viaje",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Entrega Express"
+      ],
+      "description": "Mini varita vibradora de viaje con cuello flexible, 3 velocidades y punta de placer texturizada extraíble. Control de un botón, silenciosa, hasta 2.5 h de uso, carga USB en 50 min.",
+      "features": [
+        "Recargable USB",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/tiny-teasers-nubby_1.jpg",
+        "/products/tiny-teasers-nubby_2.jpg"
+      ]
+    },
+    {
+      "slug": "venus-butterfly",
+      "name": "Venus Butterfly",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 1213,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFF3C9",
+      "subtitle": "Estimulador mariposa giratorio",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Estimulador mariposa con punta de placer giratoria y 10 funciones de vibración, pulsación y escalada. Silicona body-safe, 100% impermeable IPX7, recargable USB (carga 1h; 30–35 min de uso), chip de memoria y bloqueo de viaje.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/venus-butterfly_1.jpg",
+        "/products/venus-butterfly_2.jpg",
+        "/products/venus-butterfly_3.jpg",
+        "/products/venus-butterfly_4.jpg",
+        "/products/venus-butterfly_5.jpg"
+      ]
+    },
+    {
+      "slug": "frisky-finger-vibe-pink",
+      "name": "Frisky Finger Vibe Pink",
+      "brand": "Frisky",
+      "category": "vibradores",
+      "price": 311,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🌙",
+      "bg": "#FDE2E4",
+      "subtitle": "Vibrador de dedo",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Vibrador de dedo discreto de silicona premium. Estimulación dirigida con la punta del dedo. 3.5\" x 1\". Incluye 2 baterías LR41.",
+      "features": [
+        "Funciona con pilas",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/frisky-finger-vibe-pink_1.jpg",
+        "/products/frisky-finger-vibe-pink_2.jpg",
+        "/products/frisky-finger-vibe-pink_3.jpg",
+        "/products/frisky-finger-vibe-pink_4.jpg",
+        "/products/frisky-finger-vibe-pink_5.jpg"
+      ]
+    },
+    {
+      "slug": "10x-bunny-slide",
+      "name": "10X Bunny Slide",
+      "brand": "Blush",
+      "category": "vibradores",
+      "price": 1187,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E6F4EA",
+      "subtitle": "Vibrador conejo deslizante",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Vibrador conejo con 10 modos deslizantes internos y 10 modos de vibración. Silicona premium sin ftalatos.",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/10x-bunny-slide_1.jpg",
+        "/products/10x-bunny-slide_2.jpg",
+        "/products/10x-bunny-slide_3.jpg",
+        "/products/10x-bunny-slide_4.jpg",
+        "/products/10x-bunny-slide_5.jpg"
+      ]
+    },
+    {
+      "slug": "invincible-black",
+      "name": "Invincible Black",
+      "brand": "Invincible",
+      "category": "vibradores",
+      "price": 2002,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FAE8EF",
+      "subtitle": "Succionador de clítoris",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Succionador de clítoris con motor F1 de última generación y 10 velocidades de pulsación. Recargable USB magnético (60 min de uso), silicona grado médico, impermeable. 12 x 7.5 cm.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/invincible-black_1.jpg",
+        "/products/invincible-black_2.jpg",
+        "/products/invincible-black_3.jpg",
+        "/products/invincible-black_4.jpg",
+        "/products/invincible-black_5.jpg"
+      ]
+    },
+    {
+      "slug": "invincible-pink",
+      "name": "Invincible Pink",
+      "brand": "Invincible",
+      "category": "vibradores",
+      "price": 2002,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFEFD6",
+      "subtitle": "Succionador de clítoris",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Succionador de clítoris con tecnología Touchless Air Wave y 11 niveles de intensidad. Motor F1 de 10 velocidades, recargable USB magnético (60 min), 100% impermeable IP70, membrana higiénica de grado médico.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/invincible-pink_1.jpg",
+        "/products/invincible-pink_2.jpg",
+        "/products/invincible-pink_3.jpg",
+        "/products/invincible-pink_4.jpg",
+        "/products/invincible-pink_5.jpg"
+      ]
+    },
+    {
+      "slug": "envy-handheld-suction",
+      "name": "Envy Handheld Suction",
+      "brand": "Envy",
+      "category": "vibradores",
+      "price": 2333,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E8F6F3",
+      "subtitle": "Masajeador con succión y vibración",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Entrega Express"
+      ],
+      "description": "Masajeador de mano con succión y vibración: 3 velocidades de succión + 7 funciones de vibración con motores independientes. Textura ondulada con 2 puntos de placer, chip de memoria, bloqueo de viaje. Recargable USB (2h carga; 60–100 min de uso).",
+      "features": [
+        "Recargable USB",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/envy-handheld-suction_1.jpg",
+        "/products/envy-handheld-suction_2.jpg",
+        "/products/envy-handheld-suction_3.jpg",
+        "/products/envy-handheld-suction_4.jpg",
+        "/products/envy-handheld-suction_5.jpg"
+      ]
+    },
+    {
+      "slug": "tiny-teasers-bunny",
+      "name": "Tiny Teasers Bunny",
+      "brand": "Bodywand",
+      "category": "vibradores",
+      "price": 501,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🌙",
+      "bg": "#F9E7DC",
+      "subtitle": "Set vibrador de viaje con conejo",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Set vibrador compacto de viaje: vibra + punta de placer de conejo + cable USB. 3 velocidades, recargable y resistente al agua.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Múltiples modos de intensidad"
+      ],
+      "images": []
+    },
+    {
+      "slug": "pacifica-bali",
+      "name": "Pacifica Bali",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 889,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Estimulador curvo de aleteo",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Estimulador curvo elegante para estimulación de aleteo intensa con acento bulboso. 10 funciones de vibración, pulsación y escalada. Silicona líquida impermeable, chip de memoria, bloqueo de viaje, recargable USB (2.5h carga; 40–90 min). 1 año de garantía.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/pacifica-bali_1.jpg",
+        "/products/pacifica-bali_2.jpg",
+        "/products/pacifica-bali_3.jpg",
+        "/products/pacifica-bali_4.jpg"
+      ]
+    },
+    {
+      "slug": "neon-xl-bullet",
+      "name": "Neon XL Bullet",
+      "brand": "Pipedream",
+      "category": "vibradores",
+      "price": 409,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFF3C9",
+      "subtitle": "Bala vibradora XL",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Bala vibradora XL con recubrimiento Luv Touch súper suave. Control de un toque, vibraciones silenciosas, sumergible (ducha/spa). 8.3 x 1.9 cm. 1 pila AAA no incluida.",
+      "features": [
+        "Resistente al agua"
+      ],
+      "images": [
+        "/products/neon-xl-bullet_1.jpg",
+        "/products/neon-xl-bullet_2.jpg"
+      ]
+    },
+    {
+      "slug": "contoured-g",
+      "name": "Contoured G",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 566,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🌙",
+      "bg": "#FDE2E4",
+      "subtitle": "Vibrador punto G",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Vibrador para punto G de varias velocidades con punta curva tipo cuchara. ABS sin ftalatos con capa de PU aterciopelada, a prueba de agua. 15.25 x 3.75 cm. 2 pilas AA.",
+      "features": [
+        "Funciona con pilas",
+        "Resistente al agua",
+        "Libre de ftalatos",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/contoured-g_1.jpg"
+      ]
+    },
+    {
+      "slug": "lipstick-recharge-nude",
+      "name": "Lipstick Recharge Nude",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 879,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🌙",
+      "bg": "#E6F4EA",
+      "subtitle": "Bala discreta tipo labial",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Entrega Express"
+      ],
+      "description": "Bala vibradora discreta con forma de labial Hide & Play. 10 funciones de vibración, un solo botón, a prueba de agua, hasta 2 h de uso, recargable USB (2 h).",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/lipstick-recharge-nude_1.jpg",
+        "/products/lipstick-recharge-nude_2.jpg"
+      ]
+    },
+    {
+      "slug": "hot-mess-rosa",
+      "name": "Hot Mess Rosa",
+      "brand": "Hott Products",
+      "category": "vibradores",
+      "price": 575,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FAE8EF",
+      "subtitle": "Vibrador realista",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Vibrador realista Wet Dreams Pink Passion de Hott Products. TPE suave libre de ftalatos, resistente al agua, motor súper turbo con dial de velocidad variable. 2 pilas AAA no incluidas.",
+      "features": [
+        "Funciona con pilas",
+        "Resistente al agua",
+        "Libre de ftalatos"
+      ],
+      "images": [
+        "/products/hot-mess-rosa_1.jpg"
+      ]
+    },
+    {
+      "slug": "nelea-majestic",
+      "name": "Nelea Majestic",
+      "brand": "CamToyz",
+      "category": "vibradores",
+      "price": 2448,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFEFD6",
+      "subtitle": "Vibrador doble con calor",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Vibrador doble Nelea de CamToyz en silicona grado médico: extremo bulbo + extremo dildo con motores independientes. 10 modos de vibración, silencioso, y 8 rangos de calefacción regulable hasta 45 °C.",
+      "features": [
+        "Silicona body-safe",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/nelea-majestic_1.jpg",
+        "/products/nelea-majestic_2.jpg",
+        "/products/nelea-majestic_3.jpg"
+      ]
+    },
+    {
+      "slug": "avery-majestic-pro",
+      "name": "Avery Majestic Pro",
+      "brand": "CamToyz",
+      "category": "vibradores",
+      "price": 2409,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E8F6F3",
+      "subtitle": "Conejo con empuje",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Vibrador conejo de empuje: 5 modos de empuje y 5 de vibración, cada uno con 5 intensidades. Cabezal acolchado de empuje + estimulador clitoriano independiente.",
+      "features": [
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/avery-majestic-pro_1.jpg",
+        "/products/avery-majestic-pro_2.jpg",
+        "/products/avery-majestic-pro_3.jpg"
+      ]
+    },
+    {
+      "slug": "bumble-bee-lolly",
+      "name": "Bumble Bee Lolly",
+      "brand": "CamToyz",
+      "category": "vibradores",
+      "price": 1276,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#F9E7DC",
+      "subtitle": "Estimulador con pulsaciones",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Estimulador en forma de abeja con pulsaciones vibratorias intensas. Diseño adorable y discreto.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/bumble-bee-lolly_1.jpg",
+        "/products/bumble-bee-lolly_2.jpg"
+      ]
+    },
+    {
+      "slug": "lotus-bullet-vibrator-doble-motor",
+      "name": "Lotus Bullet Vibrator Doble Motor",
+      "brand": "Lotus",
+      "category": "vibradores",
+      "price": 965,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Bala de doble motor",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Entrega Express"
+      ],
+      "description": "Bala vibradora de doble motor: 7 modos de lamer y vibrar + 7 modos de vibrar. Recargable USB magnético. 78x58x58 mm y 55x30x30 mm.",
+      "features": [
+        "Recargable USB",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/lotus-bullet-vibrator-doble-motor_1.jpg",
+        "/products/lotus-bullet-vibrator-doble-motor_2.jpg",
+        "/products/lotus-bullet-vibrator-doble-motor_3.jpg"
+      ]
+    },
+    {
+      "slug": "triple-infinity",
+      "name": "Triple Infinity",
+      "brand": "Evolved",
+      "category": "vibradores",
+      "price": 2660,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFF3C9",
+      "subtitle": "Succión + vibración + calor",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Combina succión de clítoris y eje realista vibrador con función de calefacción. Cabeza acolchada natural, curva suave, mango en forma de lazo.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/triple-infinity_1.jpg",
+        "/products/triple-infinity_2.jpg",
+        "/products/triple-infinity_3.jpg",
+        "/products/triple-infinity_4.jpg"
+      ]
+    },
+    {
+      "slug": "mr-twister-blue",
+      "name": "Mr Twister Blue",
+      "brand": "Pipedream",
+      "category": "vibradores",
+      "price": 524,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FDE2E4",
+      "subtitle": "Vibrador con funda 6.5\"",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Set vibrador + funda de 6.5\": funda transparente con textura de remolino y cosquilleadores; la funda extraíble sirve como extensión y el vibrador se usa solo. Impermeable, perfecto para principiantes. 2 pilas AAA no incluidas.",
+      "features": [
+        "Funciona con pilas",
+        "Resistente al agua",
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/mr-twister-blue_1.jpg",
+        "/products/mr-twister-blue_2.jpg",
+        "/products/mr-twister-blue_3.jpg"
+      ]
+    },
+    {
+      "slug": "xl-dino-dick",
+      "name": "XL Dino Dick",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 2023,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo de fantasía XL",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de fantasía en azules, negros, púrpuras y verdes con cabeza tipo seta, eje curvado con venas y cresta lisa, patas de dinosaurio y cola en la base. Silicona premium sin ftalatos, base ancha con ventosa, compatible con arnés. Usar con lubricante base agua.",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/xl-dino-dick_1.jpg",
+        "/products/xl-dino-dick_2.jpg",
+        "/products/xl-dino-dick_3.jpg",
+        "/products/xl-dino-dick_4.jpg",
+        "/products/xl-dino-dick_5.jpg"
+      ]
+    },
+    {
+      "slug": "monstropus-2-0",
+      "name": "Monstropus 2.0",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 1586,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🪐",
+      "bg": "#FAE8EF",
+      "subtitle": "Tentáculo vibrador",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Tentáculo vibrador de Creature Cocks en amarillo y verde, cubierto de ventosas con textura única. Vibrador interno con 3 velocidades y 7 patrones. Silicona premium sin ftalatos, base ventosa compatible con arnés, IPX6 (ducha sí, no sumergir), recargable USB. Total 7.3\", insertable 6.6\", diám. 0.5–2.8\".",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/monstropus-2-0_1.jpg",
+        "/products/monstropus-2-0_2.jpg",
+        "/products/monstropus-2-0_3.jpg",
+        "/products/monstropus-2-0_4.jpg",
+        "/products/monstropus-2-0_5.jpg"
+      ]
+    },
+    {
+      "slug": "ramming-hound",
+      "name": "Ramming Hound",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 2643,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFEFD6",
+      "subtitle": "Dildo canino con empuje",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Dildo canino de fantasía rojo con nudo, base marrón y testículos. Empuje y vibración: 3 velocidades y 4 patrones con control remoto (pila AAA no incluida, alcance 26 ft). Silicona premium, base ventosa, IPX6, recargable USB magnético. Total 8.8–9.3\", insertable 6.7–7.2\".",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Base con ventosa",
+        "Control remoto / app",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/ramming-hound_1.jpg",
+        "/products/ramming-hound_2.jpg",
+        "/products/ramming-hound_3.jpg",
+        "/products/ramming-hound_4.jpg",
+        "/products/ramming-hound_5.jpg"
+      ]
+    },
+    {
+      "slug": "deluxe-dream-rider",
+      "name": "Deluxe Dream Rider",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 1586,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🪐",
+      "bg": "#E8F6F3",
+      "subtitle": "Dildo unicornio vibrador",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de cuerno de unicornio en morado, azul y rojo con costillas en espiral y alas de pegaso. 3 velocidades y 7 patrones de vibración con control inalámbrico (alcance 32 ft). Dildo y control recargables USB. Silicona premium. Total 7.8\", insertable 6.7\", diám. 0.8–2\".",
+      "features": [
+        "Recargable USB",
+        "Silicona body-safe",
+        "Control remoto / app",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/deluxe-dream-rider_1.jpg",
+        "/products/deluxe-dream-rider_2.jpg",
+        "/products/deluxe-dream-rider_3.jpg",
+        "/products/deluxe-dream-rider_4.jpg",
+        "/products/deluxe-dream-rider_5.jpg"
+      ]
+    },
+    {
+      "slug": "grim",
+      "name": "Grim",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 2167,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#F9E7DC",
+      "subtitle": "Dildo de fantasía texturizado",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de fantasía morado y negro, grande, con crestas, bultos, surcos y púas texturizadas; corona bordeada de puntas. Base ancha con ventosa, compatible con arnés. Silicona premium sin ftalatos. Total 7.8\", insertable 6.75\", diám. 1.7–2.2\".",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/grim_1.jpg",
+        "/products/grim_2.jpg",
+        "/products/grim_3.jpg",
+        "/products/grim_4.jpg",
+        "/products/grim_5.jpg"
+      ]
+    },
+    {
+      "slug": "alienoid",
+      "name": "Alienoid",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 2338,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFE8D9",
+      "subtitle": "Dildo cósmico",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo cósmico de Creature Cocks en rojo, morado, azul y negro con purpurina. Eje texturizado y ranurado, punta afilada. Base ancha con ventosa, compatible con arnés. Silicona premium sin ftalatos. Total 8.8\", insertable 6.7\", diám. 1.6–2\".",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/alienoid_1.jpg",
+        "/products/alienoid_2.jpg",
+        "/products/alienoid_3.jpg",
+        "/products/alienoid_4.jpg",
+        "/products/alienoid_5.jpg"
+      ]
+    },
+    {
+      "slug": "glow-in-the-dark-double-dildo-30-cm",
+      "name": "Glow in the Dark Double Dildo 30 cm",
+      "brand": "RealRock",
+      "category": "dildos",
+      "price": 956,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🪐",
+      "bg": "#FFF3C9",
+      "subtitle": "Dildo doble glow",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dildo doble REALROCK que brilla en la oscuridad (se activa con cualquier luz). Apto uso anal y vaginal. Sin ftalatos ni látex, no poroso, fácil de limpiar. 38 cm de longitud, 3.9 cm de grosor.",
+      "features": [
+        "Libre de ftalatos"
+      ],
+      "images": [
+        "/products/glow-in-the-dark-double-dildo-30-cm_1.jpg",
+        "/products/glow-in-the-dark-double-dildo-30-cm_2.jpg"
+      ]
+    },
+    {
+      "slug": "monster-dong-the-martian",
+      "name": "Monster Dong The Martian",
+      "brand": "Monster Dong",
+      "category": "dildos",
+      "price": 708,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🪐",
+      "bg": "#FDE2E4",
+      "subtitle": "Dildo de fantasía 19.75 cm",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de fantasía The Martian de 19.75 cm en silicona líquida premium: suave, flexible, resistente al agua y con base de ventosa para manos libres. Diseño monstruoso firme y realista.",
+      "features": [
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/monster-dong-the-martian_1.jpg",
+        "/products/monster-dong-the-martian_2.jpg",
+        "/products/monster-dong-the-martian_3.jpg",
+        "/products/monster-dong-the-martian_4.jpg",
+        "/products/monster-dong-the-martian_5.jpg"
+      ]
+    },
+    {
+      "slug": "sabertooth-silicone-dildo",
+      "name": "Sabertooth Silicone Dildo",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 1825,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo de fantasía camuflaje",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de fantasía con textura monstruosa y camuflaje naranja/negro: varillas, líneas y ranuras. Silicona premium sin ftalatos, núcleo firme y exterior suave. Base ventosa, compatible con arnés. Total 11.3\", insertable 8.75\", diám. 1.9–2.3\".",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/sabertooth-silicone-dildo_1.jpg",
+        "/products/sabertooth-silicone-dildo_2.jpg",
+        "/products/sabertooth-silicone-dildo_3.jpg",
+        "/products/sabertooth-silicone-dildo_4.jpg",
+        "/products/sabertooth-silicone-dildo_5.jpg"
+      ]
+    },
+    {
+      "slug": "mephisto",
+      "name": "Mephisto",
+      "brand": "Creature Cocks",
+      "category": "dildos",
+      "price": 1155,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🪐",
+      "bg": "#FAE8EF",
+      "subtitle": "Dildo curvado de fantasía",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de fantasía curvado negro y rojo con columna de crestas, ranuras y protuberancias, y bulto en la base. Silicona premium, base ventosa, compatible con arnés. Total 7.3\", insertable 6.3\", diám. 1.1–2.1\".",
+      "features": [
+        "Silicona body-safe",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/mephisto_1.jpg",
+        "/products/mephisto_2.jpg",
+        "/products/mephisto_3.jpg",
+        "/products/mephisto_4.jpg",
+        "/products/mephisto_5.jpg"
+      ]
+    },
+    {
+      "slug": "feel-6-5",
+      "name": "Feel 6.5",
+      "brand": "Feel",
+      "category": "dildos",
+      "price": 711,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFEFD6",
+      "subtitle": "Dildo realista doble capa",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Dildo realista de doble capa: suave por dentro, firme por fuera. Eje flexible con potente ventosa para manos libres. Insertable 6.5\", diám. 1.64\". Impermeable y sumergible.",
+      "features": [
+        "Resistente al agua",
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/feel-6-5_1.jpg",
+        "/products/feel-6-5_2.jpg",
+        "/products/feel-6-5_3.jpg",
+        "/products/feel-6-5_4.jpg"
+      ]
+    },
+    {
+      "slug": "nobu-pink",
+      "name": "Nobu Pink",
+      "brand": "Nobu",
+      "category": "dildos",
+      "price": 438,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E8F6F3",
+      "subtitle": "Dildo realista 18 cm",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Ventosa potente para succión firme Medidas 18 cm de largo Fabricado en PVC premium libre de ftalatos Compatible con arnés",
+      "features": [
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/nobu-pink_1.jpg",
+        "/products/nobu-pink_2.jpg",
+        "/products/nobu-pink_3.jpg"
+      ]
+    },
+    {
+      "slug": "tailz-fox-tail-anal-plug",
+      "name": "Tailz Fox Tail Anal Plug",
+      "brand": "Tailz",
+      "category": "anal",
+      "price": 1279,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🍑",
+      "bg": "#F9E7DC",
+      "subtitle": "Plug de vidrio con cola de zorro",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Plug anal de vidrio borosilicato con cola de zorro de pelaje sintético. Plug: 4.5\" largo, 1.4\" ancho, 4\" insertable; total con cola 9\". Vidrio no poroso, ideal para juego de temperatura. Punta estrecha, apto principiantes, compatible con cualquier lubricante.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/tailz-fox-tail-anal-plug_1.jpg",
+        "/products/tailz-fox-tail-anal-plug_2.jpg",
+        "/products/tailz-fox-tail-anal-plug_3.jpg",
+        "/products/tailz-fox-tail-anal-plug_4.jpg"
+      ]
+    },
+    {
+      "slug": "tailz-onyx-bunny-tail-anal-plug-black",
+      "name": "Tailz Onyx Bunny Tail Anal Plug Black",
+      "brand": "Tailz",
+      "category": "anal",
+      "price": 770,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🍑",
+      "bg": "#FFE8D9",
+      "subtitle": "Plug con cola de conejo",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Plug anal metálico con cola de conejo negra de pelaje sintético. Tapón liso, cónico y con peso, apto principiantes. Total 5\"; plug 3.25\" (2.5\" insertable, 1\" diám. máx). Aleación de zinc. Compatible con cualquier lubricante.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/tailz-onyx-bunny-tail-anal-plug-black_1.jpg",
+        "/products/tailz-onyx-bunny-tail-anal-plug-black_2.jpg",
+        "/products/tailz-onyx-bunny-tail-anal-plug-black_3.jpg",
+        "/products/tailz-onyx-bunny-tail-anal-plug-black_4.jpg",
+        "/products/tailz-onyx-bunny-tail-anal-plug-black_5.jpg"
+      ]
+    },
+    {
+      "slug": "ouch-metal-butt-plug-small",
+      "name": "Ouch! Metal Butt Plug Small",
+      "brand": "Ouch! by Shots",
+      "category": "anal",
+      "price": 381,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🍑",
+      "bg": "#FFF3C9",
+      "subtitle": "Plug metálico con joya",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Plug anal metálico con base de joya en forma de corazón rojo. Tamaño ideal para principiantes; superficie elegante apta para juego de temperatura.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/ouch-metal-butt-plug-small_1.jpg",
+        "/products/ouch-metal-butt-plug-small_2.jpg",
+        "/products/ouch-metal-butt-plug-small_3.jpg",
+        "/products/ouch-metal-butt-plug-small_4.jpg",
+        "/products/ouch-metal-butt-plug-small_5.jpg"
+      ]
+    },
+    {
+      "slug": "10x-triple-blast-vibrating-beads",
+      "name": "10X Triple Blast Vibrating Beads",
+      "brand": "XR Brands",
+      "category": "anal",
+      "price": 2184,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🍑",
+      "bg": "#FDE2E4",
+      "subtitle": "Cuentas anales vibradoras",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Cuentas anales texturizadas con punta cónica, 5 cuentas, 3 motores independientes y 10 modos de vibración. Silicona resistente al agua, recargable USB. Total 10.3\", insertable 6.7\", cuentas 0.9–1.2\". Color negro.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/10x-triple-blast-vibrating-beads_1.jpg",
+        "/products/10x-triple-blast-vibrating-beads_2.jpg",
+        "/products/10x-triple-blast-vibrating-beads_3.jpg",
+        "/products/10x-triple-blast-vibrating-beads_4.jpg",
+        "/products/10x-triple-blast-vibrating-beads_5.jpg"
+      ]
+    },
+    {
+      "slug": "ouch-metal-butt-plug-ruby-red",
+      "name": "Ouch Metal Butt Plug Ruby Red",
+      "brand": "Ouch! by Shots",
+      "category": "anal",
+      "price": 381,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🍑",
+      "bg": "#E6F4EA",
+      "subtitle": "Plug de aluminio con joya",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Plug anal de aluminio con base de joya rojo rubí. Punta cónica para inserción fácil, base acampanada segura. Ideal para juego de temperatura.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/ouch-metal-butt-plug-ruby-red_1.jpg",
+        "/products/ouch-metal-butt-plug-ruby-red_2.jpg",
+        "/products/ouch-metal-butt-plug-ruby-red_3.jpg"
+      ]
+    },
+    {
+      "slug": "mega-ass-cleanser",
+      "name": "Mega Ass Cleanser",
+      "brand": "CleanStream",
+      "category": "anal",
+      "price": 1157,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🍑",
+      "bg": "#FAE8EF",
+      "subtitle": "Ducha anal 420 ml",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Ducha anal con bomba de gran capacidad (420 ml), spray multidireccional y aplicador cómodo. Apta para principiantes y experimentados.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/mega-ass-cleanser_1.jpg",
+        "/products/mega-ass-cleanser_2.jpg",
+        "/products/mega-ass-cleanser_3.jpg",
+        "/products/mega-ass-cleanser_4.jpg"
+      ]
+    },
+    {
+      "slug": "introductory-bondage-kit-1-black-white",
+      "name": "Introductory Bondage Kit #1 Black & White",
+      "brand": "Ouch! by Shots",
+      "category": "bdsm",
+      "price": 765,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#FFEFD6",
+      "subtitle": "Kit de bondage para principiantes",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Kit de bondage para principiantes Shots Ouch: esposas, antifaz para despertar los sentidos y flogger. Todo lo necesario para iniciarse en el juego BDSM.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/introductory-bondage-kit-1-black-white_1.jpg",
+        "/products/introductory-bondage-kit-1-black-white_2.jpg",
+        "/products/introductory-bondage-kit-1-black-white_3.jpg",
+        "/products/introductory-bondage-kit-1-black-white_4.jpg",
+        "/products/introductory-bondage-kit-1-black-white_5.jpg"
+      ]
+    },
+    {
+      "slug": "introductory-bondage-kit-1-pink",
+      "name": "Introductory Bondage Kit #1 Pink",
+      "brand": "Ouch! by Shots",
+      "category": "bdsm",
+      "price": 765,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#E8F6F3",
+      "subtitle": "Kit de bondage rosa",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Kit de bondage rosa para principiantes: puños de metal con peluche, máscara de satén y flogger. Todo lo necesario para juegos de sumisión y dominación, ideal como regalo.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/introductory-bondage-kit-1-pink_1.jpg",
+        "/products/introductory-bondage-kit-1-pink_2.jpg",
+        "/products/introductory-bondage-kit-1-pink_3.jpg"
+      ]
+    },
+    {
+      "slug": "inmovilizador-mango-corto",
+      "name": "Inmovilizador Mango Corto",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 515,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#F9E7DC",
+      "subtitle": "Barra espaciadora con puños",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Barra espaciadora para principiantes con puños ajustables de tobillo y forro interior de neopreno suave. Mantiene la posición abierta para explorar nuevas posturas.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/inmovilizador-mango-corto_1.jpg",
+        "/products/inmovilizador-mango-corto_2.jpg",
+        "/products/inmovilizador-mango-corto_3.jpg",
+        "/products/inmovilizador-mango-corto_4.jpg"
+      ]
+    },
+    {
+      "slug": "inmovilizador-collar-esposas-antifaz-print",
+      "name": "Inmovilizador Collar + Esposas + Antifaz Print",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 858,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FFE8D9",
+      "subtitle": "Set de restricción con antifaz",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Set de restricción ajustable con collar, esposas y antifaz en print. Materiales suaves al tacto, pensado para iniciarse en el juego de sumisión en pareja con comodidad y seguridad.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/inmovilizador-collar-esposas-antifaz-print_1.jpg",
+        "/products/inmovilizador-collar-esposas-antifaz-print_2.jpg"
+      ]
+    },
+    {
+      "slug": "conjunto-inmovilizador-con-gancho-anal-y-mordaza",
+      "name": "Conjunto Inmovilizador con Gancho Anal y Mordaza",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 1235,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FFF3C9",
+      "subtitle": "Set de restricción avanzado",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Conjunto de restricción avanzado en negro: inmovilizador de cuello y muñecas con gancho anal y mordaza. Para quienes ya exploran el bondage y buscan llevarlo un paso más allá.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_1.jpg",
+        "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_2.jpg",
+        "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_3.jpg",
+        "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_4.jpg"
+      ]
+    },
+    {
+      "slug": "pleasure-wheel-scandal",
+      "name": "Pleasure Wheel Scandal",
+      "brand": "Scandal",
+      "category": "bdsm",
+      "price": 639,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#FDE2E4",
+      "subtitle": "Rueda de placer 22 puntas",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Rueda de placer Scandal de 22 puntas en aleación de zinc libre de níquel, resistente y que no se mancha. Para juegos de sensación y dominación.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/pleasure-wheel-scandal_1.jpg",
+        "/products/pleasure-wheel-scandal_2.jpg",
+        "/products/pleasure-wheel-scandal_3.jpg",
+        "/products/pleasure-wheel-scandal_4.jpg"
+      ]
+    },
+    {
+      "slug": "lace-eye-mask-princess-black-white",
+      "name": "Lace Eye-Mask Princess Black & White",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 288,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#E6F4EA",
+      "subtitle": "Antifaz de encaje",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Máscara de encaje estilo princesa en blanco y negro con lazos ajustables. Accesorio elegante para juegos, disfraces y eventos temáticos.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/lace-eye-mask-princess-black-white_1.jpg",
+        "/products/lace-eye-mask-princess-black-white_2.jpg",
+        "/products/lace-eye-mask-princess-black-white_3.jpg",
+        "/products/lace-eye-mask-princess-black-white_4.jpg",
+        "/products/lace-eye-mask-princess-black-white_5.jpg"
+      ]
+    },
+    {
+      "slug": "mancage-3-5-90-mm",
+      "name": "ManCage 3.5 (90 mm)",
+      "brand": "ManCage by Shots",
+      "category": "bdsm",
+      "price": 2298,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FAE8EF",
+      "subtitle": "Jaula de castidad 90 mm",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Fabricada en policarbonato ligero, hipoalergénico y resistente. Anillos ajustables para encontrar el tamaño ideal.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/mancage-3-5-90-mm_1.jpg",
+        "/products/mancage-3-5-90-mm_2.jpg",
+        "/products/mancage-3-5-90-mm_3.jpg"
+      ]
+    },
+    {
+      "slug": "temptasia-beginner-cuffs",
+      "name": "Temptasia Beginner Cuffs",
+      "brand": "Temptasia by Blush",
+      "category": "bdsm",
+      "price": 271,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#FFEFD6",
+      "subtitle": "Esposas para principiantes",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Esposas ajustables Forro suave de piel sintética Llaves y palanca de liberación rápida",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/temptasia-beginner-cuffs_1.jpg",
+        "/products/temptasia-beginner-cuffs_2.jpg",
+        "/products/temptasia-beginner-cuffs_3.jpg",
+        "/products/temptasia-beginner-cuffs_4.jpg"
+      ]
+    },
+    {
+      "slug": "inmovilizador-collar-esposas-antifaz-cebra",
+      "name": "Inmovilizador Collar + Esposas + Antifaz Cebra",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 858,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#E8F6F3",
+      "subtitle": "Set bondage print cebra",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Juego de ataduras para parejas: esposas ajustables, antifaz, collar y correas. Suave y duradero, print cebra.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/inmovilizador-collar-esposas-antifaz-cebra_1.jpg",
+        "/products/inmovilizador-collar-esposas-antifaz-cebra_2.jpg"
+      ]
+    },
+    {
+      "slug": "fetish-silicone-crop",
+      "name": "Fetish Silicone Crop",
+      "brand": "Fetish",
+      "category": "bdsm",
+      "price": 290,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#F9E7DC",
+      "subtitle": "Fusta de silicona",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Fusta de silicona para juegos de castigo placentero. Un solo golpe y tu amante se someterá a tus deseos.",
+      "features": [
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/fetish-silicone-crop_1.jpg",
+        "/products/fetish-silicone-crop_2.jpg",
+        "/products/fetish-silicone-crop_3.jpg"
+      ]
+    },
+    {
+      "slug": "mordaza-ajustable-ball-gag",
+      "name": "Mordaza Ajustable Ball Gag",
+      "brand": "Fetish",
+      "category": "bdsm",
+      "price": 429,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#FFE8D9",
+      "subtitle": "Ball gag ajustable",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Cintas ajustables de cuero vegano Diseño apto para principiantes",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/mordaza-ajustable-ball-gag_1.jpg",
+        "/products/mordaza-ajustable-ball-gag_2.jpg",
+        "/products/mordaza-ajustable-ball-gag_3.jpg",
+        "/products/mordaza-ajustable-ball-gag_4.jpg"
+      ]
+    },
+    {
+      "slug": "esposa-de-piel-con-cadena",
+      "name": "Esposa de Piel con Cadena",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 468,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FFF3C9",
+      "subtitle": "Esposas de cuero premium",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Un clásico nunca falla cuando se trata de añadir tensión, elegancia y deseo. Estas esposas de piel con cadena combinan cuero negro de alta calidad y una cadena resistente para crear una experiencia firme, visual y sensual. Ideales para parejas que quieren explorar control, restricción y fantasía con estilo. Completa tu escena íntima 1. ZONAS DE ENVÍO Realizamos envíos a toda la República Mexicana. 2. TIEMPOS DE ENTREGA - Ciudad de México y Área Metropolitana: 2-3 días hábiles - Interior de la República: 3-5 días hábiles - Zonas remotas: 5-7 días hábiles *Los tiempos son estimados y pueden variar según paquetería 3. COSTOS DE ENVÍO - Envío gratis en compras mayores a $999 MXN - Costo estándar: $99 MXN - Envío express disponible: $199 MXN 4. EMPAQUE DISCRETO TODOS nuestros envíos son 100% discretos: - Sin logotipos o etiquetas evidentes - Caja genérica color kraft - Descripción neutra en guía - Tu privacidad es nuestra prioridad 5. RASTREO Recibirás un número de rastreo por email una vez que tu pedido sea enviado. 6. PROBLEMAS CON TU ENVÍO Si tu pedido no llega en el tiempo estimado o hay algún problema, contáctanos: 1. GARANTÍA DE SATISFACCIÓN Tu satisfacción es importante para nosotros. 2. DEVOLUCIONES ACEPTADAS SÍ aceptamos devolución si: - El producto llegó defectuoso o dañado - El producto es diferente al descrito - Dentro de los primeros 7 días de recibido NO aceptamos devolución si: - El empaque ha sido abierto (por higiene y seguridad) - Han pasado más de 7 días desde la entrega - El producto muestra señales de uso 3. PROCESO DE DEVOLUCIÓN Paso 1: Contáctanos dentro de 7 días Email: cambios@amanti.mx WhatsApp: [Número] Paso 2: Envía fotos del producto y empaque Paso 3: Espera aprobación (24-48 horas) Paso 4: Reembolso o cambio procesado 4. PRODUCTOS DEFECTUOSOS Si tu producto llegó defectuoso: - Contáctanos inmediatamente - Te enviaremos reemplazo sin costo - Cubrimos gastos de envío de devolución 5. CAMBIOS Por cuestiones de higiene, NO realizamos cambios de producto una vez abierto el empaque. 6. REEMBOLSOS Los reembolsos se procesan en 5-7 días hábiles después de recibir y verificar el producto devuelto. Método de reembolso: mismo método de pago original 7. GARANTÍA DE CALIDAD Todos nuestros productos cuentan con garantía de calidad de materiales y funcionamiento. 8. EXCEPCIONES Por razones de higiene y seguridad, los siguientes productos NO son elegibles para devolución una vez abiertos: - Productos con empaque violado - Lubricantes abiertos - Productos con contacto directo con el cuerpo",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/esposa-de-piel-con-cadena_1.jpg",
+        "/products/esposa-de-piel-con-cadena_2.jpg",
+        "/products/esposa-de-piel-con-cadena_3.jpg",
+        "/products/esposa-de-piel-con-cadena_4.jpg"
+      ]
+    },
+    {
+      "slug": "scandal-cuerda-10-m",
+      "name": "Scandal Cuerda 10 m",
+      "brand": "Scandal",
+      "category": "bdsm",
+      "price": 443,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FDE2E4",
+      "subtitle": "Cuerda bondage 10 m",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Cuerda de bondage Scandal de 10 m, mezcla de poliéster y algodón con puntas de zinc. Compatible con Shibari, reutilizable, apta para todos los niveles.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/scandal-cuerda-10-m_1.jpg",
+        "/products/scandal-cuerda-10-m_2.jpg",
+        "/products/scandal-cuerda-10-m_3.jpg"
+      ]
+    },
+    {
+      "slug": "latigo-rhino-black",
+      "name": "Latigo Rhino Black",
+      "brand": "Rhino",
+      "category": "bdsm",
+      "price": 813,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#E6F4EA",
+      "subtitle": "Látigo flogger",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Látigo flogger negro con mango antideslizante, suave al tacto. Material de alta calidad, no tóxico. Apto principiantes y expertos; ideal también para cosplay.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/latigo-rhino-black_1.jpg",
+        "/products/latigo-rhino-black_2.jpg",
+        "/products/latigo-rhino-black_3.jpg",
+        "/products/latigo-rhino-black_4.jpg",
+        "/products/latigo-rhino-black_5.jpg"
+      ]
+    },
+    {
+      "slug": "conjunto-inmovilizador-barra-con-collar-y-esposas-black",
+      "name": "Conjunto Inmovilizador Barra con Collar y Esposas Black",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 910,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FAE8EF",
+      "subtitle": "Kit de restricción bajo cama",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Kit de restricción bajo cama: esposas suaves ajustables y desmontables con collar, aptas para cualquier talla. Incluye cuerda de algodón para más posturas.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/conjunto-inmovilizador-barra-con-collar-y-esposas-black_1.jpg",
+        "/products/conjunto-inmovilizador-barra-con-collar-y-esposas-black_2.jpg"
+      ]
+    },
+    {
+      "slug": "fuete-mano-corazon-clasico",
+      "name": "Fuete Mano Corazón Clásico",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 507,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🖤",
+      "bg": "#FFEFD6",
+      "subtitle": "Fuete corazón de cuero",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "A veces, el deseo necesita un detalle visual que marque el ritmo. Este fuete grande con mano en forma de corazón combina estética provocadora y juego de impacto ligero para explorar fantasías de control, coqueteo y bondage suave. Ideal para iniciar o ampliar una colección íntima con un accesorio juguetón, sensual y fácil de integrar. Dale forma a tu fantasía. 1. ZONAS DE ENVÍO Realizamos envíos a toda la República Mexicana. 2. TIEMPOS DE ENTREGA - Ciudad de México y Área Metropolitana: 2-3 días hábiles - Interior de la República: 3-5 días hábiles - Zonas remotas: 5-7 días hábiles *Los tiempos son estimados y pueden variar según paquetería 3. COSTOS DE ENVÍO - Envío gratis en compras mayores a $999 MXN - Costo estándar: $99 MXN - Envío express disponible: $199 MXN 4. EMPAQUE DISCRETO TODOS nuestros envíos son 100% discretos: - Sin logotipos o etiquetas evidentes - Caja genérica color kraft - Descripción neutra en guía - Tu privacidad es nuestra prioridad 5. RASTREO Recibirás un número de rastreo por email una vez que tu pedido sea enviado. 6. PROBLEMAS CON TU ENVÍO Si tu pedido no llega en el tiempo estimado o hay algún problema, contáctanos: 1. GARANTÍA DE SATISFACCIÓN Tu satisfacción es importante para nosotros. 2. DEVOLUCIONES ACEPTADAS SÍ aceptamos devolución si: - El producto llegó defectuoso o dañado - El producto es diferente al descrito - Dentro de los primeros 7 días de recibido NO aceptamos devolución si: - El empaque ha sido abierto (por higiene y seguridad) - Han pasado más de 7 días desde la entrega - El producto muestra señales de uso 3. PROCESO DE DEVOLUCIÓN Paso 1: Contáctanos dentro de 7 días Email: cambios@amanti.mx WhatsApp: [Número] Paso 2: Envía fotos del producto y empaque Paso 3: Espera aprobación (24-48 horas) Paso 4: Reembolso o cambio procesado 4. PRODUCTOS DEFECTUOSOS Si tu producto llegó defectuoso: - Contáctanos inmediatamente - Te enviaremos reemplazo sin costo - Cubrimos gastos de envío de devolución 5. CAMBIOS Por cuestiones de higiene, NO realizamos cambios de producto una vez abierto el empaque. 6. REEMBOLSOS Los reembolsos se procesan en 5-7 días hábiles después de recibir y verificar el producto devuelto. Método de reembolso: mismo método de pago original 7. GARANTÍA DE CALIDAD Todos nuestros productos cuentan con garantía de calidad de materiales y funcionamiento. 8. EXCEPCIONES Por razones de higiene y seguridad, los siguientes productos NO son elegibles para devolución una vez abiertos: - Productos con empaque violado - Lubricantes abiertos - Productos con contacto directo con el cuerpo",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/fuete-mano-corazon-clasico_1.jpg",
+        "/products/fuete-mano-corazon-clasico_2.jpg",
+        "/products/fuete-mano-corazon-clasico_3.jpg",
+        "/products/fuete-mano-corazon-clasico_4.jpg"
+      ]
+    },
+    {
+      "slug": "pleasure-couple-kit",
+      "name": "Pleasure Couple Kit",
+      "brand": "CalExotics",
+      "category": "parejas",
+      "price": 798,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#E8F6F3",
+      "subtitle": "Kit para parejas 4 piezas",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Bala vibradora de 17.5 cm x 3 cm Funda texturizada elástica Anillo de contención + mini bala Uso combinado o individual Resistente a salpicaduras",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/pleasure-couple-kit_1.jpg"
+      ]
+    },
+    {
+      "slug": "duo-vibrating-super-ring",
+      "name": "Duo Vibrating Super Ring",
+      "brand": "Fantasy C-Ringz",
+      "category": "parejas",
+      "price": 375,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#F9E7DC",
+      "subtitle": "Anillo vibrador doble",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Apto Principiantes",
+        "Entrega Express"
+      ],
+      "description": "Anillo Fantasy C-Ringz Duo-Vibrating: doble anillo súper elástico con vibración que da soporte a la erección y estimula a ambos a la vez. Ideal para principiantes que quieren prolongar el juego en pareja.",
+      "features": [
+        "Apto principiantes"
+      ],
+      "images": [
+        "/products/duo-vibrating-super-ring_1.jpg"
+      ]
+    },
+    {
+      "slug": "classic-ultimate-pleasure-couple-kit",
+      "name": "Classic Ultimate Pleasure Couple Kit",
+      "brand": "CalExotics",
+      "category": "parejas",
+      "price": 798,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "💞",
+      "bg": "#FFE8D9",
+      "subtitle": "Kit clásico para parejas",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Kit de parejas: vibrador delgado de 7\" multivelocidad, funda texturizada ultraelástica, bala potente y anillo. Combinables para horas de juego en pareja.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/classic-ultimate-pleasure-couple-kit_1.jpg",
+        "/products/classic-ultimate-pleasure-couple-kit_2.jpg",
+        "/products/classic-ultimate-pleasure-couple-kit_3.jpg",
+        "/products/classic-ultimate-pleasure-couple-kit_4.jpg"
+      ]
+    },
+    {
+      "slug": "gripmaster-stroker",
+      "name": "Gripmaster Stroker",
+      "brand": "Gripmaster",
+      "category": "hombre",
+      "price": 790,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFF3C9",
+      "subtitle": "Masturbador texturizado",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador de material realista, suave y elástico con costillas y protuberancias internas. Textura exterior para mejor agarre.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/gripmaster-stroker_1.jpg",
+        "/products/gripmaster-stroker_2.jpg",
+        "/products/gripmaster-stroker_3.jpg",
+        "/products/gripmaster-stroker_4.jpg",
+        "/products/gripmaster-stroker_5.jpg"
+      ]
+    },
+    {
+      "slug": "swirls-sleeve",
+      "name": "Swirls Sleeve",
+      "brand": "AMANTI Select",
+      "category": "hombre",
+      "price": 317,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🔥",
+      "bg": "#E6F4EA",
+      "subtitle": "Funda con relieve",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda de pene con relieve para mayor estimulación. TPE libre de ftalatos y látex, suave y elástica. 16.5 x 3.7 cm, color negro.",
+      "features": [
+        "Libre de ftalatos"
+      ],
+      "images": [
+        "/products/swirls-sleeve_1.jpg",
+        "/products/swirls-sleeve_2.jpg",
+        "/products/swirls-sleeve_3.jpg",
+        "/products/swirls-sleeve_4.jpg",
+        "/products/swirls-sleeve_5.jpg"
+      ]
+    },
+    {
+      "slug": "ultimate-stud-extender",
+      "name": "Ultimate Stud Extender",
+      "brand": "CalExotics",
+      "category": "hombre",
+      "price": 473,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FAE8EF",
+      "subtitle": "Extensión de pene +5 cm",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Extensión de pene Calexotics que agrega 5 cm de longitud y mayor circunferencia. TPE súper suave sin ftalatos, apariencia realista, anillo de sujeción en escroto, apta para usar en agua. Usar con lubricante base agua.",
+      "features": [
+        "Libre de ftalatos"
+      ],
+      "images": [
+        "/products/ultimate-stud-extender_1.jpg",
+        "/products/ultimate-stud-extender_2.jpg",
+        "/products/ultimate-stud-extender_3.jpg"
+      ]
+    },
+    {
+      "slug": "donut-rings-set-de-3",
+      "name": "Donut Rings (Set de 3)",
+      "brand": "AMANTI Select",
+      "category": "hombre",
+      "price": 118,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFEFD6",
+      "subtitle": "Set de 3 anillos",
+      "badge": "bestseller",
+      "hot": true,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Trío de anillos Stay Hard de elastómero súper elástico. Se usan en el pene o pene y testículos para mayor firmeza y duración. Fáciles de limpiar y reutilizables.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/donut-rings-set-de-3_1.jpg",
+        "/products/donut-rings-set-de-3_2.jpg",
+        "/products/donut-rings-set-de-3_3.jpg"
+      ]
+    },
+    {
+      "slug": "cock-sleeve-06",
+      "name": "Cock Sleeve 06",
+      "brand": "AMANTI Select",
+      "category": "hombre",
+      "price": 145,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🔥",
+      "bg": "#E8F6F3",
+      "subtitle": "Funda elástica texturizada",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda elástica texturizada que agrega placer y sensación a tu pene o dildo favorito. Fácil de usar, se mantiene en su lugar.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/cock-sleeve-06_1.jpg"
+      ]
+    },
+    {
+      "slug": "cock-sleeve-04",
+      "name": "Cock Sleeve 04",
+      "brand": "AMANTI Select",
+      "category": "hombre",
+      "price": 145,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#F9E7DC",
+      "subtitle": "Funda elástica texturizada",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda elástica texturizada, talla única. Materiales body-safe (CE y ROHS), libre de ftalatos y látex. 5 cm de largo, 3.5 cm de diámetro.",
+      "features": [
+        "Libre de ftalatos"
+      ],
+      "images": [
+        "/products/cock-sleeve-04_1.jpg",
+        "/products/cock-sleeve-04_2.jpg",
+        "/products/cock-sleeve-04_3.jpg"
+      ]
+    },
+    {
+      "slug": "vibrating-silicone-strap-on-black",
+      "name": "Vibrating Silicone Strap-On Black",
+      "brand": "AMANTI Select",
+      "category": "arneses",
+      "price": 1199,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔗",
+      "bg": "#FFE8D9",
+      "subtitle": "Strap-on vibrador grado médico",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Silicón Body-Safe"
+      ],
+      "description": "Arnés con dildo de silicona grado médico, sistema de fijación de tres puntos y correas ajustables a casi todas las tallas. 10 modos de vibración intensa (motor 7,500 rpm), resistente al agua, recargable.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Silicona body-safe",
+        "Compatible con arnés",
+        "Múltiples modos de intensidad"
+      ],
+      "images": [
+        "/products/vibrating-silicone-strap-on-black_1.jpg",
+        "/products/vibrating-silicone-strap-on-black_2.jpg",
+        "/products/vibrating-silicone-strap-on-black_3.jpg",
+        "/products/vibrating-silicone-strap-on-black_4.jpg"
+      ]
+    },
+    {
+      "slug": "arnes-md-ingles-con-dildo-vibrador",
+      "name": "Arnés MD Inglés con Dildo Vibrador",
+      "brand": "AMANTI Select",
+      "category": "arneses",
+      "price": 1170,
+      "compareAt": 0,
+      "rating": 4,
+      "emoji": "🔗",
+      "bg": "#FFF3C9",
+      "subtitle": "Arnés con dildo vibrador",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Arnés elástico cómodo con dildo vibrador. Se estira para adaptarse a la mayoría de las tallas; permite sexo cara a cara.",
+      "features": [
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/arnes-md-ingles-con-dildo-vibrador_1.jpg",
+        "/products/arnes-md-ingles-con-dildo-vibrador_2.jpg",
+        "/products/arnes-md-ingles-con-dildo-vibrador_3.jpg",
+        "/products/arnes-md-ingles-con-dildo-vibrador_4.jpg",
+        "/products/arnes-md-ingles-con-dildo-vibrador_5.jpg"
+      ]
+    },
+    {
+      "slug": "arnes-clasix-con-cinturones",
+      "name": "Arnés Clasix con Cinturones",
+      "brand": "AMANTI Select",
+      "category": "arneses",
+      "price": 585,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔗",
+      "bg": "#FDE2E4",
+      "subtitle": "Arnés con cinturones, sin dildo",
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Arnés funcional con cinturones, sin dildo. Diseño versátil de doble ranura compatible con distintos dildos para sesiones de dominación.",
+      "features": [
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/arnes-clasix-con-cinturones_1.jpg",
+        "/products/arnes-clasix-con-cinturones_2.jpg",
+        "/products/arnes-clasix-con-cinturones_3.jpg"
+      ]
+    },
+    {
+      "slug": "silicone-stiffy",
+      "name": "Silicone Stiffy",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 887,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E6F4EA",
+      "subtitle": "Vibrador con recubrimiento de silicona",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Vibrador con recubrimiento de silicona, 7 funciones con patrones pulsantes y escalonados, control de un botón. Eje suave y flexible de forma fálica con punta curveada. 2 baterías AA no incluidas.",
+      "features": [
+        "Funciona con pilas",
+        "Silicona body-safe",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/silicone-stiffy_1.jpg",
+        "/products/silicone-stiffy_2.jpg",
+        "/products/silicone-stiffy_3.jpg",
+        "/products/silicone-stiffy_4.jpg"
+      ]
+    },
+    {
+      "slug": "glow-vibes-pocket-high",
+      "name": "Glow Vibes Pocket High",
+      "brand": "Blush",
+      "category": "vibradores",
+      "price": 649,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FAE8EF",
+      "subtitle": "Mini vibrador que brilla en la oscuridad",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Mini vibrador que brilla en la oscuridad con diseño de hoja, 10 patrones de vibración, silencioso y discreto. Silicona body-safe, recargable (40 min de carga; 60 min de uso).",
+      "features": [
+        "Recargable USB",
+        "Silicona body-safe",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/glow-vibes-pocket-high_1.jpg",
+        "/products/glow-vibes-pocket-high_2.jpg"
+      ]
+    },
+    {
+      "slug": "vibrating-g",
+      "name": "Vibrating G",
+      "brand": "CalExotics",
+      "category": "dildos",
+      "price": 1013,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFEFD6",
+      "subtitle": "Dildo vibrador con dial y ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Longitud: 16.5 cm Diámetro: 5.1 cm Vibración con control ajustable Material premium, seguro para el cuerpo Base con ventosa fuerte",
+      "features": [
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/vibrating-g_1.jpg",
+        "/products/vibrating-g_2.jpg"
+      ]
+    },
+    {
+      "slug": "tempo",
+      "name": "Tempo",
+      "brand": "Honey Play Box",
+      "category": "vibradores",
+      "price": 1900,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E8F6F3",
+      "subtitle": "Vibrador doble con app",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Recargable",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Vibrador doble acción con app Honey Play Box: punto G + punto A, sensores de presión que ajustan la vibración, 9 modos de golpeteo y vibración, modo música y juego a distancia. IPX7, recargable (2h carga; 1.5h uso). 8.3\" x 2.09\" x 1.77\".",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/tempo_1.jpg",
+        "/products/tempo_2.jpg",
+        "/products/tempo_3.jpg"
+      ]
+    },
+    {
+      "slug": "mister-happy-5-5",
+      "name": "Mister Happy 5.5\"",
+      "brand": "Pipedream",
+      "category": "dildos",
+      "price": 405,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#F9E7DC",
+      "subtitle": "Dildo realista con ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dildo de PVC robusto con testículos, eje veteado y cabeza definida. Base de ventosa extra fuerte. 7.75\" total (5.5\" insertable), 1.65\" diámetro.",
+      "features": [
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/mister-happy-5-5_1.jpg",
+        "/products/mister-happy-5-5_2.jpg"
+      ]
+    },
+    {
+      "slug": "magnus-7-5",
+      "name": "Magnus 7.5",
+      "brand": "Blush",
+      "category": "dildos",
+      "price": 987,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFE8D9",
+      "subtitle": "Dildo ultra realista",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dildo ultra realista Magnus tono piel con testículos texturizados. Compacto para estimulación precisa. Alto 17.5 cm, ancho 3.7 cm, insertable 13 cm.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/magnus-7-5_1.jpg",
+        "/products/magnus-7-5_2.jpg",
+        "/products/magnus-7-5_3.jpg"
+      ]
+    },
+    {
+      "slug": "lollicock-7-purple",
+      "name": "Lollicock 7\" Purple",
+      "brand": "Curve Toys",
+      "category": "dildos",
+      "price": 788,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFF3C9",
+      "subtitle": "Dildo que brilla en la oscuridad",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de silicona que brilla en la oscuridad, núcleo firme y curva flexible. Compatible con arnés, base de ventosa. Total 20.3 cm, insertable 18.4 cm, diám. 4.3 cm.",
+      "features": [
+        "Silicona body-safe",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/lollicock-7-purple_1.jpg",
+        "/products/lollicock-7-purple_2.jpg"
+      ]
+    },
+    {
+      "slug": "unicorn-tails-rainbow",
+      "name": "Unicorn Tails Rainbow",
+      "brand": "NS Novelties",
+      "category": "anal",
+      "price": 1143,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🍑",
+      "bg": "#FDE2E4",
+      "subtitle": "Plug con cola de unicornio multicolor",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Pelo de poliéster se limpia fácilmente con agua tibia y jabón. Material: Silicona Diámetro Exterior: 5 cm Longitud Total: 32 cm",
+      "features": [
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/unicorn-tails-rainbow_1.jpg",
+        "/products/unicorn-tails-rainbow_2.jpg",
+        "/products/unicorn-tails-rainbow_3.jpg"
+      ]
+    },
+    {
+      "slug": "hot-mess-purple",
+      "name": "Hot Mess Purple",
+      "brand": "Hott Products",
+      "category": "vibradores",
+      "price": 575,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E6F4EA",
+      "subtitle": "Vibrador realista morado",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Vibrador realista Wet Dreams de Hott Products en morado. Materiales body-safe, resistente al agua, motor súper turbo con dial de velocidad variable.",
+      "features": [
+        "Resistente al agua",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/hot-mess-purple_1.jpg",
+        "/products/hot-mess-purple_2.jpg",
+        "/products/hot-mess-purple_3.jpg"
+      ]
+    },
+    {
+      "slug": "lipstick-wireless-purple",
+      "name": "Lipstick Wireless Purple",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 786,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FAE8EF",
+      "subtitle": "Bala discreta tipo labial",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Bala vibradora discreta con forma de labial Hide & Play en morado. 8 funciones de vibración, un solo botón, funciona con 1 batería N.",
+      "features": [
+        "Funciona con pilas",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/lipstick-wireless-purple_1.jpg",
+        "/products/lipstick-wireless-purple_2.jpg"
+      ]
+    },
+    {
+      "slug": "size-queen-8",
+      "name": "Size Queen 8\"",
+      "brand": "CalExotics",
+      "category": "dildos",
+      "price": 939,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFEFD6",
+      "subtitle": "Dildo realista con ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dildo realista de 20.3 cm (25.5 cm total) firme pero flexible con cabeza y venas realistas. Base resistente con ventosa, compatible con casi todos los arneses, lavable a mano. 1 año de garantía.",
+      "features": [
+        "Base con ventosa",
+        "Compatible con arnés",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/size-queen-8_1.jpg",
+        "/products/size-queen-8_2.jpg",
+        "/products/size-queen-8_3.jpg"
+      ]
+    },
+    {
+      "slug": "sugar-baby-purple",
+      "name": "Sugar Baby Purple",
+      "brand": "Blush",
+      "category": "vibradores",
+      "price": 419,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#E8F6F3",
+      "subtitle": "Vibrador realista con perilla",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Vibrador de forma y textura realista con perilla de velocidades. 19 cm de largo, 4 cm en su punto más ancho. 2 baterías AA.",
+      "features": [
+        "Funciona con pilas",
+        "Múltiples modos",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/sugar-baby-purple_1.jpg",
+        "/products/sugar-baby-purple_2.jpg"
+      ]
+    },
+    {
+      "slug": "mr-twister-purple",
+      "name": "Mr Twister Purple",
+      "brand": "Pipedream",
+      "category": "vibradores",
+      "price": 472,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#F9E7DC",
+      "subtitle": "Vibrador con funda 6.5\"",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua",
+        "Entrega Express"
+      ],
+      "description": "Set vibrador + funda de 6.5\" en morado (Pipedream). Impermeable, perfecto para principiantes.",
+      "features": [
+        "Resistente al agua"
+      ],
+      "images": [
+        "/products/mr-twister-purple_1.jpg",
+        "/products/mr-twister-purple_2.jpg"
+      ]
+    },
+    {
+      "slug": "pink-leopard-mini",
+      "name": "Pink Leopard Mini",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 580,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Mini masajeador discreto",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Mini masajeador CalExotics de 4.5\" x 1\" en ABS fácil de limpiar. Multivelocidad con extremo cónico, discreto para llevar.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/pink-leopard-mini_1.jpg"
+      ]
+    },
+    {
+      "slug": "infinity-super-ring",
+      "name": "Infinity Super Ring",
+      "brand": "Fantasy C-Ringz",
+      "category": "parejas",
+      "price": 474,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#FFF3C9",
+      "subtitle": "Anillo doble con bala vibradora",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Anillo doble súper elástico con bala vibradora (3 baterías AG13/LR44 incluidas). Anillo superior para el eje, inferior para la base; usa uno o ambos.",
+      "features": [
+        "Funciona con pilas"
+      ],
+      "images": [
+        "/products/infinity-super-ring_1.jpg"
+      ]
+    },
+    {
+      "slug": "neon-vibrating-couples-kit",
+      "name": "Neon Vibrating Couples Kit",
+      "brand": "Pipedream",
+      "category": "parejas",
+      "price": 614,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#FDE2E4",
+      "subtitle": "Kit para parejas con vibrador y anillo",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Kit Neon para parejas: mini vibrador de silicona con forma de conejo + anillo vibrador súper elástico con bala extraíble. Perfecto para principiantes.",
+      "features": [
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/neon-vibrating-couples-kit_1.jpg",
+        "/products/neon-vibrating-couples-kit_2.jpg"
+      ]
+    },
+    {
+      "slug": "intimate-pump-mini",
+      "name": "Intimate Pump Mini",
+      "brand": "CalExotics",
+      "category": "hombre",
+      "price": 963,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E6F4EA",
+      "subtitle": "Bomba de succión",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Material de silicona sano y lujoso. Succión superior para mayor sensibilidad. Válvula rápida de lanzamiento del aire. Bombilla fácil de apretar. Medidas: 5 cm x 2.5 cm",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/intimate-pump-mini_1.jpg",
+        "/products/intimate-pump-mini_2.jpg",
+        "/products/intimate-pump-mini_3.jpg"
+      ]
+    },
+    {
+      "slug": "lollicock-7-pink",
+      "name": "Lollicock 7\" Pink",
+      "brand": "Curve Toys",
+      "category": "dildos",
+      "price": 788,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FAE8EF",
+      "subtitle": "Dildo realista con base de ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Esta vara brillante y colorida tiene una forma realista con cuerpo, cabeza y testículos, perfecta para añadir un toque inusual a tu colección. Con base ancha y abrida, es compatible con arnés, así que puedes combinarla con un strap-on. Silicona body-safe.",
+      "features": [
+        "Silicona body-safe",
+        "Compatible con arnés",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/lollicock-7-pink_1.jpg",
+        "/products/lollicock-7-pink_2.jpg"
+      ]
+    },
+    {
+      "slug": "jock-6",
+      "name": "Jock 6",
+      "brand": "Curve Toys",
+      "category": "masturbadores",
+      "price": 687,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFEFD6",
+      "subtitle": "Masturbador compacto",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador de textura intensa y material suave tipo piel. Compacto y discreto, fácil de limpiar.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/jock-6-de-pared_1.jpg",
+        "/products/jock-6-de-pared_2.jpg",
+        "/products/jock-6_1.jpg",
+        "/products/jock-6_2.jpg",
+        "/products/jock-6_3.jpg",
+        "/products/jock-6_4.jpg",
+        "/products/jock-6_5.jpg"
+      ]
+    },
+    {
+      "slug": "jock-6-de-pared",
+      "name": "Jock 6 de pared",
+      "brand": "Curve Toys",
+      "category": "masturbadores",
+      "price": 944,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E8F6F3",
+      "subtitle": "Masturbador con ventosa de pared",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Cuando el deseo pide firmeza, control y realismo, Jock 6” responde. Su cuerpo carnoso, material seguro y ventosa de alta sujeción lo convierten en un aliado ideal para disfrutar con libertad en cualquier espacio privado. Tú decides el ritmo, la profundidad y el momento. Longitud: 16.5 cm Diámetro: 5.1 cm Material premium, seguro para el cuerpo Base con ventosa fuerte para uso manos libres",
+      "features": [
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/jock-6-de-pared_1.jpg",
+        "/products/jock-6-de-pared_2.jpg"
+      ]
+    },
+    {
+      "slug": "colours-pleasure-8",
+      "name": "Colours Pleasure 8\"",
+      "brand": "NS Novelties",
+      "category": "dildos",
+      "price": 1492,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#F9E7DC",
+      "subtitle": "Dildo de silicona premium",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Colours Pleasures 8” Pink ofrece suavidad, ventosa resistente y un tamaño ideal para disfrutar a solas o con arnés. Su textura satinada lo hace cómodo, versátil y perfecto para placer cotidiano.",
+      "features": [
+        "Silicona body-safe",
+        "Libre de ftalatos",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/colours-pleasure-8_1.jpg",
+        "/products/colours-pleasure-8_2.jpg",
+        "/products/colours-pleasure-8_3.jpg",
+        "/products/colours-pleasure-8_4.jpg",
+        "/products/colours-pleasure-8_5.jpg"
+      ]
+    },
+    {
+      "slug": "dildo-colours-4-pleasures",
+      "name": "Dildo Colours 4 Pleasures",
+      "brand": "NS Novelties",
+      "category": "dildos",
+      "price": 755,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFE8D9",
+      "subtitle": "Dildo de silicona compacto",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dildo de silicona body-safe de 4\", ideal para iniciarse. Base de ventosa y compatible con arnés.",
+      "features": [
+        "Silicona body-safe",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/dildo-colours-4-pleasures_1.jpg",
+        "/products/dildo-colours-4-pleasures_2.jpg"
+      ]
+    },
+    {
+      "slug": "natural-real-skin-feel-7",
+      "name": "Natural Real Skin Feel 7\"",
+      "brand": "Blush",
+      "category": "dildos",
+      "price": 711,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#FFF3C9",
+      "subtitle": "Dildo realista doble capa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dildo realista de 7\" con tecnología de doble capa: suave por fuera, firme por dentro. Base de ventosa para manos libres.",
+      "features": [
+        "Base con ventosa",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/natural-real-skin-feel-7_1.jpg",
+        "/products/natural-real-skin-feel-7_2.jpg",
+        "/products/natural-real-skin-feel-7_3.jpg"
+      ]
+    },
+    {
+      "slug": "vibrating-super-ring",
+      "name": "Vibrating Super Ring",
+      "brand": "Fantasy C-Ringz",
+      "category": "parejas",
+      "price": 630,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#FDE2E4",
+      "subtitle": "Anillo vibrador con bala",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Anillo súper elástico con bala vibradora extraíble. Da soporte a la erección y estimula a ambos. Ideal para principiantes.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/vibrating-super-ring_1.jpg"
+      ]
+    },
+    {
+      "slug": "private-tube-julia-de-lucia",
+      "name": "Private Tube Julia de Lucia",
+      "brand": "Private",
+      "category": "masturbadores",
+      "price": 2865,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E6F4EA",
+      "subtitle": "Masturbador con succión ajustable",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador con cámara texturizada, apertura de sensación real y potencia de succión ajustable. Inspirado en tu estrella favorita.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/private-tube-julia-de-lucia_1.jpg",
+        "/products/private-tube-julia-de-lucia_2.jpg",
+        "/products/private-tube-julia-de-lucia_3.jpg",
+        "/products/private-tube-julia-de-lucia_4.jpg"
+      ]
+    },
+    {
+      "slug": "private-personal-trainer",
+      "name": "Private Personal Trainer",
+      "brand": "Private",
+      "category": "masturbadores",
+      "price": 2088,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FAE8EF",
+      "subtitle": "Masturbador para resistencia",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Diseñado para entrenar tu resistencia mientras te da máxima satisfacción. Textura realista y agarre ergonómico cómodo. Opción de primera calidad.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/private-personal-trainer_1.jpg",
+        "/products/private-personal-trainer_2.jpg",
+        "/products/private-personal-trainer_3.jpg",
+        "/products/private-personal-trainer_4.jpg",
+        "/products/private-personal-trainer_5.jpg"
+      ]
+    },
+    {
+      "slug": "cyclone-dual-chamber-stroker-xl",
+      "name": "Cyclone Dual Chamber Stroker XL",
+      "brand": "CalExotics",
+      "category": "masturbadores",
+      "price": 976,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFEFD6",
+      "subtitle": "Masturbador transparente de doble cámara",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador de fácil agarre con cámaras dobles acanaladas que ofrecen texturas variadas. Diseño transparente para ver la acción. Suave y elástico.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/cyclone-dual-chamber-stroker-xl_1.jpg",
+        "/products/cyclone-dual-chamber-stroker-xl_2.jpg",
+        "/products/cyclone-dual-chamber-stroker-xl_3.jpg"
+      ]
+    },
+    {
+      "slug": "gender-x-clearly-combo",
+      "name": "Gender X Clearly Combo",
+      "brand": "Gender X",
+      "category": "masturbadores",
+      "price": 1304,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E8F6F3",
+      "subtitle": "Combo dildo + masturbador transparente",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Combinación de dildo y masturbador transparentes, suaves y elásticos. El material transparente agrega una carga visual erótica.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/gender-x-clearly-combo_1.jpg",
+        "/products/gender-x-clearly-combo_2.jpg",
+        "/products/gender-x-clearly-combo_3.jpg",
+        "/products/gender-x-clearly-combo_4.jpg",
+        "/products/gender-x-clearly-combo_5.jpg"
+      ]
+    },
+    {
+      "slug": "sarah-s-sexy-mouth",
+      "name": "Sarah's Sexy Mouth",
+      "brand": "SexFlesh",
+      "category": "masturbadores",
+      "price": 539,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#F9E7DC",
+      "subtitle": "Masturbador estilo oral",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Lengua suave y flexible dentro del túnel interior. Interior texturizado. Funda elástica se adapta a una amplia gama de tamaño. Medidas: 16.5 cm de largo, 9.5 cm de ancho.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/sarah-s-sexy-mouth_1.jpg",
+        "/products/sarah-s-sexy-mouth_2.jpg",
+        "/products/sarah-s-sexy-mouth_3.jpg",
+        "/products/sarah-s-sexy-mouth_4.jpg",
+        "/products/sarah-s-sexy-mouth_5.jpg"
+      ]
+    },
+    {
+      "slug": "vivid-raw-cock-tease",
+      "name": "Vivid Raw Cock Tease",
+      "brand": "Vivid",
+      "category": "masturbadores",
+      "price": 983,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFE8D9",
+      "subtitle": "Funda masturbadora con bala",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda acariciadora de 14.5 x 7.5 cm en Pure Skin TPR con textura realista. Apertura ceñida y cámara texturizada; incluye espacio para bala vibradora.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/vivid-raw-cock-tease_1.jpg",
+        "/products/vivid-raw-cock-tease_2.jpg",
+        "/products/vivid-raw-cock-tease_3.jpg",
+        "/products/vivid-raw-cock-tease_4.jpg",
+        "/products/vivid-raw-cock-tease_5.jpg"
+      ]
+    },
+    {
+      "slug": "private-suction-base",
+      "name": "Private Suction Base",
+      "brand": "Private",
+      "category": "masturbadores",
+      "price": 895,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFF3C9",
+      "subtitle": "Base de succión manos libres",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Accesorio de base de succión para masturbadores tipo tubo Private. Diseño antideslizante ajustable con bloqueo; se adhiere a superficies lisas.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/private-suction-base_1.jpg",
+        "/products/private-suction-base_2.jpg",
+        "/products/private-suction-base_3.jpg"
+      ]
+    },
+    {
+      "slug": "boundless-ftm-stroker",
+      "name": "Boundless FTM Stroker",
+      "brand": "CalExotics",
+      "category": "masturbadores",
+      "price": 528,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FDE2E4",
+      "subtitle": "Masturbador de extremo cerrado",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Silicón Body-Safe",
+        "Entrega Express"
+      ],
+      "description": "Dimensiones: 7 cm. Acariciador de silicona líquida. Textura suave, apretada y elástica. Diseño reversible. Superficie lisa y nervaduras texturizadas",
+      "features": [
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/boundless-ftm-stroker_1.jpg",
+        "/products/boundless-ftm-stroker_2.jpg",
+        "/products/boundless-ftm-stroker_3.jpg",
+        "/products/boundless-ftm-stroker_4.jpg",
+        "/products/boundless-ftm-stroker_5.jpg"
+      ]
+    },
+    {
+      "slug": "elsie-pussy",
+      "name": "Elsie Pussy",
+      "brand": "CamToyz",
+      "category": "masturbadores",
+      "price": 593,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E6F4EA",
+      "subtitle": "Mini masturbador torso",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Mini masturbador masculino con forma de torso femenino con pechos y vagina. Compacto y realista.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/elsie-pussy_1.jpg",
+        "/products/elsie-pussy_2.jpg",
+        "/products/elsie-pussy_3.jpg"
+      ]
+    },
+    {
+      "slug": "bella-pussy-azul",
+      "name": "Bella Pussy Azul",
+      "brand": "CamToyz",
+      "category": "masturbadores",
+      "price": 500,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FAE8EF",
+      "subtitle": "Masturbador en forma de vagina",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador masculino con forma de vagina, textura interna estimulante. Material suave tipo piel.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/bella-pussy-azul_1.jpg",
+        "/products/bella-pussy-azul_2.jpg",
+        "/products/bella-pussy-azul_3.jpg"
+      ]
+    },
+    {
+      "slug": "bella-pussy-roja",
+      "name": "Bella Pussy Roja",
+      "brand": "CamToyz",
+      "category": "masturbadores",
+      "price": 500,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFEFD6",
+      "subtitle": "Masturbador súper realista",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Masturbador masculino súper realista con textura interna intensa. Material suave tipo piel.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/bella-pussy-roja_1.jpg",
+        "/products/bella-pussy-roja_2.jpg",
+        "/products/bella-pussy-roja_3.jpg"
+      ]
+    },
+    {
+      "slug": "clear-stroke-twister",
+      "name": "Clear Stroke Twister",
+      "brand": "Icon Brands",
+      "category": "masturbadores",
+      "price": 930,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#E8F6F3",
+      "subtitle": "Masturbador transparente ergonómico",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dimensiones: 5.25 pulgadas. Un masturbador transparente. Mango integrado para un mejor agarre y un uso más fácil. Hecho de TPE de alta calidad. Canal increíblemente texturizado. Reutilizable y fácil de limpiar.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/clear-stroke-twister_1.jpg",
+        "/products/clear-stroke-twister_2.jpg",
+        "/products/clear-stroke-twister_3.jpg"
+      ]
+    },
+    {
+      "slug": "huevo-masturbador-goggy",
+      "name": "Huevo Masturbador Goggy",
+      "brand": "CamToyz",
+      "category": "masturbadores",
+      "price": 639,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#F9E7DC",
+      "subtitle": "Huevo vibrador discreto",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Diferentes modos de vibración y velocidades. Dimensiones: Largo 7 cm, Ancho 5 cm, Profundidad 5 cm. Diseño ergonómico y compacto. Agarre cómodo y control total. Textura interna única, diseñada para acariciar y estimular. Material increíblemente suave y flexible.",
+      "features": [
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/huevo-masturbador-goggy_1.jpg",
+        "/products/huevo-masturbador-goggy_2.jpg"
+      ]
+    },
+    {
+      "slug": "sun-ring",
+      "name": "Sun Ring",
+      "brand": "CamToyz",
+      "category": "parejas",
+      "price": 280,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💞",
+      "bg": "#FFE8D9",
+      "subtitle": "Pack de 4 anillos con relieve",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Kit de 4 anillos con textura de picos diseñado para prolongar e intensificar la sensación. Súper elásticos y reutilizables.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/sun-ring_1.jpg",
+        "/products/sun-ring_2.jpg"
+      ]
+    },
+    {
+      "slug": "admiral-erect-sta-hard-serum",
+      "name": "Admiral Erect Sta-Hard Serum",
+      "brand": "CalExotics",
+      "category": "retardantes",
+      "price": 696,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#FFF3C9",
+      "subtitle": "Crema desensibilizante",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Crema para maximizar el rendimiento, aumentar la resistencia y prolongar el placer. Efecto desensibilizante que te mantiene activo más tiempo.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/admiral-erect-sta-hard-serum_1.jpg",
+        "/products/admiral-erect-sta-hard-serum_2.jpg"
+      ]
+    },
+    {
+      "slug": "super-load-delay-spray-10-ml",
+      "name": "Super Load Delay Spray 10 ml",
+      "brand": "Doc Johnson",
+      "category": "retardantes",
+      "price": 389,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#FDE2E4",
+      "subtitle": "Spray retardante",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Spray desensibilizante para tratar la eyaculación precoz y retrasar el clímax. Concentración baja: menos producto para el mismo efecto.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/super-load-delay-spray-10-ml_1.jpg"
+      ]
+    },
+    {
+      "slug": "fire-ant-delay-spray-10-ml",
+      "name": "Fire Ant Delay Spray 10 ml",
+      "brand": "Hott Products",
+      "category": "retardantes",
+      "price": 343,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#E6F4EA",
+      "subtitle": "Spray retardante",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Fórmula con Lidocaína. Reducción de sensibilidad rápidamente. Apoya en retrasar la eyaculación.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/fire-ant-delay-spray-10-ml_1.jpg"
+      ]
+    },
+    {
+      "slug": "sta-hard-crema-1-5-oz",
+      "name": "Sta-Hard Crema 1.5 oz",
+      "brand": "Doc Johnson",
+      "category": "retardantes",
+      "price": 599,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#FAE8EF",
+      "subtitle": "Crema retardante (grande)",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Crema retardante masculina, presentación grande de 1.5 oz. Prolonga la duración del encuentro.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/sta-hard-crema-1-5-oz_1.jpg",
+        "/products/sta-hard-crema-1-5-oz_2.jpg"
+      ]
+    },
+    {
+      "slug": "sta-hard-crema-0-5-oz",
+      "name": "Sta-Hard Crema 0.5 oz",
+      "brand": "Doc Johnson",
+      "category": "retardantes",
+      "price": 350,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#FFEFD6",
+      "subtitle": "Crema retardante (chica)",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Sta-Hard 0.5oz es perfecta para quienes quieren probar una solución discreta y práctica para retrasar el clímax. Su formato pequeño es ideal para llevar y usar cuando lo necesites.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/sta-hard-crema-0-5-oz_1.jpg"
+      ]
+    },
+    {
+      "slug": "extra-maximum-delay-lubricant",
+      "name": "Extra Maximum Delay Lubricant",
+      "brand": "Doc Johnson",
+      "category": "retardantes",
+      "price": 479,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#E8F6F3",
+      "subtitle": "Lubricante retardante",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Tubo de media onza. Seguro, eficaz e inodoro. Contiene benzocaína. Lubricante tópico. Maximiza el placer, retrasa el clímax",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/extra-maximum-delay-lubricant_1.jpg",
+        "/products/extra-maximum-delay-lubricant_2.jpg"
+      ]
+    },
+    {
+      "slug": "sunny-side-up-retardante-1-oz",
+      "name": "Sunny Side Up Retardante 1 oz",
+      "brand": "Sunny",
+      "category": "retardantes",
+      "price": 320,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "⏱️",
+      "bg": "#F9E7DC",
+      "subtitle": "Lubricante retardante saborizado",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Lubricante retardante saborizado de 1 oz. Sabores disponibles: sandía, capuchino, fresa, piña colada, uva y mango.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/sunny-side-up-retardante-1-oz_1.jpg",
+        "/products/sunny-side-up-retardante-1-oz_2.jpg"
+      ]
+    },
+    {
+      "slug": "lubricantes-sunny",
+      "name": "Lubricantes Sunny",
+      "brand": "Sunny",
+      "category": "lubricantes",
+      "price": 320,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💧",
+      "bg": "#FFE8D9",
+      "subtitle": "Lubricantes saborizados",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Lubricantes saborizados Sunny. Sabores: sandía, capuchino, fresa, piña colada, uva, mango, frutos rojos, lime pie, raspberry, kiwi, tangerine y coconut pineapple.",
+      "features": [
+        "Materiales body-safe",
+        "Envío discreto"
+      ],
+      "images": [
+        "/products/lubricantes-sunny_1.jpg",
+        "/products/lubricantes-sunny_2.jpg",
+        "/products/lubricantes-sunny_3.jpg",
+        "/products/lubricantes-sunny_4.jpg",
+        "/products/lubricantes-sunny_5.jpg"
+      ]
+    },
+    {
+      "slug": "fun-crystal-sets",
+      "name": "Fun Crystal Sets",
+      "brand": "Fun",
+      "category": "hombre",
+      "price": 369,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFF3C9",
+      "subtitle": "Funda transparente con perlas",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda transparente con perlas diseñada para adaptarse a cualquier tamaño. Textura que estimula a tu pareja al penetrar.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/fun-crystal-sets_1.jpg",
+        "/products/fun-crystal-sets_2.jpg",
+        "/products/fun-crystal-sets_3.jpg",
+        "/products/fun-crystal-sets_4.jpg",
+        "/products/fun-crystal-sets_5.jpg"
+      ]
+    },
+    {
+      "slug": "crystal-set-vibration",
+      "name": "Crystal Set Vibration",
+      "brand": "Fun",
+      "category": "hombre",
+      "price": 379,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FDE2E4",
+      "subtitle": "Funda extensora texturizada",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": true,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Funda extensión de pene texturizada en tono ahumado. Agrega largo y textura para mayor estimulación.",
+      "features": [
+        "Textura realista"
+      ],
+      "images": [
+        "/products/crystal-set-vibration_1.jpg",
+        "/products/crystal-set-vibration_2.jpg",
+        "/products/crystal-set-vibration_3.jpg",
+        "/products/crystal-set-vibration_4.jpg"
+      ]
+    },
+    {
+      "slug": "ariel-bullet-vibrator",
+      "name": "Ariel - Bullet Vibrator",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 660,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Bala vibradora recargable",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Ariel es el aliado silencioso que siempre está listo. Compacto, elegante y de silicona hipoalergénica, ofrece vibraciones intensas para placer preciso, en solitario o en pareja.",
+      "features": [
+        "Recargable USB",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/ariel-bullet-vibrator_1.jpg",
+        "/products/ariel-bullet-vibrator_2.jpg",
+        "/products/ariel-bullet-vibrator_3.jpg"
+      ]
+    },
+    {
+      "slug": "aselia-majestic-vibrator",
+      "name": "Aselia Majestic Vibrator",
+      "brand": "CamToyz",
+      "category": "vibradores",
+      "price": 551,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador Majestic",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Aselia Majestic une belleza, curva y potencia en un solo vibrador. Con múltiples velocidades y patrones, está diseñado para estimular puntos clave con precisión y convertir cada momento en una experiencia más refinada.",
+      "features": [
+        "Recargable USB",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/aselia-majestic-vibrator_1.jpg"
+      ]
+    },
+    {
+      "slug": "bendie-stud-cliterrific",
+      "name": "Bendie Stud Cliterrific - Vibrador Flexible",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 719,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador flexible con anillo",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Cuando cada cuerpo pide un ángulo distinto, Bendie Stud Cliterrific se adapta. Su diseño flexible, 3 velocidades y control sencillo lo hacen ideal para placer preciso, rápido o prolongado.",
+      "features": [
+        "Flexible",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/bendie-stud-cliterrific_1.jpg",
+        "/products/bendie-stud-cliterrific_2.jpg",
+        "/products/bendie-stud-cliterrific_3.jpg"
+      ]
+    },
+    {
+      "slug": "betty-s-jelly-bumble-bee",
+      "name": "Betty’s Jelly Bumble Bee - Consolador Vibrador con Arnés",
+      "brand": "Doc Johnson",
+      "category": "arneses",
+      "price": 1408,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔗",
+      "bg": "#FFE8D9",
+      "subtitle": "Consolador vibrador con arnés",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Divertido, vibrante y hecho para compartir. Betty’s Jelly Bumble Bee combina dildo realista, vibración multivelocidad y arnés ajustable para explorar nuevas dinámicas en pareja con libertad.",
+      "features": [
+        "Incluye arnés",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/betty-s-jelly-bumble-bee_1.jpg",
+        "/products/betty-s-jelly-bumble-bee_2.jpg",
+        "/products/betty-s-jelly-bumble-bee_3.jpg",
+        "/products/betty-s-jelly-bumble-bee_4.jpg"
+      ]
+    },
+    {
+      "slug": "conejo-travieso",
+      "name": "CONEJO TRAVIESO",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 1023,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Conejo punto G giratorio",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Diseñado para alcanzar el punto G Eje giratorio de doble dirección de 4 velocidades con cuentas giratorias 8 velocidades Patrones en estimulador de conejo 9 pulgadas de longitud 4.25 pulgadas de longitud insertable 1.25 pulgadas de ancho Hecho de látex y goma TPE libre de ftalatos Recargable Cable USB incluido Impermeable",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Cuentas giratorias"
+      ],
+      "images": [
+        "/products/conejo-travieso_1.jpg",
+        "/products/conejo-travieso_2.jpg",
+        "/products/conejo-travieso_3.jpg",
+        "/products/conejo-travieso_4.jpg",
+        "/products/conejo-travieso_5.jpg"
+      ]
+    },
+    {
+      "slug": "denzel",
+      "name": "Denzel - Dildo Realista con Ventosa",
+      "brand": "King Cock",
+      "category": "dildos",
+      "price": 400,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista con ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Denzel es para quienes buscan firmeza, realismo y libertad de movimiento. Su acabado detallado, venas definidas y ventosa estable permiten una experiencia intensa y auténtica.",
+      "features": [
+        "Base con ventosa",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/denzel_1.jpg",
+        "/products/denzel_2.jpg",
+        "/products/denzel_3.jpg",
+        "/products/denzel_4.jpg"
+      ]
+    },
+    {
+      "slug": "dillio-6-strap-on",
+      "name": "DILLIO 6 Strap-On - Suspender Harness Set",
+      "brand": "Dillio (Pipedream)",
+      "category": "arneses",
+      "price": 1698,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔗",
+      "bg": "#FFE8D9",
+      "subtitle": "Strap-On con arnés 6\"",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dillio 6 Strap-On es el primer paso perfecto para quienes buscan control, comodidad y sensaciones más delicadas. Su arnés ajustable y dildo desmontable se adaptan al cuerpo y al ritmo de cada pareja.",
+      "features": [
+        "Incluye arnés",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/dillio-6-strap-on_1.jpg",
+        "/products/dillio-6-strap-on_2.jpg",
+        "/products/dillio-6-strap-on_3.jpg"
+      ]
+    },
+    {
+      "slug": "dillio-7-strap-on",
+      "name": "DILLIO 7 Strap-On - Suspender Harness Set",
+      "brand": "Dillio (Pipedream)",
+      "category": "arneses",
+      "price": 1748,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔗",
+      "bg": "#FFE8D9",
+      "subtitle": "Strap-On con arnés 7\"",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Dillio 7 Strap-On incluye arnés ajustable y dildo removible de 7” para una experiencia estable, cómoda y segura en pareja.",
+      "features": [
+        "Incluye arnés",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/dillio-7-strap-on_1.jpg",
+        "/products/dillio-7-strap-on_2.jpg",
+        "/products/dillio-7-strap-on_3.jpg"
+      ]
+    },
+    {
+      "slug": "ritual-fantasia",
+      "name": "RITUAL FANTASÍA",
+      "brand": "Pipedream",
+      "category": "vibradores",
+      "price": 5567,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Estimulador 4 en 1 succión y lengua",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "4 funciones: succión, lengua, vibrador punto G, vibración externa 4 motores independientes Múltiples modos de vibración y succión Material: silicona segura para el cuerpo",
+      "features": [
+        "4 motores",
+        "Succión y lengua",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/ritual-fantasia_1.jpg",
+        "/products/ritual-fantasia_2.jpg",
+        "/products/ritual-fantasia_3.jpg"
+      ]
+    },
+    {
+      "slug": "gem-vibe-bliss",
+      "name": "Gem Vibe Bliss - Vibrador con Control tipo Joya",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 1187,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador con control tipo joya",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Pequeño como una joya, potente como un gran secreto. Gem Vibe Bliss ofrece 10 funciones, control decorado y memoria inteligente para retomar tu configuración favorita.",
+      "features": [
+        "Recargable USB",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/gem-vibe-bliss_1.jpg",
+        "/products/gem-vibe-bliss_2.jpg",
+        "/products/gem-vibe-bliss_3.jpg",
+        "/products/gem-vibe-bliss_4.jpg"
+      ]
+    },
+    {
+      "slug": "escapada-intima",
+      "name": "ESCAPADA ÍNTIMA",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 2046,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Bala discreta tipo labial",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "7 funciones de toque Diseño versátil y fácil de transportar. Parece un estuche de lápiz labial. Resistente al agua (IPX7)",
+      "features": [
+        "Resistente al agua",
+        "Diseño discreto"
+      ],
+      "images": [
+        "/products/escapada-intima_1.jpg",
+        "/products/escapada-intima_2.jpg"
+      ]
+    },
+    {
+      "slug": "calorcito-real-8-curved",
+      "name": "CALORCITO REAL 8” DILDO CON CALOR",
+      "brand": "Blush",
+      "category": "dildos",
+      "price": 2290,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo con calor y vibración",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Tecnología de calentamiento hasta 45 °C (113 °F) 3 funciones de vibración Material: Eje de TPE + ABS (control remoto) Longitud total: 19.6 cm / Longitud insertable: 17.8 cm Diámetro: 4.5 cm / Circunferencia: 12.7 cm Recargable (carga 40 min / uso 60 min) Control remoto con 2 pilas AAA (No incluidas)",
+      "features": [
+        "Tecnología de calor",
+        "Recargable",
+        "Control remoto"
+      ],
+      "images": [
+        "/products/calorcito-real-8-curved_1.jpg",
+        "/products/calorcito-real-8-curved_2.jpg",
+        "/products/calorcito-real-8-curved_3.jpg",
+        "/products/calorcito-real-8-curved_4.jpg",
+        "/products/calorcito-real-8-curved_5.jpg"
+      ]
+    },
+    {
+      "slug": "krono-dildo-realista",
+      "name": "Krono - Dildo Realista",
+      "brand": "King Cock",
+      "category": "dildos",
+      "price": 572,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Krono es realismo sin excesos: firme, cómodo y anatómico. Su textura detallada y ventosa estable permiten una experiencia práctica, segura y fluida para disfrutar a tu ritmo.",
+      "features": [
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/krono-dildo-realista_1.jpg",
+        "/products/krono-dildo-realista_2.jpg",
+        "/products/krono-dildo-realista_3.jpg"
+      ]
+    },
+    {
+      "slug": "lemon-squeeze",
+      "name": "Lemon Squeeze - Vibrador de Silicona",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 740,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador de silicona",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Fresco, ligero y fácil de disfrutar. Lemon Squeeze ofrece 10 ritmos de vibración, silicona suave y diseño estilizado para una inserción cómoda. Ideal para principiantes o para quienes aman lo minimalista.",
+      "features": [
+        "Silicona body-safe",
+        "Múltiples modos"
+      ],
+      "images": [
+        "/products/lemon-squeeze_1.jpg",
+        "/products/lemon-squeeze_2.jpg",
+        "/products/lemon-squeeze_3.jpg"
+      ]
+    },
+    {
+      "slug": "deseo-de-bolsillo",
+      "name": "DESEO DE BOLSILLO",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 2306,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador de bolsillo recargable",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "USB recargable. Velocidades incrementales. Control de velocidad incremental intenso. hipoalergénico no poroso. Botón de encendido/apagado automático de silicona con acabado satinado Sin costuras Luz indicadora LED. Función de bloqueo de viaje de seguridad. Susurro silencioso. 100 por ciento impermeable. Silicona de primera calidad. Fácil de limpiar",
+      "features": [
+        "Recargable USB",
+        "100% impermeable",
+        "Bloqueo de viaje"
+      ],
+      "images": [
+        "/products/deseo-de-bolsillo_1.jpg",
+        "/products/deseo-de-bolsillo_2.jpg",
+        "/products/deseo-de-bolsillo_3.jpg"
+      ]
+    },
+    {
+      "slug": "deseo-silencioso",
+      "name": "DESEO SILENCIOSO",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 2306,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador silencioso recargable",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "USB recargable. Velocidades incrementales. Control de velocidad incremental intenso. hipoalergénico no poroso. Botón de encendido/apagado automático de silicona con acabado satinado Sin costuras Luz indicadora LED. Función de bloqueo de viaje de seguridad. Susurro silencioso. 100 por ciento impermeable. Silicona de primera calidad. Fácil de limpiar",
+      "features": [
+        "Recargable USB",
+        "100% impermeable",
+        "Susurro silencioso"
+      ],
+      "images": [
+        "/products/deseo-silencioso_1.jpg",
+        "/products/deseo-silencioso_2.jpg",
+        "/products/deseo-silencioso_3.jpg"
+      ]
+    },
+    {
+      "slug": "el-macizo",
+      "name": "EL MACIZO",
+      "brand": "Blush",
+      "category": "dildos",
+      "price": 471,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista de látex",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Moldeado realista en látex de grado superior Textura satinada de alta sensación Longitud insertable: 19.5 cm Material: látex libre de ftalatos Fácil de limpiar / uso recomendado con lubricantes a base de agua",
+      "features": [
+        "Látex sin ftalatos",
+        "Textura realista"
+      ],
+      "images": [
+        "/products/el-macizo_1.jpg",
+        "/products/el-macizo_2.jpg",
+        "/products/el-macizo_3.jpg"
+      ]
+    },
+    {
+      "slug": "nebula-glow",
+      "name": "Nebula - Dildo Realista Glow-in-the-Dark",
+      "brand": "NS Novelties",
+      "category": "dildos",
+      "price": 551,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista glow-in-the-dark",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Nebula mezcla realismo y magia visual con su efecto glow-in-the-dark. Su diseño anatómico, material suave e hipoalergénico y forma ergonómica lo hacen ideal para explorar con seguridad y fantasía.",
+      "features": [
+        "Brilla en la oscuridad",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/nebula-glow_1.jpg",
+        "/products/nebula-glow_2.jpg",
+        "/products/nebula-glow_3.jpg",
+        "/products/nebula-glow_4.jpg"
+      ]
+    },
+    {
+      "slug": "intimate-silicone-pump",
+      "name": "Intimate Silicone Pump - Estimulador de Succión",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 867,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Estimulador de succión",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Intimate Silicone Pump invita a explorar la sensibilidad con calma y precisión. Su cuchara flexible envuelve, succiona y eleva la sensación progresivamente, mientras sus texturas internas intensifican el contacto.",
+      "features": [
+        "Succión",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/intimate-silicone-pump_1.jpg",
+        "/products/intimate-silicone-pump_2.jpg"
+      ]
+    },
+    {
+      "slug": "parker-vibrador",
+      "name": "Parker - Dildo realista con vibración",
+      "brand": "CamToyz",
+      "category": "dildos",
+      "price": 1587,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista con vibración",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Parker se siente cercano desde el primer contacto. Su textura tipo piel, diseño realista y vibración integrada crean una experiencia natural, mientras su bala removible amplía las formas de jugar.",
+      "features": [
+        "Vibración",
+        "Recargable"
+      ],
+      "images": [
+        "/products/parker-vibrador_1.jpg",
+        "/products/parker-vibrador_2.jpg",
+        "/products/parker-vibrador_3.jpg"
+      ]
+    },
+    {
+      "slug": "terrible-terri",
+      "name": "TERRIBLE TERRI",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 2069,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador punto G con golpeteo",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Detección de temperatura vaginal 9 modos de golpeteo de dedos que se especializan en el punto G 9 intensidades y patrones diferentes Silicona lujosa y amigable con el cuerpo Resistente al agua ABS, silicona. Medidas: 9.45\" x 5.55\" x 1.89\" x 1.61\" x 1.06\". Tipo de batería: Li-ion recargable. Tiempo de carga: 1.5 horas. Tiempo de reproducción: 1 hora.",
+      "features": [
+        "Recargable USB",
+        "Resistente al agua",
+        "Sensor de temperatura"
+      ],
+      "images": [
+        "/products/terrible-terri_1.jpg",
+        "/products/terrible-terri_2.jpg",
+        "/products/terrible-terri_3.jpg"
+      ]
+    },
+    {
+      "slug": "thicc-boi",
+      "name": "Thicc Boi",
+      "brand": "King Cock",
+      "category": "dildos",
+      "price": 718,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo grueso realista",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Para quienes desean sensaciones más amplias, Thicc Boi llega con presencia, firmeza y vibración ajustable. Su diseño generoso ofrece una experiencia envolvente y profunda.",
+      "features": [
+        "Silicona body-safe",
+        "Base con ventosa"
+      ],
+      "images": [
+        "/products/thicc-boi_1.jpg",
+        "/products/thicc-boi_2.jpg"
+      ]
+    },
+    {
+      "slug": "juguetona-tressa",
+      "name": "JUGUETONA TRESSA",
+      "brand": "Selopa",
+      "category": "vibradores",
+      "price": 2069,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🌙",
+      "bg": "#FFE8D9",
+      "subtitle": "Vibrador 3 en 1 con app",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Tecnología exclusiva de roscado dinámico que golpea y vibra donde más se siente. 9 modos de golpeteo y 9 modos de vibración. Diseño 3 en 1 que estimula dentro, fuera y en el punto exacto. Compatible con la app Honey Play Box para control remoto. Fabricado en silicona premium segura. Resistente al agua.",
+      "features": [
+        "Compatible con app",
+        "Golpeteo y vibración",
+        "Resistente al agua"
+      ],
+      "images": [
+        "/products/juguetona-tressa_1.jpg",
+        "/products/juguetona-tressa_2.jpg",
+        "/products/juguetona-tressa_3.jpg"
+      ]
+    },
+    {
+      "slug": "natural-feel-7",
+      "name": "Natural Feel 7\"",
+      "brand": "AMANTI Select",
+      "category": "dildos",
+      "price": 1489,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo realista 7\" tipo piel",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Cuando el detalle importa, Natural Feel 7” ofrece textura tipo piel, núcleo articulado y diseño anatómico para moverse contigo. Ideal para quienes buscan una experiencia flexible, auténtica y controlada.",
+      "features": [
+        "Textura tipo piel",
+        "Núcleo articulado",
+        "Silicona body-safe"
+      ],
+      "images": [
+        "/products/natural-feel-7_1.jpg",
+        "/products/natural-feel-7_2.jpg",
+        "/products/natural-feel-7_3.jpg",
+        "/products/natural-feel-7_4.jpg"
+      ]
+    },
+    {
+      "slug": "lollicock-7-glow",
+      "name": "Lollicock 7\" Glow-in-the-Dark",
+      "brand": "CalExotics",
+      "category": "dildos",
+      "price": 788,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🪐",
+      "bg": "#E6F4EA",
+      "subtitle": "Dildo glow doble densidad con ventosa",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "La noche se vuelve más emocionante cuando el deseo también brilla. Lollicock 7” Glow-in-the-Dark combina silicona premium, doble densidad, ventosa y compatibilidad con arnés para jugar sin límites.",
+      "features": [
+        "Glow-in-the-dark",
+        "Doble densidad",
+        "Base con ventosa",
+        "Compatible con arnés"
+      ],
+      "images": [
+        "/products/lollicock-7-glow_1.jpg",
+        "/products/lollicock-7-glow_2.jpg",
+        "/products/lollicock-7-glow_3.jpg"
+      ]
+    },
+    {
+      "slug": "noche-traviesa",
+      "name": "Noche Traviesa (Cepo de Madera)",
+      "brand": "AMANTI Select",
+      "category": "bdsm",
+      "price": 3779,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🖤",
+      "bg": "#FFEFD6",
+      "subtitle": "Cepo de muñecas y tobillos",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Hecha en madera negra lisa y brillante Detalles de metal plateado",
+      "features": [
+        "Madera maciza",
+        "Juego BDSM",
+        "Detalles metálicos"
+      ],
+      "images": [
+        "/products/noche-traviesa_1.jpg",
+        "/products/noche-traviesa_2.jpg",
+        "/products/noche-traviesa_3.jpg",
+        "/products/noche-traviesa_4.jpg",
+        "/products/noche-traviesa_5.jpg"
+      ]
+    },
+    {
+      "slug": "trio-sensaciones",
+      "name": "Trío Sensaciones (Convex Stimulus 3pz)",
+      "brand": "AMANTI Select",
+      "category": "hombre",
+      "price": 207,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "🔥",
+      "bg": "#FFF3C9",
+      "subtitle": "Set de 3 fundas texturizadas",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Fundas texturizadas para pene Flexibles Adaptables al tamaño del miembro.",
+      "features": [
+        "3 fundas texturizadas",
+        "Flexibles",
+        "Para pareja"
+      ],
+      "images": [
+        "/products/trio-sensaciones_1.jpg",
+        "/products/trio-sensaciones_2.jpg",
+        "/products/trio-sensaciones_3.jpg"
+      ]
+    },
+    {
+      "slug": "lociones-masaje-sunny",
+      "name": "Lociones para Masaje Sunny",
+      "brand": "Sunny",
+      "category": "lubricantes",
+      "price": 108,
+      "compareAt": 0,
+      "rating": 5,
+      "emoji": "💧",
+      "bg": "#FFE8D9",
+      "subtitle": "Lociones de masaje saborizadas",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "badges": [
+        "Envío Discreto",
+        "Entrega Express"
+      ],
+      "description": "Aceite comestible con efecto calor No contiene azúcar Uso externo Apto para masajes sensuales",
+      "features": [
+        "Varios sabores",
+        "Aroma y sabor",
+        "Para masaje sensual"
+      ],
+      "images": [
+        "/products/lociones-masaje-sunny_1.jpg",
+        "/products/lociones-masaje-sunny_2.jpg",
+        "/products/lociones-masaje-sunny_3.jpg",
+        "/products/lociones-masaje-sunny_4.jpg",
+        "/products/lociones-masaje-sunny_5.jpg"
+      ]
+    }
+  ]
+}
