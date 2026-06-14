@@ -135,7 +135,7 @@ function clearAll() {
         </div>
 
         <div v-if="filtered.length" class="grid">
-          <ProductCard v-for="p in filtered" :key="p.slug" :product="p" />
+          <ProductCard v-for="(p, i) in filtered" :key="p.slug" :product="p" :priority="i < 4" />
         </div>
         <div v-else class="emptybox">
           <div class="e">🔍</div>

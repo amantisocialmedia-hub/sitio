@@ -3,7 +3,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
+
+  image: {
+    provider: 'ipx',
+    format: ['webp'],
+    quality: 72,
+    densities: [1, 2],
+  },
 
   css: ['~/assets/css/main.css'],
 

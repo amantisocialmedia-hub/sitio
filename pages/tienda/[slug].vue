@@ -48,8 +48,9 @@ useHead(() => ({ title: product.value ? `${product.value.name} — AMANTI` : 'Pr
         <!-- gallery -->
         <div class="gallery">
           <div class="main" :style="{ background: product.bg }">
-            <img v-if="product.images?.length" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
-                 :alt="product.name" class="gimg" />
+            <NuxtImg v-if="product.images?.length" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
+                 :alt="product.name" class="gimg" format="webp" width="800" height="800"
+                 sizes="(max-width:760px) 100vw, 520px" loading="eager" fetchpriority="high" preload />
             <span v-else class="big">{{ product.emoji }}</span>
             <span v-if="onSale" class="pbadge">rebaja</span>
           </div>
@@ -57,7 +58,7 @@ useHead(() => ({ title: product.value ? `${product.value.name} — AMANTI` : 'Pr
             <template v-if="product.images?.length">
               <div v-for="(img, i) in product.images.slice(0, 4)" :key="img" class="t"
                    :class="{ active: activeThumb === i }" @click="activeThumb = i">
-                <img :src="img" :alt="`${product.name} ${i + 1}`" class="gimg" loading="lazy" />
+                <NuxtImg :src="img" :alt="`${product.name} ${i + 1}`" class="gimg" format="webp" width="150" height="150" loading="lazy" />
               </div>
             </template>
             <template v-else>

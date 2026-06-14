@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Product } from '~/composables/useProducts'
-const props = defineProps<{ product: Product; isNew?: boolean }>()
+const props = defineProps<{ product: Product; isNew?: boolean; priority?: boolean }>()
 const cart = useCartStore()
 const wishlist = useWishlistStore()
 const stars = (r: number) => '★★★★★'.slice(0, r) + '☆☆☆☆☆'.slice(0, 5 - r)
@@ -20,7 +20,10 @@ function add() {
 <template>
   <div class="pcard">
     <NuxtLink :to="`/tienda/${product.slug}`" class="pthumb" :style="{ background: product.bg }">
-      <img v-if="product.images?.length" :src="product.images[0]" :alt="product.name" class="pimg" loading="lazy" />
+      <NuxtImg v-if="product.images?.length" :src="product.images[0]" :alt="product.name" class="pimg"
+               format="webp" width="400" height="400" sizes="(max-width:560px) 50vw, 240px"
+               :loading="priority ? 'eager' : 'lazy'" :fetchpriority="priority ? 'high' : 'auto'"
+               :preload="priority || undefined" />
       <span v-else class="d">{{ product.emoji }}</span>
       <span v-if="onSale" class="pbadge">rebaja</span>
       <span v-else-if="isNew" class="pbadge" style="background:var(--cyan)">nuevo</span>
