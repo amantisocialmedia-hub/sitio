@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt', '@nuxt/image'],
 
   image: {
-    provider: 'ipx',
+    // ipx en local (node); en Vercel se usa la optimización nativa (/_vercel/image)
+    provider: process.env.VERCEL ? 'vercel' : 'ipx',
     format: ['webp'],
     quality: 72,
     densities: [1, 2],
