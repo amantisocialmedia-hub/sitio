@@ -1,5 +1,13 @@
 import { test, expect } from '@playwright/test'
 
+// Suprime age-gate y banner de cookies (overlays globales) para poder interactuar.
+test.beforeEach(async ({ context }) => {
+  await context.addCookies([
+    { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
+    { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
+  ])
+})
+
 test('home muestra el mosaico de categorías', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('.mosaic')).toBeVisible()

@@ -7,5 +7,7 @@
     <AppFooter />
     <BottomNav />
     <WhatsAppButton />
+    <CookieConsent />
+    <AgeGate />
   </div>
 </template>

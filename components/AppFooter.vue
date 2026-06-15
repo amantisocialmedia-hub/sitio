@@ -20,6 +20,7 @@ function suscribir() {
         <input v-model="news" type="email" placeholder="Tu email" @keyup.enter="suscribir" />
         <button class="btn" @click="suscribir">Enviar</button>
       </div>
+      <p v-if="!newsOk" style="font-size:.8rem;opacity:.8;margin-top:8px">Al suscribirte aceptas nuestro <NuxtLink to="/privacidad" style="color:#FFD9CF;text-decoration:underline">Aviso de Privacidad</NuxtLink>.</p>
       <p v-if="newsErr && !newsOk" style="color:#FFD9CF;font-size:.85rem;margin-top:8px">{{ newsErr }}</p>
       <p v-if="newsOk" style="margin-top:10px;font-weight:600">¡Gracias! Te suscribiremos a hola@amanti.mx 💜</p>
       <div class="socials">

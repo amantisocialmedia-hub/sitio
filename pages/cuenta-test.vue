@@ -13,6 +13,7 @@ const phone = ref('')
 const msg = ref('')
 const err = ref('')
 const busy = ref(false)
+const acceptedTerms = ref(false) // obligatorio solo para registro
 
 function show(ok: string, e?: any) {
   busy.value = false
@@ -20,6 +21,7 @@ function show(ok: string, e?: any) {
   else { msg.value = ok; err.value = '' }
 }
 async function doSignUp() {
+  if (!acceptedTerms.value) { err.value = 'Debes aceptar los Términos y el Aviso de Privacidad.'; return }
   busy.value = true; err.value = ''; msg.value = ''
   const { error } = await signUp(email.value, password.value, { full_name: fullName.value, phone: phone.value })
   error ? show('', error) : show('Registro OK. Revisa tu correo si la confirmación está activada.')
@@ -59,8 +61,13 @@ async function doSignOut() { await signOut(); show('Sesión cerrada.') }
       <input v-model="password" type="password" placeholder="Contraseña" />
     </div>
 
+    <label class="consent">
+      <input type="checkbox" v-model="acceptedTerms" />
+      <span>Acepto los <NuxtLink to="/terminos">Términos y Condiciones</NuxtLink> y el <NuxtLink to="/privacidad">Aviso de Privacidad</NuxtLink>.</span>
+    </label>
+
     <div class="auth-btns">
-      <button class="btn magenta" :disabled="busy" @click="doSignUp">Registrarme</button>
+      <button class="btn magenta" :disabled="busy || !acceptedTerms" @click="doSignUp">Registrarme</button>
       <button class="btn" :disabled="busy" @click="doSignIn">Iniciar sesión</button>
       <button class="btn ggl" :disabled="busy" @click="doGoogle">Continuar con Google</button>
       <button class="btn outline" :disabled="busy" @click="doReset">Recuperar contraseña</button>
@@ -85,4 +92,7 @@ async function doSignOut() { await signOut(); show('Sesión cerrada.') }
 .auth-btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .auth-btns .btn { flex: 1 1 auto; }
 .btn.ggl { background: #fff; border: 1px solid #5E1B33; color: #5E1B33; }
+.consent { display: flex; gap: 9px; align-items: flex-start; font-size: .88rem; margin: 0 0 14px; line-height: 1.4; }
+.consent input { accent-color: #E8503A; width: 17px; height: 17px; margin-top: 1px; flex: none; }
+.consent a { color: #E8503A; text-decoration: underline; }
 </style>

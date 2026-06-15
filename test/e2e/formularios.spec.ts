@@ -1,7 +1,21 @@
 import { test, expect } from '@playwright/test'
 
+// El age-gate (overlay full-screen) y el banner de cookies tapan la UI; los suprimimos
+// pre-seteando sus cookies para poder validar la app.
+test.beforeEach(async ({ context }) => {
+  await context.addCookies([
+    { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
+    { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
+  ])
+})
+
 test('form de contacto: valida y arma WhatsApp con los datos', async ({ page, context }) => {
   await page.goto('/contacto')
+
+  // el botón está deshabilitado hasta aceptar Términos/Privacidad
+  await expect(page.getByRole('button', { name: 'Enviar mensaje' })).toBeDisabled()
+  await page.locator('.consent input[type="checkbox"]').check()
+  await expect(page.getByRole('button', { name: 'Enviar mensaje' })).toBeEnabled()
 
   // validación: vacío -> error
   await page.getByRole('button', { name: 'Enviar mensaje' }).click()
