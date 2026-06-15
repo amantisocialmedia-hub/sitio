@@ -4,6 +4,7 @@ node_modules
 .output
 .env
 .env.*
+!.env.example
 fotos_raw
 # carpetas temporales de trabajo (zips, scraping, etc.)
 _*/
