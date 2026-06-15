@@ -86,4 +86,34 @@ test.describe('cuenta autenticada', () => {
     await page.getByRole('button', { name: 'Borrar' }).click()
     await expect(page.getByText('Aún no tienes direcciones guardadas')).toBeVisible({ timeout: 10000 })
   })
+
+  test('FASE D · estado vacío sin pedidos', async ({ page }) => {
+    await login(page)
+    await page.getByRole('button', { name: 'Pedidos' }).click()
+    await expect(page.getByText('Aún no tienes pedidos')).toBeVisible({ timeout: 10000 })
+  })
+
+  test('FASE D · lista un pedido sembrado y muestra su detalle', async ({ page }) => {
+    // sembrar order + items con la service_role (bypassa RLS). Solo lectura en la UI.
+    const { data: order } = await admin.from('orders')
+      .insert({ user_id: uid, status: 'paid', total: 2026, currency: 'MXN', payment_method: 'mercadopago' })
+      .select().single()
+    await admin.from('order_items').insert([
+      { order_id: order.id, product_slug: 'vibrating-g', product_name: 'Vibrating G', quantity: 2, unit_price: 1013, line_total: 2026, image_url: '/products/vibrating-g_1.jpg' },
+    ])
+    try {
+      await login(page)
+      await page.getByRole('button', { name: 'Pedidos' }).click()
+      const folio = '#' + String(order.id).slice(0, 8).toUpperCase()
+      await expect(page.getByText(folio)).toBeVisible({ timeout: 10000 })
+      await expect(page.getByText('Pagado')).toBeVisible()
+      await expect(page.getByText('$ 2,026')).toBeVisible()
+      // expandir detalle
+      await page.getByText(folio).click()
+      await expect(page.getByText('Vibrating G')).toBeVisible()
+      await expect(page.getByText('x2')).toBeVisible()
+    } finally {
+      await admin.from('orders').delete().eq('id', order.id)
+    }
+  })
 })
