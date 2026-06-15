@@ -12,7 +12,7 @@ export const useAuth = () => {
     supabase.auth.signUp({
       email,
       password,
-      options: { data: meta, emailRedirectTo: `${origin()}/cuenta-test` },
+      options: { data: meta, emailRedirectTo: `${origin()}/cuenta` },
     })
 
   /** Inicio de sesión con email/contraseña. */
@@ -23,7 +23,7 @@ export const useAuth = () => {
   const signInWithGoogle = () =>
     supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${origin()}/cuenta-test` },
+      options: { redirectTo: `${origin()}/cuenta` },
     })
 
   /** Cerrar sesión. */
@@ -31,7 +31,7 @@ export const useAuth = () => {
 
   /** Enviar correo de recuperación de contraseña (email de reset de Supabase). */
   const resetPassword = (email: string) =>
-    supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin()}/cuenta-test` })
+    supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin()}/cuenta` })
 
   return { user, signUp, signIn, signInWithGoogle, signOut, resetPassword }
 }
