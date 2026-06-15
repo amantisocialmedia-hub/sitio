@@ -51,4 +51,39 @@ test.describe('cuenta autenticada', () => {
     await page.reload()
     await expect(page.getByPlaceholder('Tu nombre')).toHaveValue('QA Editado', { timeout: 10000 })
   })
+
+  test('FASE C · CRUD de direcciones (crear, editar, predeterminada, borrar)', async ({ page }) => {
+    page.on('dialog', d => d.accept()) // acepta el confirm de borrar
+    await login(page)
+    await page.getByRole('button', { name: 'Direcciones' }).click()
+
+    // estado vacío
+    await expect(page.getByText('Aún no tienes direcciones guardadas')).toBeVisible({ timeout: 10000 })
+
+    // crear (sin predeterminada)
+    await page.getByRole('button', { name: 'Agregar mi primera dirección' }).click()
+    await page.getByPlaceholder('Casa, Oficina…').fill('Casa')
+    await page.getByPlaceholder('Av. Siempre Viva 742').fill('Calle Falsa 123')
+    await page.getByPlaceholder('Ciudad').fill('Morelia')
+    await page.getByPlaceholder('Estado').fill('Michoacán')
+    await page.getByPlaceholder('00000').fill('58000')
+    await page.getByRole('button', { name: 'Guardar dirección' }).click()
+    await expect(page.getByText('Dirección agregada ✓')).toBeVisible()
+    await expect(page.getByText('Calle Falsa 123')).toBeVisible()
+
+    // editar (cambia ciudad)
+    await page.getByRole('button', { name: 'Editar' }).click()
+    await page.getByPlaceholder('Ciudad').fill('Uruapan')
+    await page.getByRole('button', { name: 'Guardar dirección' }).click()
+    await expect(page.getByText('Dirección actualizada ✓')).toBeVisible()
+    await expect(page.getByText(/Uruapan/)).toBeVisible()
+
+    // marcar predeterminada
+    await page.getByRole('button', { name: 'Hacer predeterminada' }).click()
+    await expect(page.locator('.adef')).toBeVisible()
+
+    // borrar -> vuelve a estado vacío
+    await page.getByRole('button', { name: 'Borrar' }).click()
+    await expect(page.getByText('Aún no tienes direcciones guardadas')).toBeVisible({ timeout: 10000 })
+  })
 })

@@ -38,13 +38,14 @@ onMounted(load)
 async function save() {
   msg.value = ''; err.value = ''
   if (!fullName.value.trim()) { err.value = 'Escribe tu nombre.'; return }
+  if (phone.value.trim() && !isMxPhone10(phone.value)) { err.value = 'El teléfono debe tener 10 dígitos.'; return }
   if (!uid) return
   saving.value = true
   const { error } = await supabase
     .from('profiles')
     .update({
       full_name: fullName.value.trim(),
-      phone: phone.value.trim() || null,
+      phone: phone.value.trim() ? cleanMxPhone(phone.value) : null,
       updated_at: new Date().toISOString(),
     })
     .eq('id', uid)
