@@ -2,6 +2,7 @@
 const cart = useCartStore()
 const wishlist = useWishlistStore()
 const router = useRouter()
+const { user } = useAuth()
 
 const showDiscreta = ref(true)
 const drawerOpen = ref(false)
@@ -97,7 +98,7 @@ function itemHref(m: { label: string; to: string }, it: string) {
       </ul>
 
       <div class="nav-right">
-        <NuxtLink to="/cuenta" class="hide-sm">Iniciar Sesión</NuxtLink>
+        <NuxtLink to="/cuenta" class="hide-sm">{{ user ? '👤 Mi cuenta' : 'Entrar' }}</NuxtLink>
         <NuxtLink to="/favoritos" class="ic" aria-label="Favoritos">
           ♡<span v-if="wishlist.count" class="cart-c">{{ wishlist.count }}</span>
         </NuxtLink>
@@ -128,6 +129,7 @@ function itemHref(m: { label: string; to: string }, it: string) {
     <div class="bg" @click="drawerOpen = false"></div>
     <nav class="panel">
       <NuxtLink v-for="m in mega" :key="m.label" :to="m.to" @click="drawerOpen = false">{{ m.label }}</NuxtLink>
+      <NuxtLink to="/cuenta" @click="drawerOpen = false">{{ user ? 'Mi cuenta' : 'Entrar' }}</NuxtLink>
       <NuxtLink to="/favoritos" @click="drawerOpen = false">Favoritos ({{ wishlist.count }})</NuxtLink>
       <NuxtLink to="/carrito" @click="drawerOpen = false">Carrito ({{ cart.totalItems }})</NuxtLink>
     </nav>

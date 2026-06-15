@@ -1,13 +1,49 @@
-<script setup lang="ts">useHead({ title: 'Mi cuenta — AMANTI' })</script>
+<script setup lang="ts">
+useHead({ title: 'Mi cuenta — AMANTI' })
+const { user, signOut } = useAuth()
+
+const sections = [
+  { k: 'perfil', label: 'Mi perfil' },
+  { k: 'direcciones', label: 'Direcciones' },
+  { k: 'pedidos', label: 'Pedidos' },
+]
+const section = ref('perfil')
+const firstName = computed(() => String(user.value?.user_metadata?.full_name || user.value?.email || '').split(' ')[0])
+
+async function logout() {
+  await signOut()
+  section.value = 'perfil'
+}
+</script>
+
 <template>
-  <PageHeader title="Iniciar Sesión" subtitle="Tu cuenta AMANTI, muy pronto." current="Cuenta" />
-  <div class="prose" style="text-align:center;max-width:520px">
-    <div style="font-size:3rem">🔐</div>
-    <p class="lead">Las cuentas y el inicio de sesión estarán disponibles próximamente.</p>
-    <p>Mientras tanto, puedes comprar como invitadx sin crear cuenta, y guardar tus favoritos en este dispositivo.</p>
-    <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px">
-      <NuxtLink to="/tienda" class="btn">Ir a la tienda</NuxtLink>
-      <NuxtLink to="/favoritos" class="btn outline">Mis favoritos</NuxtLink>
-    </p>
+  <PageHeader
+    title="Mi cuenta"
+    :subtitle="user ? `Hola, ${firstName} 👋` : 'Entra o crea tu cuenta AMANTI'"
+    current="Cuenta" />
+
+  <div class="acct">
+    <!-- Sin sesión: login/registro en la misma página (protección sin redirect) -->
+    <AccountAuth v-if="!user" />
+
+    <!-- Con sesión: dashboard -->
+    <div v-else class="dash">
+      <nav class="dash-tabs">
+        <button v-for="s in sections" :key="s.k" :class="{ on: section === s.k }" @click="section = s.k">{{ s.label }}</button>
+        <button class="logout" @click="logout">Cerrar sesión</button>
+      </nav>
+      <AccountProfile v-if="section === 'perfil'" />
+      <AccountAddresses v-else-if="section === 'direcciones'" />
+      <AccountOrders v-else />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.acct { max-width: 820px; margin: 0 auto 80px; padding: 0 20px; }
+.dash-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; }
+.dash-tabs button { padding: 9px 16px; border-radius: 999px; border: 1px solid #E7D8CC; background: #fff; color: #5E1B33; font-weight: 600; cursor: pointer; font-family: inherit; font-size: .9rem; }
+.dash-tabs button.on { background: #5E1B33; color: #fff; border-color: #5E1B33; }
+.dash-tabs .logout { margin-left: auto; border-color: #E8503A; color: #E8503A; }
+.dash-tabs .logout:hover { background: #E8503A; color: #fff; }
+</style>
