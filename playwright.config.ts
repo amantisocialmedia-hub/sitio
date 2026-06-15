@@ -7,7 +7,8 @@ export default defineConfig({
   testDir: './test/e2e',
   timeout: 30_000,
   fullyParallel: false,
-  retries: 0,
+  // 1 reintento: absorbe hipos transitorios de los tests que tocan Supabase (rate-limit de auth).
+  retries: 1,
   reporter: [['list']],
   use: {
     baseURL: BASE,
