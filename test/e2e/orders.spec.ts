@@ -80,4 +80,41 @@ test.describe('pedidos · Etapa 3', () => {
     expect(orders.length).toBe(1)
     await admin.from('orders').delete().eq('id', orders[0].id)
   })
+
+  test('FASE B · webhook MP: aprobado -> paid (idempotente) y rechazado -> cancelled', async ({ request }) => {
+    // order pending de prueba (con user_id para no depender del ALTER)
+    const { data: order } = await admin.from('orders')
+      .insert({ user_id: uid, status: 'pending', total: 500, currency: 'MXN', payment_method: 'mercadopago' })
+      .select('id').single()
+    const ref = order.id
+    const hook = (pay: any) => request.post('/api/mp-webhook', {
+      data: { type: 'payment', data: { id: pay.id }, __test_payment: pay },
+    })
+    const statusOf = async () => (await admin.from('orders').select('status, mp_payment_id').eq('id', ref).single()).data
+    try {
+      // aprobado -> paid + mp_payment_id
+      const r1 = await hook({ id: 'PAY-APPROVED-1', status: 'approved', external_reference: ref })
+      expect(r1.ok()).toBeTruthy()
+      let o = await statusOf()
+      expect(o.status).toBe('paid')
+      expect(o.mp_payment_id).toBe('PAY-APPROVED-1')
+
+      // idempotente: reintento del MISMO evento no rompe ni cambia
+      const r2 = await hook({ id: 'PAY-APPROVED-1', status: 'approved', external_reference: ref })
+      expect((await r2.json()).idempotent).toBe(true)
+      expect((await statusOf()).status).toBe('paid')
+
+      // pending/in_process: no cambia el estado
+      const r3 = await hook({ id: 'PAY-X', status: 'in_process', external_reference: ref })
+      expect((await r3.json()).noChange).toBe(true)
+      expect((await statusOf()).status).toBe('paid')
+
+      // rechazado -> cancelled
+      const r4 = await hook({ id: 'PAY-REJECTED-1', status: 'rejected', external_reference: ref })
+      expect(r4.ok()).toBeTruthy()
+      expect((await statusOf()).status).toBe('cancelled')
+    } finally {
+      await admin.from('orders').delete().eq('id', ref)
+    }
+  })
 })

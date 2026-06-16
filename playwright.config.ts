@@ -27,6 +27,8 @@ export default defineConfig({
       // Token MP dummy: deja pasar el check y ejercita la creación del order; la llamada a MP
       // falla (401) y el order queda 'pending'. En prod el token real va en NUXT_MP_ACCESS_TOKEN.
       NUXT_MP_ACCESS_TOKEN: 'TEST-MP-INVALID',
+      // Permite simular el pago en el webhook SIN llamar a MP (ausente en prod -> siempre verifica MP).
+      MP_WEBHOOK_TEST_MODE: '1',
     },
     port: PORT,
     reuseExistingServer: true,
