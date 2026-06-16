@@ -32,8 +32,22 @@ async function checkout() {
     loading.value = false
   }
 }
-function orderWhatsApp() {
-  window.open(cart.whatsappOrderUrl(), '_blank')
+async function orderWhatsApp() {
+  const url = cart.whatsappOrderUrl()
+  // Abrimos la ventana dentro del gesto del clic para que no la bloquee el navegador.
+  const win = window.open('about:blank', '_blank')
+  try {
+    // Registra el pedido ANTES de abrir WhatsApp ($fetch manda la cookie de sesión si la hay).
+    await $fetch('/api/order-whatsapp', {
+      method: 'POST',
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })) },
+    })
+  } catch (e) {
+    // Degrada con gracia: si la escritura falla, el usuario igual manda su pedido.
+    console.error('No se pudo registrar el pedido (se abre WhatsApp de todos modos):', e)
+  }
+  if (win && !win.closed) win.location.href = url
+  else window.location.href = url
 }
 
 useHead({ title: 'Tu carrito — AMANTI' })

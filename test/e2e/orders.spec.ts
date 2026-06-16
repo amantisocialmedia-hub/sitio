@@ -117,4 +117,47 @@ test.describe('pedidos · Etapa 3', () => {
       await admin.from('orders').delete().eq('id', ref)
     }
   })
+
+  test('FASE C · pedido WhatsApp de invitado inserta order pending + items', async ({ request }) => {
+    test.skip(!guestOk, 'orders.user_id es NOT NULL — corre el ALTER')
+    const res = await request.post('/api/order-whatsapp', { data: { items: [{ slug: 'denzel', name: 'Denzel', price: 400, quantity: 1 }] } })
+    expect(res.ok()).toBeTruthy()
+    const { orderId } = await res.json()
+    try {
+      const { data: o } = await admin.from('orders').select('status, payment_method, user_id').eq('id', orderId).single()
+      expect(o.status).toBe('pending')
+      expect(o.payment_method).toBe('whatsapp')
+      expect(o.user_id).toBeNull()
+      const { data: items } = await admin.from('order_items').select('*').eq('order_id', orderId)
+      expect(items.length).toBe(1)
+      expect(items[0].product_name).toBe('Denzel')
+    } finally {
+      await admin.from('orders').delete().eq('id', orderId)
+    }
+  })
+
+  test('FASE C/D · pedido WhatsApp con sesión se registra y aparece en Mis pedidos', async ({ page }) => {
+    await login(page)
+    const res = await page.evaluate(async () => {
+      const r = await fetch('/api/order-whatsapp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+        body: JSON.stringify({ items: [{ slug: 'denzel', name: 'Denzel', price: 400, quantity: 3 }] }),
+      })
+      return { status: r.status, body: await r.json() }
+    })
+    expect(res.status).toBe(200)
+    const orderId = res.body.orderId
+    try {
+      // en DB: pending, whatsapp, user_id del usuario
+      const { data: o } = await admin.from('orders').select('status, payment_method, user_id').eq('id', orderId).single()
+      expect(o).toMatchObject({ status: 'pending', payment_method: 'whatsapp', user_id: uid })
+      // aparece en "Mis pedidos"
+      await page.getByRole('button', { name: 'Pedidos' }).click()
+      const folio = '#' + String(orderId).slice(0, 8).toUpperCase()
+      await expect(page.getByText(folio)).toBeVisible({ timeout: 10000 })
+      await expect(page.getByText('$ 1,200')).toBeVisible() // 400 x 3
+    } finally {
+      await admin.from('orders').delete().eq('id', orderId)
+    }
+  })
 })
