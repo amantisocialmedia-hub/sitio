@@ -22,7 +22,7 @@ async function checkout() {
   try {
     const res = await $fetch<{ init_point: string }>('/api/checkout', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ name: i.name, price: i.price, quantity: i.quantity })) },
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })) },
     })
     if (res?.init_point) window.location.href = res.init_point
     else errorMsg.value = 'No se recibió el enlace de pago.'
