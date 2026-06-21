@@ -33,6 +33,9 @@ node .output/server/index.mjs   # corre el build (puerto 3000)
 | `NUXT_MP_WEBHOOK_SECRET` | Secreto del webhook de MercadoPago (panel MP → Webhooks → secreto). Valida la firma HMAC `x-signature` de las notificaciones. | Recomendada en prod (defensa en profundidad; el pago igual se re-verifica contra la API de MP) |
 | `NUXT_PUBLIC_PUBLIC_BASE_URL` | URL pública del sitio (para los redirects de MP). En local `http://localhost:3000`; en prod la URL de Vercel/dominio | Sí en prod |
 | `NUXT_PUBLIC_SITE_URL` | URL canónica (`https://amanti.mx`) — se usa para canonical, Open Graph y JSON-LD. | Sí en prod (SEO) |
+| `SUPABASE_URL` | URL del proyecto Supabase (`https://<ref>.supabase.co`). | **Sí** (cuentas y pedidos) |
+| `SUPABASE_KEY` | Llave **anon/public** de Supabase (`eyJ…`). | **Sí** (cuentas y pedidos) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Llave **service_role** (secreta, solo server-side). La usan checkout, el webhook MP y la creación de pedidos. **Sin ella, todo pago con MercadoPago devuelve HTTP 500.** | **Sí en prod** (pedidos/pagos) |
 
 > ⚠️ **Precios de rebaja de ejemplo**: ~25% del catálogo trae un `compareAt` (precio "antes") **generado** para activar la UI de rebajas. Antes de publicar, ajústalos a precios originales **reales** (en México, anunciar un "antes" ficticio puede ser sancionable por PROFECO). Editar en `data/products.json`.
 

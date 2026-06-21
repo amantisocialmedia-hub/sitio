@@ -7,15 +7,24 @@ const ageOk = useCookie<string | null>('amanti_age_ok', {
   sameSite: 'lax',
   path: '/',
 })
+// Persiste el rechazo para no reiniciar el "No" en cada recarga (registra la decisión negativa).
+const ageDeclined = useCookie<string | null>('amanti_age_declined', {
+  maxAge: 60 * 60 * 24, // 1 día
+  sameSite: 'lax',
+  path: '/',
+})
 const mounted = ref(false)
 const declined = ref(false)
 // useCookie (destr) puede devolver el número 1; comparamos con String() para ser robustos.
 const visible = computed(() => mounted.value && String(ageOk.value) !== '1')
 
-onMounted(() => { mounted.value = true })
+onMounted(() => {
+  mounted.value = true
+  if (String(ageDeclined.value) === '1') declined.value = true
+})
 
-function accept() { ageOk.value = '1' }
-function decline() { declined.value = true }
+function accept() { ageOk.value = '1'; ageDeclined.value = null }
+function decline() { declined.value = true; ageDeclined.value = '1' }
 
 // Bloquea el scroll del body mientras el overlay está visible (solo cliente).
 watch(visible, (v) => {

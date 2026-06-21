@@ -16,6 +16,15 @@ const activeThumb = ref(0)
 const added = ref(false)
 const tab = ref('desc')
 
+// El componente se reutiliza al navegar entre fichas (related): reinicia el estado por slug
+// para no arrastrar cantidad, miniatura, pestaña ni el banner falso de "Agregado".
+watch(() => route.params.slug, () => {
+  qty.value = 1
+  activeThumb.value = 0
+  added.value = false
+  tab.value = 'desc'
+})
+
 const waUrl = computed(() => {
   const p = product.value
   if (!p) return '#'

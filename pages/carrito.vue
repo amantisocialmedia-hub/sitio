@@ -9,9 +9,11 @@ const errorMsg = ref('')
 
 const status = computed(() => route.query.status as string | undefined)
 
-// Tras un pago aprobado, vacía el carrito persistido para que no se re-envíe el mismo pedido.
 onMounted(() => {
+  // Tras un pago aprobado, vacía el carrito persistido para que no se re-envíe el mismo pedido.
   if (status.value === 'success') cart.clearCart()
+  // Sincroniza precios con el catálogo vigente (== lo que cobra el server).
+  else cart.refreshPrices()
 })
 
 async function checkout() {

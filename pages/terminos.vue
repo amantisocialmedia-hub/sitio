@@ -1,4 +1,8 @@
-<script setup lang="ts">useHead({ title: 'Términos y condiciones — AMANTI' })</script>
+<script setup lang="ts">
+useHead({ title: 'Términos y condiciones — AMANTI' })
+const config = useRuntimeConfig()
+const wa = `https://wa.me/${config.public.whatsappPhone}`
+</script>
 <template>
   <PageHeader title="Términos y Condiciones" current="Términos" />
   <div class="prose">
@@ -14,7 +18,7 @@
     <p>Al realizar un pedido recibirás una confirmación. El contrato de compraventa se forma cuando AMANTI confirma el envío. AMANTI puede rechazar o cancelar pedidos por falta de existencias, errores de precio/información o sospecha de fraude.</p>
 
     <h2>Precios, pagos y facturación</h2>
-    <p>Aceptamos pago con MercadoPago (tarjetas de crédito y débito, y meses sin intereses cuando aplique) y pedidos por WhatsApp. Los pagos se procesan mediante plataformas de terceros sujetas a sus propios términos. Para factura, escríbenos a [CORREO/PROCESO DE FACTURACIÓN] dentro del mismo mes de la compra.</p>
+    <p>Aceptamos pago con MercadoPago (tarjetas de crédito y débito, y meses sin intereses cuando aplique) y pedidos por WhatsApp. Los pagos se procesan mediante plataformas de terceros sujetas a sus propios términos. Para factura, escríbenos a hola@amanti.mx con tu pedido y tus datos fiscales dentro del mismo mes de la compra.</p>
 
     <h2>Envíos</h2>
     <p>Los envíos se rigen por la Política de Envíos del sitio y se entregan en empaque discreto. Los tiempos son estimados y pueden variar por causas ajenas a AMANTI.</p>
@@ -32,11 +36,11 @@
     <p>El tratamiento de tus datos se rige por el Aviso de Privacidad del sitio.</p>
 
     <h2>Legislación y jurisdicción</h2>
-    <p>Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia, las partes se someten a los tribunales competentes de [CIUDAD/ESTADO]. En materia de consumo es competente la PROFECO.</p>
+    <p>Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia, las partes se someten a los tribunales competentes de Morelia, Michoacán, salvo que la ley disponga otro fuero. En materia de consumo es competente la PROFECO.</p>
 
     <h2>Contacto</h2>
-    <p>Dudas sobre estos Términos: [CORREO] · WhatsApp [NÚMERO].</p>
+    <p>Dudas sobre estos Términos: hola@amanti.mx · <a :href="wa" target="_blank" rel="noopener">WhatsApp</a>.</p>
 
-    <p style="opacity:.6;font-size:.86rem">Última actualización: [FECHA]. Documento sujeto a revisión.</p>
+    <p style="opacity:.6;font-size:.86rem">Última actualización: 20 de junio de 2026. Documento sujeto a revisión.</p>
   </div>
 </template>

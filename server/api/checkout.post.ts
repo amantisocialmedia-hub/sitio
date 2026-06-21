@@ -4,7 +4,8 @@
 // 3) Guarda el mp_preference_id en el order y devuelve el init_point.
 // Requiere NUXT_MP_ACCESS_TOKEN (token MP) y SUPABASE_SERVICE_ROLE_KEY (server).
 import { defineEventHandler, readBody, createError } from 'h3'
-import { createPendingOrder, type InCartItem } from '../utils/orders'
+import { createPendingOrder } from '../utils/orders'
+import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 
 export default defineEventHandler(async (event) => {

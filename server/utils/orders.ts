@@ -8,8 +8,6 @@ import {
   type ResolvedItem,
 } from './orderItems'
 
-export type { InCartItem, ResolvedItem }
-
 // user_id sólo si la petición viene autenticada (lee la sesión server-side). Nunca lanza.
 async function getUserId(event: H3Event): Promise<string | null> {
   // serverSupabaseUser puede devolver el User (id) o los claims del JWT (sub). Aceptamos ambos.

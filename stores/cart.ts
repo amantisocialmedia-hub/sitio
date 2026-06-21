@@ -1,4 +1,11 @@
 import { defineStore } from 'pinia'
+import productsData from '~/data/products.json'
+
+// Precio vigente por slug (fuente de verdad = catálogo, igual que el server). Para que el
+// carrito persistido en localStorage no muestre un precio obsoleto distinto al que se cobra.
+const priceBySlug: Record<string, number> = Object.fromEntries(
+  (productsData.products as { slug: string; price: number }[]).map((p) => [p.slug, p.price]),
+)
 
 export interface CartItem {
   slug: string
@@ -46,6 +53,16 @@ export const useCartStore = defineStore('cart', {
     },
     clearCart() {
       this.items = []
+    },
+
+    /** Re-sincroniza el precio de cada línea con el catálogo vigente (lo que cobra el server).
+     *  Se llama al abrir el carrito para que la UI y el mensaje de WhatsApp no muestren un
+     *  precio obsoleto guardado en localStorage. Si el slug ya no existe, conserva el persistido. */
+    refreshPrices() {
+      this.items.forEach((i) => {
+        const p = priceBySlug[i.slug]
+        if (p != null) i.price = p
+      })
     },
 
     /** Arma el link wa.me con el pedido completo. El numero sale de runtimeConfig. */

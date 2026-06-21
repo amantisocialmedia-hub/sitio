@@ -34,6 +34,14 @@ for (const path of PAGES) {
   })
 }
 
+test('la página de nueva contraseña es alcanzable y muestra el formulario (regresión routing)', async ({ page }) => {
+  // /cuenta/index.vue + /cuenta/nueva-contrasena.vue son rutas hermanas; la página de reset
+  // debe renderizar su propio formulario, no la pantalla de login de /cuenta.
+  await page.goto('/cuenta/nueva-contrasena', { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('button', { name: /Guardar contraseña/i })).toBeVisible()
+  await expect(page.getByPlaceholder(/Nueva contraseña/i)).toBeVisible()
+})
+
 test('PDP con slug inexistente muestra "no encontrado" sin crashear', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', e => errors.push(String(e)))

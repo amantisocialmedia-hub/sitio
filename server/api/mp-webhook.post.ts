@@ -66,7 +66,9 @@ export default defineEventHandler(async (event) => {
     const parts = Object.fromEntries(sig.split(',').map((p) => p.split('=').map((s) => s.trim())))
     const ts = parts.ts, v1 = parts.v1
     if (!ts || !v1) throw createError({ statusCode: 401, message: 'Firma inválida.' })
-    const manifest = `id:${paymentId.toLowerCase()};${reqId ? `request-id:${reqId};` : ''}ts:${ts};`
+    // MP firma sobre el data.id del QUERY (no el del body). Desacoplado del id de consulta a la API.
+    const sigId = String((query as any)['data.id'] || query.id || body?.data?.id || '')
+    const manifest = `id:${sigId.toLowerCase()};${reqId ? `request-id:${reqId};` : ''}ts:${ts};`
     const expected = createHmac('sha256', secret).update(manifest).digest('hex')
     const a = Buffer.from(expected), b = Buffer.from(v1)
     if (a.length !== b.length || !timingSafeEqual(a, b)) {

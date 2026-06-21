@@ -5,8 +5,13 @@ const BASE = `http://localhost:${PORT}`
 
 export default defineConfig({
   testDir: './test/e2e',
-  timeout: 30_000,
+  // 45s: la página /tienda optimiza 143 imágenes con ipx en el primer load del server frío
+  // (en prod van por CDN/Vercel). Da holgura bajo varios workers en paralelo.
+  timeout: 45_000,
   fullyParallel: false,
+  // Cap de 2 workers: reduce la contención cuando varios specs golpean /tienda en frío
+  // (optimización de imágenes ipx) y vuelve la suite determinista. En CI fresco sobra holgura.
+  workers: 2,
   // 1 reintento: absorbe hipos transitorios de los tests que tocan Supabase (rate-limit de auth).
   retries: 1,
   reporter: [['list']],

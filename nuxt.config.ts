@@ -47,14 +47,13 @@ export default defineNuxtConfig({
           content:
             'Sex shop en línea en México con entrega 100% discreta. Vibradores, juguetes para parejas, lubricantes y más.',
         },
-        { property: 'og:image', content: 'https://amanti.mx/og-cover.png' },
+        // og:image / twitter:image se ponen en app.vue derivados de NUXT_PUBLIC_SITE_URL (URL absoluta).
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'AMANTI — Sex Shop en línea en México' },
         {
           name: 'twitter:description',
           content: 'Entrega 100% discreta en todo México. Vibradores, juguetes para parejas, lubricantes y wellness.',
         },
-        { name: 'twitter:image', content: 'https://amanti.mx/og-cover.png' },
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
