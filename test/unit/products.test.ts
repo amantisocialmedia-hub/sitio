@@ -54,8 +54,8 @@ describe('useProducts — filtros', () => {
     expect(featured().length).toBeGreaterThan(0)
   })
 
-  it('onSale tiene productos tras activar rebajas (datos de ejemplo)', () => {
-    expect(onSale().length).toBeGreaterThan(0)
+  it('onSale está vacío: los descuentos son por cupón, no precios "antes" por producto', () => {
+    expect(onSale().length).toBe(0)
   })
 
   it('búsqueda por q (nombre + subtitle) — misma lógica que /tienda', () => {

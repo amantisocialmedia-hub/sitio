@@ -36,7 +36,6 @@ const mega = [
     label: 'Lencería', to: '/tienda',
     items: ['Disfraces', 'Femenina', 'Masculina', 'Trajes De Baño'],
   },
-  { label: 'Rebajas', to: '/tienda?sale=1', items: [] },
   {
     label: 'Blog', to: '/blog',
     items: ['Tips Sexuales', 'Salud Sexual', 'Juguetes Sexuales', 'Estilo De Vida', 'Relaciones Y Amores'],

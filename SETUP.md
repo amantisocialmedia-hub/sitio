@@ -37,7 +37,7 @@ node .output/server/index.mjs   # corre el build (puerto 3000)
 | `SUPABASE_KEY` | Llave **anon/public** de Supabase (`eyJ…`). | **Sí** (cuentas y pedidos) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Llave **service_role** (secreta, solo server-side). La usan checkout, el webhook MP y la creación de pedidos. **Sin ella, todo pago con MercadoPago devuelve HTTP 500.** | **Sí en prod** (pedidos/pagos) |
 
-> ⚠️ **Precios de rebaja de ejemplo**: ~25% del catálogo trae un `compareAt` (precio "antes") **generado** para activar la UI de rebajas. Antes de publicar, ajústalos a precios originales **reales** (en México, anunciar un "antes" ficticio puede ser sancionable por PROFECO). Editar en `data/products.json`.
+> ℹ️ **Sin rebajas por producto**: los descuentos viven en los **cupones** (MercadoPago `AMANTI15`, Aplazo `AMANTI25`), que se honran al pagar. No hay precios "antes/ahora" por producto (`compareAt` = 0 en todo el catálogo) y no existen secciones de "Rebajas". Si en el futuro hay ofertas reales por producto, poner `compareAt` > `price` en `data/products.json` reactiva la UI de descuento (badge, precio tachado y "Especial de la semana").
 
 ---
 

@@ -32,14 +32,14 @@ useSeoMeta({
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>
 
-    <!-- SALE hero -->
+    <!-- Promo de cupones (los descuentos viven en los cupones, no por producto) -->
     <div class="salehero">
-      <div class="flame">% SALE</div>
+      <div class="flame">CUPÓN</div>
       <div class="mid">
-        <div class="gd">GRANDES DESCUENTOS</div>
-        <div class="pct">HASTA 35% OFF</div>
+        <div class="gd">DESCUENTOS CON CUPÓN</div>
+        <div class="pct">HASTA 25% OFF</div>
         <div class="emo">🌙 💞 🌿 🚀 💧</div>
-        <div class="valid">Válido del 23 de mayo al 3 de junio · solo en línea</div>
+        <div class="valid">Con tus cupones AMANTI15 y AMANTI25 al pagar · solo en línea</div>
       </div>
     </div>
 
@@ -85,9 +85,6 @@ useSeoMeta({
       <div class="circles">
         <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="circle">
           <div class="c" :class="`cc${i}`"><img v-if="c.image && !catImgErr.has(c.slug)" :src="c.image" :alt="c.name" class="cat-img" @error="catImgErr.add(c.slug)"><template v-else>{{ c.emoji }}</template></div><span>{{ c.name }}</span>
-        </NuxtLink>
-        <NuxtLink to="/tienda?sale=1" class="circle">
-          <div class="c cc5">🏷️</div><span>Rebajas</span>
         </NuxtLink>
       </div>
     </div>

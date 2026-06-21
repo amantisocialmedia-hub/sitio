@@ -7,7 +7,6 @@ const onlyAmanti = ref(false)
 const priceMin = ref<number | null>(null)
 const priceMax = ref<number | null>(null)
 const sort = ref('relevancia')
-const onlySale = ref(false)
 const q = ref('')
 const showFilters = ref(false) // toggle de filtros en móvil (en desktop el aside siempre se muestra)
 
@@ -18,7 +17,6 @@ const amantiCount = computed(() => products.filter(p => p.brand === 'AMANTI Sele
 function syncFromRoute() {
   const cat = route.query.cat as string | undefined
   selectedCats.value = cat ? [cat] : []
-  onlySale.value = route.query.sale === '1'
   q.value = (route.query.q as string) || ''
 }
 syncFromRoute()
@@ -33,7 +31,6 @@ const counts = computed(() => {
 const filtered = computed(() => {
   let list = products.slice()
   if (selectedCats.value.length) list = list.filter(p => selectedCats.value.includes(p.category))
-  if (onlySale.value) list = list.filter(p => p.compareAt && p.compareAt > p.price)
   if (onlyAmanti.value) list = list.filter(p => p.brand === 'AMANTI Select')
   if (q.value) {
     const t = q.value.toLowerCase()
@@ -51,7 +48,6 @@ const filtered = computed(() => {
 })
 
 const title = computed(() => {
-  if (onlySale.value) return 'Rebajas'
   if (q.value) return `Resultados: “${q.value}”`
   if (selectedCats.value.length === 1) return categories.find(c => c.slug === selectedCats.value[0])?.name || 'Tienda'
   return 'Juguetes Sexuales'
@@ -81,7 +77,7 @@ function toggleCat(slug: string) {
     : [...selectedCats.value, slug]
 }
 function clearAll() {
-  selectedCats.value = []; onlyAmanti.value = false; onlySale.value = false
+  selectedCats.value = []; onlyAmanti.value = false
   priceMin.value = null; priceMax.value = null; q.value = ''
 }
 </script>
@@ -108,10 +104,6 @@ function clearAll() {
             <input type="checkbox" :checked="selectedCats.includes(c.slug)" @change="toggleCat(c.slug)" />
             {{ c.name }}<span class="cnt">({{ counts[c.slug] }})</span>
           </label>
-        </div>
-        <div class="fgroup">
-          <h4>Ofertas</h4>
-          <label class="fopt"><input type="checkbox" v-model="onlySale" /> Solo rebajas</label>
         </div>
         <div class="fgroup">
           <h4>Marca</h4>
