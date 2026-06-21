@@ -80,8 +80,8 @@ export default defineNuxtConfig({
     mpWebhookSecret: '',
     public: {
       brandName: 'AMANTI',
-      // NUXT_PUBLIC_WHATSAPP_PHONE
-      whatsappPhone: '5214430000000',
+      // NUXT_PUBLIC_WHATSAPP_PHONE (número real de AMANTI; se puede sobreescribir por env)
+      whatsappPhone: '5214437270349',
       // NUXT_PUBLIC_SITE_URL
       siteUrl: 'https://amanti.mx',
       // NUXT_PUBLIC_PUBLIC_BASE_URL

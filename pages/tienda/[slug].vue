@@ -141,7 +141,7 @@ useSeoMeta({
             <div class="lbl">Formas de Pago:</div>
             <div class="pay-icons">
               <span class="pi">AMEX</span><span class="pi">VISA</span><span class="pi">MC</span>
-              <span class="pi">PayPal</span><span class="pi">MercadoPago</span><span class="pi">OXXO</span>
+              <span class="pi">MercadoPago</span><span class="pi">OXXO</span>
               <span class="pi">Kueski</span><span class="pi">Aplazo</span>
             </div>
           </div>
