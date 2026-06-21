@@ -173,7 +173,7 @@ async function makeDefault(a: Address) {
       </div>
 
       <ul v-else class="alist">
-        <li v-for="a in list" :key="a.id" class="aitem">
+        <li v-for="(a, i) in list" :key="a.id" class="aitem" v-reveal :data-reveal-index="Math.min(i, 6)">
           <div class="ainfo">
             <div class="atop">
               <span class="alabel">{{ a.label || 'Dirección' }}</span>

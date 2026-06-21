@@ -55,12 +55,12 @@ useSeoMeta({
   <!-- mosaic -->
   <section class="section" style="padding-top:40px">
     <div class="wrap">
-      <div class="sec-head"><h2>Sex toys más populares</h2></div>
+      <div class="sec-head" v-reveal><h2>Sex toys más populares</h2></div>
       <div class="mosaic">
-        <NuxtLink to="/tienda?cat=vibradores" class="tile t1"><span class="te"><img :src="'/categories/vibradores.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🌙</span></span><span class="lbl">Vibradores</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=parejas" class="tile t2"><span class="te"><img :src="'/categories/parejas.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">💞</span></span><span class="lbl">Parejas</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=dildos" class="tile t3"><span class="te"><img :src="'/categories/dildos.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🪐</span></span><span class="lbl">Dildos</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=bdsm" class="tile t4"><span class="te"><img :src="'/categories/bdsm.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🖤</span></span><span class="lbl">BDSM</span></NuxtLink>
+        <NuxtLink to="/tienda?cat=vibradores" class="tile t1" v-reveal :data-reveal-index="0"><span class="te"><img :src="'/categories/vibradores.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🌙</span></span><span class="lbl">Vibradores</span></NuxtLink>
+        <NuxtLink to="/tienda?cat=parejas" class="tile t2" v-reveal :data-reveal-index="1"><span class="te"><img :src="'/categories/parejas.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">💞</span></span><span class="lbl">Parejas</span></NuxtLink>
+        <NuxtLink to="/tienda?cat=dildos" class="tile t3" v-reveal :data-reveal-index="2"><span class="te"><img :src="'/categories/dildos.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🪐</span></span><span class="lbl">Dildos</span></NuxtLink>
+        <NuxtLink to="/tienda?cat=bdsm" class="tile t4" v-reveal :data-reveal-index="3"><span class="te"><img :src="'/categories/bdsm.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🖤</span></span><span class="lbl">BDSM</span></NuxtLink>
       </div>
     </div>
   </section>
@@ -68,7 +68,7 @@ useSeoMeta({
   <!-- feature -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="feature">
+      <div class="feature" v-reveal>
         <div>
           <h2>Juguetes de calidad y diseño</h2>
           <NuxtLink to="/tienda" class="btn" style="margin-top:16px;background:#fff;color:var(--purple)">Comprar →</NuxtLink>
@@ -81,9 +81,9 @@ useSeoMeta({
   <!-- circles -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head"><h2>Navega nuestra sex shop</h2></div>
+      <div class="sec-head" v-reveal><h2>Navega nuestra sex shop</h2></div>
       <div class="circles">
-        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="circle">
+        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="circle" v-reveal :data-reveal-index="i">
           <div class="c" :class="`cc${i}`"><img v-if="c.image && !catImgErr.has(c.slug)" :src="c.image" :alt="c.name" class="cat-img" @error="catImgErr.add(c.slug)"><template v-else>{{ c.emoji }}</template></div><span>{{ c.name }}</span>
         </NuxtLink>
       </div>
@@ -93,9 +93,9 @@ useSeoMeta({
   <!-- novedades -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head"><h2>Novedades</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
+      <div class="sec-head" v-reveal><h2>Novedades</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
       <div class="rail">
-        <ProductCard v-for="p in novedades" :key="p.slug" :product="p" :is-new="true" />
+        <ProductCard v-for="(p, i) in novedades" :key="p.slug" :product="p" :is-new="true" v-reveal :data-reveal-index="i" />
       </div>
     </div>
   </section>
@@ -103,7 +103,7 @@ useSeoMeta({
   <!-- app banner -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="appb">
+      <div class="appb" v-reveal>
         <div>
           <h2>Juguetes con App</h2>
           <p style="opacity:.72;margin-top:6px">Contrólalos desde tu celular, estén donde estén.</p>
@@ -117,9 +117,9 @@ useSeoMeta({
   <!-- lo más vendido -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head"><h2>Lo más vendido</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
+      <div class="sec-head" v-reveal><h2>Lo más vendido</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
       <div class="rail">
-        <ProductCard v-for="p in masVendido" :key="p.slug" :product="p" />
+        <ProductCard v-for="(p, i) in masVendido" :key="p.slug" :product="p" v-reveal :data-reveal-index="i" />
       </div>
     </div>
   </section>
@@ -127,7 +127,7 @@ useSeoMeta({
   <!-- special -->
   <section class="section special" v-if="special">
     <div class="wrap">
-      <div class="box">
+      <div class="box" v-reveal>
         <span class="ws">amanti</span>
         <h2>Especial de la semana</h2>
         <span class="se">{{ special.emoji }}</span>
@@ -144,7 +144,7 @@ useSeoMeta({
   <!-- faq -->
   <section class="section">
     <div class="wrap">
-      <div class="sec-head"><h2>Preguntas frecuentes</h2></div>
+      <div class="sec-head" v-reveal><h2>Preguntas frecuentes</h2></div>
       <div class="faq">
         <details open><summary>¿Hacen entregas discretas en todo México?</summary><p>Sí. Tu pedido llega en empaque neutro, sin marcas ni nada que revele el contenido.</p></details>
         <details><summary>¿Es seguro comprar aquí?</summary><p>Totalmente. Pago seguro con MercadoPago, y también puedes ordenar por WhatsApp con cero juicios.</p></details>
@@ -158,12 +158,12 @@ useSeoMeta({
   <!-- reviews -->
   <section class="section reviews">
     <div class="wrap">
-      <div class="rev-badge"><b>235</b> reseñas verificadas ★★★★★</div>
-      <div class="sec-head" style="margin-bottom:24px"><h2>Nuestros clientes opinan</h2></div>
+      <div class="rev-badge" v-reveal><b>235</b> reseñas verificadas ★★★★★</div>
+      <div class="sec-head" style="margin-bottom:24px" v-reveal><h2>Nuestros clientes opinan</h2></div>
       <div class="rev-grid">
-        <div class="rev"><div class="stars">★★★★★</div><p>"La primera vez que compré fue con AMANTI. Calidad excelente y muchas opciones de pago. Llegó súper discreto."</p><span class="who">Sara L.<span class="verif">Verificado</span></span></div>
-        <div class="rev"><div class="stars">★★★★★</div><p>"Pregunté todo por WhatsApp sin pena y me orientaron increíble. 10/10."</p><span class="who">Pau &amp; Dani<span class="verif">Verificado</span></span></div>
-        <div class="rev"><div class="stars">★★★★☆</div><p>"El kit me encantó para empezar. Compré a meses sin intereses, facilísimo."</p><span class="who">Mariana<span class="verif">Verificado</span></span></div>
+        <div class="rev" v-reveal :data-reveal-index="0"><div class="stars">★★★★★</div><p>"La primera vez que compré fue con AMANTI. Calidad excelente y muchas opciones de pago. Llegó súper discreto."</p><span class="who">Sara L.<span class="verif">Verificado</span></span></div>
+        <div class="rev" v-reveal :data-reveal-index="1"><div class="stars">★★★★★</div><p>"Pregunté todo por WhatsApp sin pena y me orientaron increíble. 10/10."</p><span class="who">Pau &amp; Dani<span class="verif">Verificado</span></span></div>
+        <div class="rev" v-reveal :data-reveal-index="2"><div class="stars">★★★★☆</div><p>"El kit me encantó para empezar. Compré a meses sin intereses, facilísimo."</p><span class="who">Mariana<span class="verif">Verificado</span></span></div>
       </div>
     </div>
   </section>
@@ -171,15 +171,15 @@ useSeoMeta({
   <!-- why + manifesto -->
   <section class="section why">
     <div class="wrap">
-      <h2>¿Por qué AMANTI?</h2>
+      <h2 v-reveal>¿Por qué AMANTI?</h2>
       <div class="why-grid">
-        <div class="why-i"><span class="e">🛍️</span><b>Variedad</b><span>Productos para todas las preferencias.</span></div>
-        <div class="why-i"><span class="e">📦</span><b>Discreto</b><span>Llega sin etiquetas que revelen nada.</span></div>
-        <div class="why-i"><span class="e">💬</span><b>Sin juicios</b><span>Te orientamos por WhatsApp.</span></div>
-        <div class="why-i"><span class="e">📚</span><b>Educativo</b><span>Guías y tips para disfrutar mejor.</span></div>
-        <div class="why-i"><span class="e">🇲🇽</span><b>Mexicana</b><span>Hecha por quienes te entienden.</span></div>
+        <div class="why-i" v-reveal :data-reveal-index="0"><span class="e">🛍️</span><b>Variedad</b><span>Productos para todas las preferencias.</span></div>
+        <div class="why-i" v-reveal :data-reveal-index="1"><span class="e">📦</span><b>Discreto</b><span>Llega sin etiquetas que revelen nada.</span></div>
+        <div class="why-i" v-reveal :data-reveal-index="2"><span class="e">💬</span><b>Sin juicios</b><span>Te orientamos por WhatsApp.</span></div>
+        <div class="why-i" v-reveal :data-reveal-index="3"><span class="e">📚</span><b>Educativo</b><span>Guías y tips para disfrutar mejor.</span></div>
+        <div class="why-i" v-reveal :data-reveal-index="4"><span class="e">🇲🇽</span><b>Mexicana</b><span>Hecha por quienes te entienden.</span></div>
       </div>
-      <div class="manifesto">
+      <div class="manifesto" v-reveal>
         <h3>Celebramos el placer, sin tabúes.</h3>
         <p>Creemos en explorar con libertad y responsabilidad, en romper la idea de que el placer es algo de qué avergonzarse, y en una sexualidad más libre, sana y feliz — para todxs. Bienvenidx. 💜</p>
       </div>

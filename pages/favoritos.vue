@@ -13,9 +13,9 @@ useHead({ title: 'Mis favoritos — AMANTI' })
     <!-- La wishlist solo existe en cliente (localStorage): ClientOnly evita hydration mismatch. -->
     <ClientOnly>
       <div v-if="items.length" class="grid">
-        <ProductCard v-for="p in items" :key="p.slug" :product="p" />
+        <ProductCard v-for="(p, i) in items" :key="p.slug" :product="p" v-reveal :data-reveal-index="i % 8" />
       </div>
-      <div v-else class="emptybox">
+      <div v-else class="emptybox beat">
         <div class="e">🤍</div>
         <h3>Aún no tienes favoritos</h3>
         <p style="opacity:.7;margin:8px 0 16px">Toca el corazón en cualquier producto para guardarlo aquí.</p>

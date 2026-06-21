@@ -7,6 +7,11 @@ const masVendido = bestsellers()
 const loading = ref(false)
 const errorMsg = ref('')
 
+// Pulse del total cuando cambia.
+const totalPulse = ref(false)
+let tp: ReturnType<typeof setTimeout>
+watch(() => cart.totalPrice, () => { totalPulse.value = true; clearTimeout(tp); tp = setTimeout(() => (totalPulse.value = false), 420) })
+
 const status = computed(() => route.query.status as string | undefined)
 
 onMounted(() => {
@@ -77,7 +82,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
     <div v-else-if="status === 'pending'" class="statusmsg ok">Tu pago está pendiente de confirmación.</div>
 
     <!-- empty -->
-    <div v-if="cart.isEmpty" class="emptybox" style="margin:30px 0 10px">
+    <div v-if="cart.isEmpty" class="emptybox beat" style="margin:30px 0 10px">
       <div class="e">🛒</div>
       <h3>Tu carrito está vacío</h3>
       <p style="opacity:.7;margin:8px 0 16px">Explora la tienda y encuentra algo que te encante.</p>
@@ -89,7 +94,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
       <div>
         <table class="carttable">
           <thead><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Total</th><th></th></tr></thead>
-          <tbody>
+          <TransitionGroup name="cartrow" tag="tbody">
             <tr v-for="i in cart.items" :key="i.slug">
               <td>
                 <div class="citem">
@@ -111,7 +116,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
               <td data-label="Total">{{ peso(i.price * i.quantity) }}</td>
               <td class="crm-cell"><button class="crm" @click="cart.removeItem(i.slug)" aria-label="Quitar">✕</button></td>
             </tr>
-          </tbody>
+          </TransitionGroup>
         </table>
       </div>
 
@@ -120,7 +125,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
         <h3>Resumen del Pedido</h3>
         <div class="sline"><span>Subtotal</span><span>{{ peso(cart.totalPrice) }}</span></div>
         <div class="sline"><span>Envío</span><span>{{ cart.totalPrice >= 799 ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
-        <div class="sline total"><span>Total</span><span>{{ peso(cart.totalPrice) }}</span></div>
+        <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalPrice) }}</span></div>
 
         <div v-if="errorMsg" class="statusmsg bad" style="font-size:.86rem">{{ errorMsg }}</div>
 

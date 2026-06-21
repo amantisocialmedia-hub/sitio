@@ -27,9 +27,9 @@ function enviar() {
 <template>
   <PageHeader title="Contáctanos" subtitle="¿Dudas antes de comprar? Te respondemos sin juicios." current="Contacto" />
   <div class="infogrid">
-    <div class="infocard"><div class="e">💬</div><h3>WhatsApp</h3><p>La forma más rápida. Te orientamos para elegir.</p><a :href="wa" target="_blank" rel="noopener">Escríbenos →</a></div>
-    <div class="infocard"><div class="e">✉️</div><h3>Correo</h3><p>Para pedidos, facturación y aclaraciones.</p><a href="mailto:hola@amanti.mx">hola@amanti.mx</a></div>
-    <div class="infocard"><div class="e">🕑</div><h3>Horario</h3><p>Lunes a sábado<br>9:00 – 19:00 hrs</p></div>
+    <div class="infocard" v-reveal :data-reveal-index="0"><div class="e">💬</div><h3>WhatsApp</h3><p>La forma más rápida. Te orientamos para elegir.</p><a :href="wa" target="_blank" rel="noopener">Escríbenos →</a></div>
+    <div class="infocard" v-reveal :data-reveal-index="1"><div class="e">✉️</div><h3>Correo</h3><p>Para pedidos, facturación y aclaraciones.</p><a href="mailto:hola@amanti.mx">hola@amanti.mx</a></div>
+    <div class="infocard" v-reveal :data-reveal-index="2"><div class="e">🕑</div><h3>Horario</h3><p>Lunes a sábado<br>9:00 – 19:00 hrs</p></div>
   </div>
   <div class="cform">
     <h2 style="text-align:center;margin:14px 0 4px">Envíanos un mensaje</h2>

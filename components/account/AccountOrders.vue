@@ -61,7 +61,7 @@ watch(user, (u) => { if (u) load() }, { immediate: true })
       </div>
 
       <ul v-else class="olist">
-        <li v-for="o in orders" :key="o.id" class="oitem">
+        <li v-for="(o, i) in orders" :key="o.id" class="oitem" v-reveal :data-reveal-index="Math.min(i, 6)">
           <button class="ohead" @click="toggle(o.id)">
             <div class="ometa">
               <span class="ofolio">{{ folio(o.id) }}</span>

@@ -97,10 +97,12 @@ useSeoMeta({
         <!-- gallery -->
         <div class="gallery">
           <div class="main" :style="{ background: product.bg }">
-            <NuxtImg v-if="product.images?.length" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
-                 :alt="product.name" class="gimg" format="webp" width="800" height="800"
-                 sizes="(max-width:760px) 100vw, 520px" loading="eager" fetchpriority="high" preload />
-            <span v-else class="big">{{ product.emoji }}</span>
+            <Transition name="gfade" mode="out-in">
+              <NuxtImg v-if="product.images?.length" :key="activeThumb" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
+                   :alt="product.name" class="gimg" format="webp" width="800" height="800"
+                   sizes="(max-width:760px) 100vw, 520px" loading="eager" fetchpriority="high" preload />
+              <span v-else class="big">{{ product.emoji }}</span>
+            </Transition>
             <span v-if="onSale" class="pbadge">rebaja</span>
           </div>
           <div class="thumbs">
@@ -186,31 +188,33 @@ useSeoMeta({
           <button :class="{ active: tab === 'gar' }" @click="tab = 'gar'">Garantía</button>
         </div>
         <div class="tabbody">
-          <div v-if="tab === 'desc'">
-            <p v-for="(par, i) in product.description.split('\n\n')" :key="i">{{ par }}</p>
-            <b style="color:var(--purple)">Características:</b>
-            <ul><li v-for="f in product.features" :key="f">{{ f }}</li></ul>
-          </div>
-          <div v-else-if="tab === 'pol'">
-            <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago, OXXO, Kueski y Aplazo. Puedes pagar a 3 meses sin intereses o a tu ritmo.</p>
-            <p>Si tienes dudas antes de comprar, escríbenos por WhatsApp y te orientamos sin juicios.</p>
-          </div>
-          <div v-else-if="tab === 'env'">
-            <p>Envío 100% discreto a todo México, en empaque neutro sin etiquetas que revelen el contenido.</p>
-            <p>Envío gratis en compras mayores a $799. Tiempo de entrega estimado: 3 a 5 días hábiles.</p>
-          </div>
-          <div v-else>
-            <p>Todos nuestros productos tienen garantía contra defectos de fábrica por 30 días.</p>
-            <p>Por higiene, los productos íntimos no admiten devolución una vez abiertos, salvo defecto de fábrica.</p>
-          </div>
+          <Transition name="tabf" mode="out-in">
+            <div v-if="tab === 'desc'" key="desc">
+              <p v-for="(par, i) in product.description.split('\n\n')" :key="i">{{ par }}</p>
+              <b style="color:var(--purple)">Características:</b>
+              <ul><li v-for="f in product.features" :key="f">{{ f }}</li></ul>
+            </div>
+            <div v-else-if="tab === 'pol'" key="pol">
+              <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago, OXXO, Kueski y Aplazo. Puedes pagar a 3 meses sin intereses o a tu ritmo.</p>
+              <p>Si tienes dudas antes de comprar, escríbenos por WhatsApp y te orientamos sin juicios.</p>
+            </div>
+            <div v-else-if="tab === 'env'" key="env">
+              <p>Envío 100% discreto a todo México, en empaque neutro sin etiquetas que revelen el contenido.</p>
+              <p>Envío gratis en compras mayores a $799. Tiempo de entrega estimado: 3 a 5 días hábiles.</p>
+            </div>
+            <div v-else key="gar">
+              <p>Todos nuestros productos tienen garantía contra defectos de fábrica por 30 días.</p>
+              <p>Por higiene, los productos íntimos no admiten devolución una vez abiertos, salvo defecto de fábrica.</p>
+            </div>
+          </Transition>
         </div>
       </div>
 
       <!-- related -->
       <section class="section" style="padding-top:10px">
-        <div class="sec-head"><h2>También te puede gustar</h2></div>
+        <div class="sec-head" v-reveal><h2>También te puede gustar</h2></div>
         <div class="rail">
-          <ProductCard v-for="p in rel" :key="p.slug" :product="p" />
+          <ProductCard v-for="(p, i) in rel" :key="p.slug" :product="p" v-reveal :data-reveal-index="i" />
         </div>
       </section>
     </template>

@@ -9,7 +9,7 @@ useHead({ title: 'Blog Eroteca — AMANTI' })
   <PageHeader title="Eroteca" subtitle="Tips, salud sexual y placer sin tabúes. Aprende y disfruta mejor." current="Blog" />
   <div class="wrap" style="padding:40px 22px">
     <div class="bloggrid">
-      <NuxtLink v-for="(a, i) in articles" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard">
+      <NuxtLink v-for="(a, i) in articles" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard" v-reveal :data-reveal-index="i % 3">
         <div class="cover" :style="{ background: covers[i % covers.length] }">{{ a.emoji }}</div>
         <div class="bc-body">
           <div class="cat">{{ a.category }}</div>

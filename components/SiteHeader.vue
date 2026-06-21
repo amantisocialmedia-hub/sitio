@@ -8,6 +8,13 @@ const showDiscreta = ref(true)
 const drawerOpen = ref(false)
 const q = ref('')
 
+// Pop del badge al cambiar el carrito / favoritos.
+const cartBump = ref(false)
+const wishBump = ref(false)
+let ct: ReturnType<typeof setTimeout>, wt: ReturnType<typeof setTimeout>
+watch(() => cart.totalItems, () => { cartBump.value = true; clearTimeout(ct); ct = setTimeout(() => (cartBump.value = false), 320) })
+watch(() => wishlist.count, () => { wishBump.value = true; clearTimeout(wt); wt = setTimeout(() => (wishBump.value = false), 320) })
+
 function goSearch() {
   drawerOpen.value = false
   router.push({ path: '/tienda', query: q.value ? { q: q.value } : {} })
@@ -99,10 +106,10 @@ function itemHref(m: { label: string; to: string }, it: string) {
       <div class="nav-right">
         <NuxtLink to="/cuenta" class="hide-sm">{{ user ? '👤 Mi cuenta' : 'Entrar' }}</NuxtLink>
         <NuxtLink to="/favoritos" class="ic" aria-label="Favoritos">
-          ♡<span v-if="wishlist.count" class="cart-c">{{ wishlist.count }}</span>
+          ♡<span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
         </NuxtLink>
         <NuxtLink to="/carrito" class="ic" aria-label="Carrito">
-          🛒<span v-if="cart.totalItems" class="cart-c">{{ cart.totalItems }}</span>
+          🛒<span v-if="cart.totalItems" class="cart-c" :class="{ bump: cartBump }">{{ cart.totalItems }}</span>
         </NuxtLink>
         <button class="burger" @click="drawerOpen = true" aria-label="Menú">☰</button>
       </div>
