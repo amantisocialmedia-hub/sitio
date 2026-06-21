@@ -39,8 +39,10 @@ export const useCartStore = defineStore('cart', {
     updateQuantity(slug: string, quantity: number) {
       const it = this.items.find(i => i.slug === slug)
       if (!it) return
-      if (quantity <= 0) this.removeItem(slug)
-      else it.quantity = quantity
+      // Coacciona a entero; valores no finitos o <= 0 eliminan la línea.
+      const q = Math.floor(Number(quantity))
+      if (!Number.isFinite(q) || q <= 0) this.removeItem(slug)
+      else it.quantity = q
     },
     clearCart() {
       this.items = []

@@ -30,7 +30,47 @@ function addToCart() {
   added.value = true
 }
 
-useHead(() => ({ title: product.value ? `${product.value.name} — AMANTI` : 'Producto — AMANTI' }))
+// SEO: título + meta description + Open Graph + JSON-LD de Producto (rich results).
+// El canonical lo pone app.vue globalmente vía route.path (no se duplica aquí).
+const seo = computed(() => {
+  const p = product.value
+  if (!p) return null
+  const base = config.public.siteUrl
+  return { p, url: `${base}/tienda/${p.slug}`, img: p.images?.length ? base + p.images[0] : undefined }
+})
+
+useHead(() => ({
+  title: seo.value ? `${seo.value.p.name} — AMANTI` : 'Producto — AMANTI',
+  script: seo.value
+    ? [{
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: seo.value.p.name,
+          image: seo.value.img ? [seo.value.img] : undefined,
+          description: seo.value.p.description || seo.value.p.subtitle,
+          brand: { '@type': 'Brand', name: seo.value.p.brand },
+          offers: {
+            '@type': 'Offer',
+            price: seo.value.p.price,
+            priceCurrency: 'MXN',
+            availability: 'https://schema.org/InStock',
+            url: seo.value.url,
+          },
+        }),
+      }]
+    : [],
+}))
+
+useSeoMeta({
+  description: () => seo.value?.p.subtitle || seo.value?.p.description,
+  ogTitle: () => (seo.value ? `${seo.value.p.name} — AMANTI` : undefined),
+  ogDescription: () => seo.value?.p.subtitle || seo.value?.p.description,
+  ogType: 'product',
+  ogUrl: () => seo.value?.url,
+  ogImage: () => seo.value?.img,
+})
 </script>
 
 <template>

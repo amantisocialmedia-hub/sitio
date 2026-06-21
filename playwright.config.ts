@@ -15,6 +15,9 @@ export default defineConfig({
     headless: true,
     trace: 'off',
   },
+  // Un solo proyecto desktop. La cobertura móvil vive en responsive.spec.ts, que fija el viewport
+  // con setViewportSize(393) — así no forzamos a los specs desktop a un layout donde algunos
+  // controles (p.ej. los filtros colapsados) quedarían ocultos.
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
     command: `node .output/server/index.mjs`,
@@ -27,7 +30,10 @@ export default defineConfig({
       // Token MP dummy: deja pasar el check y ejercita la creación del order; la llamada a MP
       // falla (401) y el order queda 'pending'. En prod el token real va en NUXT_MP_ACCESS_TOKEN.
       NUXT_MP_ACCESS_TOKEN: 'TEST-MP-INVALID',
-      // Permite simular el pago en el webhook SIN llamar a MP (ausente en prod -> siempre verifica MP).
+      // Modo test del webhook: SOLO se activa fuera de producción. Por eso forzamos NODE_ENV!=production
+      // aquí; en prod (Vercel) NODE_ENV='production' deshabilita el bypass aunque la var existiera.
+      NODE_ENV: 'test',
+      // El webhook exige __test_secret === MP_WEBHOOK_TEST_MODE para simular pagos (ausente en prod).
       MP_WEBHOOK_TEST_MODE: '1',
     },
     port: PORT,

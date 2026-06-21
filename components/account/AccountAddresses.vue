@@ -19,6 +19,7 @@ const showForm = ref(false)
 const editingId = ref<string | null>(null)
 const form = ref<Address>(empty())
 const saving = ref(false)
+const working = ref(false) // operación en vuelo (makeDefault/remove): evita doble clic y estados a medias
 const err = ref('')
 const msg = ref('')
 let uid = ''
@@ -82,9 +83,11 @@ async function save() {
     country: (f.country.trim() || 'MX').toUpperCase(),
     is_default: !!f.is_default,
   }
-  // Una sola predeterminada: si esta queda como default, apaga las demás.
+  // Una sola predeterminada: si esta queda como default, apaga las demás (y aborta si falla,
+  // para no dejar al usuario sin ninguna predeterminada).
   if (payload.is_default) {
-    await supabase.from('addresses').update({ is_default: false }).eq('user_id', uid)
+    const { error: eClear } = await supabase.from('addresses').update({ is_default: false }).eq('user_id', uid)
+    if (eClear) { saving.value = false; err.value = 'No se pudo guardar la dirección. Inténtalo de nuevo.'; return }
   }
   let error
   if (editingId.value) {
@@ -100,18 +103,24 @@ async function save() {
 }
 
 async function remove(a: Address) {
-  if (!a.id) return
+  if (!a.id || working.value) return
   if (!confirm(`¿Borrar la dirección "${a.label || 'sin nombre'}"? Esta acción no se puede deshacer.`)) return
+  working.value = true; err.value = ''
   const { error } = await supabase.from('addresses').delete().eq('id', a.id)
+  working.value = false
   if (error) { err.value = 'No se pudo borrar la dirección.'; return }
   await load()
   msg.value = 'Dirección eliminada.'
 }
 
 async function makeDefault(a: Address) {
-  if (!a.id || !uid) return
-  await supabase.from('addresses').update({ is_default: false }).eq('user_id', uid)
+  if (!a.id || !uid || working.value) return
+  working.value = true; err.value = ''
+  // Apaga las demás; si esto falla NO continuamos (evita quedar sin predeterminada).
+  const { error: e1 } = await supabase.from('addresses').update({ is_default: false }).eq('user_id', uid)
+  if (e1) { working.value = false; err.value = 'No se pudo marcar como predeterminada.'; return }
   const { error } = await supabase.from('addresses').update({ is_default: true }).eq('id', a.id)
+  working.value = false
   if (error) { err.value = 'No se pudo marcar como predeterminada.'; return }
   await load()
   msg.value = 'Dirección predeterminada actualizada ✓'
@@ -126,7 +135,7 @@ async function makeDefault(a: Address) {
     </div>
 
     <p v-if="msg" class="fmsg ok">{{ msg }}</p>
-    <p v-if="listErr" class="fmsg bad">{{ listErr }}</p>
+    <p v-if="listErr" class="fmsg bad">{{ listErr }} <button class="lnk" @click="load">Reintentar</button></p>
 
     <p v-if="loading" class="muted">Cargando…</p>
 
@@ -175,9 +184,9 @@ async function makeDefault(a: Address) {
             <p class="aline">{{ a.city }}, {{ a.state }} {{ a.postal_code }} · {{ a.country }}</p>
           </div>
           <div class="aacts">
-            <button v-if="!a.is_default" class="lnk" @click="makeDefault(a)">Hacer predeterminada</button>
+            <button v-if="!a.is_default" class="lnk" :disabled="working" @click="makeDefault(a)">Hacer predeterminada</button>
             <button class="lnk" @click="openEdit(a)">Editar</button>
-            <button class="lnk del" @click="remove(a)">Borrar</button>
+            <button class="lnk del" :disabled="working" @click="remove(a)">Borrar</button>
           </div>
         </li>
       </ul>
@@ -218,5 +227,6 @@ async function makeDefault(a: Address) {
 .aacts { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
 .lnk { background: none; border: none; cursor: pointer; color: #5E1B33; font-size: .82rem; text-decoration: underline; padding: 2px; }
 .lnk.del { color: #C0341B; }
+.lnk:disabled { opacity: .5; cursor: not-allowed; }
 @media (max-width: 480px) { .grid2 { grid-template-columns: 1fr; } .aacts { flex-direction: row; align-items: center; } }
 </style>

@@ -1,13 +1,14 @@
 import type { H3Event } from 'h3'
 import { serverSupabaseUser } from '#supabase/server'
-import productsData from '../../data/products.json'
+import {
+  resolveItems,
+  computeTotal,
+  buildOrderRows,
+  type InCartItem,
+  type ResolvedItem,
+} from './orderItems'
 
-export interface InCartItem { slug?: string; name: string; price: number; quantity: number }
-
-// Mapa slug -> primera imagen (para el snapshot image_url de order_items).
-const imgBySlug: Record<string, string | null> = Object.fromEntries(
-  ((productsData as any).products as any[]).map((p) => [p.slug, (p.images && p.images[0]) || null]),
-)
+export type { InCartItem, ResolvedItem }
 
 // user_id sólo si la petición viene autenticada (lee la sesión server-side). Nunca lanza.
 async function getUserId(event: H3Event): Promise<string | null> {
@@ -25,10 +26,11 @@ async function defaultAddressSnapshot(userId: string | null): Promise<any | null
   return data || null
 }
 
-export interface CreatedOrder { id: string; total: number; userId: string | null }
+export interface CreatedOrder { id: string; total: number; userId: string | null; items: ResolvedItem[] }
 
 /**
  * Crea un order 'pending' + sus order_items (snapshot) con la service_role.
+ * Los precios se RESUELVEN server-side por slug (data/products.json); el price del cliente se ignora.
  * paymentMethod: 'mercadopago' | 'whatsapp'. user_id sólo si hay sesión.
  */
 export async function createPendingOrder(
@@ -36,13 +38,13 @@ export async function createPendingOrder(
   items: InCartItem[],
   paymentMethod: 'mercadopago' | 'whatsapp',
 ): Promise<CreatedOrder> {
-  const clean = (items || []).filter((i) => i && i.name && Number(i.quantity) > 0 && Number(i.price) >= 0)
-  if (!clean.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
+  // Valida + resuelve precios autoritativos (lanza 400 si hay items inválidos o el carrito está vacío).
+  const resolved = resolveItems(items)
+  const total = computeTotal(resolved)
 
   const admin = supabaseAdmin()
   const userId = await getUserId(event)
   const shipping = await defaultAddressSnapshot(userId)
-  const total = clean.reduce((s, i) => s + i.price * i.quantity, 0)
 
   const { data: order, error: oErr } = await admin
     .from('orders')
@@ -61,20 +63,14 @@ export async function createPendingOrder(
     throw createError({ statusCode: 500, message: 'No se pudo crear el pedido.' })
   }
 
-  const rows = clean.map((i) => ({
-    order_id: order.id,
-    product_slug: i.slug || null,
-    product_name: i.name,
-    image_url: (i.slug && imgBySlug[i.slug]) || null,
-    unit_price: i.price,
-    quantity: i.quantity,
-    line_total: i.price * i.quantity,
-  }))
+  const rows = buildOrderRows(order.id as string, resolved)
   const { error: iErr } = await admin.from('order_items').insert(rows)
   if (iErr) {
-    await admin.from('orders').delete().eq('id', order.id) // rollback best-effort
+    console.error('[orders] insert order_items falló:', iErr.message, 'order:', order.id)
+    const { error: delErr } = await admin.from('orders').delete().eq('id', order.id) // rollback best-effort
+    if (delErr) console.error('[orders] ROLLBACK FALLÓ, order huérfano sin items:', order.id, delErr.message)
     throw createError({ statusCode: 500, message: 'No se pudieron guardar los artículos del pedido.' })
   }
 
-  return { id: order.id as string, total: order.total as number, userId }
+  return { id: order.id as string, total: order.total as number, userId, items: resolved }
 }

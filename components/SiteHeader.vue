@@ -118,17 +118,24 @@ function itemHref(m: { label: string; to: string }, it: string) {
   <div class="searchrow">
     <div class="wrap">
       <div class="searchbox">
-        <input v-model="q" placeholder="Búsqueda Rápida" @keyup.enter="goSearch" />
+        <input v-model="q" placeholder="Búsqueda Rápida" aria-label="Buscar productos" @keyup.enter="goSearch" />
         <button class="sic" @click="goSearch" aria-label="Buscar">🔍</button>
       </div>
     </div>
   </div>
 
-  <!-- Drawer móvil -->
+  <!-- Drawer móvil: acordeón para alcanzar las subcategorías (no solo los rótulos) -->
   <div class="drawer" :class="{ open: drawerOpen }">
     <div class="bg" @click="drawerOpen = false"></div>
     <nav class="panel">
-      <NuxtLink v-for="m in mega" :key="m.label" :to="m.to" @click="drawerOpen = false">{{ m.label }}</NuxtLink>
+      <div v-for="m in mega" :key="m.label" class="drawer-group">
+        <details v-if="m.items.length">
+          <summary>{{ m.label }}</summary>
+          <NuxtLink :to="m.to" class="sub" @click="drawerOpen = false">Ver todo {{ m.label }}</NuxtLink>
+          <NuxtLink v-for="it in m.items" :key="it" :to="itemHref(m, it)" class="sub" @click="drawerOpen = false">{{ it }}</NuxtLink>
+        </details>
+        <NuxtLink v-else :to="m.to" @click="drawerOpen = false">{{ m.label }}</NuxtLink>
+      </div>
       <NuxtLink to="/cuenta" @click="drawerOpen = false">{{ user ? 'Mi cuenta' : 'Entrar' }}</NuxtLink>
       <NuxtLink to="/favoritos" @click="drawerOpen = false">Favoritos ({{ wishlist.count }})</NuxtLink>
       <NuxtLink to="/carrito" @click="drawerOpen = false">Carrito ({{ cart.totalItems }})</NuxtLink>
@@ -138,4 +145,17 @@ function itemHref(m: { label: string; to: string }, it: string) {
 
 <style scoped>
 @media(max-width:560px){ .hide-sm{display:none} }
+/* acordeón del drawer */
+.drawer-group details summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 24px;font-family:var(--fh);font-weight:600;color:var(--purple);
+  border-bottom:1px solid #F9EFE7;text-transform:uppercase;font-size:.92rem;
+}
+.drawer-group details summary::-webkit-details-marker{display:none}
+.drawer-group details summary::after{content:'+';color:var(--magenta);font-weight:700;font-size:1.2rem}
+.drawer-group details[open] summary::after{content:'–'}
+.drawer .panel a.sub{
+  padding:11px 24px 11px 36px;font-family:var(--fb);font-weight:500;font-size:.88rem;
+  text-transform:none;color:var(--purple);background:#FCF6F0;
+}
 </style>

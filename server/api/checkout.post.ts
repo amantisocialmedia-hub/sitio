@@ -30,7 +30,8 @@ export default defineEventHandler(async (event) => {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: {
-          items: items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.price, currency_id: 'MXN' })),
+          // Precios AUTORITATIVOS resueltos en el servidor (no el price del cliente).
+          items: order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' })),
           external_reference: order.id,
           notification_url: `${base}/api/mp-webhook`,
           back_urls: {

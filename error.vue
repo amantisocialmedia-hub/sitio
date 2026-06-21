@@ -6,7 +6,7 @@ const handle = () => clearError({ redirect: '/' })
 <template>
   <NuxtLayout name="default">
     <div class="wrap" style="text-align:center;padding:90px 0 70px">
-      <div style="font-size:4rem">🙈</div>
+      <div style="font-size:4rem" aria-hidden="true">🙈</div>
       <h1 style="font-size:clamp(1.8rem,5vw,3rem)">
         {{ error?.statusCode === 404 ? 'Página no encontrada' : 'Algo salió mal' }}
       </h1>

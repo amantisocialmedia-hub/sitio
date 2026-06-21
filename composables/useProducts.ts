@@ -24,6 +24,7 @@ export interface Category {
   name: string
   emoji: string
   blurb: string
+  image?: string
 }
 
 const products = data.products as Product[]

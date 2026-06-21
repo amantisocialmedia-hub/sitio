@@ -30,8 +30,11 @@ node .output/server/index.mjs   # corre el build (puerto 3000)
 |---|---|---|
 | `NUXT_PUBLIC_WHATSAPP_PHONE` | Número de WhatsApp para pedidos (formato `52` + `1` + 10 dígitos, sin `+`) | **Sí** (para pedidos por WhatsApp) |
 | `NUXT_MP_ACCESS_TOKEN` | Access token de MercadoPago (sandbox o producción) | Solo para cobrar con MercadoPago |
+| `NUXT_MP_WEBHOOK_SECRET` | Secreto del webhook de MercadoPago (panel MP → Webhooks → secreto). Valida la firma HMAC `x-signature` de las notificaciones. | Recomendada en prod (defensa en profundidad; el pago igual se re-verifica contra la API de MP) |
 | `NUXT_PUBLIC_PUBLIC_BASE_URL` | URL pública del sitio (para los redirects de MP). En local `http://localhost:3000`; en prod la URL de Vercel/dominio | Sí en prod |
-| `NUXT_PUBLIC_SITE_URL` | URL canónica (`https://amanti.mx`) | No |
+| `NUXT_PUBLIC_SITE_URL` | URL canónica (`https://amanti.mx`) — se usa para canonical, Open Graph y JSON-LD. | Sí en prod (SEO) |
+
+> ⚠️ **Precios de rebaja de ejemplo**: ~25% del catálogo trae un `compareAt` (precio "antes") **generado** para activar la UI de rebajas. Antes de publicar, ajústalos a precios originales **reales** (en México, anunciar un "antes" ficticio puede ser sancionable por PROFECO). Editar en `data/products.json`.
 
 ---
 

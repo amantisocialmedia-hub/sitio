@@ -1,10 +1,26 @@
 <script setup lang="ts">
 const { categories, featured, bestsellers, onSale, peso } = useProducts()
-const novedades = featured()
+const novedades = featured().slice(0, 8) // rail curado, no los 55 destacados
 const masVendido = bestsellers()
 const special = onSale()[0]
 const circleCats = categories
 const catImgErr = reactive(new Set<string>())
+
+// SEO de la home: og/twitter + reafirma título/descripción. El canonical lo pone app.vue.
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl
+useSeoMeta({
+  title: 'AMANTI — Sex Shop en línea | Juguetes sexuales discretos en México',
+  description:
+    'Sex shop en línea en México con entrega 100% discreta. Vibradores, juguetes para parejas, lubricantes y más.',
+  ogTitle: 'AMANTI — Sex Shop en línea en México',
+  ogDescription:
+    'Entrega 100% discreta en todo México. Vibradores, juguetes para parejas, lubricantes y wellness.',
+  ogType: 'website',
+  ogUrl: `${siteUrl}/`,
+  ogImage: `${siteUrl}/og-cover.png`,
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>
