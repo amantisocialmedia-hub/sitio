@@ -49,8 +49,10 @@ async function doRegister() {
 }
 async function doGoogle() {
   err.value = ''
+  busy.value = true
   const { error } = await signInWithGoogle()
-  if (error) err.value = mapError(error.message)
+  // En éxito la página redirige a Google: dejamos busy=true para no permitir doble clic.
+  if (error) { busy.value = false; err.value = mapError(error.message) }
 }
 async function doReset() {
   err.value = ''; ok.value = ''
@@ -93,7 +95,7 @@ async function doReset() {
     </form>
 
     <div class="auth-sep"><span>o</span></div>
-    <button class="btn ggl block" :disabled="busy" @click="doGoogle">Continuar con Google</button>
+    <button class="btn ggl block" :disabled="busy" @click="doGoogle">{{ busy ? 'Conectando…' : 'Continuar con Google' }}</button>
   </div>
 </template>
 

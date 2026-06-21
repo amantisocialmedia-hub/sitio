@@ -81,40 +81,55 @@ test.describe('pedidos · Etapa 3', () => {
     await admin.from('orders').delete().eq('id', orders[0].id)
   })
 
-  test('FASE B · webhook MP: aprobado -> paid (idempotente) y rechazado -> cancelled', async ({ request }) => {
-    // order pending de prueba (con user_id para no depender del ALTER)
-    const { data: order } = await admin.from('orders')
+  test('FASE B · webhook MP: aprobado -> paid (idempotente, forward-only) y pending -> cancelled', async ({ request }) => {
+    // dos orders pending de prueba (con user_id para no depender del ALTER)
+    const { data: o1 } = await admin.from('orders')
       .insert({ user_id: uid, status: 'pending', total: 500, currency: 'MXN', payment_method: 'mercadopago' })
       .select('id').single()
-    const ref = order.id
-    const hook = (pay: any) => request.post('/api/mp-webhook', {
-      data: { type: 'payment', data: { id: pay.id }, __test_payment: pay },
+    const { data: o2 } = await admin.from('orders')
+      .insert({ user_id: uid, status: 'pending', total: 700, currency: 'MXN', payment_method: 'mercadopago' })
+      .select('id').single()
+    // Items: el webhook NO marca 'paid' un order sin artículos (salvaguarda anti-huérfano).
+    await admin.from('order_items').insert([
+      { order_id: o1.id, product_name: 'X', unit_price: 500, quantity: 1, line_total: 500 },
+      { order_id: o2.id, product_name: 'Y', unit_price: 700, quantity: 1, line_total: 700 },
+    ])
+    // __test_secret debe coincidir con MP_WEBHOOK_TEST_MODE del webServer ('1'); el gate exige NODE_ENV!=production.
+    const hook = (ref: string, pay: any) => request.post('/api/mp-webhook', {
+      data: { type: 'payment', data: { id: pay.id }, __test_payment: { ...pay, external_reference: ref }, __test_secret: '1' },
     })
-    const statusOf = async () => (await admin.from('orders').select('status, mp_payment_id').eq('id', ref).single()).data
+    const statusOf = async (ref: string) => (await admin.from('orders').select('status, mp_payment_id').eq('id', ref).single()).data
     try {
       // aprobado -> paid + mp_payment_id
-      const r1 = await hook({ id: 'PAY-APPROVED-1', status: 'approved', external_reference: ref })
+      const r1 = await hook(o1.id, { id: 'PAY-APPROVED-1', status: 'approved' })
       expect(r1.ok()).toBeTruthy()
-      let o = await statusOf()
+      let o = await statusOf(o1.id)
       expect(o.status).toBe('paid')
       expect(o.mp_payment_id).toBe('PAY-APPROVED-1')
 
-      // idempotente: reintento del MISMO evento no rompe ni cambia
-      const r2 = await hook({ id: 'PAY-APPROVED-1', status: 'approved', external_reference: ref })
+      // idempotente: reintento del MISMO estado no rompe ni cambia
+      const r2 = await hook(o1.id, { id: 'PAY-APPROVED-1', status: 'approved' })
       expect((await r2.json()).idempotent).toBe(true)
-      expect((await statusOf()).status).toBe('paid')
+      expect((await statusOf(o1.id)).status).toBe('paid')
 
       // pending/in_process: no cambia el estado
-      const r3 = await hook({ id: 'PAY-X', status: 'in_process', external_reference: ref })
+      const r3 = await hook(o1.id, { id: 'PAY-X', status: 'in_process' })
       expect((await r3.json()).noChange).toBe(true)
-      expect((await statusOf()).status).toBe('paid')
+      expect((await statusOf(o1.id)).status).toBe('paid')
 
-      // rechazado -> cancelled
-      const r4 = await hook({ id: 'PAY-REJECTED-1', status: 'rejected', external_reference: ref })
-      expect(r4.ok()).toBeTruthy()
-      expect((await statusOf()).status).toBe('cancelled')
+      // forward-only: un 'rejected' tardío NO revierte un pago confirmado (sigue 'paid')
+      const r4 = await hook(o1.id, { id: 'PAY-REJECTED-LATE', status: 'rejected' })
+      const j4 = await r4.json()
+      expect(j4.reason).toBe('transition-not-allowed')
+      expect((await statusOf(o1.id)).status).toBe('paid')
+
+      // un order pending SÍ puede pasar a cancelled (rechazo en su único intento)
+      const r5 = await hook(o2.id, { id: 'PAY-REJECTED-2', status: 'rejected' })
+      expect(r5.ok()).toBeTruthy()
+      expect((await statusOf(o2.id)).status).toBe('cancelled')
     } finally {
-      await admin.from('orders').delete().eq('id', ref)
+      await admin.from('orders').delete().eq('id', o1.id)
+      await admin.from('orders').delete().eq('id', o2.id)
     }
   })
 

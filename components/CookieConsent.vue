@@ -54,6 +54,12 @@ function reject() {
 .cc-accept:hover { background: #d8442f; }
 .cc-reject { background: transparent; color: #5E1B33; border: 1px solid #C9A9B4; }
 .cc-reject:hover { border-color: #5E1B33; }
+/* En móvil/tablet el BottomNav fijo (62px) está presente: el banner se sienta encima de él
+   (y respeta el área segura de iOS). En desktop el BottomNav se oculta (ver main.css), así que
+   el banner queda al fondo. */
+@media (max-width: 1080px) {
+  .cc { bottom: calc(62px + env(safe-area-inset-bottom, 0px)); }
+}
 @media (max-width: 560px) {
   .cc { flex-direction: column; text-align: center; gap: 12px; }
   .cc-btns { width: 100%; }

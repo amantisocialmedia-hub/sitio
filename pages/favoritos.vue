@@ -10,14 +10,20 @@ useHead({ title: 'Mis favoritos — AMANTI' })
 <template>
   <PageHeader title="Mis Favoritos" subtitle="Tus juguetes guardados para después." current="Favoritos" />
   <div class="wrap" style="padding:40px 22px">
-    <div v-if="items.length" class="grid">
-      <ProductCard v-for="p in items" :key="p.slug" :product="p" />
-    </div>
-    <div v-else class="emptybox">
-      <div class="e">🤍</div>
-      <h3>Aún no tienes favoritos</h3>
-      <p style="opacity:.7;margin:8px 0 16px">Toca el corazón en cualquier producto para guardarlo aquí.</p>
-      <NuxtLink to="/tienda" class="btn">Explorar la tienda</NuxtLink>
-    </div>
+    <!-- La wishlist solo existe en cliente (localStorage): ClientOnly evita hydration mismatch. -->
+    <ClientOnly>
+      <div v-if="items.length" class="grid">
+        <ProductCard v-for="p in items" :key="p.slug" :product="p" />
+      </div>
+      <div v-else class="emptybox">
+        <div class="e">🤍</div>
+        <h3>Aún no tienes favoritos</h3>
+        <p style="opacity:.7;margin:8px 0 16px">Toca el corazón en cualquier producto para guardarlo aquí.</p>
+        <NuxtLink to="/tienda" class="btn">Explorar la tienda</NuxtLink>
+      </div>
+      <template #fallback>
+        <div class="emptybox"><div class="e">🤍</div><h3>Cargando tus favoritos…</h3></div>
+      </template>
+    </ClientOnly>
   </div>
 </template>

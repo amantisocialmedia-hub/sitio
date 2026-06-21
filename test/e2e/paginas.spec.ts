@@ -33,3 +33,22 @@ for (const path of PAGES) {
     expect(errors, `errores JS en ${path}`).toEqual([])
   })
 }
+
+test('la página de nueva contraseña es alcanzable y muestra el formulario (regresión routing)', async ({ page }) => {
+  // /cuenta/index.vue + /cuenta/nueva-contrasena.vue son rutas hermanas; la página de reset
+  // debe renderizar su propio formulario, no la pantalla de login de /cuenta.
+  await page.goto('/cuenta/nueva-contrasena', { waitUntil: 'domcontentloaded' })
+  await expect(page.getByRole('button', { name: /Guardar contraseña/i })).toBeVisible()
+  await expect(page.getByPlaceholder(/Nueva contraseña/i)).toBeVisible()
+})
+
+test('PDP con slug inexistente muestra "no encontrado" sin crashear', async ({ page }) => {
+  const errors: string[] = []
+  page.on('pageerror', e => errors.push(String(e)))
+  // La app renderiza la UI de "no encontrado" en 200 (soft 404), no un 404 duro.
+  const res = await page.goto('/tienda/no-existe-xyz', { waitUntil: 'domcontentloaded' })
+  expect(res?.status()).toBeLessThan(500)
+  await expect(page.getByText(/producto no encontrado/i)).toBeVisible()
+  await expect(page.getByRole('link', { name: /volver a la tienda/i })).toBeVisible()
+  expect(errors, 'errores JS en slug inexistente').toEqual([])
+})

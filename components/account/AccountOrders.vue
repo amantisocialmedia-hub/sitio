@@ -41,7 +41,9 @@ async function load() {
   else orders.value = (data as Order[]) || []
   loading.value = false
 }
-onMounted(load)
+// Recarga en cuanto la sesión esté disponible (cubre el asentamiento post-redirect).
+const user = useSupabaseUser()
+watch(user, (u) => { if (u) load() }, { immediate: true })
 </script>
 
 <template>
@@ -49,7 +51,7 @@ onMounted(load)
     <h3>Mis pedidos</h3>
 
     <p v-if="loading" class="muted">Cargando…</p>
-    <p v-else-if="err" class="fmsg bad">{{ err }}</p>
+    <p v-else-if="err" class="fmsg bad">{{ err }} <button class="lnk" @click="load">Reintentar</button></p>
 
     <template v-else>
       <div v-if="!orders.length" class="empty">
@@ -125,4 +127,13 @@ onMounted(load)
 .oqty { color: #9b8579; }
 .ouprice { color: #9b8579; min-width: 70px; text-align: right; }
 .oline { font-weight: 600; color: #2e1620; min-width: 80px; text-align: right; }
+.lnk { background: none; border: none; cursor: pointer; color: #5E1B33; font-size: .82rem; text-decoration: underline; padding: 2px; }
+/* En teléfonos angostos el nombre toma la primera línea y qty/precios envuelven debajo. */
+@media (max-width: 480px) {
+  .orow { flex-wrap: wrap; row-gap: 2px; }
+  .oname { flex: 1 1 100%; }
+  .othumb { width: 36px; height: 36px; }
+  .oqty, .ouprice, .oline { min-width: 0; }
+  .oline { margin-left: auto; }
+}
 </style>

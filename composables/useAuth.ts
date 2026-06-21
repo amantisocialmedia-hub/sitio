@@ -29,9 +29,10 @@ export const useAuth = () => {
   /** Cerrar sesión. */
   const signOut = () => supabase.auth.signOut()
 
-  /** Enviar correo de recuperación de contraseña (email de reset de Supabase). */
+  /** Enviar correo de recuperación de contraseña. El enlace lleva a la página donde se fija
+   *  la nueva contraseña (la sesión de recuperación se consume ahí). */
   const resetPassword = (email: string) =>
-    supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin()}/cuenta` })
+    supabase.auth.resetPasswordForEmail(email, { redirectTo: `${origin()}/cuenta/nueva-contrasena` })
 
   return { user, signUp, signIn, signInWithGoogle, signOut, resetPassword }
 }

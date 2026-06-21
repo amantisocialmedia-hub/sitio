@@ -10,6 +10,11 @@ const sections = [
 const section = ref('perfil')
 const firstName = computed(() => String(user.value?.user_metadata?.full_name || user.value?.email || '').split(' ')[0])
 
+// La sesión de Supabase se restaura en el cliente al iniciar; hasta entonces no decidimos
+// login vs dashboard para no "flashear" el formulario a un usuario ya autenticado.
+const ready = ref(false)
+onMounted(() => { ready.value = true })
+
 async function logout() {
   await signOut()
   section.value = 'perfil'
@@ -23,8 +28,11 @@ async function logout() {
     current="Cuenta" />
 
   <div class="acct">
+    <!-- Espera a que la sesión cliente se resuelva (evita flash del login) -->
+    <p v-if="!ready" class="acct-loading">Cargando…</p>
+
     <!-- Sin sesión: login/registro en la misma página (protección sin redirect) -->
-    <AccountAuth v-if="!user" />
+    <AccountAuth v-else-if="!user" />
 
     <!-- Con sesión: dashboard -->
     <div v-else class="dash">
@@ -46,4 +54,6 @@ async function logout() {
 .dash-tabs button.on { background: #5E1B33; color: #fff; border-color: #5E1B33; }
 .dash-tabs .logout { margin-left: auto; border-color: #E8503A; color: #E8503A; }
 .dash-tabs .logout:hover { background: #E8503A; color: #fff; }
+.acct-loading { color: #b9a39a; text-align: center; padding: 30px 0; }
+@media (max-width: 480px) { .dash-tabs .logout { margin-left: 0; } }
 </style>

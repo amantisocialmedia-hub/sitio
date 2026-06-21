@@ -33,7 +33,9 @@ async function load() {
   }
   loading.value = false
 }
-onMounted(load)
+// Recarga en cuanto la sesión esté disponible (cubre el asentamiento post-redirect de OAuth/reset).
+const user = useSupabaseUser()
+watch(user, (u) => { if (u) load() }, { immediate: true })
 
 async function save() {
   msg.value = ''; err.value = ''
@@ -63,7 +65,7 @@ async function save() {
 
     <template v-else>
       <p v-if="msg" class="fmsg ok">{{ msg }}</p>
-      <p v-if="err" class="fmsg bad">{{ err }}</p>
+      <p v-if="err" class="fmsg bad">{{ err }} <button class="lnk" @click="load">Reintentar</button></p>
 
       <label class="field">
         <span class="lab">Correo</span>
@@ -98,4 +100,5 @@ async function save() {
 .fmsg { border-radius: 9px; padding: 9px 13px; font-size: .9rem; margin: 0 0 14px; }
 .fmsg.ok { background: #E9F7EF; color: #1d7a46; }
 .fmsg.bad { background: #FDEAE6; color: #C0341B; }
+.lnk { background: none; border: none; cursor: pointer; color: #5E1B33; font-size: .82rem; text-decoration: underline; padding: 2px; }
 </style>

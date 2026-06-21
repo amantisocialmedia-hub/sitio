@@ -28,7 +28,11 @@ function add() {
       <span v-if="onSale" class="pbadge">rebaja</span>
       <span v-else-if="isNew" class="pbadge" style="background:var(--cyan)">nuevo</span>
     </NuxtLink>
-    <button class="pwish" @click="wishlist.toggle(product.slug)" aria-label="Favorito">{{ wishlist.has(product.slug) ? '♥' : '♡' }}</button>
+    <!-- ClientOnly: la wishlist solo existe en el cliente (localStorage); evita el parpadeo ♡→♥ -->
+    <ClientOnly>
+      <button class="pwish" @click="wishlist.toggle(product.slug)" :aria-label="wishlist.has(product.slug) ? 'Quitar de favoritos' : 'Agregar a favoritos'">{{ wishlist.has(product.slug) ? '♥' : '♡' }}</button>
+      <template #fallback><button class="pwish" aria-label="Agregar a favoritos">♡</button></template>
+    </ClientOnly>
     <div class="pbody">
       <div class="pbrand">{{ product.brand }}</div>
       <h3><NuxtLink :to="`/tienda/${product.slug}`">{{ product.name }}</NuxtLink></h3>

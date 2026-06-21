@@ -4,7 +4,8 @@
 // de la dirección predeterminada (vía el helper compartido). Server-side con service_role.
 // El cliente degrada con gracia: si esto falla, igual abre WhatsApp.
 import { defineEventHandler, readBody, createError } from 'h3'
-import { createPendingOrder, type InCartItem } from '../utils/orders'
+import { createPendingOrder } from '../utils/orders'
+import type { InCartItem } from '../utils/orderItems'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ items: InCartItem[] }>(event)

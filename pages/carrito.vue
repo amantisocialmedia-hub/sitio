@@ -9,6 +9,13 @@ const errorMsg = ref('')
 
 const status = computed(() => route.query.status as string | undefined)
 
+onMounted(() => {
+  // Tras un pago aprobado, vacía el carrito persistido para que no se re-envíe el mismo pedido.
+  if (status.value === 'success') cart.clearCart()
+  // Sincroniza precios con el catálogo vigente (== lo que cobra el server).
+  else cart.refreshPrices()
+})
+
 async function checkout() {
   if ((window as any).fbq) {
     ;(window as any).fbq('track', 'InitiateCheckout', {
@@ -93,16 +100,16 @@ useHead({ title: 'Tu carrito — AMANTI' })
                   </div>
                 </div>
               </td>
-              <td>{{ peso(i.price) }}</td>
-              <td>
+              <td data-label="Precio">{{ peso(i.price) }}</td>
+              <td data-label="Cantidad">
                 <div class="cqty">
-                  <button @click="cart.updateQuantity(i.slug, i.quantity - 1)">−</button>
+                  <button @click="cart.updateQuantity(i.slug, i.quantity - 1)" aria-label="Quitar uno">−</button>
                   <span>{{ i.quantity }}</span>
-                  <button @click="cart.updateQuantity(i.slug, i.quantity + 1)">+</button>
+                  <button @click="cart.updateQuantity(i.slug, i.quantity + 1)" aria-label="Agregar uno">+</button>
                 </div>
               </td>
-              <td>{{ peso(i.price * i.quantity) }}</td>
-              <td><button class="crm" @click="cart.removeItem(i.slug)" aria-label="Quitar">✕</button></td>
+              <td data-label="Total">{{ peso(i.price * i.quantity) }}</td>
+              <td class="crm-cell"><button class="crm" @click="cart.removeItem(i.slug)" aria-label="Quitar">✕</button></td>
             </tr>
           </tbody>
         </table>
