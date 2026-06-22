@@ -29,6 +29,8 @@ useSeoMeta({
 
 <template>
   <div class="wrap">
+    <HeroEditorial :product="populares[0]" />
+
     <!-- benefit pills -->
     <div class="benefits">
       <div class="b"><span class="e">🚚</span> Envíos Gratis &gt; $799</div>

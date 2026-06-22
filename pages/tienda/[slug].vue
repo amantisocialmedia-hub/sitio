@@ -4,6 +4,7 @@ const route = useRoute()
 const config = useRuntimeConfig()
 const { getBySlug, related, peso, msi, categoryName } = useProducts()
 const cart = useCartStore()
+const { openCart } = useCartUI()
 
 const product = computed(() => getBySlug(route.params.slug as string))
 
@@ -48,6 +49,8 @@ function addToCart() {
   if (!p) return
   cart.addItem({ slug: p.slug, name: p.name, price: p.price, emoji: p.emoji, bg: p.bg }, qty.value)
   added.value = true
+  if (import.meta.client) window.dispatchEvent(new CustomEvent('cart:add'))
+  openCart()
 }
 
 // SEO: título + meta description + Open Graph + JSON-LD de Producto (rich results).

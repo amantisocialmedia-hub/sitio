@@ -14,6 +14,7 @@
     <AppFooter />
     <BottomNav />
     <WhatsAppButton />
+    <CartDrawer />
     <CookieConsent />
     <AgeGate />
   </div>

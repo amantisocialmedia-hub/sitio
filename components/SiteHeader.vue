@@ -15,6 +15,24 @@ let ct: ReturnType<typeof setTimeout>, wt: ReturnType<typeof setTimeout>
 watch(() => cart.totalItems, () => { cartBump.value = true; clearTimeout(ct); ct = setTimeout(() => (cartBump.value = false), 320) })
 watch(() => wishlist.count, () => { wishBump.value = true; clearTimeout(wt); wt = setTimeout(() => (wishBump.value = false), 320) })
 
+// Modo discreto (botón 👁) + barra superior con mensajes rotativos.
+const { on: discreetOn, toggle: toggleDiscreet, init: initDiscreet } = useDiscreet()
+const discretaMsgs = [
+  'Entrega 100% discreta · empaque neutro 📦',
+  '+235 reseñas reales ★ 4.9',
+  'Hecho en México, sin tabúes 🇲🇽',
+  'Pregúntanos lo que sea por WhatsApp 💬',
+]
+const discretaIdx = ref(0)
+let di: ReturnType<typeof setInterval>
+function onKey(e: KeyboardEvent) { if (e.key === 'Escape' && discreetOn.value) toggleDiscreet() }
+onMounted(() => {
+  initDiscreet()
+  di = setInterval(() => { discretaIdx.value = (discretaIdx.value + 1) % discretaMsgs.length }, 4500)
+  window.addEventListener('keydown', onKey)
+})
+onBeforeUnmount(() => { clearInterval(di); window.removeEventListener('keydown', onKey) })
+
 function goSearch() {
   drawerOpen.value = false
   router.push({ path: '/tienda', query: q.value ? { q: q.value } : {} })
@@ -105,6 +123,7 @@ function itemHref(m: { label: string; to: string }, it: string) {
 
       <div class="nav-right">
         <NuxtLink to="/cuenta" class="hide-sm">{{ user ? '👤 Mi cuenta' : 'Entrar' }}</NuxtLink>
+        <button class="ic discreet-btn" :class="{ on: discreetOn }" @click="toggleDiscreet" :aria-pressed="discreetOn" :aria-label="discreetOn ? 'Desactivar modo discreto' : 'Activar modo discreto'" title="Modo discreto (oculta lo sensible)">👁</button>
         <NuxtLink to="/favoritos" class="ic" aria-label="Favoritos">
           ♡<span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
         </NuxtLink>
@@ -117,7 +136,9 @@ function itemHref(m: { label: string; to: string }, it: string) {
   </header>
 
   <div v-if="showDiscreta" class="discreta">
-    Entrega 100% Discreta
+    <Transition name="drot" mode="out-in">
+      <span class="discreta-rot" :key="discretaIdx">{{ discretaMsgs[discretaIdx] }}</span>
+    </Transition>
     <button class="x" @click="showDiscreta = false" aria-label="Cerrar">✕</button>
   </div>
 
