@@ -27,6 +27,26 @@ function fmtDate(s: string) {
 }
 function toggle(id: string) { openIds.has(id) ? openIds.delete(id) : openIds.add(id) }
 
+// "Volver a pedir": mapea los artículos del pedido al catálogo VIGENTE (por nombre) para
+// reusar precio/slug/emoji actuales — los precios autoritativos los pone el server igual.
+const { products } = useProducts()
+const cart = useCartStore()
+const reorderMsg = reactive(new Map<string, string>())
+async function reorder(o: Order) {
+  let added = 0
+  for (const it of o.order_items || []) {
+    const p = products.find(x => x.name === it.product_name)
+    if (p) { cart.addItem({ slug: p.slug, name: p.name, price: p.price, emoji: p.emoji, bg: p.bg }, it.quantity); added += 1 }
+  }
+  if (added) {
+    if (import.meta.client) window.dispatchEvent(new CustomEvent('cart:add'))
+    await navigateTo('/carrito')
+  } else {
+    reorderMsg.set(o.id, 'Esos productos ya no están disponibles.')
+    setTimeout(() => reorderMsg.delete(o.id), 3000)
+  }
+}
+
 async function load() {
   loading.value = true; err.value = ''
   const { data: { user } } = await supabase.auth.getUser()
@@ -84,6 +104,10 @@ watch(user, (u) => { if (u) load() }, { immediate: true })
               <span class="oline">{{ peso(it.line_total) }}</span>
             </div>
             <p v-if="!o.order_items?.length" class="muted small">Este pedido no tiene artículos.</p>
+            <div v-if="o.order_items?.length" class="ofoot">
+              <button class="btn coral oreorder" @click="reorder(o)">Volver a pedir 🔁</button>
+              <span v-if="reorderMsg.get(o.id)" class="muted small">{{ reorderMsg.get(o.id) }}</span>
+            </div>
           </div>
         </li>
       </ul>
@@ -119,6 +143,8 @@ watch(user, (u) => { if (u) load() }, { immediate: true })
 .chip.red { background: #FDEAE6; color: #C0341B; }
 .chip.gray { background: #F0EBE7; color: #8a7669; }
 .odetail { border-top: 1px solid #F6ECE3; padding: 10px 16px 14px; background: #FCFAF8; }
+.ofoot { margin-top: 12px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.oreorder { font-size: .88rem; padding: 9px 16px; }
 .orow { display: flex; align-items: center; gap: 10px; padding: 7px 0; font-size: .88rem; border-bottom: 1px solid #F6ECE3; }
 .orow:last-child { border-bottom: none; }
 .othumb { width: 44px; height: 44px; border-radius: 7px; object-fit: cover; flex: none; }

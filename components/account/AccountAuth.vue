@@ -96,6 +96,13 @@ async function doReset() {
 
     <div class="auth-sep"><span>o</span></div>
     <button class="btn ggl block" :disabled="busy" @click="doGoogle">{{ busy ? 'Conectando…' : 'Continuar con Google' }}</button>
+
+    <ul class="auth-perks">
+      <li>📦 Sigue tus pedidos y vuelve a pedir en un clic</li>
+      <li>⚡ Checkout más rápido</li>
+      <li>💜 Guarda tus favoritos</li>
+      <li>🎁 -15% en tu primera compra con <b>AMANTI15</b></li>
+    </ul>
   </div>
 </template>
 
@@ -112,6 +119,9 @@ async function doReset() {
 .auth-form input:focus { outline: none; border-color: #E8503A; }
 .btn.block { width: 100%; }
 .btn.coral { background: #E8503A; color: #fff; border: none; padding: 12px; border-radius: 9px; font-weight: 700; cursor: pointer; }
+.auth-perks { list-style: none; padding: 16px 0 0; margin: 18px 0 0; border-top: 1px solid #F2E6DC; display: grid; gap: 9px; }
+.auth-perks li { font-size: .86rem; color: #5b4a44; }
+.auth-perks b { color: #E8503A; }
 .btn.coral:hover { background: #d8442f; }
 .btn.coral:disabled { opacity: .5; cursor: not-allowed; }
 .btn.ggl { background: #fff; border: 1px solid #5E1B33; color: #5E1B33; padding: 12px; border-radius: 9px; font-weight: 600; cursor: pointer; }
