@@ -517,6 +517,20 @@ img{max-width:100%;display:block}
 @media(max-width:880px){ .infogrid,.bloggrid{grid-template-columns:1fr 1fr} }
 @media(max-width:560px){ .infogrid,.bloggrid{grid-template-columns:1fr} }
 
+/* Blog "Eroteca": artículo destacado */
+.blogfeat{display:grid;grid-template-columns:.8fr 1.2fr;border-radius:16px;overflow:hidden;margin:6px 0 24px;border:1px solid #F9EFE7;box-shadow:0 22px 44px -28px rgba(91,42,134,.5);transition:transform .2s var(--ease-out),box-shadow .2s}
+.blogfeat:hover{transform:translateY(-4px);box-shadow:0 30px 54px -28px rgba(91,42,134,.55)}
+.bf-emo{display:grid;place-items:center;font-size:6rem;min-height:240px}
+.bf-emo span{filter:drop-shadow(0 12px 18px rgba(0,0,0,.16));transition:transform .3s var(--ease-soft)}
+.blogfeat:hover .bf-emo span{transform:scale(1.1) rotate(-3deg)}
+.bf-body{background:#fff;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
+.bf-tag{font-size:.74rem;font-weight:700;color:var(--magenta);text-transform:uppercase;letter-spacing:.08em}
+.bf-body h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 10px;color:var(--purple)}
+.bf-body p{opacity:.78;margin-bottom:14px}
+.bf-cta{color:var(--magenta);font-weight:700}
+.bf-body .blogmeta{margin-top:8px}
+@media(max-width:680px){ .blogfeat{grid-template-columns:1fr} .bf-emo{min-height:150px;font-size:4rem} }
+
 /* Desktop: el BottomNav fijo y su padding reservado son solo para móvil (donde está el burger).
    En desktop se ocultan (quita la banda vacía de 62px bajo el footer) y el botón flotante de
    WhatsApp baja a la esquina, ya que no hay barra que esquivar. */
