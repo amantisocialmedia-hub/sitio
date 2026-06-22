@@ -35,8 +35,23 @@ onBeforeUnmount(() => { clearInterval(di); window.removeEventListener('keydown',
 
 function goSearch() {
   drawerOpen.value = false
+  searchFocused.value = false
   router.push({ path: '/tienda', query: q.value ? { q: q.value } : {} })
 }
+
+// Buscador instantáneo: resultados en vivo mientras se escribe (catálogo en cliente).
+const { products, peso } = useProducts()
+const searchFocused = ref(false)
+const results = computed(() => {
+  const t = q.value.trim().toLowerCase()
+  if (t.length < 2) return []
+  return products
+    .filter(p => `${p.name} ${p.subtitle || ''} ${p.brand} ${p.category}`.toLowerCase().includes(t))
+    .slice(0, 6)
+})
+const showResults = computed(() => searchFocused.value && q.value.trim().length >= 2)
+function pickResult() { searchFocused.value = false; q.value = '' }
+function onSearchBlur() { setTimeout(() => { searchFocused.value = false }, 160) }
 
 // Mega-menú estilo Cake. Los enlaces apuntan a /tienda (filtrable) — al crecer el
 // catálogo se conectan subcolecciones reales.
@@ -145,9 +160,25 @@ function itemHref(m: { label: string; to: string }, it: string) {
 
   <div class="searchrow">
     <div class="wrap">
-      <div class="searchbox">
-        <input v-model="q" placeholder="Búsqueda Rápida" aria-label="Buscar productos" @keyup.enter="goSearch" />
+      <div class="searchbox" :class="{ open: showResults }">
+        <input v-model="q" placeholder="Búsqueda Rápida" aria-label="Buscar productos"
+               @keyup.enter="goSearch" @focus="searchFocused = true" @blur="onSearchBlur" />
         <button class="sic" @click="goSearch" aria-label="Buscar">🔍</button>
+        <div v-if="showResults" class="searchpop">
+          <NuxtLink v-for="p in results" :key="p.slug" :to="`/tienda/${p.slug}`" class="sr-item" @click="pickResult">
+            <span class="sr-th" :style="{ background: p.bg }">
+              <img v-if="p.images?.length" :src="p.images[0]" :alt="p.name" loading="lazy" />
+              <span v-else>{{ p.emoji }}</span>
+            </span>
+            <span class="sr-info">
+              <span class="sr-name">{{ p.name }}</span>
+              <span class="sr-cat">{{ p.brand }}</span>
+            </span>
+            <span class="sr-price">{{ peso(p.price) }}</span>
+          </NuxtLink>
+          <div v-if="!results.length" class="sr-empty">Sin resultados para “{{ q }}”. Prueba otra palabra.</div>
+          <button v-else class="sr-all" @click="goSearch">Ver todos los resultados →</button>
+        </div>
       </div>
     </div>
   </div>

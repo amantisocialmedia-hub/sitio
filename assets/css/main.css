@@ -88,12 +88,26 @@ img{max-width:100%;display:block}
 
 /* search */
 .searchrow{padding:18px 0}
-.searchbox{max-width:940px;margin:0 auto;display:flex;align-items:center;background:var(--lav);border-radius:8px;padding:4px 6px}
+.searchbox{position:relative;max-width:940px;margin:0 auto;display:flex;align-items:center;background:var(--lav);border-radius:8px;padding:4px 6px}
 .searchbox:focus-within{box-shadow:0 0 0 3px var(--cyan)}
 .searchbox input{flex:1;border:none;background:transparent;font-family:var(--fb);font-size:1rem;padding:12px 16px;color:var(--purple)}
 .searchbox input::placeholder{color:#B58A77}
 .searchbox input:focus{outline:none}
 .searchbox .sic{width:46px;height:46px;display:grid;place-items:center;color:var(--purple);font-size:1.2rem;cursor:pointer;background:none;border:none}
+/* Buscador instantáneo: dropdown de resultados */
+.searchpop{position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1px solid #F2E2D6;border-radius:12px;box-shadow:0 26px 54px -22px rgba(91,42,134,.45);z-index:130;overflow:hidden;padding:6px}
+.sr-item{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:8px}
+.sr-item:hover{background:var(--lav2)}
+.sr-th{width:46px;height:46px;border-radius:8px;overflow:hidden;display:grid;place-items:center;font-size:1.4rem;flex:none}
+.sr-th img{width:100%;height:100%;object-fit:cover}
+.sr-info{flex:1;min-width:0;display:flex;flex-direction:column;text-align:left}
+.sr-name{font-family:var(--fh);font-weight:600;color:var(--purple);font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-cat{font-size:.76rem;color:#B58A77}
+.sr-price{font-family:var(--fh);font-weight:700;color:var(--purple);font-size:.92rem;flex:none}
+.sr-all{width:100%;text-align:center;background:none;border:none;border-top:1px solid #F2E2D6;margin-top:4px;padding:11px;color:var(--magenta);font-family:var(--fb);font-weight:700;cursor:pointer;font-size:.9rem}
+.sr-all:hover{background:var(--lav2)}
+.sr-empty{padding:18px;text-align:center;color:#9b8579;font-size:.9rem}
+html.discreet .sr-th img{filter:blur(10px)}
 
 /* benefit pills */
 .benefits{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:6px}
