@@ -19,7 +19,7 @@ const stars = (r: number) => '★★★★★'.slice(0, r) + '☆☆☆☆☆'.s
       </p>
       <div class="he-cta" v-reveal :data-reveal-index="4">
         <NuxtLink to="/tienda" class="btn">Explorar la tienda</NuxtLink>
-        <NuxtLink to="/tienda" class="btn outline">Ver lo más deseado →</NuxtLink>
+        <NuxtLink to="/quiz" class="btn outline">✨ Encuentra tu match →</NuxtLink>
       </div>
     </div>
 

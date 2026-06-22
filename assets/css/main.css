@@ -787,6 +787,28 @@ html.discreet .pcard:hover .pimg,html.discreet .pcard:hover h3 a,html.discreet .
 .drot-enter-active,.drot-leave-active{transition:opacity .3s ease}
 .drot-enter-from,.drot-leave-to{opacity:0}
 
+/* ===== Colecciones "por sensación" ===== */
+.moodrow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.moodcard{position:relative;overflow:hidden;border-radius:16px;min-height:170px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;box-shadow:0 18px 36px -24px rgba(91,42,134,.55);transition:transform .22s var(--ease-out),box-shadow .22s}
+.moodcard:hover{transform:translateY(-6px);box-shadow:0 28px 48px -24px rgba(91,42,134,.6)}
+.mc-emo{position:absolute;top:14px;right:16px;font-size:2.6rem;filter:drop-shadow(0 8px 14px rgba(0,0,0,.25));transition:transform .25s var(--ease-soft)}
+.moodcard:hover .mc-emo{transform:scale(1.15) rotate(-6deg)}
+.mc-label{font-family:var(--fh);font-weight:700;font-size:1.25rem;line-height:1.1}
+.mc-sub{font-size:.86rem;opacity:.85;margin-top:2px}
+@media(max-width:880px){ .moodrow{grid-template-columns:1fr 1fr} }
+@media(max-width:480px){ .moodrow{gap:12px} .moodcard{min-height:140px;padding:16px} }
+
+/* ===== Banda del quiz ===== */
+.quizband{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:24px;border-radius:18px;padding:38px 40px;color:#fff;background:radial-gradient(120% 150% at 88% 16%,rgba(255,138,92,.5),transparent 55%),linear-gradient(120deg,#5E1B33,#8E45B8);box-shadow:0 26px 56px -34px rgba(91,42,134,.6);transition:transform .25s var(--ease-out)}
+.quizband:hover{transform:translateY(-4px)}
+.quizband>*{position:relative;z-index:1}
+.qb-eyebrow{font-family:var(--fs);font-size:1.4rem;color:#FFD9CF}
+.quizband h2{color:#fff;font-size:clamp(1.6rem,3.6vw,2.4rem);margin:4px 0 8px}
+.qb-text p{opacity:.85;max-width:48ch}
+.qb-btn{display:inline-block;margin-top:16px;background:#fff;color:var(--purple);font-family:var(--fb);font-weight:700;padding:12px 24px;border-radius:8px}
+.qb-emo{font-size:6rem;flex:none;animation:floaty 6s ease-in-out infinite;filter:drop-shadow(0 14px 22px rgba(0,0,0,.3))}
+@media(max-width:680px){ .quizband{flex-direction:column;text-align:center;padding:30px 24px} .qb-text p{margin:0 auto} .qb-emo{font-size:4.5rem} }
+
 @media(prefers-reduced-motion:reduce){
   .cdrawer-enter-active .cdrawer,.cdrawer-leave-active .cdrawer{transition:none}
   .cd-fill{transition:none}

@@ -42,6 +42,18 @@ test('la página de nueva contraseña es alcanzable y muestra el formulario (reg
   await expect(page.getByPlaceholder(/Nueva contraseña/i)).toBeVisible()
 })
 
+test('quiz: completa los 4 pasos y recomienda productos', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await page.goto('/quiz')
+  await expect(page.locator('.quiz-opt').first()).toBeVisible()
+  for (let i = 0; i < 4; i++) {
+    await page.locator('.quiz-opt').first().click()
+    await page.waitForTimeout(180)
+  }
+  await expect(page.getByText('Esto es para ti')).toBeVisible()
+  await expect(page.locator('.quiz-grid .pcard').first()).toBeVisible()
+})
+
 test('PDP con slug inexistente muestra "no encontrado" sin crashear', async ({ page }) => {
   const errors: string[] = []
   page.on('pageerror', e => errors.push(String(e)))

@@ -65,6 +65,7 @@ const mega = [
     label: 'Blog', to: '/blog',
     items: ['Tips Sexuales', 'Salud Sexual', 'Juguetes Sexuales', 'Estilo De Vida', 'Relaciones Y Amores'],
   },
+  { label: '✨ Quiz', to: '/quiz', items: [] },
 ]
 
 // Manda los sub-enlaces a la categoría real cuando existe; el blog va al blog.

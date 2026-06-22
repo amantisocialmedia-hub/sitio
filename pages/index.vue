@@ -10,6 +10,14 @@ const special = onSale()[0]
 const circleCats = categories
 const catImgErr = reactive(new Set<string>())
 
+// Colecciones "por sensación" (puntos de entrada emocionales, no taxonomía).
+const moods = [
+  { label: 'Primera vez', sub: 'sin nervios', emoji: '🌱', to: '/quiz', grad: 'linear-gradient(150deg,#FF8A5C,#E8503A)' },
+  { label: 'Noche de dos', sub: 'para parejas', emoji: '💞', to: '/tienda?cat=parejas', grad: 'linear-gradient(150deg,#8E5BD6,#5E1B33)' },
+  { label: 'Modo silencio', sub: 'discreto y mini', emoji: '🤫', to: '/tienda?q=bala', grad: 'linear-gradient(150deg,#0FA38B,#0F94C2)' },
+  { label: 'Los que ya saben', sub: 'sin límites', emoji: '🖤', to: '/tienda?cat=bdsm', grad: 'linear-gradient(150deg,#3A2228,#5E1B33)' },
+]
+
 // SEO de la home: og/twitter + reafirma título/descripción. El canonical lo pone app.vue.
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
@@ -101,6 +109,20 @@ useSeoMeta({
     </div>
   </section>
 
+  <!-- compra por sensación -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" v-reveal><h2>Compra por lo que buscas</h2></div>
+      <div class="moodrow">
+        <NuxtLink v-for="(m, i) in moods" :key="m.label" :to="m.to" class="moodcard" :style="{ background: m.grad }" v-reveal :data-reveal-index="i">
+          <span class="mc-emo">{{ m.emoji }}</span>
+          <span class="mc-label">{{ m.label }}</span>
+          <span class="mc-sub">{{ m.sub }}</span>
+        </NuxtLink>
+      </div>
+    </div>
+  </section>
+
   <!-- novedades -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
@@ -132,6 +154,21 @@ useSeoMeta({
       <div class="rail">
         <ProductCard v-for="(p, i) in masVendido" :key="p.slug" :product="p" v-reveal :data-reveal-index="i" />
       </div>
+    </div>
+  </section>
+
+  <!-- quiz CTA -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <NuxtLink to="/quiz" class="quizband" v-reveal>
+        <div class="qb-text">
+          <span class="qb-eyebrow">¿No sabes por dónde empezar?</span>
+          <h2>Encuentra tu match en 4 preguntas</h2>
+          <p>Sin pena, sin tabúes. Te recomendamos tu juguete ideal según lo que buscas.</p>
+          <span class="qb-btn">Empezar el quiz ✨</span>
+        </div>
+        <span class="qb-emo">🔮</span>
+      </NuxtLink>
     </div>
   </section>
 
