@@ -140,6 +140,6 @@ const matches = computed(() =>
 .qfade-enter-active, .qfade-leave-active { transition: opacity .28s ease, transform .3s var(--ease-out); }
 .qfade-enter-from { opacity: 0; transform: translateY(10px); }
 .qfade-leave-to { opacity: 0; transform: translateY(-8px); }
-@media (max-width: 560px) { .quiz-opts { grid-template-columns: 1fr; } .quiz-card { padding: 24px 20px 30px; } }
+@media (max-width: 560px) { .quiz-opts { grid-template-columns: 1fr; } .quiz-card { padding: 24px 20px 30px; } .quiz-grid.grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .qfade-enter-active, .qfade-leave-active { transition: opacity .12s; } .qfade-enter-from, .qfade-leave-to { transform: none; } }
 </style>

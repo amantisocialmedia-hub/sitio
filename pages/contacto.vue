@@ -54,7 +54,7 @@ function enviar() {
 
 <style scoped>
 .consent { display: flex; gap: 9px; align-items: flex-start; font-size: .86rem; margin: 10px 0; line-height: 1.4; text-align: left; }
-.consent input { accent-color: #E8503A; width: 17px; height: 17px; margin-top: 1px; flex: none; }
+.consent input { accent-color: #E8503A; width: 22px; height: 22px; margin-top: 0; flex: none; cursor: pointer; }
 .consent a { color: #E8503A; text-decoration: underline; }
 .btn[disabled] { opacity: .5; cursor: not-allowed; }
 </style>

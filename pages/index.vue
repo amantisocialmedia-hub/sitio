@@ -36,9 +36,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="wrap">
-    <HeroEditorial :product="populares[0]" />
+  <HeroEditorial :products="populares" />
 
+  <div class="wrap">
     <!-- benefit pills -->
     <div class="benefits">
       <div class="b"><span class="e">🚚</span> Envíos Gratis &gt; $799</div>
@@ -58,12 +58,6 @@ useSeoMeta({
     </div>
 
     <PromoBanners />
-  </div>
-
-  <!-- welcome -->
-  <div class="welcome">
-    <h2>Bienvenidx a AMANTI 💜</h2>
-    <p>Tu sex shop en línea con entrega 100% discreta en todo México. Juguetes, lubricantes, wellness y más — para mujeres, hombres y parejas.</p>
   </div>
 
   <!-- mosaic -->
@@ -97,13 +91,15 @@ useSeoMeta({
     </div>
   </section>
 
-  <!-- circles -->
+  <!-- categorías (mosaico de color) -->
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head" v-reveal><h2>Navega nuestra sex shop</h2></div>
-      <div class="circles">
-        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="circle" v-reveal :data-reveal-index="i">
-          <div class="c" :class="`cc${i}`"><img v-if="c.image && !catImgErr.has(c.slug)" :src="c.image" :alt="c.name" class="cat-img" @error="catImgErr.add(c.slug)"><template v-else>{{ c.emoji }}</template></div><span>{{ c.name }}</span>
+      <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
+      <div class="mosaic">
+        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
+          <img v-if="c.image && !catImgErr.has(c.slug)" :src="c.image" :alt="c.name" class="te-img" @error="catImgErr.add(c.slug)">
+          <span v-else class="te">{{ c.emoji }}</span>
+          <span class="lbl">{{ c.name }}</span>
         </NuxtLink>
       </div>
     </div>

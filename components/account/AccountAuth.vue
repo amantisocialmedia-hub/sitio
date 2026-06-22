@@ -117,7 +117,7 @@ async function doReset() {
 .btn.ggl { background: #fff; border: 1px solid #5E1B33; color: #5E1B33; padding: 12px; border-radius: 9px; font-weight: 600; cursor: pointer; }
 .btn.link { background: none; border: none; color: #E8503A; cursor: pointer; font-size: .85rem; text-decoration: underline; padding: 4px; }
 .consent { display: flex; gap: 9px; align-items: flex-start; font-size: .86rem; line-height: 1.4; }
-.consent input { accent-color: #E8503A; width: 17px; height: 17px; margin-top: 1px; flex: none; }
+.consent input { accent-color: #E8503A; width: 22px; height: 22px; margin-top: 0; flex: none; cursor: pointer; }
 .consent a { color: #E8503A; text-decoration: underline; }
 .auth-msg { border-radius: 9px; padding: 10px 13px; font-size: .9rem; margin: 0 0 14px; }
 .auth-msg.bad { background: #FDEAE6; color: #C0341B; }

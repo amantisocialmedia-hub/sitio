@@ -29,7 +29,7 @@ export default defineNuxtConfig({
       title: 'AMANTI — Sex Shop en línea | Juguetes sexuales discretos en México',
       meta: [
         { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#5E1B33' },
         {
           name: 'description',

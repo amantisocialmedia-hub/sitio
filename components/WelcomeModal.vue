@@ -31,7 +31,9 @@ onMounted(() => {
     if (ageOk && stillUnseen) show.value = true
   }, 6000)
 })
-onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
+// Bloquea el scroll del fondo mientras el modal está abierto (igual que CartDrawer/AgeGate).
+watch(show, (v) => { if (typeof document !== 'undefined') document.body.style.overflow = v ? 'hidden' : '' })
+onBeforeUnmount(() => { window.removeEventListener('keydown', onKey); if (typeof document !== 'undefined') document.body.style.overflow = '' })
 
 async function submit() {
   err.value = ''
@@ -95,11 +97,16 @@ async function copyCoupon() {
 .wm-form input:focus { outline: none; border-color: var(--magenta); box-shadow: 0 0 0 3px rgba(232, 80, 58, .15); }
 .wm-err { color: #C0341B; font-size: .86rem; margin: 8px 0 0; }
 .wm-skip { background: none; border: none; color: #9b8579; font-size: .84rem; cursor: pointer; margin-top: 14px; text-decoration: underline; }
-.wm-coupon { display: inline-flex; align-items: center; gap: 12px; background: var(--lav2); border: 2px dashed var(--magenta); border-radius: 12px; padding: 14px 22px; font-family: var(--fh); font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--purple); cursor: pointer; margin: 4px 0 18px; }
+.wm-coupon { display: inline-flex; flex-wrap: wrap; justify-content: center; max-width: 100%; align-items: center; gap: 12px; background: var(--lav2); border: 2px dashed var(--magenta); border-radius: 12px; padding: 14px 22px; font-family: var(--fh); font-weight: 800; font-size: 1.4rem; letter-spacing: 2px; color: var(--purple); cursor: pointer; margin: 4px 0 18px; }
 .wm-coupon span { font-family: var(--fb); font-size: .74rem; font-weight: 700; letter-spacing: 0; color: var(--magenta); text-transform: uppercase; }
 .wmodal-enter-active, .wmodal-leave-active { transition: opacity .3s ease; }
 .wmodal-enter-active .wmodal, .wmodal-leave-active .wmodal { transition: transform .35s var(--ease-out); }
 .wmodal-enter-from, .wmodal-leave-to { opacity: 0; }
 .wmodal-enter-from .wmodal, .wmodal-leave-to .wmodal { transform: translateY(20px) scale(.96); }
 @media (prefers-reduced-motion: reduce) { .wmodal-enter-active .wmodal, .wmodal-leave-active .wmodal { transition: none; } }
+@media (max-width: 560px) { .wm-x { width: 44px; height: 44px; top: 8px; right: 8px; } }
+@media (max-width: 400px) {
+  .wmodal { padding: 28px 18px 22px; }
+  .wm-coupon { font-size: 1.15rem; letter-spacing: 1px; padding: 12px 16px; gap: 8px; }
+}
 </style>
