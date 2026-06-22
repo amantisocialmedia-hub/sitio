@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const { categories, featured, bestsellers, onSale, peso } = useProducts()
+const { products, categories, featured, bestsellers, onSale, peso, categoryName } = useProducts()
 const novedades = featured().slice(0, 8) // rail curado, no los 55 destacados
 const masVendido = bestsellers()
+// Más populares: mejor calificados (con desempate por hot/featured) para el carrusel de fotos.
+const populares = [...products]
+  .sort((a, b) => (b.rating - a.rating) || ((b.hot ? 1 : 0) - (a.hot ? 1 : 0)) || ((b.featured ? 1 : 0) - (a.featured ? 1 : 0)))
+  .slice(0, 12)
 const special = onSale()[0]
 const circleCats = categories
 const catImgErr = reactive(new Set<string>())
@@ -55,12 +59,17 @@ useSeoMeta({
   <!-- mosaic -->
   <section class="section" style="padding-top:40px">
     <div class="wrap">
-      <div class="sec-head" v-reveal><h2>Sex toys más populares</h2></div>
-      <div class="mosaic">
-        <NuxtLink to="/tienda?cat=vibradores" class="tile t1" v-reveal :data-reveal-index="0"><span class="te"><img :src="'/categories/vibradores.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🌙</span></span><span class="lbl">Vibradores</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=parejas" class="tile t2" v-reveal :data-reveal-index="1"><span class="te"><img :src="'/categories/parejas.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">💞</span></span><span class="lbl">Parejas</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=dildos" class="tile t3" v-reveal :data-reveal-index="2"><span class="te"><img :src="'/categories/dildos.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🪐</span></span><span class="lbl">Dildos</span></NuxtLink>
-        <NuxtLink to="/tienda?cat=bdsm" class="tile t4" v-reveal :data-reveal-index="3"><span class="te"><img :src="'/categories/bdsm.png'" alt="" class="te-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span class="te-emo" style="display:none">🖤</span></span><span class="lbl">BDSM</span></NuxtLink>
+      <div class="sec-head" v-reveal><h2>Sex toys más populares</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
+      <div class="poprail">
+        <NuxtLink v-for="(p, i) in populares" :key="p.slug" :to="`/tienda/${p.slug}`" class="popcard" :style="{ background: p.bg }" v-reveal :data-reveal-index="i % 8">
+          <NuxtImg v-if="p.images?.length" :src="p.images[0]" :alt="p.name" class="popcard-img" format="webp" width="420" height="540" sizes="(max-width:560px) 78vw, 270px" loading="lazy" />
+          <span v-else class="popcard-emo">{{ p.emoji }}</span>
+          <div class="popcard-ov">
+            <span class="popcard-cat">{{ categoryName(p.category) }}</span>
+            <h3>{{ p.name }}</h3>
+            <div class="popcard-foot"><span class="popcard-price">{{ peso(p.price) }}</span><span class="popcard-cta">Ver →</span></div>
+          </div>
+        </NuxtLink>
       </div>
     </div>
   </section>

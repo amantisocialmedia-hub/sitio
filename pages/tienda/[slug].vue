@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import reviewsData from '~/data/reviews.json'
 const route = useRoute()
 const config = useRuntimeConfig()
 const { getBySlug, related, peso, msi, categoryName } = useProducts()
 const cart = useCartStore()
 
 const product = computed(() => getBySlug(route.params.slug as string))
+
+interface Review { name: string; rating: number; date: string; text: string; verified: boolean }
+const reviews = computed<Review[]>(() => (product.value ? ((reviewsData as Record<string, Review[]>)[product.value.slug] || []) : []))
+const ratingCount = computed(() => reviews.value.length)
+const ratingAvg = computed(() =>
+  ratingCount.value ? Math.round((reviews.value.reduce((s, r) => s + r.rating, 0) / ratingCount.value) * 10) / 10 : (product.value?.rating ?? 5),
+)
+function fmtReviewDate(s: string) {
+  try { return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s)) } catch { return s }
+}
 const onSale = computed(() => !!product.value?.compareAt && product.value.compareAt > product.value.price)
 const pct = computed(() => onSale.value
   ? Math.round((1 - product.value!.price / product.value!.compareAt) * 100) : 0)
@@ -67,6 +78,16 @@ useHead(() => ({
             availability: 'https://schema.org/InStock',
             url: seo.value.url,
           },
+          aggregateRating: ratingCount.value
+            ? { '@type': 'AggregateRating', ratingValue: ratingAvg.value, reviewCount: ratingCount.value, bestRating: 5, worstRating: 1 }
+            : undefined,
+          review: reviews.value.slice(0, 5).map((r) => ({
+            '@type': 'Review',
+            author: { '@type': 'Person', name: r.name },
+            datePublished: r.date,
+            reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+            reviewBody: r.text,
+          })),
         }),
       }]
     : [],
@@ -122,7 +143,12 @@ useSeoMeta({
         <!-- info -->
         <div class="pdp-info">
           <h1>{{ product.name }}</h1>
-          <div class="stars" style="margin-top:8px">{{ stars(product.rating) }}</div>
+          <a href="#resenas" class="rating-line" v-if="ratingCount">
+            <span class="stars">{{ stars(Math.round(ratingAvg)) }}</span>
+            <b>{{ ratingAvg.toFixed(1) }}</b>
+            <span class="rcount">{{ ratingCount }} reseña{{ ratingCount === 1 ? '' : 's' }}</span>
+          </a>
+          <div v-else class="stars" style="margin-top:8px">{{ stars(product.rating) }}</div>
           <div class="sub">{{ product.subtitle }}</div>
           <div class="brand">MARCA: <b>{{ product.brand }}</b></div>
 
@@ -209,6 +235,28 @@ useSeoMeta({
           </Transition>
         </div>
       </div>
+
+      <!-- reseñas -->
+      <section class="reviews-sec" id="resenas">
+        <div class="rev-head">
+          <h2 v-reveal>Reseñas{{ ratingCount ? ` (${ratingCount})` : '' }}</h2>
+          <div v-if="ratingCount" class="rev-avg" v-reveal="{ i: 1 }">
+            <span class="stars">{{ stars(Math.round(ratingAvg)) }}</span>
+            <b>{{ ratingAvg.toFixed(1) }}</b> <span>de 5</span>
+          </div>
+        </div>
+        <div v-if="ratingCount" class="rev-list">
+          <article v-for="(rv, i) in reviews" :key="i" class="rev-item" v-reveal :data-reveal-index="Math.min(i, 6)">
+            <div class="rev-top">
+              <span class="rev-who">{{ rv.name }}<span v-if="rv.verified" class="verif">Verificado</span></span>
+              <span class="rev-date">{{ fmtReviewDate(rv.date) }}</span>
+            </div>
+            <div class="stars">{{ stars(rv.rating) }}</div>
+            <p>{{ rv.text }}</p>
+          </article>
+        </div>
+        <p v-else class="rev-empty">Aún no hay reseñas de este producto. ¡Sé el primero!</p>
+      </section>
 
       <!-- related -->
       <section class="section" style="padding-top:10px">

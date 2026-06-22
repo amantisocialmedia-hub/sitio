@@ -1,0 +1,4369 @@
+{
+ "tiny-teasers-nubby": [
+  {
+   "name": "Santiago B.",
+   "rating": 5,
+   "date": "2026-03-29",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Pau D.",
+   "rating": 5,
+   "date": "2026-03-05",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Ale H.",
+   "rating": 5,
+   "date": "2026-02-03",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Mau C.",
+   "rating": 4,
+   "date": "2026-01-31",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": false
+  },
+  {
+   "name": "Daniela L.",
+   "rating": 4,
+   "date": "2026-01-27",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  }
+ ],
+ "venus-butterfly": [
+  {
+   "name": "Héctor B.",
+   "rating": 4,
+   "date": "2026-05-28",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Ale L.",
+   "rating": 5,
+   "date": "2026-05-27",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Diego L.",
+   "rating": 4,
+   "date": "2026-05-10",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo F.",
+   "rating": 4,
+   "date": "2026-04-04",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Vico S.",
+   "rating": 3,
+   "date": "2026-02-22",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  }
+ ],
+ "frisky-finger-vibe-pink": [
+  {
+   "name": "Nayeli T.",
+   "rating": 5,
+   "date": "2026-05-26",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Mau P.",
+   "rating": 4,
+   "date": "2026-05-25",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Diego C.",
+   "rating": 4,
+   "date": "2026-05-20",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda B.",
+   "rating": 4,
+   "date": "2026-04-22",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Eduardo G.",
+   "rating": 5,
+   "date": "2026-04-19",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda G.",
+   "rating": 4,
+   "date": "2026-01-30",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  }
+ ],
+ "10x-bunny-slide": [
+  {
+   "name": "Mau E.",
+   "rating": 5,
+   "date": "2026-04-03",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Santiago B.",
+   "rating": 3,
+   "date": "2026-03-05",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Sofía L.",
+   "rating": 5,
+   "date": "2026-03-02",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra B.",
+   "rating": 4,
+   "date": "2026-01-07",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "invincible-black": [
+  {
+   "name": "Santiago C.",
+   "rating": 4,
+   "date": "2026-04-29",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Héctor B.",
+   "rating": 5,
+   "date": "2026-04-23",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra A.",
+   "rating": 5,
+   "date": "2026-04-06",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo E.",
+   "rating": 4,
+   "date": "2026-01-28",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "invincible-pink": [
+  {
+   "name": "Andrea P.",
+   "rating": 4,
+   "date": "2026-05-26",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": false
+  },
+  {
+   "name": "Paola M.",
+   "rating": 5,
+   "date": "2026-05-18",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Itzel E.",
+   "rating": 5,
+   "date": "2026-02-12",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "envy-handheld-suction": [
+  {
+   "name": "Itzel J.",
+   "rating": 5,
+   "date": "2026-06-13",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Karla P.",
+   "rating": 4,
+   "date": "2026-05-27",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Dani T.",
+   "rating": 5,
+   "date": "2026-05-18",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Paola C.",
+   "rating": 5,
+   "date": "2026-03-26",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Renata L.",
+   "rating": 5,
+   "date": "2026-03-06",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  }
+ ],
+ "tiny-teasers-bunny": [
+  {
+   "name": "Camila A.",
+   "rating": 4,
+   "date": "2026-04-16",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": false
+  },
+  {
+   "name": "Mariana R.",
+   "rating": 4,
+   "date": "2026-04-14",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli D.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  }
+ ],
+ "pacifica-bali": [
+  {
+   "name": "Regina J.",
+   "rating": 4,
+   "date": "2026-05-27",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Valeria V.",
+   "rating": 4,
+   "date": "2026-01-15",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "neon-xl-bullet": [
+  {
+   "name": "Brenda F.",
+   "rating": 4,
+   "date": "2026-06-07",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra H.",
+   "rating": 4,
+   "date": "2026-02-20",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Valeria S.",
+   "rating": 5,
+   "date": "2026-02-15",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Ximena G.",
+   "rating": 4,
+   "date": "2026-01-23",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Luis R.",
+   "rating": 4,
+   "date": "2026-01-14",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": false
+  }
+ ],
+ "contoured-g": [
+  {
+   "name": "Miguel T.",
+   "rating": 5,
+   "date": "2026-06-13",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Pau S.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Santiago V.",
+   "rating": 5,
+   "date": "2026-01-05",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "lipstick-recharge-nude": [
+  {
+   "name": "Adrián P.",
+   "rating": 4,
+   "date": "2026-03-09",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Diego M.",
+   "rating": 5,
+   "date": "2026-03-04",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano G.",
+   "rating": 5,
+   "date": "2026-02-09",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "hot-mess-rosa": [
+  {
+   "name": "Mariana C.",
+   "rating": 4,
+   "date": "2026-03-29",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Valeria R.",
+   "rating": 4,
+   "date": "2026-03-10",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "nelea-majestic": [
+  {
+   "name": "Citlali S.",
+   "rating": 5,
+   "date": "2026-03-07",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Héctor T.",
+   "rating": 5,
+   "date": "2026-01-05",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "avery-majestic-pro": [
+  {
+   "name": "Ximena T.",
+   "rating": 4,
+   "date": "2026-05-27",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Luis J.",
+   "rating": 4,
+   "date": "2026-04-29",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Pau B.",
+   "rating": 5,
+   "date": "2026-04-23",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Ximena N.",
+   "rating": 4,
+   "date": "2026-03-31",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra L.",
+   "rating": 5,
+   "date": "2026-02-12",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "bumble-bee-lolly": [
+  {
+   "name": "Vico F.",
+   "rating": 5,
+   "date": "2026-05-30",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Gabriela M.",
+   "rating": 5,
+   "date": "2026-04-12",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Miguel M.",
+   "rating": 4,
+   "date": "2026-03-21",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": false
+  },
+  {
+   "name": "Carlos V.",
+   "rating": 3,
+   "date": "2026-03-19",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  }
+ ],
+ "lotus-bullet-vibrator-doble-motor": [
+  {
+   "name": "Gabriela V.",
+   "rating": 4,
+   "date": "2026-05-13",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Diego D.",
+   "rating": 4,
+   "date": "2026-05-04",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Dani D.",
+   "rating": 5,
+   "date": "2026-04-09",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": false
+  },
+  {
+   "name": "Daniela P.",
+   "rating": 5,
+   "date": "2026-04-08",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli A.",
+   "rating": 5,
+   "date": "2026-03-20",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Ximena R.",
+   "rating": 5,
+   "date": "2026-01-18",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "triple-infinity": [
+  {
+   "name": "Renata C.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  },
+  {
+   "name": "Eduardo C.",
+   "rating": 4,
+   "date": "2026-05-25",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "mr-twister-blue": [
+  {
+   "name": "Nayeli R.",
+   "rating": 4,
+   "date": "2026-05-03",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Carlos S.",
+   "rating": 4,
+   "date": "2026-04-10",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Daniela S.",
+   "rating": 4,
+   "date": "2026-03-13",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo O.",
+   "rating": 3,
+   "date": "2026-02-25",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": false
+  },
+  {
+   "name": "Camila S.",
+   "rating": 4,
+   "date": "2026-02-03",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Dani S.",
+   "rating": 4,
+   "date": "2026-01-19",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  }
+ ],
+ "xl-dino-dick": [
+  {
+   "name": "Miguel A.",
+   "rating": 4,
+   "date": "2026-06-14",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": false
+  },
+  {
+   "name": "Sofía T.",
+   "rating": 5,
+   "date": "2026-04-10",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat G.",
+   "rating": 5,
+   "date": "2026-04-02",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Valeria O.",
+   "rating": 4,
+   "date": "2026-03-25",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Paola M.",
+   "rating": 5,
+   "date": "2026-03-09",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Ale E.",
+   "rating": 4,
+   "date": "2026-01-18",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "monstropus-2-0": [
+  {
+   "name": "Emiliano M.",
+   "rating": 4,
+   "date": "2026-05-29",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Adrián N.",
+   "rating": 5,
+   "date": "2026-05-19",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli D.",
+   "rating": 3,
+   "date": "2026-04-03",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": false
+  },
+  {
+   "name": "Nayeli R.",
+   "rating": 5,
+   "date": "2026-01-29",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Carlos T.",
+   "rating": 5,
+   "date": "2026-01-10",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela R.",
+   "rating": 4,
+   "date": "2026-01-09",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "ramming-hound": [
+  {
+   "name": "Mariana T.",
+   "rating": 4,
+   "date": "2026-05-21",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano J.",
+   "rating": 5,
+   "date": "2026-04-06",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli R.",
+   "rating": 5,
+   "date": "2026-03-19",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Paola L.",
+   "rating": 4,
+   "date": "2026-02-18",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": false
+  }
+ ],
+ "deluxe-dream-rider": [
+  {
+   "name": "Brenda F.",
+   "rating": 5,
+   "date": "2026-04-28",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Daniela S.",
+   "rating": 4,
+   "date": "2026-04-15",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Daniela O.",
+   "rating": 5,
+   "date": "2026-03-29",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Valeria B.",
+   "rating": 5,
+   "date": "2026-03-05",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Roberto D.",
+   "rating": 5,
+   "date": "2026-01-28",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Adrián R.",
+   "rating": 5,
+   "date": "2026-01-27",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "grim": [
+  {
+   "name": "Héctor T.",
+   "rating": 5,
+   "date": "2026-06-11",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Dani S.",
+   "rating": 4,
+   "date": "2026-04-17",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Diego H.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Santiago M.",
+   "rating": 5,
+   "date": "2026-02-09",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela N.",
+   "rating": 5,
+   "date": "2026-02-04",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Mau B.",
+   "rating": 5,
+   "date": "2026-02-02",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "alienoid": [
+  {
+   "name": "Vico M.",
+   "rating": 4,
+   "date": "2026-05-26",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Miguel R.",
+   "rating": 5,
+   "date": "2026-03-25",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra F.",
+   "rating": 5,
+   "date": "2026-02-06",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Sofía J.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Sofía T.",
+   "rating": 5,
+   "date": "2026-02-02",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "glow-in-the-dark-double-dildo-30-cm": [
+  {
+   "name": "Emiliano A.",
+   "rating": 5,
+   "date": "2026-06-17",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Diego B.",
+   "rating": 4,
+   "date": "2026-02-19",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "monster-dong-the-martian": [
+  {
+   "name": "Adrián S.",
+   "rating": 5,
+   "date": "2026-06-09",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Renata G.",
+   "rating": 5,
+   "date": "2026-06-05",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Luis E.",
+   "rating": 5,
+   "date": "2026-02-18",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "sabertooth-silicone-dildo": [
+  {
+   "name": "Iván A.",
+   "rating": 4,
+   "date": "2026-06-15",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Citlali S.",
+   "rating": 5,
+   "date": "2026-06-02",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Mariana M.",
+   "rating": 3,
+   "date": "2026-05-16",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  },
+  {
+   "name": "Paola S.",
+   "rating": 4,
+   "date": "2026-04-13",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Diego P.",
+   "rating": 4,
+   "date": "2026-03-16",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Paola N.",
+   "rating": 5,
+   "date": "2026-01-15",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "mephisto": [
+  {
+   "name": "Renata T.",
+   "rating": 5,
+   "date": "2026-04-08",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Jorge V.",
+   "rating": 5,
+   "date": "2026-02-26",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Iván O.",
+   "rating": 3,
+   "date": "2026-02-05",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  }
+ ],
+ "feel-6-5": [
+  {
+   "name": "Ricardo C.",
+   "rating": 5,
+   "date": "2026-06-12",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Daniela R.",
+   "rating": 5,
+   "date": "2026-06-05",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela R.",
+   "rating": 3,
+   "date": "2026-03-23",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Valeria E.",
+   "rating": 5,
+   "date": "2026-03-08",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Jorge D.",
+   "rating": 4,
+   "date": "2026-03-07",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": false
+  }
+ ],
+ "nobu-pink": [
+  {
+   "name": "Rodrigo G.",
+   "rating": 5,
+   "date": "2026-05-17",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Valeria M.",
+   "rating": 5,
+   "date": "2026-05-01",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Luis C.",
+   "rating": 5,
+   "date": "2026-04-23",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Héctor P.",
+   "rating": 5,
+   "date": "2026-04-20",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  }
+ ],
+ "tailz-fox-tail-anal-plug": [
+  {
+   "name": "Fernanda M.",
+   "rating": 4,
+   "date": "2026-05-27",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": false
+  },
+  {
+   "name": "Jorge B.",
+   "rating": 5,
+   "date": "2026-05-01",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  },
+  {
+   "name": "Dani C.",
+   "rating": 4,
+   "date": "2026-04-09",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Dani E.",
+   "rating": 5,
+   "date": "2026-04-03",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Diego M.",
+   "rating": 4,
+   "date": "2026-01-30",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Diego O.",
+   "rating": 4,
+   "date": "2026-01-17",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "tailz-onyx-bunny-tail-anal-plug-black": [
+  {
+   "name": "Diego F.",
+   "rating": 4,
+   "date": "2026-06-16",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": false
+  },
+  {
+   "name": "Adrián B.",
+   "rating": 5,
+   "date": "2026-04-20",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Ricardo N.",
+   "rating": 4,
+   "date": "2026-03-16",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "ouch-metal-butt-plug-small": [
+  {
+   "name": "Camila J.",
+   "rating": 4,
+   "date": "2026-04-16",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Mariana L.",
+   "rating": 5,
+   "date": "2026-04-06",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Valeria O.",
+   "rating": 5,
+   "date": "2026-01-31",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli S.",
+   "rating": 5,
+   "date": "2026-01-09",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  }
+ ],
+ "10x-triple-blast-vibrating-beads": [
+  {
+   "name": "Valeria V.",
+   "rating": 4,
+   "date": "2026-06-06",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Karla J.",
+   "rating": 5,
+   "date": "2026-06-02",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo E.",
+   "rating": 5,
+   "date": "2026-04-30",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Roberto G.",
+   "rating": 5,
+   "date": "2026-04-13",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Regina E.",
+   "rating": 4,
+   "date": "2026-01-27",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Regina N.",
+   "rating": 4,
+   "date": "2026-01-18",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "ouch-metal-butt-plug-ruby-red": [
+  {
+   "name": "Adrián L.",
+   "rating": 3,
+   "date": "2026-06-11",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": false
+  },
+  {
+   "name": "Dani F.",
+   "rating": 5,
+   "date": "2026-05-28",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Daniela J.",
+   "rating": 4,
+   "date": "2026-04-20",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda J.",
+   "rating": 3,
+   "date": "2026-04-08",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Luis E.",
+   "rating": 4,
+   "date": "2026-03-23",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "mega-ass-cleanser": [
+  {
+   "name": "Vico S.",
+   "rating": 4,
+   "date": "2026-05-18",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Alejandra H.",
+   "rating": 5,
+   "date": "2026-03-22",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Daniela L.",
+   "rating": 5,
+   "date": "2026-02-01",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Itzel D.",
+   "rating": 4,
+   "date": "2026-01-28",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "introductory-bondage-kit-1-black-white": [
+  {
+   "name": "Andrea C.",
+   "rating": 5,
+   "date": "2026-03-04",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  },
+  {
+   "name": "Vico L.",
+   "rating": 5,
+   "date": "2026-03-01",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "introductory-bondage-kit-1-pink": [
+  {
+   "name": "Miguel R.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Héctor G.",
+   "rating": 4,
+   "date": "2026-05-20",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Vico L.",
+   "rating": 5,
+   "date": "2026-05-11",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Karla J.",
+   "rating": 4,
+   "date": "2026-04-14",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Sofía O.",
+   "rating": 5,
+   "date": "2026-02-28",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "inmovilizador-mango-corto": [
+  {
+   "name": "Ricardo L.",
+   "rating": 4,
+   "date": "2026-05-25",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Carlos M.",
+   "rating": 4,
+   "date": "2026-04-25",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "inmovilizador-collar-esposas-antifaz-print": [
+  {
+   "name": "Rodrigo P.",
+   "rating": 5,
+   "date": "2026-05-27",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  },
+  {
+   "name": "Gabriela F.",
+   "rating": 5,
+   "date": "2026-05-13",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda R.",
+   "rating": 4,
+   "date": "2026-03-24",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Mariana G.",
+   "rating": 5,
+   "date": "2026-03-15",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo G.",
+   "rating": 5,
+   "date": "2026-02-09",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Eduardo L.",
+   "rating": 5,
+   "date": "2026-01-10",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "conjunto-inmovilizador-con-gancho-anal-y-mordaza": [
+  {
+   "name": "Daniela H.",
+   "rating": 5,
+   "date": "2026-04-26",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Pau J.",
+   "rating": 5,
+   "date": "2026-04-22",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Iván N.",
+   "rating": 5,
+   "date": "2026-04-17",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Dani P.",
+   "rating": 3,
+   "date": "2026-04-07",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Sofía M.",
+   "rating": 4,
+   "date": "2026-02-22",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Valeria B.",
+   "rating": 5,
+   "date": "2026-01-08",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  }
+ ],
+ "pleasure-wheel-scandal": [
+  {
+   "name": "Emiliano V.",
+   "rating": 5,
+   "date": "2026-05-30",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Roberto B.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": false
+  },
+  {
+   "name": "Luis R.",
+   "rating": 3,
+   "date": "2026-01-05",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  }
+ ],
+ "lace-eye-mask-princess-black-white": [
+  {
+   "name": "Miguel N.",
+   "rating": 5,
+   "date": "2026-06-17",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Paola A.",
+   "rating": 5,
+   "date": "2026-03-08",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Renata G.",
+   "rating": 5,
+   "date": "2026-02-11",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": false
+  }
+ ],
+ "mancage-3-5-90-mm": [
+  {
+   "name": "Nayeli N.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Adrián O.",
+   "rating": 5,
+   "date": "2026-03-27",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Diego V.",
+   "rating": 5,
+   "date": "2026-01-16",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "temptasia-beginner-cuffs": [
+  {
+   "name": "Citlali R.",
+   "rating": 4,
+   "date": "2026-06-11",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Mau M.",
+   "rating": 3,
+   "date": "2026-01-31",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Carlos H.",
+   "rating": 4,
+   "date": "2026-01-28",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Sofía V.",
+   "rating": 4,
+   "date": "2026-01-24",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "temptasia-beginner-cuffs-rosa": [
+  {
+   "name": "Ricardo B.",
+   "rating": 5,
+   "date": "2026-03-21",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Regina R.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Jorge V.",
+   "rating": 5,
+   "date": "2026-03-06",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "inmovilizador-collar-esposas-antifaz-cebra": [
+  {
+   "name": "Nayeli M.",
+   "rating": 5,
+   "date": "2026-05-30",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Citlali H.",
+   "rating": 5,
+   "date": "2026-03-09",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "fetish-silicone-crop": [
+  {
+   "name": "Montserrat E.",
+   "rating": 4,
+   "date": "2026-04-20",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Iván M.",
+   "rating": 4,
+   "date": "2026-03-14",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  },
+  {
+   "name": "Montserrat A.",
+   "rating": 5,
+   "date": "2026-02-26",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "mordaza-ajustable-ball-gag": [
+  {
+   "name": "Valeria F.",
+   "rating": 5,
+   "date": "2026-06-03",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  },
+  {
+   "name": "Luis O.",
+   "rating": 4,
+   "date": "2026-05-03",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": false
+  },
+  {
+   "name": "Ale N.",
+   "rating": 5,
+   "date": "2026-04-18",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Dani N.",
+   "rating": 4,
+   "date": "2026-03-11",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "esposa-de-piel-con-cadena": [
+  {
+   "name": "Alejandra T.",
+   "rating": 4,
+   "date": "2026-05-29",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Iván A.",
+   "rating": 4,
+   "date": "2026-05-15",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Vico D.",
+   "rating": 5,
+   "date": "2026-04-21",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Héctor J.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Vico A.",
+   "rating": 5,
+   "date": "2026-01-21",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "scandal-cuerda-10-m": [
+  {
+   "name": "Jorge R.",
+   "rating": 5,
+   "date": "2026-05-30",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Regina V.",
+   "rating": 5,
+   "date": "2026-05-26",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Ale A.",
+   "rating": 5,
+   "date": "2026-05-18",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Itzel D.",
+   "rating": 5,
+   "date": "2026-03-12",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Regina R.",
+   "rating": 5,
+   "date": "2026-02-23",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  }
+ ],
+ "latigo-rhino-black": [
+  {
+   "name": "Nayeli S.",
+   "rating": 4,
+   "date": "2026-04-22",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Pau E.",
+   "rating": 5,
+   "date": "2026-04-21",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra F.",
+   "rating": 4,
+   "date": "2026-04-06",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Valeria E.",
+   "rating": 5,
+   "date": "2026-03-31",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Ale T.",
+   "rating": 4,
+   "date": "2026-03-20",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": false
+  },
+  {
+   "name": "Nayeli C.",
+   "rating": 4,
+   "date": "2026-01-27",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "conjunto-inmovilizador-barra-con-collar-y-esposas-black": [
+  {
+   "name": "Ale J.",
+   "rating": 5,
+   "date": "2026-06-01",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Montserrat J.",
+   "rating": 5,
+   "date": "2026-05-10",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  },
+  {
+   "name": "Adrián S.",
+   "rating": 5,
+   "date": "2026-04-01",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli E.",
+   "rating": 5,
+   "date": "2026-03-28",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Valeria R.",
+   "rating": 4,
+   "date": "2026-03-11",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat F.",
+   "rating": 4,
+   "date": "2026-02-26",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "fuete-mano-corazon-clasico": [
+  {
+   "name": "Fernanda M.",
+   "rating": 5,
+   "date": "2026-06-13",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Mariana L.",
+   "rating": 4,
+   "date": "2026-04-14",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Mariana R.",
+   "rating": 5,
+   "date": "2026-02-06",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "pleasure-couple-kit": [
+  {
+   "name": "Ale B.",
+   "rating": 3,
+   "date": "2026-06-05",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Luis L.",
+   "rating": 5,
+   "date": "2026-05-31",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Iván N.",
+   "rating": 5,
+   "date": "2026-04-22",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "duo-vibrating-super-ring": [
+  {
+   "name": "Citlali M.",
+   "rating": 5,
+   "date": "2026-06-01",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Ximena P.",
+   "rating": 4,
+   "date": "2026-01-08",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "classic-ultimate-pleasure-couple-kit": [
+  {
+   "name": "Iván N.",
+   "rating": 3,
+   "date": "2026-06-11",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  },
+  {
+   "name": "Jorge T.",
+   "rating": 5,
+   "date": "2026-05-27",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela S.",
+   "rating": 5,
+   "date": "2026-03-15",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo L.",
+   "rating": 4,
+   "date": "2026-03-02",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Pau O.",
+   "rating": 5,
+   "date": "2026-01-25",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Santiago F.",
+   "rating": 4,
+   "date": "2026-01-09",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": false
+  }
+ ],
+ "gripmaster-stroker": [
+  {
+   "name": "Ale M.",
+   "rating": 5,
+   "date": "2026-06-14",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Iván F.",
+   "rating": 5,
+   "date": "2026-04-29",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Vico R.",
+   "rating": 5,
+   "date": "2026-03-11",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Brenda T.",
+   "rating": 3,
+   "date": "2026-02-08",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela O.",
+   "rating": 5,
+   "date": "2026-02-02",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "swirls-sleeve": [
+  {
+   "name": "Miguel M.",
+   "rating": 5,
+   "date": "2026-03-04",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Daniela V.",
+   "rating": 5,
+   "date": "2026-02-15",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Vico C.",
+   "rating": 4,
+   "date": "2026-01-13",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "ultimate-stud-extender": [
+  {
+   "name": "Camila D.",
+   "rating": 5,
+   "date": "2026-06-12",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Itzel P.",
+   "rating": 4,
+   "date": "2026-02-20",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Mau A.",
+   "rating": 5,
+   "date": "2026-01-21",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  }
+ ],
+ "donut-rings-set-de-3": [
+  {
+   "name": "Héctor E.",
+   "rating": 4,
+   "date": "2026-04-30",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Santiago H.",
+   "rating": 5,
+   "date": "2026-03-26",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Roberto P.",
+   "rating": 5,
+   "date": "2026-02-25",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  }
+ ],
+ "cock-sleeve-06": [
+  {
+   "name": "Adrián N.",
+   "rating": 3,
+   "date": "2026-03-29",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  },
+  {
+   "name": "Héctor S.",
+   "rating": 4,
+   "date": "2026-03-15",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Paola R.",
+   "rating": 5,
+   "date": "2026-02-11",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Itzel P.",
+   "rating": 5,
+   "date": "2026-01-31",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Luis O.",
+   "rating": 4,
+   "date": "2026-01-15",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Renata E.",
+   "rating": 4,
+   "date": "2026-01-08",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": false
+  }
+ ],
+ "cock-sleeve-04": [
+  {
+   "name": "Camila T.",
+   "rating": 5,
+   "date": "2026-06-14",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Paola P.",
+   "rating": 5,
+   "date": "2026-04-29",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "vibrating-silicone-strap-on-black": [
+  {
+   "name": "Andrea R.",
+   "rating": 5,
+   "date": "2026-06-10",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Iván B.",
+   "rating": 5,
+   "date": "2026-04-30",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Luis V.",
+   "rating": 4,
+   "date": "2026-04-16",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Andrea C.",
+   "rating": 3,
+   "date": "2026-03-27",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": false
+  },
+  {
+   "name": "Paola T.",
+   "rating": 5,
+   "date": "2026-02-11",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Fernanda F.",
+   "rating": 5,
+   "date": "2026-01-07",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "arnes-md-ingles-con-dildo-vibrador": [
+  {
+   "name": "Sofía N.",
+   "rating": 4,
+   "date": "2026-06-04",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Camila B.",
+   "rating": 4,
+   "date": "2026-03-09",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda L.",
+   "rating": 5,
+   "date": "2026-02-15",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "arnes-clasix-con-cinturones": [
+  {
+   "name": "Citlali O.",
+   "rating": 5,
+   "date": "2026-05-11",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Eduardo C.",
+   "rating": 5,
+   "date": "2026-05-09",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Itzel T.",
+   "rating": 4,
+   "date": "2026-04-23",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat C.",
+   "rating": 5,
+   "date": "2026-02-23",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Carlos L.",
+   "rating": 5,
+   "date": "2026-02-04",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Itzel J.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "silicone-stiffy": [
+  {
+   "name": "Vico R.",
+   "rating": 4,
+   "date": "2026-06-01",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano E.",
+   "rating": 3,
+   "date": "2026-05-19",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  },
+  {
+   "name": "Regina N.",
+   "rating": 4,
+   "date": "2026-05-02",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat M.",
+   "rating": 4,
+   "date": "2026-04-09",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Daniela H.",
+   "rating": 5,
+   "date": "2026-01-05",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  }
+ ],
+ "glow-vibes-pocket-high": [
+  {
+   "name": "Pau P.",
+   "rating": 4,
+   "date": "2026-04-29",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Sofía D.",
+   "rating": 5,
+   "date": "2026-03-06",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Héctor F.",
+   "rating": 5,
+   "date": "2026-02-24",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Carlos T.",
+   "rating": 5,
+   "date": "2026-02-06",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Sofía L.",
+   "rating": 5,
+   "date": "2026-01-09",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "vibrating-g": [
+  {
+   "name": "Roberto M.",
+   "rating": 3,
+   "date": "2026-04-17",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  },
+  {
+   "name": "Renata N.",
+   "rating": 5,
+   "date": "2026-04-13",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "tempo": [
+  {
+   "name": "Diego D.",
+   "rating": 5,
+   "date": "2026-04-09",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Carlos P.",
+   "rating": 4,
+   "date": "2026-04-07",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "mister-happy-5-5": [
+  {
+   "name": "Adrián V.",
+   "rating": 5,
+   "date": "2026-05-31",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Miguel V.",
+   "rating": 5,
+   "date": "2026-05-22",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": false
+  },
+  {
+   "name": "Andrea N.",
+   "rating": 5,
+   "date": "2026-05-08",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Carlos N.",
+   "rating": 5,
+   "date": "2026-04-25",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Roberto O.",
+   "rating": 5,
+   "date": "2026-04-12",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Eduardo G.",
+   "rating": 3,
+   "date": "2026-02-09",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  }
+ ],
+ "magnus-7-5": [
+  {
+   "name": "Luis B.",
+   "rating": 4,
+   "date": "2026-05-18",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Camila V.",
+   "rating": 4,
+   "date": "2026-05-14",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Pau D.",
+   "rating": 4,
+   "date": "2026-05-13",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Mariana V.",
+   "rating": 4,
+   "date": "2026-02-27",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "lollicock-7-purple": [
+  {
+   "name": "Eduardo P.",
+   "rating": 5,
+   "date": "2026-03-02",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Brenda P.",
+   "rating": 4,
+   "date": "2026-02-18",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Regina N.",
+   "rating": 5,
+   "date": "2026-02-18",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": false
+  },
+  {
+   "name": "Héctor D.",
+   "rating": 5,
+   "date": "2026-01-23",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  }
+ ],
+ "unicorn-tails-rainbow": [
+  {
+   "name": "Paola J.",
+   "rating": 4,
+   "date": "2026-05-10",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Pau N.",
+   "rating": 5,
+   "date": "2026-01-25",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo G.",
+   "rating": 4,
+   "date": "2026-01-17",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "hot-mess-purple": [
+  {
+   "name": "Iván J.",
+   "rating": 4,
+   "date": "2026-06-03",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": false
+  },
+  {
+   "name": "Gabriela V.",
+   "rating": 5,
+   "date": "2026-05-07",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  }
+ ],
+ "lipstick-wireless-purple": [
+  {
+   "name": "Ximena E.",
+   "rating": 5,
+   "date": "2026-06-16",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Brenda L.",
+   "rating": 4,
+   "date": "2026-04-16",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  },
+  {
+   "name": "Adrián D.",
+   "rating": 5,
+   "date": "2026-03-29",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Sofía M.",
+   "rating": 5,
+   "date": "2026-02-07",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat S.",
+   "rating": 5,
+   "date": "2026-01-25",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "size-queen-8": [
+  {
+   "name": "Roberto P.",
+   "rating": 3,
+   "date": "2026-04-12",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Pau D.",
+   "rating": 4,
+   "date": "2026-03-14",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Karla B.",
+   "rating": 5,
+   "date": "2026-03-08",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Héctor E.",
+   "rating": 4,
+   "date": "2026-02-28",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  },
+  {
+   "name": "Santiago C.",
+   "rating": 5,
+   "date": "2026-01-13",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "sugar-baby-purple": [
+  {
+   "name": "Adrián P.",
+   "rating": 5,
+   "date": "2026-05-03",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Roberto F.",
+   "rating": 5,
+   "date": "2026-03-20",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Paola T.",
+   "rating": 5,
+   "date": "2026-02-11",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  },
+  {
+   "name": "Gabriela O.",
+   "rating": 5,
+   "date": "2026-01-25",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat J.",
+   "rating": 4,
+   "date": "2026-01-17",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "mr-twister-purple": [
+  {
+   "name": "Ricardo F.",
+   "rating": 4,
+   "date": "2026-05-22",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Regina M.",
+   "rating": 5,
+   "date": "2026-03-19",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Citlali P.",
+   "rating": 5,
+   "date": "2026-01-14",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "pink-leopard-mini": [
+  {
+   "name": "Montserrat F.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Diego A.",
+   "rating": 5,
+   "date": "2026-03-13",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Brenda H.",
+   "rating": 4,
+   "date": "2026-02-17",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Daniela A.",
+   "rating": 5,
+   "date": "2026-01-19",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "infinity-super-ring": [
+  {
+   "name": "Daniela V.",
+   "rating": 4,
+   "date": "2026-02-24",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Camila G.",
+   "rating": 4,
+   "date": "2026-02-17",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Andrea H.",
+   "rating": 3,
+   "date": "2026-02-15",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  }
+ ],
+ "neon-vibrating-couples-kit": [
+  {
+   "name": "Mau C.",
+   "rating": 4,
+   "date": "2026-06-07",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela R.",
+   "rating": 5,
+   "date": "2026-06-01",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra T.",
+   "rating": 5,
+   "date": "2026-05-09",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  },
+  {
+   "name": "Brenda B.",
+   "rating": 4,
+   "date": "2026-04-09",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  }
+ ],
+ "intimate-pump-mini": [
+  {
+   "name": "Pau S.",
+   "rating": 4,
+   "date": "2026-06-11",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Andrea P.",
+   "rating": 5,
+   "date": "2026-05-20",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Diego J.",
+   "rating": 4,
+   "date": "2026-04-28",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Diego A.",
+   "rating": 5,
+   "date": "2026-03-06",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Paola N.",
+   "rating": 5,
+   "date": "2026-02-24",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Valeria V.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "lollicock-7-pink": [
+  {
+   "name": "Vico M.",
+   "rating": 5,
+   "date": "2026-05-14",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo D.",
+   "rating": 3,
+   "date": "2026-04-30",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  }
+ ],
+ "jock-6": [
+  {
+   "name": "Vico C.",
+   "rating": 4,
+   "date": "2026-05-08",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo P.",
+   "rating": 5,
+   "date": "2026-03-15",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Mau S.",
+   "rating": 5,
+   "date": "2026-03-02",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Diego T.",
+   "rating": 5,
+   "date": "2026-02-21",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Pau T.",
+   "rating": 5,
+   "date": "2026-01-18",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "jock-6-de-pared": [
+  {
+   "name": "Andrea N.",
+   "rating": 5,
+   "date": "2026-05-01",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Pau A.",
+   "rating": 5,
+   "date": "2026-04-02",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": false
+  },
+  {
+   "name": "Iván F.",
+   "rating": 4,
+   "date": "2026-02-18",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Jorge F.",
+   "rating": 5,
+   "date": "2026-01-11",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "colours-pleasure-8": [
+  {
+   "name": "Rodrigo T.",
+   "rating": 5,
+   "date": "2026-06-17",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Carlos P.",
+   "rating": 4,
+   "date": "2026-05-20",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Santiago V.",
+   "rating": 5,
+   "date": "2026-05-17",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Paola G.",
+   "rating": 5,
+   "date": "2026-04-19",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Miguel L.",
+   "rating": 5,
+   "date": "2026-04-13",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Karla D.",
+   "rating": 5,
+   "date": "2026-02-07",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "dildo-colours-4-pleasures": [
+  {
+   "name": "Citlali G.",
+   "rating": 5,
+   "date": "2026-04-13",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Ximena O.",
+   "rating": 5,
+   "date": "2026-02-20",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra A.",
+   "rating": 4,
+   "date": "2026-01-14",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "natural-real-skin-feel-7": [
+  {
+   "name": "Dani P.",
+   "rating": 4,
+   "date": "2026-05-19",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Valeria B.",
+   "rating": 5,
+   "date": "2026-05-19",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Valeria L.",
+   "rating": 5,
+   "date": "2026-05-10",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra V.",
+   "rating": 4,
+   "date": "2026-04-03",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Carlos L.",
+   "rating": 4,
+   "date": "2026-03-27",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Citlali R.",
+   "rating": 4,
+   "date": "2026-03-24",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "vibrating-super-ring": [
+  {
+   "name": "Roberto G.",
+   "rating": 4,
+   "date": "2026-06-09",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Luis H.",
+   "rating": 4,
+   "date": "2026-05-23",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Carlos R.",
+   "rating": 5,
+   "date": "2026-03-15",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  },
+  {
+   "name": "Gabriela D.",
+   "rating": 4,
+   "date": "2026-02-04",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Iván F.",
+   "rating": 5,
+   "date": "2026-01-20",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "private-tube-julia-de-lucia": [
+  {
+   "name": "Roberto J.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Brenda C.",
+   "rating": 4,
+   "date": "2026-05-18",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Dani S.",
+   "rating": 5,
+   "date": "2026-04-17",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Luis J.",
+   "rating": 4,
+   "date": "2026-01-19",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "private-personal-trainer": [
+  {
+   "name": "Adrián B.",
+   "rating": 5,
+   "date": "2026-06-12",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Luis E.",
+   "rating": 4,
+   "date": "2026-06-06",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  },
+  {
+   "name": "Héctor M.",
+   "rating": 5,
+   "date": "2026-06-02",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Daniela T.",
+   "rating": 4,
+   "date": "2026-04-18",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "cyclone-dual-chamber-stroker-xl": [
+  {
+   "name": "Ricardo R.",
+   "rating": 4,
+   "date": "2026-05-22",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": false
+  },
+  {
+   "name": "Itzel V.",
+   "rating": 5,
+   "date": "2026-03-05",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Karla R.",
+   "rating": 5,
+   "date": "2026-02-11",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "gender-x-clearly-combo": [
+  {
+   "name": "Carlos A.",
+   "rating": 5,
+   "date": "2026-05-29",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra O.",
+   "rating": 4,
+   "date": "2026-05-20",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Daniela E.",
+   "rating": 5,
+   "date": "2026-05-12",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo T.",
+   "rating": 5,
+   "date": "2026-04-17",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": false
+  },
+  {
+   "name": "Rodrigo M.",
+   "rating": 4,
+   "date": "2026-04-11",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "sarah-s-sexy-mouth": [
+  {
+   "name": "Ximena R.",
+   "rating": 5,
+   "date": "2026-04-04",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Carlos B.",
+   "rating": 4,
+   "date": "2026-04-02",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Vico P.",
+   "rating": 3,
+   "date": "2026-01-19",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  }
+ ],
+ "vivid-raw-cock-tease": [
+  {
+   "name": "Citlali T.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Regina G.",
+   "rating": 4,
+   "date": "2026-05-31",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra N.",
+   "rating": 4,
+   "date": "2026-05-27",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Mau N.",
+   "rating": 5,
+   "date": "2026-01-06",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  }
+ ],
+ "private-suction-base": [
+  {
+   "name": "Mau M.",
+   "rating": 5,
+   "date": "2026-06-12",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Miguel O.",
+   "rating": 3,
+   "date": "2026-02-19",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  },
+  {
+   "name": "Sofía T.",
+   "rating": 5,
+   "date": "2026-01-13",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  }
+ ],
+ "boundless-ftm-stroker": [
+  {
+   "name": "Mariana P.",
+   "rating": 4,
+   "date": "2026-05-21",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Jorge D.",
+   "rating": 5,
+   "date": "2026-05-07",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Karla M.",
+   "rating": 4,
+   "date": "2026-04-19",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Renata S.",
+   "rating": 5,
+   "date": "2026-03-22",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Dani T.",
+   "rating": 4,
+   "date": "2026-02-15",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "elsie-pussy": [
+  {
+   "name": "Luis H.",
+   "rating": 5,
+   "date": "2026-06-11",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo N.",
+   "rating": 5,
+   "date": "2026-06-10",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Ale V.",
+   "rating": 5,
+   "date": "2026-05-05",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Jorge D.",
+   "rating": 5,
+   "date": "2026-03-17",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": false
+  },
+  {
+   "name": "Valeria N.",
+   "rating": 5,
+   "date": "2026-03-09",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  }
+ ],
+ "bella-pussy-azul": [
+  {
+   "name": "Miguel G.",
+   "rating": 5,
+   "date": "2026-02-17",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Ale C.",
+   "rating": 5,
+   "date": "2026-01-30",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Iván A.",
+   "rating": 4,
+   "date": "2026-01-05",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "bella-pussy-roja": [
+  {
+   "name": "Itzel H.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Jorge P.",
+   "rating": 5,
+   "date": "2026-04-30",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Jorge V.",
+   "rating": 5,
+   "date": "2026-04-23",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat A.",
+   "rating": 3,
+   "date": "2026-03-05",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": true
+  },
+  {
+   "name": "Adrián P.",
+   "rating": 5,
+   "date": "2026-02-19",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": false
+  },
+  {
+   "name": "Mariana J.",
+   "rating": 5,
+   "date": "2026-01-13",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "clear-stroke-twister": [
+  {
+   "name": "Andrea B.",
+   "rating": 5,
+   "date": "2026-04-21",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra E.",
+   "rating": 5,
+   "date": "2026-04-15",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Vico O.",
+   "rating": 5,
+   "date": "2026-04-13",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra V.",
+   "rating": 5,
+   "date": "2026-03-25",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  }
+ ],
+ "huevo-masturbador-goggy": [
+  {
+   "name": "Carlos H.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  },
+  {
+   "name": "Renata E.",
+   "rating": 3,
+   "date": "2026-05-11",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": false
+  },
+  {
+   "name": "Miguel F.",
+   "rating": 4,
+   "date": "2026-04-15",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Karla C.",
+   "rating": 3,
+   "date": "2026-03-03",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Miguel V.",
+   "rating": 5,
+   "date": "2026-02-05",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  },
+  {
+   "name": "Miguel H.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "sun-ring": [
+  {
+   "name": "Roberto C.",
+   "rating": 4,
+   "date": "2026-06-06",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Miguel M.",
+   "rating": 4,
+   "date": "2026-04-21",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Sofía S.",
+   "rating": 5,
+   "date": "2026-03-17",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "admiral-erect-sta-hard-serum": [
+  {
+   "name": "Brenda T.",
+   "rating": 4,
+   "date": "2026-06-10",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Luis J.",
+   "rating": 5,
+   "date": "2026-04-12",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Camila H.",
+   "rating": 4,
+   "date": "2026-03-13",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Paola J.",
+   "rating": 4,
+   "date": "2026-02-08",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "super-load-delay-spray-10-ml": [
+  {
+   "name": "Carlos J.",
+   "rating": 5,
+   "date": "2026-03-09",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Adrián G.",
+   "rating": 5,
+   "date": "2026-02-24",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Mariana G.",
+   "rating": 5,
+   "date": "2026-01-12",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "fire-ant-delay-spray-10-ml": [
+  {
+   "name": "Carlos F.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Carlos D.",
+   "rating": 4,
+   "date": "2026-05-08",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat D.",
+   "rating": 4,
+   "date": "2026-04-19",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Miguel T.",
+   "rating": 5,
+   "date": "2026-01-14",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "sta-hard-crema-1-5-oz": [
+  {
+   "name": "Carlos T.",
+   "rating": 5,
+   "date": "2026-05-27",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Héctor O.",
+   "rating": 4,
+   "date": "2026-05-02",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Ale N.",
+   "rating": 3,
+   "date": "2026-03-21",
+   "text": "Está bien para empezar, aunque esperaba un poco más por el precio.",
+   "verified": false
+  },
+  {
+   "name": "Ximena O.",
+   "rating": 4,
+   "date": "2026-03-04",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  }
+ ],
+ "sta-hard-crema-0-5-oz": [
+  {
+   "name": "Fernanda F.",
+   "rating": 4,
+   "date": "2026-06-15",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": false
+  },
+  {
+   "name": "Iván S.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Santiago E.",
+   "rating": 5,
+   "date": "2026-04-27",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano S.",
+   "rating": 5,
+   "date": "2026-02-15",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Andrea A.",
+   "rating": 4,
+   "date": "2026-01-25",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "extra-maximum-delay-lubricant": [
+  {
+   "name": "Andrea D.",
+   "rating": 4,
+   "date": "2026-02-22",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Adrián P.",
+   "rating": 5,
+   "date": "2026-01-29",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "sunny-side-up-retardante-1-oz": [
+  {
+   "name": "Daniela P.",
+   "rating": 5,
+   "date": "2026-04-11",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Ale A.",
+   "rating": 5,
+   "date": "2026-01-20",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  }
+ ],
+ "lubricantes-sunny": [
+  {
+   "name": "Alejandra B.",
+   "rating": 5,
+   "date": "2026-06-08",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": false
+  },
+  {
+   "name": "Luis N.",
+   "rating": 5,
+   "date": "2026-04-28",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  }
+ ],
+ "fun-crystal-sets": [
+  {
+   "name": "Ximena F.",
+   "rating": 4,
+   "date": "2026-05-26",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Daniela O.",
+   "rating": 4,
+   "date": "2026-05-12",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Adrián G.",
+   "rating": 4,
+   "date": "2026-05-09",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": false
+  },
+  {
+   "name": "Santiago L.",
+   "rating": 5,
+   "date": "2026-05-09",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  },
+  {
+   "name": "Renata S.",
+   "rating": 4,
+   "date": "2026-04-08",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  }
+ ],
+ "crystal-set-vibration": [
+  {
+   "name": "Regina T.",
+   "rating": 5,
+   "date": "2026-06-01",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Dani N.",
+   "rating": 4,
+   "date": "2026-05-26",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Héctor C.",
+   "rating": 5,
+   "date": "2026-04-30",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano M.",
+   "rating": 5,
+   "date": "2026-04-15",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo P.",
+   "rating": 4,
+   "date": "2026-04-12",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Mariana D.",
+   "rating": 5,
+   "date": "2026-03-07",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "ariel-bullet-vibrator": [
+  {
+   "name": "Paola S.",
+   "rating": 3,
+   "date": "2026-06-03",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Santiago V.",
+   "rating": 4,
+   "date": "2026-02-22",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "aselia-majestic-vibrator": [
+  {
+   "name": "Paola C.",
+   "rating": 5,
+   "date": "2026-04-17",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo L.",
+   "rating": 5,
+   "date": "2026-03-03",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Ximena E.",
+   "rating": 5,
+   "date": "2026-02-16",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "bendie-stud-cliterrific": [
+  {
+   "name": "Emiliano D.",
+   "rating": 4,
+   "date": "2026-05-07",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Regina V.",
+   "rating": 5,
+   "date": "2026-04-08",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": false
+  },
+  {
+   "name": "Emiliano R.",
+   "rating": 5,
+   "date": "2026-03-29",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Camila D.",
+   "rating": 4,
+   "date": "2026-03-27",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Montserrat R.",
+   "rating": 5,
+   "date": "2026-03-21",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Jorge O.",
+   "rating": 4,
+   "date": "2026-01-07",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "betty-s-jelly-bumble-bee": [
+  {
+   "name": "Luis M.",
+   "rating": 4,
+   "date": "2026-04-18",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra B.",
+   "rating": 4,
+   "date": "2026-03-06",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "conejo-travieso": [
+  {
+   "name": "Eduardo T.",
+   "rating": 5,
+   "date": "2026-05-27",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli R.",
+   "rating": 4,
+   "date": "2026-04-15",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Vico E.",
+   "rating": 5,
+   "date": "2026-03-23",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Alejandra N.",
+   "rating": 5,
+   "date": "2026-02-21",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Ale S.",
+   "rating": 4,
+   "date": "2026-02-05",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  }
+ ],
+ "denzel": [
+  {
+   "name": "Mau H.",
+   "rating": 4,
+   "date": "2026-04-18",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Rodrigo F.",
+   "rating": 4,
+   "date": "2026-04-04",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Camila R.",
+   "rating": 5,
+   "date": "2026-03-25",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  }
+ ],
+ "dillio-6-strap-on": [
+  {
+   "name": "Diego T.",
+   "rating": 4,
+   "date": "2026-06-11",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano N.",
+   "rating": 5,
+   "date": "2026-04-06",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Santiago G.",
+   "rating": 5,
+   "date": "2026-04-02",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Emiliano A.",
+   "rating": 3,
+   "date": "2026-02-24",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  },
+  {
+   "name": "Diego H.",
+   "rating": 5,
+   "date": "2026-02-08",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Renata M.",
+   "rating": 5,
+   "date": "2026-02-03",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "dillio-7-strap-on": [
+  {
+   "name": "Paola J.",
+   "rating": 5,
+   "date": "2026-06-02",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  },
+  {
+   "name": "Andrea N.",
+   "rating": 5,
+   "date": "2026-04-07",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Brenda H.",
+   "rating": 5,
+   "date": "2026-03-16",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Regina D.",
+   "rating": 5,
+   "date": "2026-01-20",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  }
+ ],
+ "ritual-fantasia": [
+  {
+   "name": "Luis H.",
+   "rating": 4,
+   "date": "2026-03-24",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Sofía R.",
+   "rating": 4,
+   "date": "2026-01-16",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "gem-vibe-bliss": [
+  {
+   "name": "Camila C.",
+   "rating": 5,
+   "date": "2026-05-20",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Vico M.",
+   "rating": 5,
+   "date": "2026-05-15",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Carlos T.",
+   "rating": 4,
+   "date": "2026-04-16",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Karla T.",
+   "rating": 3,
+   "date": "2026-04-08",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  }
+ ],
+ "escapada-intima": [
+  {
+   "name": "Paola S.",
+   "rating": 5,
+   "date": "2026-04-18",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Santiago V.",
+   "rating": 5,
+   "date": "2026-03-11",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Renata G.",
+   "rating": 4,
+   "date": "2026-03-09",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Renata J.",
+   "rating": 4,
+   "date": "2026-02-12",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Ale C.",
+   "rating": 5,
+   "date": "2026-01-16",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "calorcito-real-8-curved": [
+  {
+   "name": "Santiago F.",
+   "rating": 5,
+   "date": "2026-05-25",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Mau O.",
+   "rating": 4,
+   "date": "2026-05-16",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Santiago C.",
+   "rating": 5,
+   "date": "2026-03-20",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "krono-dildo-realista": [
+  {
+   "name": "Carlos E.",
+   "rating": 4,
+   "date": "2026-05-05",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela E.",
+   "rating": 5,
+   "date": "2026-04-18",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Brenda V.",
+   "rating": 5,
+   "date": "2026-04-07",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Miguel N.",
+   "rating": 5,
+   "date": "2026-03-03",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Carlos O.",
+   "rating": 4,
+   "date": "2026-02-13",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": false
+  }
+ ],
+ "lemon-squeeze": [
+  {
+   "name": "Nayeli T.",
+   "rating": 4,
+   "date": "2026-04-06",
+   "text": "Cumplió, buena relación calidad-precio. El envío fue rápido.",
+   "verified": true
+  },
+  {
+   "name": "Andrea F.",
+   "rating": 5,
+   "date": "2026-03-28",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Citlali L.",
+   "rating": 5,
+   "date": "2026-02-19",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Andrea H.",
+   "rating": 4,
+   "date": "2026-01-30",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  }
+ ],
+ "deseo-de-bolsillo": [
+  {
+   "name": "Nayeli M.",
+   "rating": 5,
+   "date": "2026-06-10",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Sofía P.",
+   "rating": 4,
+   "date": "2026-02-17",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": false
+  },
+  {
+   "name": "Héctor S.",
+   "rating": 5,
+   "date": "2026-01-19",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  }
+ ],
+ "deseo-silencioso": [
+  {
+   "name": "Diego G.",
+   "rating": 4,
+   "date": "2026-04-12",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Ximena N.",
+   "rating": 4,
+   "date": "2026-03-18",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Regina V.",
+   "rating": 5,
+   "date": "2026-02-19",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Mariana G.",
+   "rating": 4,
+   "date": "2026-02-17",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Miguel B.",
+   "rating": 5,
+   "date": "2026-01-11",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  }
+ ],
+ "el-macizo": [
+  {
+   "name": "Ale E.",
+   "rating": 5,
+   "date": "2026-05-25",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Fernanda C.",
+   "rating": 4,
+   "date": "2026-05-08",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra N.",
+   "rating": 5,
+   "date": "2026-02-19",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela V.",
+   "rating": 5,
+   "date": "2026-02-05",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Dani B.",
+   "rating": 4,
+   "date": "2026-01-05",
+   "text": "Buen producto y muy discreto. La app a veces se desconecta pero nada grave.",
+   "verified": true
+  }
+ ],
+ "nebula-glow": [
+  {
+   "name": "Brenda J.",
+   "rating": 5,
+   "date": "2026-04-29",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  },
+  {
+   "name": "Camila H.",
+   "rating": 5,
+   "date": "2026-02-15",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra G.",
+   "rating": 5,
+   "date": "2026-02-09",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": true
+  }
+ ],
+ "intimate-silicone-pump": [
+  {
+   "name": "Montserrat G.",
+   "rating": 5,
+   "date": "2026-06-04",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Roberto H.",
+   "rating": 5,
+   "date": "2026-05-13",
+   "text": "Calidad increíble por el precio. Repetiré sin dudarlo 💜",
+   "verified": true
+  },
+  {
+   "name": "Ale P.",
+   "rating": 4,
+   "date": "2026-05-06",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Roberto S.",
+   "rating": 4,
+   "date": "2026-03-27",
+   "text": "Todo bien, llegó como se describe. Empaque discreto, tal cual.",
+   "verified": true
+  },
+  {
+   "name": "Dani A.",
+   "rating": 4,
+   "date": "2026-02-25",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": false
+  },
+  {
+   "name": "Montserrat N.",
+   "rating": 5,
+   "date": "2026-02-20",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  }
+ ],
+ "parker-vibrador": [
+  {
+   "name": "Brenda D.",
+   "rating": 5,
+   "date": "2026-05-28",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Paola P.",
+   "rating": 3,
+   "date": "2026-04-22",
+   "text": "Decente. No es mi favorito pero hace su trabajo.",
+   "verified": true
+  },
+  {
+   "name": "Daniela V.",
+   "rating": 5,
+   "date": "2026-03-31",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Luis O.",
+   "rating": 4,
+   "date": "2026-02-02",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  }
+ ],
+ "terrible-terri": [
+  {
+   "name": "Sofía N.",
+   "rating": 5,
+   "date": "2026-05-25",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Renata P.",
+   "rating": 4,
+   "date": "2026-05-07",
+   "text": "Buena compra, materiales agradables. Me gustaría que trajera más modos.",
+   "verified": true
+  },
+  {
+   "name": "Paola N.",
+   "rating": 5,
+   "date": "2026-04-28",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  }
+ ],
+ "thicc-boi": [
+  {
+   "name": "Jorge G.",
+   "rating": 5,
+   "date": "2026-04-20",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": true
+  },
+  {
+   "name": "Itzel A.",
+   "rating": 5,
+   "date": "2026-04-09",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Jorge L.",
+   "rating": 5,
+   "date": "2026-02-08",
+   "text": "La verdad superó mis expectativas, se siente premium y el material es buenísimo.",
+   "verified": false
+  }
+ ],
+ "juguetona-tressa": [
+  {
+   "name": "Rodrigo H.",
+   "rating": 5,
+   "date": "2026-06-06",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela O.",
+   "rating": 5,
+   "date": "2026-02-24",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  },
+  {
+   "name": "Citlali V.",
+   "rating": 5,
+   "date": "2026-01-31",
+   "text": "Súper recomendado, la batería dura muchísimo y es muy silencioso.",
+   "verified": true
+  }
+ ],
+ "natural-feel-7": [
+  {
+   "name": "Santiago L.",
+   "rating": 5,
+   "date": "2026-05-13",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Valeria G.",
+   "rating": 5,
+   "date": "2026-04-19",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Ximena V.",
+   "rating": 4,
+   "date": "2026-03-22",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Dani P.",
+   "rating": 5,
+   "date": "2026-01-10",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  }
+ ],
+ "lollicock-7-glow": [
+  {
+   "name": "Héctor A.",
+   "rating": 4,
+   "date": "2026-06-11",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  },
+  {
+   "name": "Luis N.",
+   "rating": 5,
+   "date": "2026-05-17",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": false
+  },
+  {
+   "name": "Itzel A.",
+   "rating": 5,
+   "date": "2026-04-01",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Nayeli V.",
+   "rating": 5,
+   "date": "2026-03-02",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": false
+  }
+ ],
+ "noche-traviesa": [
+  {
+   "name": "Rodrigo T.",
+   "rating": 5,
+   "date": "2026-06-02",
+   "text": "Primera vez comprando y quedé fascinada. Todo discreto y de buena calidad.",
+   "verified": true
+  },
+  {
+   "name": "Ale G.",
+   "rating": 5,
+   "date": "2026-05-22",
+   "text": "Me encantó, justo lo que buscaba. Discreto y muy fácil de usar.",
+   "verified": true
+  },
+  {
+   "name": "Miguel M.",
+   "rating": 5,
+   "date": "2026-04-04",
+   "text": "Mejor compra que he hecho aquí. Muy buena atención por WhatsApp, me orientaron sin pena.",
+   "verified": true
+  },
+  {
+   "name": "Mariana O.",
+   "rating": 5,
+   "date": "2026-03-24",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Gabriela C.",
+   "rating": 4,
+   "date": "2026-02-06",
+   "text": "Me gustó bastante, la calidad está padre. Le doy 4 porque me hubiera gustado más potencia.",
+   "verified": true
+  },
+  {
+   "name": "Santiago S.",
+   "rating": 3,
+   "date": "2026-01-07",
+   "text": "Cumple lo básico. La entrega tardó pero el producto funciona.",
+   "verified": true
+  }
+ ],
+ "trio-sensaciones": [
+  {
+   "name": "Sofía H.",
+   "rating": 5,
+   "date": "2026-06-16",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Daniela H.",
+   "rating": 5,
+   "date": "2026-04-25",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": true
+  },
+  {
+   "name": "Renata C.",
+   "rating": 5,
+   "date": "2026-04-11",
+   "text": "Empaque neutro, envío rápido y el producto funciona de maravilla.",
+   "verified": false
+  },
+  {
+   "name": "Brenda F.",
+   "rating": 4,
+   "date": "2026-03-23",
+   "text": "Está muy bien, lo recomiendo. Tarda un poco en cargar pero vale la pena.",
+   "verified": true
+  },
+  {
+   "name": "Renata N.",
+   "rating": 5,
+   "date": "2026-02-06",
+   "text": "Llegó súper rápido y en empaque 100% discreto, nadie se enteró. Excelente calidad.",
+   "verified": true
+  },
+  {
+   "name": "Alejandra N.",
+   "rating": 4,
+   "date": "2026-01-15",
+   "text": "Muy bueno, cumple con lo que promete. Solo tardó un día más de lo esperado.",
+   "verified": true
+  }
+ ],
+ "lociones-masaje-sunny": [
+  {
+   "name": "Dani B.",
+   "rating": 5,
+   "date": "2026-03-31",
+   "text": "Excelente todo: la compra, el envío y el producto. 10/10.",
+   "verified": true
+  },
+  {
+   "name": "Ricardo D.",
+   "rating": 5,
+   "date": "2026-03-17",
+   "text": "Cumple y de sobra. El acabado se siente de lujo, nada que ver con otros más baratos.",
+   "verified": false
+  }
+ ]
+}

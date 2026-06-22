@@ -8,11 +8,13 @@ test.beforeEach(async ({ context }) => {
   ])
 })
 
-test('home muestra el mosaico de categorías', async ({ page }) => {
+test('home muestra el carrusel de productos más populares', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.mosaic')).toBeVisible()
-  await expect(page.locator('.mosaic')).toContainText('Vibradores')
-  await expect(page.locator('.mosaic')).toContainText('Dildos')
+  // "Sex toys más populares" es un carrusel de tarjetas de producto con foto + overlay.
+  await expect(page.locator('.poprail')).toBeVisible()
+  await expect(page.locator('.poprail .popcard').first()).toBeVisible()
+  // Cada tarjeta enlaza a su ficha de producto.
+  await expect(page.locator('.poprail .popcard').first()).toHaveAttribute('href', /\/tienda\/.+/)
 })
 
 test('tienda: filtrar por categoría y abrir una ficha', async ({ page }) => {
