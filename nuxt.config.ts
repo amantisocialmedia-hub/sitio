@@ -64,8 +64,17 @@ export default defineNuxtConfig({
           href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='31' fill='%235E1B33'/><text x='32' y='46' font-family='Georgia,serif' font-size='40' fill='white' text-anchor='middle'>a</text></svg>",
         },
         {
+          // Carga no bloqueante: se baja con prioridad baja y se aplica al cargar
+          // (display=swap evita FOIT; el fallback serif cubre el instante previo).
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Lora:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap',
+          media: 'print',
+          onload: "this.media='all'",
+        },
+      ],
+      noscript: [
+        {
+          innerHTML: '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Lora:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap">',
         },
       ],
       // Los rastreadores (GA4, Clarity, Meta Pixel) se cargan SOLO con consentimiento

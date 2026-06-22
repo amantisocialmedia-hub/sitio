@@ -104,7 +104,7 @@ const bProd = computed(() => show.value[2])
 .hm-cup-code { font-family: var(--fh); font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: 1px; line-height: 1.05; margin: 2px 0 4px; }
 .hm-cup-off { font-size: .92rem; opacity: .95; max-width: 22ch; }
 .hm-cup-off b { font-size: 1.05rem; }
-.hm-cup-btn { align-self: flex-start; margin-top: 14px; background: #fff; color: var(--magenta); font-family: var(--fb); font-weight: 800; font-size: .9rem; padding: 9px 20px; border-radius: 999px; }
+.hm-cup-btn { align-self: flex-start; margin-top: 14px; background: #fff; color: #C0341B; font-family: var(--fb); font-weight: 800; font-size: .9rem; padding: 9px 20px; border-radius: 999px; }
 
 /* Teselas de producto */
 .hm-prod { display: block; background: var(--spot, #2a0e18); }

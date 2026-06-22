@@ -78,8 +78,8 @@ onBeforeUnmount(() => { if (typeof document !== 'undefined') document.body.style
   cursor: pointer; border-radius: 10px; padding: 13px 20px;
   font-weight: 700; font-size: 1rem; font-family: inherit;
 }
-.ag-yes { background: #E8503A; color: #fff; border: none; }
-.ag-yes:hover { background: #d8442f; }
+.ag-yes { background: #C0341B; color: #fff; border: none; }
+.ag-yes:hover { background: #a82d17; }
 .ag-no { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, .55); }
 .ag-no:hover { border-color: #fff; }
 .ag-terms { font-size: .82rem; opacity: .8; margin: 18px 0 0; }

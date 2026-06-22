@@ -20,8 +20,8 @@ function suscribir() {
         <input v-model="news" type="email" placeholder="Tu email" @keyup.enter="suscribir" />
         <button class="btn" @click="suscribir">Enviar</button>
       </div>
-      <p v-if="!newsOk" style="font-size:.8rem;opacity:.8;margin-top:8px">Al suscribirte aceptas nuestro <NuxtLink to="/privacidad" style="color:#FFD9CF;text-decoration:underline">Aviso de Privacidad</NuxtLink>.</p>
-      <p v-if="newsErr && !newsOk" style="color:#FFD9CF;font-size:.85rem;margin-top:8px">{{ newsErr }}</p>
+      <p v-if="!newsOk" style="font-size:.8rem;opacity:.8;margin-top:8px">Al suscribirte aceptas nuestro <NuxtLink to="/privacidad" style="color:#5E1B33;text-decoration:underline">Aviso de Privacidad</NuxtLink>.</p>
+      <p v-if="newsErr && !newsOk" style="color:#C0341B;font-size:.85rem;margin-top:8px">{{ newsErr }}</p>
       <p v-if="newsOk" style="margin-top:10px;font-weight:600">¡Gracias! Te suscribiremos a hola@amanti.mx 💜</p>
       <div class="socials">
         <a href="https://www.facebook.com/profile.php?id=61583596012406" target="_blank" rel="noopener" aria-label="Facebook">f</a>
@@ -35,7 +35,7 @@ function suscribir() {
     <div class="wrap">
       <div class="fg">
         <div>
-          <h4>Juguetes Sexuales</h4>
+          <h3>Juguetes Sexuales</h3>
           <ul>
             <li><NuxtLink to="/tienda?cat=vibradores">Vibradores</NuxtLink></li>
             <li><NuxtLink to="/tienda?cat=masturbadores">Masturbadores</NuxtLink></li>
@@ -49,7 +49,7 @@ function suscribir() {
           </ul>
         </div>
         <div>
-          <h4>Información</h4>
+          <h3>Información</h3>
           <ul>
             <li><NuxtLink to="/envios">Formas de Envío</NuxtLink></li>
             <li><NuxtLink to="/pagos">Formas de Pago</NuxtLink></li>
@@ -59,7 +59,7 @@ function suscribir() {
           </ul>
         </div>
         <div>
-          <h4>Atención a Clientes</h4>
+          <h3>Atención a Clientes</h3>
           <ul>
             <li><NuxtLink to="/nosotros">Nosotros</NuxtLink></li>
             <li><NuxtLink to="/blog">Blog</NuxtLink></li>

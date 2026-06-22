@@ -44,14 +44,14 @@ function reject() {
   font-size: .92rem;
 }
 .cc-txt { margin: 0; max-width: 640px; line-height: 1.4; }
-.cc-link { color: #E8503A; text-decoration: underline; }
+.cc-link { color: #C0341B; text-decoration: underline; }
 .cc-btns { display: flex; gap: 10px; flex: none; }
 .cc-accept, .cc-reject {
   cursor: pointer; border-radius: 9px; padding: 10px 20px;
   font-weight: 600; font-size: .9rem; font-family: inherit;
 }
-.cc-accept { background: #E8503A; color: #fff; border: 1px solid #E8503A; }
-.cc-accept:hover { background: #d8442f; }
+.cc-accept { background: #C0341B; color: #fff; border: 1px solid #C0341B; }
+.cc-accept:hover { background: #a82d17; }
 .cc-reject { background: transparent; color: #5E1B33; border: 1px solid #C9A9B4; }
 .cc-reject:hover { border-color: #5E1B33; }
 /* En móvil/tablet el BottomNav fijo (62px) está presente: el banner se sienta encima de él

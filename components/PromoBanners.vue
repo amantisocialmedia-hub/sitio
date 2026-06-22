@@ -11,7 +11,7 @@
     <div class="apband">
       <div class="l">
         <span class="ap">aplazo</span>
-        <h3>La mejor temporada<br>para pagar <b>a tu ritmo</b></h3>
+        <h2>La mejor temporada<br>para pagar <b>a tu ritmo</b></h2>
         <NuxtLink to="/tienda" class="btn" style="margin-top:10px;background:#fff;color:#111">Comprar</NuxtLink>
       </div>
       <div class="r">
