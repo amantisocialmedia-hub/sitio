@@ -27,13 +27,17 @@ test('móvil: el drawer abre desde el burger y expone subcategorías + carrito',
   await expect(panel.getByRole('link', { name: /Carrito/ })).toBeVisible()
 })
 
-test('móvil: los filtros están colapsados y el botón "Filtrar" los revela', async ({ page }) => {
+test('móvil: los filtros (bottom-sheet) se abren con "Filtrar" y filtran', async ({ page }) => {
   await page.goto('/tienda')
   await expect(page.locator('.pcard').first()).toBeVisible()
-  // Los filtros NO se ven hasta tocar "Filtrar" (productos primero).
-  await expect(page.locator('aside.filters')).toBeHidden()
+  // El bottom-sheet arranca cerrado: sin overlay y sin la clase .open (translateY fuera de pantalla).
+  await expect(page.locator('.filters-bg')).toHaveCount(0)
+  await expect(page.locator('aside.filters.open')).toHaveCount(0)
+  // "Filtrar" abre el panel inferior (overlay + clase .open).
   await page.getByRole('button', { name: 'Filtrar' }).click()
-  await expect(page.locator('aside.filters')).toBeVisible()
+  await expect(page.locator('aside.filters.open')).toBeVisible()
+  await expect(page.locator('.filters-bg')).toBeVisible()
+  // Elegir Vibradores filtra el listado (el h1 de la colección cambia).
   await page.locator('label.fopt', { hasText: 'Vibradores' }).click()
   await expect(page.locator('h1')).toHaveText('Vibradores')
 })
