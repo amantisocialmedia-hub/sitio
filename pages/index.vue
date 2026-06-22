@@ -10,7 +10,6 @@ const populares = [...products]
   .slice(0, 12)
 const special = onSale()[0]
 const circleCats = categories
-const catImgErr = reactive(new Set<string>())
 
 // Colecciones "por sensación" (puntos de entrada emocionales, no taxonomía).
 const moods = [
@@ -126,8 +125,7 @@ useSeoMeta({
       <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
       <div class="mosaic">
         <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
-          <img v-if="c.image && !catImgErr.has(c.slug)" :src="c.image" alt="" class="te-img" @error="catImgErr.add(c.slug)">
-          <span v-else class="te">{{ c.emoji }}</span>
+          <CategoryIcon :slug="c.slug" :emoji="c.emoji" />
           <span class="lbl">{{ c.name }}</span>
         </NuxtLink>
       </div>
