@@ -19,4 +19,5 @@ useHead(() => ({
     <NuxtPage />
   </NuxtLayout>
   <WelcomeModal />
+  <InstallPrompt />
 </template>

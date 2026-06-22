@@ -1,0 +1,16 @@
+{
+  "name": "AMANTI — Sex Shop",
+  "short_name": "AMANTI",
+  "description": "Sex shop premium en México. Juguetes y bienestar íntimo con entrega 100% discreta.",
+  "lang": "es-MX",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#5E1B33",
+  "theme_color": "#5E1B33",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
