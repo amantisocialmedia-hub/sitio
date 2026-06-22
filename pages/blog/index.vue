@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import data from '~/data/articles.json'
 const articles = data.articles
-const covers = ['#FFE8D9', '#FFE4D2', '#E2F5EF', '#FFF2CC', '#FFEAD9', '#FFE4D6']
 const { bestsellers } = useProducts()
 const masVendido = bestsellers()
 
@@ -21,7 +20,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <PageHeader title="Eroteca" subtitle="Tips, salud sexual y placer sin tabúes. Aprende y disfruta mejor." current="Blog" />
+  <PageHeader title="Eroteca" subtitle="Guías, salud sexual y placer sin tabúes. Aprende y disfruta mejor." current="Blog" />
   <div class="wrap" style="padding:28px 22px 10px">
     <!-- chips de categoría -->
     <div class="chiprow">
@@ -30,9 +29,12 @@ useSeoMeta({
 
     <!-- artículo destacado (solo en "Todo") -->
     <NuxtLink v-if="activeCat === 'Todo'" :to="`/blog/${featured.slug}`" class="blogfeat" v-reveal>
-      <div class="bf-emo" :style="{ background: covers[0] }"><span>{{ featured.emoji }}</span></div>
+      <div class="bf-emo" :style="{ background: `linear-gradient(135deg, ${featured.c1}, ${featured.c2})` }">
+        <span class="bf-tag-cover">★ Destacado</span>
+        <span>{{ featured.emoji }}</span>
+      </div>
       <div class="bf-body">
-        <span class="bf-tag">★ Destacado · {{ featured.category }}</span>
+        <span class="bf-tag">{{ featured.category }}</span>
         <h2>{{ featured.title }}</h2>
         <p>{{ featured.excerpt }}</p>
         <span class="bf-cta">Leer más →</span>
@@ -43,9 +45,11 @@ useSeoMeta({
     <!-- grid -->
     <div v-if="list.length" class="bloggrid">
       <NuxtLink v-for="(a, i) in list" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard" v-reveal :data-reveal-index="i % 3">
-        <div class="cover" :style="{ background: covers[(i + 1) % covers.length] }"><span class="cv-emo">{{ a.emoji }}</span></div>
+        <div class="cover" :style="{ background: `linear-gradient(135deg, ${a.c1}, ${a.c2})` }">
+          <span class="cv-tag">{{ a.category }}</span>
+          <span class="cv-emo">{{ a.emoji }}</span>
+        </div>
         <div class="bc-body">
-          <div class="cat">{{ a.category }}</div>
           <h3>{{ a.title }}</h3>
           <p>{{ a.excerpt }}</p>
           <div class="blogmeta">⏱ {{ a.readTime }} de lectura</div>

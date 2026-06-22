@@ -3,17 +3,29 @@ import data from '~/data/articles.json'
 const route = useRoute()
 const article = computed(() => data.articles.find(a => a.slug === route.params.slug))
 const more = computed(() => data.articles.filter(a => a.slug !== route.params.slug).slice(0, 3))
-const covers = ['#FFE8D9', '#FFE4D2', '#E2F5EF', '#FFF2CC', '#FFEAD9', '#FFE4D6']
 useHead(() => ({ title: article.value ? `${article.value.title} — AMANTI` : 'Eroteca — AMANTI' }))
+useSeoMeta({ description: () => article.value?.excerpt })
 </script>
 
 <template>
   <template v-if="article">
-    <PageHeader :title="article.title" :subtitle="article.category" current="Eroteca" />
-    <article class="prose">
-      <div class="blogmeta" style="margin-bottom:18px">⏱ {{ article.readTime }} de lectura · {{ article.category }}</div>
-      <p v-for="(par, i) in article.body" :key="i" :class="{ lead: i === 0 }">{{ par }}</p>
-      <div class="note"><p>¿Tienes dudas? Escríbenos por WhatsApp y te orientamos sin juicios. 💜</p></div>
+    <!-- hero editorial del artículo -->
+    <section class="bloghero" :style="{ background: `linear-gradient(135deg, ${article.c1}, ${article.c2})` }">
+      <span class="bh-emo" aria-hidden="true">{{ article.emoji }}</span>
+      <div class="bloghero-in">
+        <NuxtLink to="/blog" class="bh-eyebrow">Eroteca · {{ article.category }}</NuxtLink>
+        <h1>{{ article.title }}</h1>
+        <div class="bh-meta">⏱ {{ article.readTime }} de lectura</div>
+      </div>
+    </section>
+
+    <article class="prose blogprose">
+      <template v-for="(b, i) in article.body" :key="i">
+        <h2 v-if="b.h2">{{ b.h2 }}</h2>
+        <ul v-else-if="b.ul"><li v-for="(li, j) in b.ul" :key="j">{{ li }}</li></ul>
+        <p v-else :class="{ lead: i === 0 }">{{ b.p }}</p>
+      </template>
+      <div class="note"><p>¿Tienes dudas? Escríbenos por WhatsApp y te orientamos sin juicios 💜. ¿Buscas tu match? <NuxtLink to="/quiz">Haz el quiz →</NuxtLink></p></div>
       <p><NuxtLink to="/blog">← Volver a la Eroteca</NuxtLink></p>
     </article>
 
@@ -22,9 +34,11 @@ useHead(() => ({ title: article.value ? `${article.value.title} — AMANTI` : 'E
         <div class="sec-head"><h2>Sigue leyendo</h2></div>
         <div class="bloggrid">
           <NuxtLink v-for="(a, i) in more" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard" v-reveal :data-reveal-index="i">
-            <div class="cover" :style="{ background: covers[i % covers.length] }"><span class="cv-emo">{{ a.emoji }}</span></div>
+            <div class="cover" :style="{ background: `linear-gradient(135deg, ${a.c1}, ${a.c2})` }">
+              <span class="cv-tag">{{ a.category }}</span>
+              <span class="cv-emo">{{ a.emoji }}</span>
+            </div>
             <div class="bc-body">
-              <div class="cat">{{ a.category }}</div>
               <h3>{{ a.title }}</h3>
               <p>{{ a.excerpt }}</p>
               <div class="blogmeta">⏱ {{ a.readTime }} de lectura</div>

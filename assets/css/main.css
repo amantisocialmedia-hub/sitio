@@ -534,7 +534,7 @@ html.discreet .sr-th img{filter:blur(10px)}
 .bloggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .blogcard{display:block;background:#fff;border:1px solid #F9EFE7;border-radius:12px;overflow:hidden;transition:transform .16s,box-shadow .16s}
 .blogcard:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(91,42,134,.5)}
-.blogcard .cover{height:150px;display:grid;place-items:center;font-size:3.6rem}
+.blogcard .cover{height:172px;position:relative;overflow:hidden}
 .blogcard .bc-body{padding:18px}
 .blogcard .cat{font-size:.72rem;font-weight:700;color:var(--magenta);text-transform:uppercase}
 .blogcard h3{font-size:1.15rem;margin:6px 0 8px;color:var(--purple)}
@@ -547,16 +547,26 @@ html.discreet .sr-th img{filter:blur(10px)}
 /* Blog "Eroteca": artículo destacado */
 .blogfeat{display:grid;grid-template-columns:.8fr 1.2fr;border-radius:16px;overflow:hidden;margin:6px 0 24px;border:1px solid #F9EFE7;box-shadow:0 22px 44px -28px rgba(91,42,134,.5);transition:transform .2s var(--ease-out),box-shadow .2s}
 .blogfeat:hover{transform:translateY(-4px);box-shadow:0 30px 54px -28px rgba(91,42,134,.55)}
-.bf-emo{display:grid;place-items:center;font-size:6rem;min-height:240px}
-.bf-emo span{filter:drop-shadow(0 12px 18px rgba(0,0,0,.16));transition:transform .3s var(--ease-soft)}
-.blogfeat:hover .bf-emo span{transform:scale(1.1) rotate(-3deg)}
+.bf-emo{position:relative;overflow:hidden;min-height:240px}
+.bf-tag-cover{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.92);color:var(--purple);font-family:var(--fb);font-weight:700;font-size:.72rem;padding:5px 12px;border-radius:999px}
+.bf-emo>span:last-child{position:absolute;right:-6px;bottom:-16px;font-size:8rem;opacity:.6;transform:rotate(-8deg);filter:drop-shadow(0 12px 18px rgba(0,0,0,.2));transition:transform .3s var(--ease-soft)}
+.blogfeat:hover .bf-emo>span:last-child{transform:scale(1.07) rotate(-4deg)}
 .bf-body{background:#fff;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;justify-content:center}
 .bf-tag{font-size:.74rem;font-weight:700;color:var(--magenta);text-transform:uppercase;letter-spacing:.08em}
 .bf-body h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 10px;color:var(--purple)}
 .bf-body p{opacity:.78;margin-bottom:14px}
 .bf-cta{color:var(--magenta);font-weight:700}
 .bf-body .blogmeta{margin-top:8px}
-@media(max-width:680px){ .blogfeat{grid-template-columns:1fr} .bf-emo{min-height:150px;font-size:4rem} }
+@media(max-width:680px){ .blogfeat{grid-template-columns:1fr} .bf-emo{min-height:150px} .bf-emo>span:last-child{font-size:6rem} }
+
+/* Hero editorial del artículo (página /blog/[slug]) */
+.bloghero{position:relative;overflow:hidden;color:#fff;padding:clamp(40px,6vw,64px) 0 clamp(36px,5vw,52px);text-align:center}
+.bh-emo{position:absolute;right:5%;bottom:-26px;font-size:11rem;opacity:.2;transform:rotate(-8deg);pointer-events:none;z-index:0}
+.bloghero-in{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 22px}
+.bh-eyebrow{display:inline-block;font-family:var(--fb);font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);padding:6px 14px;border-radius:999px}
+.bloghero h1{color:#fff;font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.08;margin:16px 0 12px}
+.bh-meta{opacity:.92;font-size:.9rem}
+.blogprose h2{margin-top:30px}
 
 /* Desktop: el BottomNav fijo y su padding reservado son solo para móvil (donde está el burger).
    En desktop se ocultan (quita la banda vacía de 62px bajo el footer) y el botón flotante de
@@ -713,10 +723,10 @@ html.discreet .sr-th img{filter:blur(10px)}
 /* ===== Banners/portadas ricos (profundidad, glow, blobs — no "icono en una franja") ===== */
 /* Portadas del blog */
 .blogcard .cover{position:relative;overflow:hidden}
-.blogcard .cover::before{content:'';position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.65),transparent 70%);top:-36px;right:-26px;z-index:0;pointer-events:none}
-.blogcard .cover::after{content:'';position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(142,91,214,.20);filter:blur(28px);bottom:-46px;left:-24px;z-index:0;pointer-events:none}
-.blogcard .cover .cv-emo{position:relative;z-index:1;filter:drop-shadow(0 12px 16px rgba(0,0,0,.18));transition:transform .3s var(--ease-soft)}
-.blogcard:hover .cover .cv-emo{transform:scale(1.12) rotate(-3deg)}
+.blogcard .cover::before{content:'';position:absolute;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);top:-46px;left:-34px;z-index:0;pointer-events:none}
+.cv-tag{position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,255,.92);color:var(--purple);font-family:var(--fb);font-weight:700;font-size:.68rem;letter-spacing:.02em;padding:4px 11px;border-radius:999px}
+.blogcard .cover .cv-emo{position:absolute;right:-6px;bottom:-16px;z-index:1;font-size:6rem;opacity:.6;transform:rotate(-10deg);filter:drop-shadow(0 10px 16px rgba(0,0,0,.22));transition:transform .3s var(--ease-soft)}
+.blogcard:hover .cover .cv-emo{transform:scale(1.08) rotate(-6deg)}
 
 /* Banner "feature" (oscuro) con profundidad */
 .feature{position:relative;overflow:hidden;background:

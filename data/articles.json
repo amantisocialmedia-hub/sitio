@@ -5,13 +5,78 @@
       "title": "Guía para principiantes: tu primer juguete",
       "category": "Juguetes Sexuales",
       "emoji": "🔰",
-      "readTime": "5 min",
-      "excerpt": "¿Es tu primera vez comprando un juguete? Respira. Aquí te decimos por dónde empezar, sin tecnicismos y sin pena.",
+      "c1": "#FF8A5C",
+      "c2": "#E8503A",
+      "readTime": "6 min",
+      "excerpt": "¿Tu primer juguete y mil nervios? Respira: elegirlo es más fácil (y mucho más rico) de lo que crees.",
       "body": [
-        "Dar el primer paso puede dar nervios, y está perfecto. Comprar tu primer juguete no se trata de saberlo todo, sino de tener curiosidad y ganas de conocerte mejor.",
-        "Para empezar, lo más recomendable son los juguetes versátiles y de uso sencillo: un succionador o una bala vibradora son excelentes primeras opciones. Son intuitivos, no intimidan y te ayudan a descubrir qué te gusta.",
-        "Fíjate siempre en el material: busca silicón médico (body-safe), que es suave, no poroso y fácil de limpiar. Evita materiales porosos. Y ten a la mano un buen lubricante a base de agua — hace toda la diferencia.",
-        "No hay prisa ni una 'forma correcta'. Tómate tu tiempo, experimenta y recuerda que esto es para ti. Si tienes dudas, escríbenos por WhatsApp: te orientamos sin juicios."
+        {
+          "p": "Comprar tu primer juguete puede sentirse como entrar a un mundo nuevo con demasiadas opciones y cero manual. Tranquila, tranquilo, tranquile: aquí no hay preguntas tontas ni decisiones equivocadas. Tu primer juguete no es un examen, es una invitación a conocerte mejor y a darte placer sin culpa. En AMANTI creemos que el bienestar íntimo se explora con calma, curiosidad y buena información. Así que respira hondo y vamos paso a paso."
+        },
+        {
+          "h2": "Primero, conócete (y baja la presión)"
+        },
+        {
+          "p": "Antes de pensar en marcas o modelos, hazte una pregunta honesta: ¿qué te da curiosidad? No necesitas saberlo todo. Quizá quieres explorar sensaciones suaves, quizá te llama algo más intenso, o tal vez solo quieres acompañar lo que ya disfrutas. Cualquier respuesta es válida."
+        },
+        {
+          "p": "Un buen primer juguete suele ser sencillo, intuitivo y versátil. No tiene que ser el más grande, el más caro ni el que tiene veinte funciones. La meta es que te sientas en control y con ganas de volver a usarlo, no abrumade por un tablero de mando."
+        },
+        {
+          "h2": "Las opciones más amigables para empezar"
+        },
+        {
+          "p": "Hay tres aliados que casi siempre funcionan de maravilla para quienes empiezan, porque son fáciles de usar, discretos y muy gratificantes:"
+        },
+        {
+          "ul": [
+            "Bala vibradora: pequeña, manejable y perfecta para explorar dónde y cómo te gusta la vibración. Ideal si quieres algo discreto y sin complicaciones.",
+            "Succionador: en lugar de fricción, usa ondas de aire o succión suave para una sensación distinta y sorprendente. A mucha gente le encanta desde el primer intento.",
+            "Vibrador versátil: un modelo de cuerpo liso y suave que sirve para distintas zonas y ritmos. Si quieres uno solo que haga de todo, este es tu candidato."
+          ]
+        },
+        {
+          "p": "Si dudas entre opciones, empieza por la que te genere más curiosidad y menos nervios. Siempre puedes ampliar tu colección después; nadie empieza con la maleta llena."
+        },
+        {
+          "h2": "Materiales: por qué el silicón médico importa tanto"
+        },
+        {
+          "p": "Aquí va el consejo que ojalá todo mundo recibiera desde el principio: revisa el material. Tu zona íntima es delicada y merece materiales body-safe, es decir, no porosos, hipoalergénicos y fáciles de limpiar. El silicón de grado médico es el estándar de oro: suave al tacto, durable y que no atrapa bacterias."
+        },
+        {
+          "p": "Desconfía de juguetes que no especifican su material o que huelen muy fuerte a plástico. Si la descripción no menciona de qué está hecho, pregunta antes de comprar. En AMANTI cuidamos que lo que ofrecemos sea seguro para tu cuerpo, porque tu salud es parte del placer."
+        },
+        {
+          "h2": "El lubricante: tu mejor amigo invisible"
+        },
+        {
+          "p": "El lubricante no es opcional ni señal de que algo falta; es un potenciador del placer y del confort. Para tu primer juguete, elige uno con base agua: es compatible con el silicón, no daña los materiales, se limpia fácil y es amable con la piel."
+        },
+        {
+          "p": "Evita los lubricantes con base silicón sobre juguetes de silicón, porque pueden deteriorar la superficie con el tiempo. Una regla simple para recordar: agua siempre va bien con todo. Aplica un poco, prueba, y agrega más si lo necesitas. Menos fricción, más disfrute."
+        },
+        {
+          "h2": "Tus primeros usos, sin prisa ni presión"
+        },
+        {
+          "p": "No hay un cronómetro ni una meta que cumplir. Busca un momento en el que estés relajade, sin interrupciones, y date permiso de experimentar. Empieza con la intensidad más baja y sube poco a poco; tu cuerpo te irá diciendo qué le gusta."
+        },
+        {
+          "p": "Si lo usas en compañía, la comunicación lo es todo: cuéntale a tu pareja qué te apetece probar y escucha lo que a elle también. El consentimiento y la curiosidad compartida hacen que la experiencia sea mucho más rica. Y al terminar, limpia tu juguete con agua tibia y jabón neutro, sécalo bien y guárdalo en un lugar limpio. Cuidarlo es cuidarte."
+        },
+        {
+          "h2": "Sobre ese nervio de principiante"
+        },
+        {
+          "p": "Es normalísimo sentir un poco de pena o duda la primera vez. Pero piénsalo así: estás haciendo algo amoroso por ti, estás aprendiendo a darte placer y a conocer tu cuerpo sin tabúes. Eso no tiene nada de vergonzoso; al contrario, es de las cosas más sanas y valientes que puedes hacer."
+        },
+        {
+          "p": "No existe una forma correcta de disfrutar. Lo único que importa es que te sientas segure, cómode y con ganas de explorar a tu ritmo."
+        },
+        {
+          "p": "¿Liste para dar el primer paso? En AMANTI puedes explorar nuestra selección de juguetes body-safe con calma y sin juicios, hacer el quiz para descubrir cuál va con tu estilo, o escribirnos por WhatsApp si quieres una recomendación cálida y personalizada. Aquí estamos para acompañarte, sin prisa y sin presión. Tu placer se merece un buen comienzo."
+        }
       ]
     },
     {
@@ -19,13 +84,72 @@
       "title": "Lubricantes 101: cuál elegir y por qué",
       "category": "Salud Sexual",
       "emoji": "💧",
-      "readTime": "4 min",
-      "excerpt": "Base agua, silicón o híbrido. Te explicamos las diferencias para que elijas el que va contigo.",
+      "c1": "#0FA38B",
+      "c2": "#0F94C2",
+      "readTime": "5 min",
+      "excerpt": "El lubricante no es para emergencias: es comodidad, placer y autocuidado. Aquí te decimos cuál elegir sin perderte.",
       "body": [
-        "El lubricante no es opcional: es el mejor aliado del placer. Reduce la fricción, hace todo más cómodo y vuelve la experiencia mucho más placentera.",
-        "Los de base agua son los más versátiles: compatibles con todos los juguetes de silicón y con condón, fáciles de limpiar y aptos para piel sensible. Son nuestra recomendación para empezar.",
-        "Los de base silicón duran más y son ideales para el agua, pero no se deben usar con juguetes de silicón porque los degradan. Los híbridos buscan lo mejor de ambos mundos.",
-        "Tip: revisa que no tengan glicerina ni parabenos si tu piel es sensible, y elige siempre un pH balanceado."
+        {
+          "p": "Hablemos claro: el lubricante no es una señal de que algo anda mal. La lubricación natural cambia con el ciclo, el estrés, ciertos medicamentos, la hidratación o simplemente el momento, y nada de eso te define. Usar lubricante es como ponerle buena música a una cita: todo fluye mejor, más cómodo y más rico. Si la góndola del súper te abruma con etiquetas que no entiendes, este es tu mapa para elegir sin culpa y con criterio."
+        },
+        {
+          "h2": "Los tres grandes: agua, silicón e híbrido"
+        },
+        {
+          "p": "En el universo de los lubricantes hay tres familias principales, y cada una brilla en situaciones distintas. La buena noticia es que no necesitas todas; necesitas la correcta para lo que tú haces."
+        },
+        {
+          "ul": [
+            "Base agua: el todoterreno. Compatible con condones y con todos tus juguetes, fácil de limpiar y suave con el cuerpo. Su único pero es que se absorbe y a veces pide una reaplicada. Es nuestro favorito para empezar.",
+            "Base silicón: ultra deslizante y de larga duración, ideal para sesiones largas o para el agua. Resiste la regadera y la tina sin desaparecer.",
+            "Híbrido: una mezcla que combina el deslizamiento del silicón con la facilidad del agua. Sedoso, dura un poco más y se siente rico, un punto medio muy cómodo."
+          ]
+        },
+        {
+          "h2": "La regla de oro con tus juguetes"
+        },
+        {
+          "p": "Si tienes (o estás por estrenar) un juguete de silicón body-safe, memoriza esto: el lubricante base silicón puede degradar la superficie del silicón con el tiempo, dejándola pegajosa o porosa. Por eso, con juguetes de silicón siempre elige base agua. Es la combinación más segura y la que cuida tu inversión."
+        },
+        {
+          "p": "¿Quieres usar base silicón o un híbrido con un juguete? Reserva esas opciones para juguetes de vidrio, acero o ABS, o haz una prueba mínima en la base del juguete antes. Ante la duda, agua y a disfrutar."
+        },
+        {
+          "h2": "Condón y lubricante: aliados, no enemigos"
+        },
+        {
+          "p": "Los condones de látex se llevan de maravilla con lubricante base agua y base silicón. Lo que jamás debes mezclar con látex son los aceites (de coco, masaje o cremas corporales): debilitan el material y pueden romperlo, lo que arruina la protección. Una gota extra de lubricante body-safe sobre el condón, además, reduce la fricción y baja muchísimo el riesgo de que se rompa."
+        },
+        {
+          "h2": "Cada situación, su lubricante"
+        },
+        {
+          "ul": [
+            "Sexo en regadera, tina o alberca: base silicón, porque el agua lava el de base agua en segundos.",
+            "Juguetes de silicón: base agua, sin excepciones.",
+            "Piel sensible o tendencia a molestias: base agua con fórmula corta y limpia, sin perfumes ni saborizantes.",
+            "Sesiones largas o masaje: híbrido o silicón por su durabilidad.",
+            "Uso diario y fácil limpieza: base agua, que se quita con un poco de agua tibia."
+          ]
+        },
+        {
+          "h2": "Ingredientes a evitar (y por qué el pH importa)"
+        },
+        {
+          "p": "Leer la etiqueta es un acto de autocuidado. Hay ingredientes que pueden resecar o irritar la zona íntima, sobre todo en pieles sensibles. Evita la glicerina (que en algunas personas se asocia con molestias) y los parabenos. Menos lista de ingredientes raros, mejor."
+        },
+        {
+          "p": "El pH también cuenta: la zona vaginal tiene un equilibrio ligeramente ácido que ayuda a mantener su flora sana. Un lubricante con un pH amigable y respetuoso acompaña ese equilibrio en lugar de alterarlo, así que apuesta por fórmulas pensadas para cuidar, no solo para deslizar."
+        },
+        {
+          "h2": "Cómo aplicarlo como pro"
+        },
+        {
+          "p": "Empieza con poco: unas gotas en tus dedos o en el juguete, y suma según lo pidas. Reaplica sin pena cuando sientas más fricción; pausar diez segundos para añadir más no rompe el momento, lo mejora. Caliéntalo un poco entre las manos para que no sorprenda, y si vas a usarlo con tu pareja, díganselo: comunicar lo que les gusta es la parte más sexy del consentimiento. Y siempre, antes y después, higiene tranquila con agua tibia."
+        },
+        {
+          "p": "Si llegaste hasta aquí, ya eliges lubricante mejor que el 90% de la gente. Si quieres que te recomendemos el tuyo según tu cuerpo y tus planes, haz el quiz de AMANTI, date una vuelta por nuestra sección de Salud Sexual o escríbenos por WhatsApp: aquí hablamos de placer sin tabúes y con toda la calidez. Tu bienestar íntimo merece la fórmula correcta."
+        }
       ]
     },
     {
@@ -33,13 +157,86 @@
       "title": "Cómo limpiar y cuidar tus juguetes",
       "category": "Salud Sexual",
       "emoji": "🧼",
-      "readTime": "3 min",
-      "excerpt": "Un juguete bien cuidado dura más y es más seguro. Estos son los básicos de higiene.",
+      "c1": "#36C5A8",
+      "c2": "#0F94C2",
+      "readTime": "6 min",
+      "excerpt": "Tus juguetes también merecen amor después del placer: limpiarlos bien es salud, no exageración. Aquí el cómo, paso a paso.",
       "body": [
-        "Cuidar tus juguetes es cuidar tu salud. La buena noticia es que es muy fácil si sigues unos pasos básicos.",
-        "Límpialos antes y después de cada uso con agua tibia y jabón neutro, o con un limpiador especial para juguetes. Pon especial atención si el juguete es recargable: no lo sumerjas si no es resistente al agua.",
-        "Guárdalos secos, en una bolsa de tela o un lugar limpio, lejos del polvo. Evita que distintos juguetes de silicón se toquen entre sí durante mucho tiempo.",
-        "Y nunca compartas un juguete sin desinfectarlo a fondo o usar un condón. Higiene y placer van de la mano."
+        {
+          "p": "Hablemos de algo que casi nadie te cuenta cuando compras tu primer juguete: cuidarlo no es opcional, es parte del placer. Una limpieza correcta protege tu salud íntima, alarga la vida de tus piezas favoritas y hace que cada encuentro empiece con tranquilidad en lugar de dudas. Tutearte sobre higiene no es quitarle lo divertido al asunto; es justo lo contrario. Mientras más segura te sientas, más libre puedes disfrutar. Aquí va tu guía completa, sin tabúes y sin tecnicismos imposibles."
+        },
+        {
+          "h2": "Por qué la higiene es salud, no manía"
+        },
+        {
+          "p": "Tu zona íntima tiene un equilibrio delicado, y todo lo que entra en contacto con ella merece estar limpio. Un juguete mal cuidado puede acumular residuos, humedad y bacterias que nadie quiere invitar a la fiesta. Limpiarlo bien previene molestias e irritaciones, y te da algo impagable: paz mental."
+        },
+        {
+          "p": "Piensa en la limpieza como ese ritual de antes y después que cierra el círculo del placer. No es exageración ni culpa disfrazada de orden; es cuidarte a ti y a quien comparta el momento contigo."
+        },
+        {
+          "h2": "Limpia según el material"
+        },
+        {
+          "p": "No todos los juguetes se cuidan igual, y conocer su material es la clave para no arruinarlos. Apuesta siempre por opciones body-safe: el silicón médico es el rey por ser no poroso, suave y fácil de higienizar."
+        },
+        {
+          "ul": [
+            "Silicón: lava con agua tibia y jabón neutro sin perfume. Si la pieza no tiene motor ni batería interna, puedes hervirla unos minutos o pasarla por el lavavajillas para una desinfección profunda.",
+            "ABS y plásticos duros: agua tibia con jabón suave bastan; sécalos bien antes de guardarlos.",
+            "Vidrio y acero inoxidable: resistentes y elegantes, admiten agua, jabón y desinfección cuidadosa; revisa siempre que no tengan grietas.",
+            "Materiales porosos (TPE/TPR, jelly): más difíciles de higienizar a fondo. Límpialos con cuidado y considera usar condón sobre ellos."
+          ]
+        },
+        {
+          "p": "Evita alcohol, solventes o jabones agresivos: maltratan la superficie y pueden volverla pegajosa o porosa con el tiempo."
+        },
+        {
+          "h2": "Antes y después de cada uso"
+        },
+        {
+          "p": "La regla de oro es sencilla: limpia antes y después, siempre. Antes, porque tu juguete estuvo guardado y pudo juntar polvo o pelusa. Después, porque acaba de estar en contacto contigo y merece quedar impecable para la próxima."
+        },
+        {
+          "p": "Usa agua tibia y jabón neutro, enjuaga bien para que no queden restos y sécalo con una toalla limpia o deja que se airee. Y un recordatorio cariñoso: el lubricante base agua es tu mejor aliado, pues es amable con la mayoría de los materiales body-safe y se limpia sin drama."
+        },
+        {
+          "h2": "Recargable vs. sumergible: qué se moja y qué no"
+        },
+        {
+          "p": "Aquí muchas personas cometen el error que arruina su juguete. No todo lo que tiene motor puede sumergirse, y meter al agua algo que no es sumergible puede dañar la electrónica para siempre."
+        },
+        {
+          "p": "Antes de mojarlo, revisa el empaque o el manual. Si dice sumergible o resistente al agua, puedes enjuagarlo entero con tranquilidad. Si es recargable y no está marcado como sumergible, limpia solo la superficie con un paño húmedo y jabón, cuidando que el puerto de carga no se moje. Cierra bien cualquier tapa protectora antes de acercarlo al agua."
+        },
+        {
+          "ul": [
+            "Sumergible: enjuague completo bajo el chorro, sin problema.",
+            "Recargable no sumergible: paño húmedo, lejos del puerto de carga.",
+            "Siempre: deja secar por completo antes de cargarlo o guardarlo."
+          ]
+        },
+        {
+          "h2": "Cómo guardarlos para que duren"
+        },
+        {
+          "p": "El almacenamiento es la parte que más se olvida y la que más cuida tus piezas. Guarda cada juguete totalmente seco, porque la humedad atrapada invita a hongos y malos olores."
+        },
+        {
+          "p": "Mantenlos separados entre sí: algunos materiales, sobre todo ciertos silicones y plásticos, pueden reaccionar al tocarse y deformarse o ponerse pegajosos. Una bolsa de tela individual o un estuche transpirable es ideal, mucho mejor que una bolsa de plástico hermética. Resérvalos en un lugar fresco, oscuro y lejos del polvo."
+        },
+        {
+          "h2": "Compartir con seguridad y cuándo reemplazar"
+        },
+        {
+          "p": "Compartir juguetes puede ser parte del juego en pareja, y se hace con conciencia. Usa un condón nuevo sobre el juguete y cámbialo al pasar de una persona a otra, o desinfecta a fondo entre usos. El consentimiento y la comunicación abierta son tan importantes como la limpieza: pregunta, escucha y disfruten en confianza."
+        },
+        {
+          "p": "¿Cada cuánto reemplazarlos? No hay un calendario fijo, pero tu juguete te avisa. Cámbialo si notas grietas, cambios de textura, color u olor que no se va, si el material se vuelve pegajoso o si es poroso y ya no logras sentirlo bien limpio. Un juguete dañado deja de ser body-safe, y tu bienestar siempre vale una pieza nueva."
+        },
+        {
+          "p": "Cuidar tus juguetes es cuidarte a ti, y mereces hacerlo con lo mejor. En AMANTI encontrarás piezas de silicón médico y lubricantes base agua pensados para disfrutar sin culpa ni complicaciones. Si tienes dudas sobre qué material te conviene, haz nuestro quiz o escríbenos por WhatsApp: estamos para acompañarte, sin juicios y con mucho cariño."
+        }
       ]
     },
     {
@@ -47,13 +244,70 @@
       "title": "Juguetes en pareja: comunicación y juego",
       "category": "Relaciones y Amores",
       "emoji": "💞",
-      "readTime": "5 min",
-      "excerpt": "Introducir un juguete de a dos puede acercarlos más. Aquí, cómo abrir la conversación.",
+      "c1": "#8E5BD6",
+      "c2": "#5E1B33",
+      "readTime": "6 min",
+      "excerpt": "Sumar juguetes a la pareja no es reemplazar a nadie: es abrir una puerta nueva al juego, la risa y la complicidad.",
       "body": [
-        "Sumar un juguete a la pareja no reemplaza a nadie: complementa, suma y abre la puerta a explorar juntxs.",
-        "Lo más importante es la comunicación. Habla con tu pareja desde la curiosidad y no desde la exigencia: '¿qué te daría curiosidad probar?' funciona mucho mejor que cualquier presión.",
-        "Empiecen por juguetes pensados para parejas: anillos, juguetes con control remoto o con app que uno puede manejar para el otro. El juego y la complicidad son parte de la diversión.",
-        "Establezcan límites y palabras de seguridad si exploran algo nuevo. La confianza es la mejor base para el placer compartido."
+        {
+          "p": "Hay una idea que conviene desmontar desde el principio: un juguete en la cama de una pareja no llega a competir, llega a sumar. No reemplaza manos, besos ni miradas; agrega texturas, ritmos y posibilidades que dos cuerpos solos no siempre alcanzan. Si alguna vez te dieron ganas de proponerlo pero el pudor te frenó, este texto es para ti. Vamos a hablar de cómo abrir la conversación, elegir desde la curiosidad y convertir todo el proceso en una parte deliciosa del juego."
+        },
+        {
+          "h2": "Abrir la conversación sin que suene a reclamo"
+        },
+        {
+          "p": "El error más común es plantearlo como una carencia: me falta algo o no me das suficiente. Casi cualquier persona lo escucharía como crítica. El truco está en hablar desde el deseo de explorar juntxs, no desde la queja. Cambia el necesitamos por un me dio curiosidad esto, ¿lo vemos contigo?."
+        },
+        {
+          "p": "Elige un momento relajado, fuera de la cama y sin prisa: un café, una caminata, un domingo lento. Cuando la propuesta nace desde la complicidad y no desde la presión, tu pareja siente que la estás invitando a un plan, no enviándola a corregir un problema."
+        },
+        {
+          "h2": "Elegir juntxs desde la curiosidad"
+        },
+        {
+          "p": "La elección es, en sí misma, un juego previo. Navegar opciones lado a lado, reírse de los nombres, imaginar escenarios y decir este sí, este no sé ya es intimidad. No se trata de que unx elija y el otrx obedezca, sino de encontrar eso que a ambxs les pica la curiosidad."
+        },
+        {
+          "p": "Hazlo un ritual sin presión: que nadie tenga que decir sí a todo. La meta no es comprar, es descubrir qué les enciende la imaginación cuando lo piensan en equipo."
+        },
+        {
+          "h2": "Juguetes pensados para jugar de a dos"
+        },
+        {
+          "p": "Hay diseños que existen precisamente para el encuentro, no para sustituirlo. Pensados para usarse durante el abrazo, comparten la sensación entre lxs dos en lugar de aislar a una sola persona."
+        },
+        {
+          "ul": [
+            "Anillos vibradores: pensados para estimular a ambxs durante el encuentro, suman sensación sin interrumpir la cercanía.",
+            "Juguetes de control remoto: unx sostiene el control y el otrx recibe; ideales para jugar con la anticipación, incluso vestidxs y fuera de casa.",
+            "Juguetes con app: permiten ceder o tomar el control desde el teléfono, perfectos para la distancia o para alargar el coqueteo durante el día.",
+            "Modelos manos libres o de uso compartido: liberan las manos para que sigan acariciando, abrazando y mirándose."
+          ]
+        },
+        {
+          "p": "Busca siempre materiales body-safe como la silicona de grado médico, fáciles de limpiar y libres de porosidades. Acompaña todo con lubricante base agua, compatible con prácticamente cualquier juguete y con condones, y reaplica sin pena: más resbala, más fluye el juego."
+        },
+        {
+          "h2": "Límites, palabras de seguridad y consentimiento"
+        },
+        {
+          "p": "Jugar libre es jugar seguro. Antes de empezar, conversen qué les apetece, qué no y qué quieren probar con calma. Acordar una palabra de seguridad, una sencilla que detenga todo al instante, no le quita magia al momento: se la da, porque ambxs saben que pueden soltarse sabiendo que existe un freno."
+        },
+        {
+          "p": "El consentimiento no es un permiso que se firma una vez: se revisa, se renueva y se puede retirar en cualquier punto. ¿Te gusta?, ¿seguimos?, ¿más despacio? no rompen el clima; lo vuelven más cómplice y más caliente."
+        },
+        {
+          "h2": "Cuando aparece la inseguridad o el pudor"
+        },
+        {
+          "p": "Es normalísimo que surja un ¿y si esto significa que no le basto?. Nómbralo en voz alta en lugar de tragártelo. Recordar juntxs que el juguete es una herramienta compartida, no un reemplazo, desactiva casi cualquier celo. Lo que te da placer a ti también es placer para quien te acompaña."
+        },
+        {
+          "p": "Y si el pudor gana la primera vez, está bien: empiecen suave, con luz tenue, ropa puesta o solo explorando con las manos. La confianza se construye a su ritmo, sin metas ni exámenes. Reírse de la torpeza inicial es, muchas veces, la mejor manera de romper el hielo."
+        },
+        {
+          "p": "Si no saben por dónde empezar, dense permiso de curiosear sin compromiso: hagan juntxs nuestro quiz para descubrir qué les late, exploren la tienda con calma o escríbenos por WhatsApp y con gusto te orientamos, siempre con discreción. Lo importante no es el juguete: es esa conversación que abren, ese terreno nuevo que deciden explorar tomadxs de la mano. Eso ya es ganar."
+        }
       ]
     },
     {
@@ -61,13 +315,74 @@
       "title": "Placer sin tabúes: rompiendo mitos",
       "category": "Estilo de Vida",
       "emoji": "✨",
-      "readTime": "4 min",
-      "excerpt": "Usar juguetes no es 'porque algo falta'. Derribamos los mitos más comunes.",
+      "c1": "#E8503A",
+      "c2": "#8E2B4A",
+      "readTime": "6 min",
+      "excerpt": "El placer no es lujo ni capricho: es autoconocimiento, salud y amor propio. Hora de soltar la culpa heredada.",
       "body": [
-        "Todavía cargamos muchas ideas equivocadas sobre el placer y los juguetes. Es hora de soltarlas.",
-        "Mito 1: 'los juguetes son para quien no tiene pareja'. Falso. Son para cualquier persona, en cualquier relación, que quiera explorar y disfrutar más.",
-        "Mito 2: 'usarlos significa que algo no funciona'. Al contrario: conocerte y saber qué te gusta es salud, autoconocimiento y bienestar.",
-        "El placer es una parte natural y hermosa de la vida. Explorarlo sin culpa es un acto de amor propio. En AMANTI creemos en la libertad con responsabilidad, para todxs."
+        {
+          "p": "Crecimos rodeadas de mensajes contradictorios: el deseo es natural, pero no se habla; el cuerpo es tuyo, pero hay reglas sobre lo que puedes sentir. Entre tantos susurros y prohibiciones, el placer terminó cargando una mochila de culpa que nunca le tocó llevar. En AMANTI creemos que disfrutar no necesita permiso ni explicación. Vamos a desempolvar algunos mitos que siguen colándose en nuestras conversaciones y, sobre todo, en nuestra cabeza."
+        },
+        {
+          "h2": "Mito 1: Los juguetes son para quien no tiene pareja"
+        },
+        {
+          "p": "Esta es quizá la idea más persistente, y también la más fácil de derribar. Un juguete no es un sustituto de nadie; es una herramienta de exploración. La gente que comparte su vida con alguien también los usa, sola y acompañada, porque el placer no es una competencia entre personas y objetos."
+        },
+        {
+          "p": "Pensar que un juguete reemplaza a una pareja es como creer que cocinar en casa significa que odias los restaurantes. Son experiencias distintas que conviven perfectamente. De hecho, muchas parejas descubren que incorporarlos abre conversaciones más honestas sobre lo que les gusta."
+        },
+        {
+          "h2": "Mito 2: Usarlos significa que algo falta"
+        },
+        {
+          "p": "Buscar placer no es señal de carencia, es señal de curiosidad. Nadie cuestiona que quieras una mejor taza de café o un mejor par de tenis para correr. Querer conocer tu cuerpo con más detalle pertenece a esa misma categoría: el deseo de vivir mejor."
+        },
+        {
+          "p": "El autoconocimiento tiene beneficios reales en el bienestar: ayuda a entender qué te gusta, a comunicarlo y a relacionarte desde un lugar más seguro. Saber lo que te mueve no llena un vacío; expande tu repertorio."
+        },
+        {
+          "h2": "Mito 3: Son solo para mujeres"
+        },
+        {
+          "p": "El placer no entiende de géneros ni de etiquetas. Existen opciones pensadas para todos los cuerpos y todas las anatomías, y el interés por explorar es profundamente humano, no exclusivo de unas cuantas personas."
+        },
+        {
+          "p": "Reducir el bienestar íntimo a un solo grupo deja fuera a muchísima gente que merece disfrutar sin sentirse fuera de lugar. La invitación es abierta: aquí cabes tú, sea cual sea tu historia."
+        },
+        {
+          "h2": "Mito 4: Son peligrosos o sucios"
+        },
+        {
+          "p": "Con información básica de higiene y materiales, explorar es algo seguro y cuidado. La clave está en elegir productos de calidad y darles el mantenimiento que cualquier objeto íntimo merece. Aquí van pautas sencillas para hacerlo con tranquilidad:"
+        },
+        {
+          "ul": [
+            "Elige materiales body-safe, como silicona de grado médico, y desconfía de opciones sin información clara.",
+            "Limpia tus juguetes antes y después de cada uso con agua tibia y un limpiador adecuado.",
+            "Acompaña siempre con un buen lubricante a base de agua, compatible con la mayoría de los materiales.",
+            "Guarda cada pieza en un lugar seco, ventilado y, de preferencia, en su bolsa individual.",
+            "Revisa de vez en cuando que no haya desgaste y respeta la vida útil de cada producto."
+          ]
+        },
+        {
+          "h2": "Libertad con responsabilidad, no libertinaje"
+        },
+        {
+          "p": "Soltar la culpa no significa hacer todo sin pensar. Hay una diferencia hermosa entre libertinaje y libertad: la libertad incluye consentimiento, comunicación, cuidado y respeto, hacia ti y hacia quien te acompañe. Disfrutar con responsabilidad es la versión más madura y más rica del placer."
+        },
+        {
+          "p": "La culpa que cargamos casi nunca es propia: es heredada, aprendida, repetida. Reconocerla es el primer paso para dejarla ir. Habla del tema sin vergüenza, infórmate de fuentes confiables y rodéate de espacios donde tu deseo no tenga que esconderse."
+        },
+        {
+          "h2": "El placer también es amor propio"
+        },
+        {
+          "p": "Cuidar tu bienestar íntimo es una forma concreta de quererte. No es frivolidad ni exceso: es reconocer que tu cuerpo merece atención, ternura y curiosidad. Cuando el placer deja de ser tabú, se convierte en una conversación más sobre salud y autocuidado."
+        },
+        {
+          "p": "Si tienes ganas de empezar a explorar sin presiones, en AMANTI te acompañamos a tu ritmo. Haz nuestro quiz para descubrir qué podría resonar contigo, navega la tienda con calma o escríbenos por WhatsApp si quieres una recomendación cálida y sin juicios. Tu placer es tuyo, y aquí lo celebramos."
+        }
       ]
     },
     {
@@ -75,13 +390,553 @@
       "title": "Juguetes con app: el futuro del placer",
       "category": "Tips Sexuales",
       "emoji": "📱",
-      "readTime": "4 min",
-      "excerpt": "Control desde el celular, patrones personalizados y conexión a distancia. Así funcionan.",
+      "c1": "#6A5BD6",
+      "c2": "#2E1B5E",
+      "readTime": "5 min",
+      "excerpt": "Bluetooth, apps y control a distancia: el placer también evolucionó. Te contamos cómo funcionan los juguetes inteligentes sin tabúes.",
       "body": [
-        "Los juguetes inteligentes conectados por app abrieron un mundo nuevo de posibilidades, sobre todo para parejas a distancia.",
-        "Se conectan por Bluetooth a una app donde puedes elegir patrones, crear los tuyos, sincronizar con música o ceder el control a tu pareja — esté en la otra habitación o en otra ciudad.",
-        "Muchos incluyen modo videollamada y funcionan también de forma manual, sin la app, cuando prefieras algo más simple.",
-        "Si te llama la curiosidad la conexión a distancia, esta categoría es para ti. Revisa nuestra sección de Parejas."
+        {
+          "p": "Imagina un juguete que responde a una canción, que tu pareja controla desde otra ciudad o que guarda tus patrones favoritos para repetirlos cuando quieras. No es ciencia ficción: es tecnología que ya cabe en la palma de tu mano y en tu app del celular. Los juguetes inteligentes llegaron para sumar opciones, no para complicarte la vida. Aquí te explicamos cómo funcionan, para quién son ideales y cómo disfrutarlos con confianza y seguridad."
+        },
+        {
+          "h2": "¿Cómo funciona un juguete con app?"
+        },
+        {
+          "p": "La idea es más sencilla de lo que parece. El juguete se conecta a tu teléfono por Bluetooth, igual que unos audífonos inalámbricos. Desde una app gratuita ajustas la intensidad, eliges ritmos y creas combinaciones a tu gusto, todo con el dedo y sin botones diminutos que adivinar a oscuras."
+        },
+        {
+          "p": "Esa app es el centro de control: ahí vives la magia de personalizar. Y lo mejor es que la curva de aprendizaje es corta; en unos minutos ya estás explorando como si lo hubieras usado siempre."
+        },
+        {
+          "h2": "Control a distancia: cerca aunque estén lejos"
+        },
+        {
+          "p": "Si tú y tu pareja viven una relación a distancia, esta función puede volverse su mejor aliada. A través de internet, una persona controla el juguete de la otra desde cualquier parte del mundo: misma ciudad o distinto huso horario, da igual."
+        },
+        {
+          "p": "Muchas apps incluyen videollamada y chat dentro de la misma pantalla, para que la complicidad no se pierda en el camino. La distancia deja de ser un muro y se convierte en una excusa más para coquetear."
+        },
+        {
+          "h2": "Patrones, música y ceder el control"
+        },
+        {
+          "p": "Aquí es donde la creatividad se desborda. Puedes diseñar patrones propios dibujando ritmos en la pantalla, guardarlos y volver a ellos cuando quieras. También sincronizar el juguete con tu playlist o con sonidos del ambiente, para que la vibración siga el pulso de la canción o de una voz."
+        },
+        {
+          "p": "Y existe un juego delicioso para parejas: ceder el control. Le entregas el mando a quien tú decides y te dejas sorprender. Ese pequeño acto de confianza, acordado entre ambos, suma una capa de juego y entrega que muchas personas adoran."
+        },
+        {
+          "ul": [
+            "Crea y guarda tus propios patrones para repetir lo que más te gusta.",
+            "Sincroniza la vibración con tu música favorita o con la voz de tu pareja.",
+            "Programa secuencias sorpresa para esos días en que quieres soltar el control.",
+            "Combina intensidades suaves y fuertes hasta encontrar tu ritmo ideal."
+          ]
+        },
+        {
+          "h2": "Privacidad y seguridad: lo primero"
+        },
+        {
+          "p": "La tecnología es maravillosa siempre que la cuides. Antes de empezar, dedica un par de minutos a proteger lo que es tuyo: tu intimidad merece el mismo respeto que tu placer."
+        },
+        {
+          "ul": [
+            "Descarga la app solo desde tiendas oficiales y revisa qué permisos te pide.",
+            "Usa un correo y una contraseña únicos, distintos a los de tus redes principales.",
+            "Activa la verificación en dos pasos si la app la ofrece.",
+            "Mantén la app y el juguete actualizados para tener las últimas mejoras de seguridad.",
+            "Si compartes contenido o control, hazlo solo con alguien de plena confianza."
+          ]
+        },
+        {
+          "h2": "¿Y si no quiero usar el celular?"
+        },
+        {
+          "p": "Tranqui: la app es un extra, no una obligación. Casi todos estos juguetes funcionan en modo manual con sus botones, así que puedes disfrutarlos sin conectar nada. Úsalos en solitario un día y en modo inteligente al siguiente; tú mandas."
+        },
+        {
+          "p": "Esto los vuelve ideales para parejas a distancia, para quienes aman explorar y personalizar, y para cualquier persona curiosa que quiera estrenar el placer del futuro sin dejar atrás lo clásico."
+        },
+        {
+          "h2": "Da el primer paso a tu ritmo"
+        },
+        {
+          "p": "El placer inteligente no se trata de tener el aparato más sofisticado, sino de descubrir lo que a ti y a tu pareja les hace sentido y les saca una sonrisa. No hay culpa, no hay prisa: solo curiosidad y ganas de jugar."
+        },
+        {
+          "p": "Si no sabes por dónde empezar, date una vuelta por nuestra tienda o haz nuestro quiz para encontrar el juguete que va contigo. Y si quieres una recomendación personalizada y discreta, escríbenos por WhatsApp; con gusto te acompañamos sin juicios. El futuro del placer ya está aquí, y es tuyo para disfrutarlo."
+        }
+      ]
+    },
+    {
+      "slug": "conoce-tu-cuerpo",
+      "title": "Conoce tu cuerpo: un mapa del placer",
+      "category": "Salud Sexual",
+      "emoji": "🧭",
+      "c1": "#FF8A5C",
+      "c2": "#C9924B",
+      "readTime": "5 min",
+      "excerpt": "Antes de compartir tu placer con alguien más, vale la pena conocer el mapa: tu propio cuerpo. Sin prisa, sin metas, sin culpa.",
+      "body": [
+        {
+          "p": "Imagina que tu cuerpo es un territorio que llevas habitando toda la vida, pero que casi nunca has explorado con calma. Conocerlo no es un acto egoísta ni un trámite: es la base del bienestar íntimo y, sí, también del placer. Cuando entiendes qué te gusta, cómo respondes y qué te relaja, todo lo demás (sola, solo, en pareja o como prefieras) se vuelve más rico. Aquí no hay examen ni respuestas correctas. Solo tú, tu curiosidad y un poco de tiempo para ti."
+        },
+        {
+          "h2": "El autoconocimiento es placer, no tarea"
+        },
+        {
+          "p": "Solemos pensar el placer como algo que llega de fuera o que depende de otra persona. Pero la primera relación íntima de tu vida es contigo. Conocer tu cuerpo te da un lenguaje: aprendes a nombrar lo que sientes, a notar qué te hace bien y a soltar la idea de que existe una forma correcta de disfrutar."
+        },
+        {
+          "p": "Y ojo: esto no caduca. Tu cuerpo cambia con los años, las etapas y los estados de ánimo. Reexplorarte de vez en cuando es una forma de cuidarte y de mantener viva la conversación contigo."
+        },
+        {
+          "h2": "Explora sin metas ni prisa"
+        },
+        {
+          "p": "Aquí va lo más importante: suelta el objetivo. Cuando exploras con la presión de llegar a algún lado, te desconectas justo de lo que querías sentir. El placer no se trata solo del clímax; se trata de todo el camino, de las texturas, de la temperatura, de los pequeños matices que normalmente pasan de largo."
+        },
+        {
+          "p": "Date permiso de que esto sea un rato sin productividad. No hay nada que lograr. Si solo descubres que cierta caricia en el brazo te eriza la piel, ya valió la pena. La curiosidad sin expectativas es la mejor guía que existe."
+        },
+        {
+          "h2": "Respira: tu aliado más subestimado"
+        },
+        {
+          "p": "La relajación es la puerta de entrada a las buenas sensaciones. Un cuerpo tenso, apurado o lleno de pensamientos rara vez disfruta del todo. Por eso la respiración es tu mejor herramienta: gratis, siempre disponible y sorprendentemente poderosa."
+        },
+        {
+          "p": "Antes de empezar, regálate unos minutos para bajar revoluciones. Respira hondo, lleva el aire al abdomen y exhala despacio. Vas a notar cómo, conforme te relajas, tu cuerpo se vuelve más receptivo y presente."
+        },
+        {
+          "h2": "Un mapa de zonas y sensaciones"
+        },
+        {
+          "p": "Tu cuerpo está lleno de zonas que responden de maneras distintas, y muchas de ellas no son las obvias. La piel completa es un órgano sensorial enorme. Vale la pena pasear por todo el territorio antes de asumir dónde está lo interesante."
+        },
+        {
+          "p": "Te dejo algunas ideas para tu exploración, siempre desde la calma y la curiosidad:"
+        },
+        {
+          "ul": [
+            "Recorre zonas que sueles ignorar: nuca, orejas, interior de los brazos, parte baja de la espalda, muslos.",
+            "Juega con contrastes de presión, ritmo y temperatura, y nota cuáles te gustan más.",
+            "Observa la diferencia entre un roce ligero y un contacto más firme: tu mapa es único.",
+            "Presta atención a tu respiración y a las emociones que aparecen; todo es información válida."
+          ]
+        },
+        {
+          "h2": "Herramientas para conocerte mejor"
+        },
+        {
+          "p": "No necesitas nada para empezar: tus propias manos son el instrumento más sensible que tienes. Pero hay aliados que vuelven la exploración más reveladora. Un espejo, por ejemplo, te ayuda a mirarte sin juicio y a familiarizarte con tu cuerpo tal como es."
+        },
+        {
+          "p": "Llevar un pequeño journaling también suma muchísimo: anotar qué descubriste, qué te sorprendió o qué quieres repetir convierte la exploración en aprendizaje. Y si te late sumar sensaciones nuevas, un juguete suave y de materiales seguros puede abrirte matices que las manos solas no alcanzan, siempre a tu ritmo."
+        },
+        {
+          "h2": "De lo que descubres a lo que comunicas"
+        },
+        {
+          "p": "Todo este mapa cobra otra dimensión cuando lo compartes. Conocer tu cuerpo te da algo invaluable: poder decir, sin rodeos ni pena, qué te gusta y qué no. La comunicación deja de ser adivinanza y se vuelve invitación."
+        },
+        {
+          "p": "Practica nombrar tus preferencias con frases simples y positivas, en plan me encanta cuando... en lugar de solo señalar lo que no. Tu autoconocimiento se convierte así en un regalo para ti y para quien te acompañe."
+        },
+        {
+          "p": "Si quieres dar el siguiente paso, en AMANTI tenemos herramientas suaves y seguras para acompañar tu exploración, y un quiz para encontrar lo que mejor va contigo. Y si tienes dudas, escríbenos por WhatsApp: aquí hablamos de placer y bienestar sin tabúes, con cariño y cero juicios. Tu cuerpo es un territorio que merece ser conocido a tu manera."
+        }
+      ]
+    },
+    {
+      "slug": "succionadores-vs-vibradores",
+      "title": "Succionadores vs. vibradores: ¿cuál es para ti?",
+      "category": "Juguetes Sexuales",
+      "emoji": "💫",
+      "c1": "#FF6A4D",
+      "c2": "#B81C86",
+      "readTime": "6 min",
+      "excerpt": "Succión vs. vibración: dos tecnologías, dos sensaciones muy distintas. Aquí te ayudamos a descubrir cuál va contigo (o por qué querrías ambas).",
+      "body": [
+        {
+          "p": "Si alguna vez te paraste frente a la pantalla preguntándote por qué dos juguetes que parecen hacer lo mismo cuestan y se sienten tan diferente, esta guía es para ti. Succionadores y vibradores son dos mundos distintos de placer, y entender cómo funciona cada uno es la mejor manera de elegir sin culpa, sin prisa y con la confianza de que vas a acertar. Respira: aquí no hay respuestas correctas, solo la que va contigo."
+        },
+        {
+          "h2": "¿Qué hace cada uno, en realidad?"
+        },
+        {
+          "p": "El vibrador es el clásico que ya conoces: un motor genera vibraciones que estimulan por contacto directo. Lo apoyas donde quieras y la sensación se reparte por la zona. Es versátil, predecible y facilísimo de querer."
+        },
+        {
+          "p": "El succionador (también llamado de ondas de aire o presión por pulsos) trabaja distinto: no necesita tocar directamente la zona más sensible. Crea cambios de presión de aire dentro de una boquilla que rodea el clítoris, generando una sensación envolvente, casi como una caricia rítmica desde adentro. No es succión literal que jala, es presión que pulsa."
+        },
+        {
+          "h2": "Cómo se sienten distintos (y por qué)"
+        },
+        {
+          "p": "La vibración es expansiva: cosquillea, recorre, despierta toda la zona. Por eso muchas personas la describen como cálida, progresiva y muy controlable según la intensidad."
+        },
+        {
+          "p": "La succión es focalizada e intensa: concentra todo en un punto sin frotarlo directamente, lo que para muchísimas personas se traduce en sensaciones más rápidas y profundas. Si la fricción directa te resulta demasiado, esta tecnología puede ser una revelación, porque estimula sin sobreestimular la superficie."
+        },
+        {
+          "h2": "¿Para quién es ideal cada uno?"
+        },
+        {
+          "p": "No hay cuerpos correctos para cada tecnología, pero sí preferencias que ayudan a orientarte. Lo ideal es pensar en qué tipo de sensación disfrutas o quieres explorar."
+        },
+        {
+          "ul": [
+            "Elige vibrador si: buscas versatilidad, quieres estimular varias zonas, prefieres una sensación más difusa y graduable, o estás empezando y quieres algo intuitivo.",
+            "Elige succionador si: te gusta la estimulación clitoriana muy focalizada, la fricción directa te incomoda, buscas intensidad novedosa, o quieres una experiencia distinta a todo lo anterior.",
+            "Elige 2 en 1 si: no quieres decidir, te encanta variar, o disfrutas combinar dos sensaciones a la vez para algo más completo.",
+            "Considera ambos por separado si: te gusta tener opciones según tu ánimo del día (a veces sutil, a veces intenso)."
+          ]
+        },
+        {
+          "h2": "La opción que lo cambia todo: los 2 en 1"
+        },
+        {
+          "p": "Muchos modelos modernos combinan boquilla de succión con un brazo o base vibradora, pensados para estimular dos zonas al mismo tiempo. Si eres de quienes disfrutan capas de sensaciones, un 2 en 1 te da lo mejor de ambos mundos sin tener que elegir, y suelen ser una inversión muy redituable en variedad."
+        },
+        {
+          "p": "Sea cual sea tu elección, fíjate en que el material sea body-safe, idealmente silicona de grado médico, suave, sin poros y fácil de limpiar. Y acompaña siempre con lubricante a base de agua: cuida tu piel, es compatible con la silicona y con la mayoría de los juguetes, y vuelve toda la experiencia más placentera."
+        },
+        {
+          "h2": "Mitos que conviene soltar"
+        },
+        {
+          "p": "Mito 1: el succionador es mejor que el vibrador. Falso. No es mejor ni peor, es diferente. Tu cuerpo decide qué disfruta, no la tecnología más nueva."
+        },
+        {
+          "p": "Mito 2: si uso uno potente, dejaré de sentir sin él. Tu sensibilidad no se gasta; cualquier desensibilización temporal se regula sola con descanso. Disfruta sin miedo."
+        },
+        {
+          "p": "Mito 3: son solo para quien no tiene pareja. Para nada. Solos o en compañía, los juguetes suman juego, comunicación y complicidad. El placer no compite, se comparte."
+        },
+        {
+          "h2": "Entonces, ¿cuál es para ti?"
+        },
+        {
+          "p": "Si te llama la versatilidad y lo gradual, empieza por un vibrador. Si te intriga una intensidad nueva y focalizada, el succionador puede enamorarte. Y si tu respuesta es quiero probar todo, un 2 en 1 es tu mejor amigo. No hay error: hay descubrimiento."
+        },
+        {
+          "p": "¿Sigues con dudas? Haz nuestro quiz para recibir una recomendación a tu medida, explora la categoría de Juguetes Sexuales en la tienda, o escríbenos por WhatsApp y te acompañamos a elegir con cero juicios y mucha calidez. Tu placer merece la elección perfecta."
+        }
+      ]
+    },
+    {
+      "slug": "iniciacion-anal",
+      "title": "Iniciación anal sin miedo: la guía completa",
+      "category": "Tips Sexuales",
+      "emoji": "🍑",
+      "c1": "#FF8A5C",
+      "c2": "#C0341B",
+      "readTime": "6 min",
+      "excerpt": "Lo anal no tiene por qué dar miedo: con calma, mucho lubricante y comunicación, es placer sin culpa.",
+      "body": [
+        {
+          "p": "Si la curiosidad por el placer anal te ronda hace tiempo pero los nervios te frenan, respira: estás en el lugar correcto. La realidad es que esta zona está llena de terminaciones nerviosas y, con la información y el cuidado adecuados, puede ser una fuente de placer increíble para cualquier cuerpo y cualquier género. La clave no es la valentía, es la paciencia. Aquí te acompañamos paso a paso, sin tabúes y sin prisas."
+        },
+        {
+          "h2": "Primero, despídete del tabú"
+        },
+        {
+          "p": "Mucho del miedo viene de mitos heredados y de la idea de que es algo prohibido o vergonzoso. Nada más lejos: el placer anal es para quien quiera explorarlo, punto. No define tu orientación ni tu identidad, solo es una posibilidad más de disfrutar tu cuerpo."
+        },
+        {
+          "p": "Date permiso de tener curiosidad sin culpa. Cuando la mente se relaja, el cuerpo la sigue, y esa tranquilidad mental es justo el primer paso para que la experiencia sea placentera en lugar de tensa."
+        },
+        {
+          "h2": "La regla de oro: lubricante, mucho lubricante"
+        },
+        {
+          "p": "Si solo te quedas con un consejo, que sea este. A diferencia de otras zonas, el ano no se autolubrica, así que el lubricante no es opcional: es imprescindible. Y no hablamos de unas gotitas, hablamos de generosidad total."
+        },
+        {
+          "p": "Lo ideal es un lubricante específico o uno más espeso y duradero, porque mantiene el deslizamiento por más tiempo y reduce cualquier fricción incómoda. Ten el frasco a la mano para reaplicar todas las veces que haga falta. Si sientes resistencia, casi siempre la respuesta es: más lubricante."
+        },
+        {
+          "h2": "Relájate y ve MUY despacio"
+        },
+        {
+          "p": "La prisa es la enemiga número uno. El esfínter es un músculo y necesita tiempo para relajarse; forzarlo solo genera tensión y molestia. Piensa en minutos de exploración suave, no en metas."
+        },
+        {
+          "ul": [
+            "Empieza con caricias externas para acostumbrar la zona, sin presión por avanzar.",
+            "Respira hondo y suelta el aire al ir progresando: la respiración ayuda a soltar el músculo.",
+            "Usa una posición cómoda y relajada; la tensión en el cuerpo se traslada a la zona.",
+            "Si en algún momento duele, para. El dolor es una señal de que hay que bajar el ritmo o sumar lubricante, nunca algo que aguantar."
+          ]
+        },
+        {
+          "h2": "Empieza pequeño y progresa de a poco"
+        },
+        {
+          "p": "Nadie empieza por lo grande, y ahí está el secreto. Un dedo bien lubricado o un plug delgado son perfectos para iniciar, porque permiten que el cuerpo se familiarice a su propio ritmo. La progresión es gradual, sesión a sesión, sin saltos."
+        },
+        {
+          "p": "Los plugs pequeños son grandes aliados: te ayudan a explorar sensaciones de forma controlada. Solo cuando tu cuerpo se sienta cómodo y relajado tiene sentido pasar a un tamaño un poco mayor. No hay reloj ni competencia; tu placer marca el calendario."
+        },
+        {
+          "h2": "Seguridad que no se negocia"
+        },
+        {
+          "p": "Aquí hay puntos que cuidamos siempre, sin excepción, para que la experiencia sea tan segura como placentera:"
+        },
+        {
+          "ul": [
+            "Base ensanchada obligatoria: cualquier juguete para uso anal debe tener una base amplia o tope para que no haya riesgo de perderlo dentro. Esto no es negociable.",
+            "Materiales body-safe: elige silicona de grado médico, vidrio o acero pensados para el cuerpo, libres de porosidades.",
+            "Higiene antes y después: lava bien tus juguetes según su material y mantén la zona limpia. Un buen aseo previo da más tranquilidad para soltarte.",
+            "No mezclar zonas: lo que entra en contacto con la zona anal se limpia antes de usarse en otro lado."
+          ]
+        },
+        {
+          "h2": "Comunicación: el ingrediente que todo lo cambia"
+        },
+        {
+          "p": "Ya sea en solitario o en compañía, hablar lo es todo. Si lo exploras con alguien, acuerden una palabra de seguridad, avisen cómo se sienten y celebren los pequeños avances. El consentimiento es continuo: se puede pausar o detener en cualquier momento, siempre."
+        },
+        {
+          "p": "Escuchar a tu cuerpo es la mejor brújula. Si algo se siente rico, sigue; si algo incomoda, ajusta. No hay forma incorrecta de ir despacio, y cada cuerpo tiene su propio tiempo perfecto."
+        },
+        {
+          "p": "Cuando estés liste para dar el primer paso, en AMANTI tenemos plugs principiantes, lubricantes espesos y juguetes body-safe pensados justo para esto. Si te late una recomendación personalizada, haz nuestro quiz o escríbenos por WhatsApp: te acompañamos con cariño, cero juicios y mucha calma."
+        }
+      ]
+    },
+    {
+      "slug": "bdsm-principiantes",
+      "title": "BDSM para principiantes: confianza y consentimiento",
+      "category": "Relaciones y Amores",
+      "emoji": "🖤",
+      "c1": "#3A2228",
+      "c2": "#5E1B33",
+      "readTime": "6 min",
+      "excerpt": "El BDSM no es violencia: es confianza, juego y consentimiento. Te contamos cómo empezar suave, seguro y sin culpa.",
+      "body": [
+        {
+          "p": "Cuando escuchas BDSM quizá imaginas escenas intensas de película, pero la realidad es mucho más cálida y humana. En el fondo es un juego entre personas que confían profundamente la una en la otra, donde cada movimiento se acuerda, se conversa y se disfruta. No hay violencia: hay comunicación, cuidado y muchísima ternura. Si te da curiosidad, respira tranqui: empezar es más sencillo (y más amoroso) de lo que crees."
+        },
+        {
+          "h2": "Qué es y qué NO es el BDSM"
+        },
+        {
+          "p": "BDSM es un paraguas que reúne juegos de poder, sensaciones y roles: ataduras suaves, vendas en los ojos, dinámicas de control consensuado. La palabra clave es esa: consensuado. Todo lo que pasa fue platicado y deseado por ambas partes antes de empezar."
+        },
+        {
+          "p": "No es maltrato ni una señal de que algo ande mal en ti o en tu relación. Es una forma creativa de explorar el placer, la entrega y la confianza. Quien dirige cuida; quien se entrega elige hacerlo. El poder siempre lo tiene quien dice hasta aquí."
+        },
+        {
+          "h2": "Los pilares de la seguridad"
+        },
+        {
+          "p": "En la comunidad se repite mucho una idea sencilla de recordar: seguro, sensato y consensuado. Seguro, porque cuidas tu cuerpo y el de tu pareja. Sensato, porque actúas con cabeza y sin excesos. Y consensuado, porque cada paso nace de un sí entusiasta, libre y revocable en cualquier momento."
+        },
+        {
+          "ul": [
+            "Consentimiento entusiasta: un tal vez o un silencio NO es un sí.",
+            "El consentimiento se puede retirar a la mitad del juego, siempre.",
+            "El alcohol y las sustancias nublan el criterio: mejor mente clara.",
+            "Nunca dejes sin supervisión a alguien atado o con los sentidos limitados."
+          ]
+        },
+        {
+          "h2": "Palabras de seguridad: tu botón de pausa"
+        },
+        {
+          "p": "La palabra de seguridad es un término que ambos acuerdan para frenar todo de inmediato. Conviene que sea algo que no dirías en el calor del momento, como mango o semáforo. Cuando alguien la dice, el juego se detiene sin preguntas ni reproches."
+        },
+        {
+          "p": "Un sistema facilísimo y muy querido es el del semáforo: verde significa todo bien, sigue; amarillo es baja la intensidad o espera, me estoy acercando a mi límite; y rojo es paramos ya. Tres colores que cualquiera recuerda, incluso con los nervios de la primera vez."
+        },
+        {
+          "h2": "Negociar antes de jugar"
+        },
+        {
+          "p": "La parte menos glamorosa es en realidad la más sexy: sentarse a platicar. Antes de cualquier escena, conversen con honestidad qué les llama la atención, qué les da curiosidad y qué está completamente fuera de la mesa. Aquí no hay respuestas correctas, solo las suyas."
+        },
+        {
+          "p": "Definan tres listas: lo que sí quieren probar, lo que quizá explorarían más adelante y los límites duros que no se tocan. Hablar de esto no quita magia; al contrario, da la tranquilidad de soltarte sabiendo que tu pareja respeta tu mapa."
+        },
+        {
+          "h2": "Empezar suave: ideas para tu primera vez"
+        },
+        {
+          "p": "No necesitas equipo complicado ni saltar a lo intenso. Lo rico está en explorar sensaciones nuevas poco a poco y ver qué les enciende a ambos. La curiosidad es la mejor maestra."
+        },
+        {
+          "ul": [
+            "Un antifaz para vendar los ojos y agudizar el resto de los sentidos.",
+            "Plumas o texturas suaves para jugar con cosquillas y anticipación.",
+            "Ataduras ligeras con muñequeras cómodas o un pañuelo de seda.",
+            "Juegos de rol que les diviertan y les den permiso de actuar otro yo.",
+            "Spanking leve, empezando muy suave y midiendo siempre la reacción."
+          ]
+        },
+        {
+          "h2": "Aftercare: el abrazo después del juego"
+        },
+        {
+          "p": "El cuidado posterior, o aftercare, es tan importante como el juego en sí. Después de una escena el cuerpo y las emociones se sienten a flor de piel, así que tómense un rato para reconectar: abrazos, una cobija, agua, palabras dulces o simplemente quedarse juntos en silencio."
+        },
+        {
+          "p": "Pregúntense cómo se sintieron, qué les gustó y qué ajustarían la próxima vez. Ese cierre amoroso fortalece la confianza y deja a ambos con ganas de seguir explorando, siempre desde el cariño y el respeto."
+        },
+        {
+          "p": "Si quieres dar el primer paso sin complicarte, los kits introductorios son tu mejor aliado: traen lo esencial para iniciar suave y a tu ritmo. Date una vuelta por la tienda, contesta nuestro quiz para descubrir qué te late más, o escríbenos por WhatsApp con toda la confianza. En AMANTI te acompañamos sin juicios y con mucho cariño en cada exploración."
+        }
+      ]
+    },
+    {
+      "slug": "mitos-orgasmo",
+      "title": "Mitos y verdades sobre el orgasmo",
+      "category": "Estilo de Vida",
+      "emoji": "🔥",
+      "c1": "#E8503A",
+      "c2": "#FF6A4D",
+      "readTime": "5 min",
+      "excerpt": "El orgasmo no es una meta que debas alcanzar a la fuerza: es uno de muchos destinos posibles en un camino que ya vale la pena recorrer.",
+      "body": [
+        {
+          "p": "Pocas cosas cargan con tanta mitología como el orgasmo. Que debe verse de cierta forma, sonar de cierta manera, llegar siempre y ser el gran final de todo encuentro. Spoiler cariñoso: casi nada de eso es verdad. Aquí separamos el mito de lo que de verdad importa, sin culpas, sin presión y con mucha ternura hacia tu cuerpo."
+        },
+        {
+          "h2": "Mito 1: El orgasmo siempre tiene que llegar"
+        },
+        {
+          "p": "Esta es quizá la creencia que más placer nos roba. Cuando convertimos el clímax en una obligación, el cuerpo lo siente: aparece la prisa, la autoexigencia y esa vocecita que evalúa en lugar de disfrutar. Y el placer, que es tímido, se esconde justo cuando lo persigues."
+        },
+        {
+          "p": "La paradoja es deliciosa: muchas personas notan que sueltan más placer precisamente cuando sueltan la meta. Quitar la presión no es resignarse, es abrir espacio. Un encuentro sin orgasmo puede ser igual de íntimo, conectado y satisfactorio."
+        },
+        {
+          "h2": "Mito 2: Hay un orgasmo mejor que otro"
+        },
+        {
+          "p": "Durante años se construyó una jerarquía absurda: que si uno cuenta más, que si otro es más maduro. La realidad es que los cuerpos son diversos y responden de maneras distintas, todas igual de válidas. No hay un ranking ni una versión correcta."
+        },
+        {
+          "p": "Tu mapa de placer es único. Lo que enciende a otra persona puede no funcionarte, y está perfecto. Conocer tu propio territorio, con curiosidad y sin compararte, vale más que cualquier estándar prestado."
+        },
+        {
+          "h2": "Mito 3: El placer es solo el destino"
+        },
+        {
+          "p": "Pensar que todo el encuentro existe para llegar a un único punto final es perderse el viaje completo. La anticipación, las caricias, las pausas, la risa, las miradas: todo eso es placer en sí mismo, no un trámite previo."
+        },
+        {
+          "p": "Cuando dejas de tratar el camino como sala de espera, cada sensación se vuelve protagonista. El placer no es una línea de meta; es todo el paisaje."
+        },
+        {
+          "h2": "Verdades que vale la pena abrazar"
+        },
+        {
+          "p": "Frente a tanto mito, hay algunas certezas amables que conviene tener cerca para disfrutar sin manual de instrucciones:"
+        },
+        {
+          "ul": [
+            "La relajación es tu mejor aliada: un cuerpo tenso difícilmente se entrega. Respira hondo y baja las revoluciones.",
+            "El contexto importa muchísimo: descanso, ánimo, intimidad y sentirte a gusto cambian por completo la experiencia.",
+            "La respiración consciente y lenta intensifica las sensaciones y te ancla en el presente.",
+            "La diversidad es la norma, no la excepción: cada cuerpo tiene su ritmo, su intensidad y sus tiempos.",
+            "No existe un cronómetro correcto: ni muy rápido ni muy lento es mejor. Solo está lo que se siente bien para ti."
+          ]
+        },
+        {
+          "h2": "Hablarlo también es placer"
+        },
+        {
+          "p": "La comunicación con tu pareja no mata la magia: la multiplica. Decir qué te gusta, qué quieres probar o simplemente más despacio transforma el encuentro en algo compartido de verdad. Nadie adivina mapas ajenos, y pedir no es exigir: es invitar."
+        },
+        {
+          "p": "Hazlo desde la complicidad, no desde el reclamo. Un ¿y si probamos esto? abre puertas que el silencio mantiene cerradas."
+        },
+        {
+          "h2": "Los juguetes: aliados, nunca trampas"
+        },
+        {
+          "p": "Existe el mito de que usar un juguete es hacer trampa o señal de que algo falta. Nada más lejos. Son herramientas de exploración que suman opciones, te ayudan a conocerte y pueden volverse cómplices en pareja."
+        },
+        {
+          "p": "No reemplazan nada ni compiten con nadie: amplían tu repertorio. Usarlos es un acto de curiosidad y autocuidado, igual que elegir buena música para acompañar el momento."
+        },
+        {
+          "p": "Si te dieron ganas de explorar tu propio mapa con más calma y sin presiones, date una vuelta por la tienda y déjate sorprender por lo que resuena contigo. ¿No sabes por dónde empezar? Nuestro quiz te orienta en minutos, y si prefieres una recomendación más personal, escríbenos por WhatsApp: estamos para acompañarte sin tabúes y con todo el cariño."
+        }
+      ]
+    },
+    {
+      "slug": "regalar-un-juguete",
+      "title": "Cómo regalar un juguete (sin que sea incómodo)",
+      "category": "Estilo de Vida",
+      "emoji": "🎁",
+      "c1": "#C9924B",
+      "c2": "#8E2B4A",
+      "readTime": "4 min",
+      "excerpt": "Regalar bienestar íntimo es un detalle bonito y atrevido. Aquí, cómo hacerlo con tino, humor y cero incomodidad.",
+      "body": [
+        {
+          "p": "Regalar un juguete íntimo es de esos detalles que dicen mucho: que tienes confianza, que eres atrevida y que el placer de quien quieres te importa. Pero también es ese regalo que da nervios: ¿se va a sentir raro?, ¿es demasiado?, ¿y si no es su estilo? La buena noticia es que, con un poco de tacto y mucho cariño, regalar bienestar íntimo puede ser el detalle más memorable (y divertido) que des este año. Aquí te llevamos de la mano, de lo más suave a lo más atrevido."
+        },
+        {
+          "h2": "Empieza por la confianza que les tienes"
+        },
+        {
+          "p": "La regla de oro: el regalo se mide según la cercanía. No es lo mismo sorprender a tu pareja de años que tener un detalle con una amiga en su despedida de soltera. Antes de elegir, pregúntate qué tan abierta es la conversación entre ustedes sobre estos temas."
+        },
+        {
+          "p": "Si la confianza es total, puedes animarte con algo más personal. Si apenas estás explorando ese terreno con la persona, mejor quédate en lo suave y universal. Leer la relación es el primer paso para que el regalo se sienta como un guiño cómplice y no como un atrevimiento fuera de lugar."
+        },
+        {
+          "h2": "Opciones seguras para empezar (y nunca fallar)"
+        },
+        {
+          "p": "Si quieres ir a lo seguro, hay regalos que prácticamente le gustan a todo el mundo porque son sensoriales, cuidan el cuerpo y no presuponen nada. Son la puerta de entrada perfecta:"
+        },
+        {
+          "ul": [
+            "Lubricantes de buena calidad: prácticos, universales y siempre bienvenidos.",
+            "Aceites de masaje: invitan a la conexión y al autocuidado sin ninguna presión.",
+            "Kits de iniciación: pensados para quien apenas empieza a explorar, con todo curado.",
+            "Una tarjeta de regalo: el comodín definitivo para que la persona elija justo lo que le late."
+          ]
+        },
+        {
+          "p": "La tarjeta de regalo merece una mención especial: respeta por completo los gustos y los tiempos de cada quien. Es elegante, nada invasiva y convierte la elección en parte de la experiencia."
+        },
+        {
+          "h2": "Respeta los límites (siempre)"
+        },
+        {
+          "p": "Un detalle así solo funciona si la otra persona se siente cómoda. Si notas que el tema le da pena o nunca ha mostrado curiosidad, quizá no sea el regalo indicado, y está perfecto. El bienestar íntimo se disfruta desde la libertad, jamás desde la presión."
+        },
+        {
+          "p": "Cuando dudes, baja un escalón en lo atrevido y sube uno en lo sensorial. Un aceite de masaje o un lubricante bonito casi nunca incomodan, y dejan la puerta abierta para que la persona explore a su ritmo."
+        },
+        {
+          "h2": "El empaque lo es todo: discreción y cero precios"
+        },
+        {
+          "p": "Aquí está el secreto para que nadie se sienta expuesto: la presentación. Un buen regalo íntimo llega en una caja neutra, sin pistas a la vista y, sobre todo, sin el precio. Ver cuánto costó rompe la magia y puede incomodar; el detalle se trata de la intención, no de la cifra."
+        },
+        {
+          "p": "En AMANTI pensamos justo en eso. Tenemos un modo regalo: caja neutra sin precios, la opción de añadir un mensaje personal y envío discreto hasta la puerta. Así, la sorpresa llega intacta y la única que sabe qué hay adentro es la persona que lo recibe."
+        },
+        {
+          "h2": "Ocasiones ideales y cómo romper el hielo"
+        },
+        {
+          "p": "¿Cuándo regalar bienestar íntimo? Un cumpleaños, un aniversario, una despedida de soltera o, nuestra favorita, un porque sí. No necesitas una fecha grande: a veces el mejor pretexto es simplemente querer consentir a alguien."
+        },
+        {
+          "p": "Y para entregarlo sin nervios, deja que el humor y el cariño hagan su trabajo. Una notita juguetona como porque tu placer también merece consentirse, o un te mereces explorar a tu ritmo, rompe el hielo al instante. Reír juntas quita cualquier tensión y deja claro que el regalo viene desde el cariño, nunca desde la presión."
+        },
+        {
+          "p": "Regalar placer sin culpa es uno de los gestos más generosos y modernos que existen. Si te animas, en AMANTI tenemos todo listo para que tu detalle llegue bonito, discreto y con la dosis justa de complicidad. Tú pones la intención; nosotros, el empaque perfecto."
+        }
       ]
     }
   ]
