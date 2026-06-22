@@ -194,8 +194,11 @@ useSeoMeta({
             </div>
           </div>
 
-          <div class="msi-note">
+          <div class="msi-note" v-if="product.price >= 300">
             <b>3 meses sin intereses</b> de {{ msi(product.price) }} · o paga a tu ritmo con Aplazo
+          </div>
+          <div class="msi-note" v-else>
+            Pago 100% seguro con MercadoPago · o a tu ritmo con Aplazo y Kueski
           </div>
 
           <div class="qtybox">
@@ -217,9 +220,10 @@ useSeoMeta({
           </div>
 
           <div class="trustlist">
-            <div class="ti"><span class="e">🔒</span><div><b>Compra Segura</b><p>Protegemos tus datos tanto como tu placer.</p></div></div>
-            <div class="ti"><span class="e">🕵️</span><div><b>Discreción</b><p>Empaques sin marca. Nadie sabrá lo que contiene.</p></div></div>
+            <div class="ti"><span class="e">🔒</span><div><b>Compra Segura</b><p>Pago cifrado y cargo neutral en tu estado de cuenta.</p></div></div>
+            <div class="ti"><span class="e">🕵️</span><div><b>100% Discreto</b><p>Caja sin marca y remitente genérico. Nadie sabrá qué contiene.</p></div></div>
             <div class="ti"><span class="e">🚚</span><div><b>Envío Gratis &gt; $799</b><p>Entrega de 3 a 5 días hábiles a todo México.</p></div></div>
+            <div class="ti"><span class="e">✅</span><div><b>Body-safe</b><p>Materiales hipoalergénicos, aptos para tu cuerpo.</p></div></div>
             <div class="ti"><span class="e">🛡️</span><div><b>Garantía</b><p>Contra defectos de fábrica por 30 días.</p></div></div>
           </div>
         </div>

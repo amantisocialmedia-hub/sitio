@@ -382,6 +382,13 @@ img{max-width:100%;display:block}
 .statusmsg{border-radius:8px;padding:12px 16px;margin:14px 0;font-weight:600}
 .statusmsg.ok{background:#e9f9ee;color:#1f7a3d;border:1px solid #b6e6c6}
 .statusmsg.bad{background:#fdecec;color:#b3261e;border:1px solid #f3b9b4}
+/* Carrito: barra de envío gratis + banda de confianza/pagos */
+.freeship{margin:2px 0 14px}
+.freeship .fs-msg{font-size:.9rem;color:var(--purple);margin:0 0 8px}
+.freeship.done .fs-msg{color:var(--cyan);font-weight:700}
+.paytrust{margin:14px 0 4px;text-align:center}
+.paytrust .pt-disc{display:block;font-size:.84rem;color:var(--purple);font-weight:600;margin-bottom:8px}
+.paytrust .pay-icons{justify-content:center}
 
 /* responsive */
 @media(max-width:1080px){

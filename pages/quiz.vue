@@ -70,6 +70,18 @@ function score(p: any) {
 const matches = computed(() =>
   [...products].map((p) => ({ p, s: score(p) })).sort((a, b) => b.s - a.s).slice(0, 3).map((x) => x.p),
 )
+
+// Cierra el bucle descubrir→comprar: añade el match #1 y abre el mini-carrito.
+const cart = useCartStore()
+const matchAdded = ref(false)
+function addMatch() {
+  const p = matches.value[0]
+  if (!p) return
+  cart.addItem({ slug: p.slug, name: p.name, price: p.price, emoji: p.emoji, bg: p.bg })
+  matchAdded.value = true
+  setTimeout(() => (matchAdded.value = false), 1400)
+  if (import.meta.client) window.dispatchEvent(new CustomEvent('cart:add'))
+}
 </script>
 
 <template>
@@ -110,8 +122,9 @@ const matches = computed(() =>
             <ProductCard v-for="(p, i) in matches" :key="p.slug" :product="p" v-reveal :data-reveal-index="i" />
           </div>
           <div class="quiz-actions">
-            <NuxtLink to="/tienda" class="btn">Ver toda la tienda</NuxtLink>
-            <button class="btn outline" @click="restart">Repetir el quiz</button>
+            <button class="btn magenta" :class="{ added: matchAdded }" @click="addMatch">{{ matchAdded ? '✓ Añadido 🛍️' : 'Añadir mi match al carrito 🛍️' }}</button>
+            <NuxtLink to="/tienda" class="btn outline">Ver toda la tienda</NuxtLink>
+            <button class="btn outline" @click="restart">Repetir</button>
           </div>
         </div>
       </Transition>

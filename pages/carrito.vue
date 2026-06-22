@@ -4,6 +4,11 @@ const cart = useCartStore()
 const { bestsellers, peso } = useProducts()
 const masVendido = bestsellers()
 
+// Umbral de envío gratis (mismo que CartDrawer): barra de progreso motivacional.
+const FREE = 799
+const freeLeft = computed(() => Math.max(0, FREE - cart.totalPrice))
+const freePct = computed(() => Math.min(100, Math.round((cart.totalPrice / FREE) * 100)))
+
 const loading = ref(false)
 const errorMsg = ref('')
 
@@ -87,6 +92,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
       <h3>Tu carrito está vacío</h3>
       <p style="opacity:.7;margin:8px 0 16px">Explora la tienda y encuentra algo que te encante.</p>
       <NuxtLink to="/tienda" class="btn">Ir a la tienda</NuxtLink>
+      <p style="opacity:.7;margin:14px 0 0;font-size:.9rem">¿Ya tienes cuenta? <NuxtLink to="/cuenta" style="color:var(--magenta);font-weight:700;text-decoration:underline">Inicia sesión</NuxtLink> para un checkout más rápido.</p>
     </div>
 
     <!-- cart -->
@@ -123,11 +129,28 @@ useHead({ title: 'Tu carrito — AMANTI' })
       <!-- summary -->
       <aside class="summary">
         <h3>Resumen del Pedido</h3>
+
+        <!-- Barra de envío gratis con faltante exacto -->
+        <div class="freeship" :class="{ done: freeLeft === 0 }">
+          <p class="fs-msg" v-if="freeLeft > 0">Te faltan <b>{{ peso(freeLeft) }}</b> para <b>envío GRATIS</b> 🚚</p>
+          <p class="fs-msg" v-else>🎉 ¡Ya tienes <b>envío GRATIS</b>!</p>
+          <div class="cd-track"><div class="cd-fill" :style="{ width: freePct + '%' }"></div></div>
+        </div>
+
         <div class="sline"><span>Subtotal</span><span>{{ peso(cart.totalPrice) }}</span></div>
         <div class="sline"><span>Envío</span><span>{{ cart.totalPrice >= 799 ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
         <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalPrice) }}</span></div>
 
         <div v-if="errorMsg" class="statusmsg bad" style="font-size:.86rem">{{ errorMsg }}</div>
+
+        <!-- Vence la última objeción: discreción + métodos de pago, pegado al botón -->
+        <div class="paytrust">
+          <span class="pt-disc">🕵️ Entrega 100% discreta · caja sin logo</span>
+          <div class="pay-icons">
+            <span class="pi">Visa</span><span class="pi">MC</span><span class="pi">Amex</span>
+            <span class="pi">MercadoPago</span><span class="pi">OXXO</span><span class="pi">MSI</span>
+          </div>
+        </div>
 
         <button class="btn magenta block" :disabled="loading" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar con MercadoPago' }}
