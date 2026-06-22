@@ -21,12 +21,13 @@ useHead(() => ({ title: article.value ? `${article.value.title} — AMANTI` : 'E
       <div class="wrap">
         <div class="sec-head"><h2>Sigue leyendo</h2></div>
         <div class="bloggrid">
-          <NuxtLink v-for="(a, i) in more" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard">
-            <div class="cover" :style="{ background: covers[i % covers.length] }">{{ a.emoji }}</div>
+          <NuxtLink v-for="(a, i) in more" :key="a.slug" :to="`/blog/${a.slug}`" class="blogcard" v-reveal :data-reveal-index="i">
+            <div class="cover" :style="{ background: covers[i % covers.length] }"><span class="cv-emo">{{ a.emoji }}</span></div>
             <div class="bc-body">
               <div class="cat">{{ a.category }}</div>
               <h3>{{ a.title }}</h3>
               <p>{{ a.excerpt }}</p>
+              <div class="blogmeta">⏱ {{ a.readTime }} de lectura</div>
             </div>
           </NuxtLink>
         </div>

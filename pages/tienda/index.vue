@@ -80,20 +80,38 @@ function clearAll() {
   selectedCats.value = []; onlyAmanti.value = false
   priceMin.value = null; priceMax.value = null; q.value = ''
 }
+
+// Vitrina del banner: hasta 5 productos reales de la categoría (o del catálogo si "todo").
+const bannerProducts = computed(() => {
+  const base = selectedCats.value.length === 1
+    ? products.filter(p => p.category === selectedCats.value[0])
+    : products
+  return base.slice(0, 5)
+})
 </script>
 
 <template>
   <div class="wrap">
-    <div class="collhero"><span class="em"><img v-if="heroImage" :key="heroImage" :src="heroImage" :alt="title" class="cat-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><span :style="heroImage ? 'display:none' : ''">{{ heroEmoji }}</span></span></div>
-
     <div class="breadcrumb">
       <NuxtLink to="/">AMANTI</NuxtLink><span class="sep">›</span><span>{{ title }}</span>
     </div>
 
-    <div class="colltop">
-      <h1>{{ title }}</h1>
-      <p>{{ blurb }}</p>
-    </div>
+    <section class="collbanner" v-reveal>
+      <div class="cb-info">
+        <span class="cb-eyebrow">Colección AMANTI</span>
+        <h1>{{ title }}</h1>
+        <p>{{ blurb }}</p>
+        <span class="cb-count">{{ filtered.length }} producto{{ filtered.length === 1 ? '' : 's' }}</span>
+      </div>
+      <div class="cb-strip">
+        <NuxtLink v-for="(p, i) in bannerProducts" :key="p.slug" :to="`/tienda/${p.slug}`" class="cb-thumb" :style="{ background: p.bg }" :data-reveal-index="i" v-reveal>
+          <NuxtImg v-if="p.images?.length" :src="p.images[0]" :alt="p.name" class="cb-thumb-img" format="webp" width="160" height="200" loading="lazy" />
+          <span v-else class="cb-thumb-emo">{{ p.emoji }}</span>
+        </NuxtLink>
+      </div>
+      <span class="cb-blob cb-blob1"></span>
+      <span class="cb-blob cb-blob2"></span>
+    </section>
 
     <div class="shoplayout">
       <!-- sidebar (en móvil se colapsa; el botón "Filtrar" del toolbar lo abre) -->

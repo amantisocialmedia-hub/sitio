@@ -260,11 +260,31 @@ img{max-width:100%;display:block}
 .wa-float{position:fixed;bottom:72px;right:18px;z-index:95;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;font-size:1.7rem;box-shadow:0 14px 30px -12px rgba(37,211,102,.7)}
 
 /* ===== COLLECTION ===== */
-.collhero{height:220px;border-radius:8px;margin-top:8px;display:grid;place-items:center;background:linear-gradient(120deg,#EDE3FA,#FFEFE0);position:relative;overflow:hidden}
-.collhero .em{font-size:5rem;filter:drop-shadow(0 10px 16px rgba(0,0,0,.16))}
-.colltop{padding:8px 0 6px}
-.colltop h1{font-size:clamp(1.8rem,4vw,2.6rem);text-transform:uppercase}
-.colltop p{opacity:.72;max-width:80ch;margin-top:6px}
+/* Banner de categoría "Vitrina": título + fila de productos reales, con blobs de profundidad */
+.collbanner{position:relative;overflow:hidden;border-radius:20px;margin:14px 0 8px;padding:34px 40px;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:30px;align-items:center;
+  background:
+    radial-gradient(130% 120% at 88% 16%, rgba(255,138,92,.20), transparent 55%),
+    radial-gradient(120% 130% at 6% 92%, rgba(142,91,214,.22), transparent 52%),
+    linear-gradient(120deg,#F4EAFB,#FCEFE9 52%,#FFE9D8);
+  box-shadow:0 26px 60px -38px rgba(91,42,134,.5)}
+.cb-info{position:relative;z-index:2}
+.cb-eyebrow{display:inline-block;font-family:var(--fb);font-weight:700;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--magenta);padding:5px 13px;border-radius:999px;margin-bottom:12px}
+.collbanner h1{font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.04;text-transform:uppercase;margin:0}
+.collbanner .cb-info p{margin:10px 0 0;max-width:42ch;color:var(--ink);opacity:.78;font-size:.96rem;line-height:1.5}
+.cb-count{display:inline-block;margin-top:14px;font-family:var(--fh);font-weight:700;color:var(--purple);font-size:.9rem;background:rgba(255,255,255,.65);padding:5px 14px;border-radius:999px}
+.cb-strip{position:relative;z-index:2;display:flex;gap:12px;justify-content:flex-end}
+.cb-thumb{flex:0 0 auto;width:100px;height:124px;border-radius:14px;display:grid;place-items:center;overflow:hidden;box-shadow:0 16px 30px -18px rgba(91,42,134,.55);transition:transform .22s var(--ease-out),box-shadow .22s;font-size:2.4rem}
+.cb-thumb:hover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 26px 44px -20px rgba(91,42,134,.6)}
+.cb-thumb-img{width:100%;height:100%;object-fit:cover}
+.cb-blob{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;z-index:0;pointer-events:none}
+.cb-blob1{width:280px;height:280px;background:#FF8A5C;top:-110px;right:22%}
+.cb-blob2{width:240px;height:240px;background:#8E5BD6;bottom:-120px;left:-50px}
+@media(max-width:860px){
+  .collbanner{grid-template-columns:1fr;gap:18px;padding:26px 22px}
+  .cb-strip{justify-content:flex-start;overflow-x:auto;padding-bottom:6px}
+  .collbanner .cb-info p{max-width:none}
+}
 .shoplayout{display:grid;grid-template-columns:248px 1fr;gap:30px;align-items:start;margin-top:18px}
 .filters{background:#fff;border:1px solid #F9EFE7;border-radius:10px;padding:6px 0;position:sticky;top:96px}
 .fgroup{padding:16px 18px;border-bottom:1px solid #F9EFE7}
@@ -601,6 +621,32 @@ img{max-width:100%;display:block}
   .infogrid-2{grid-template-columns:1fr}
 }
 @media(max-width:480px){ .aacts{gap:12px;flex-wrap:wrap} .aacts .lnk{padding:8px 6px;min-height:40px} }
+
+/* ===== Banners/portadas ricos (profundidad, glow, blobs — no "icono en una franja") ===== */
+/* Portadas del blog */
+.blogcard .cover{position:relative;overflow:hidden}
+.blogcard .cover::before{content:'';position:absolute;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.65),transparent 70%);top:-36px;right:-26px;z-index:0;pointer-events:none}
+.blogcard .cover::after{content:'';position:absolute;width:130px;height:130px;border-radius:50%;background:rgba(142,91,214,.20);filter:blur(28px);bottom:-46px;left:-24px;z-index:0;pointer-events:none}
+.blogcard .cover .cv-emo{position:relative;z-index:1;filter:drop-shadow(0 12px 16px rgba(0,0,0,.18));transition:transform .3s var(--ease-soft)}
+.blogcard:hover .cover .cv-emo{transform:scale(1.12) rotate(-3deg)}
+
+/* Banner "feature" (oscuro) con profundidad */
+.feature{position:relative;overflow:hidden;background:
+  radial-gradient(120% 150% at 86% 18%, rgba(255,138,92,.38), transparent 55%),
+  radial-gradient(120% 150% at 8% 92%, rgba(255,106,77,.28), transparent 50%),
+  linear-gradient(120deg,#5E1B33,#8E45B8)}
+.feature>*{position:relative;z-index:1}
+.feature .fe{filter:drop-shadow(0 16px 26px rgba(0,0,0,.32))}
+.feature::after{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);top:-90px;right:5%;z-index:0;pointer-events:none}
+
+/* Banner "app" (claro) con profundidad */
+.appb{position:relative;overflow:hidden;background:
+  radial-gradient(120% 150% at 88% 14%, rgba(255,138,92,.40), transparent 55%),
+  radial-gradient(120% 150% at 8% 95%, rgba(142,91,214,.24), transparent 52%),
+  linear-gradient(120deg,#FFE4D2,#FFE9DC)}
+.appb>*{position:relative;z-index:1}
+.appb .ae{filter:drop-shadow(0 16px 24px rgba(0,0,0,.16))}
+.appb::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.55),transparent 70%);top:-80px;right:7%;z-index:0;pointer-events:none}
 
 /* Accesibilidad: respeta prefers-reduced-motion (neutraliza loops, reveals y micro-interacciones) */
 @media (prefers-reduced-motion: reduce){

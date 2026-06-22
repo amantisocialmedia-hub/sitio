@@ -48,7 +48,7 @@ async function logout() {
 </template>
 
 <style scoped>
-.acct { max-width: 820px; margin: 0 auto 80px; padding: 0 20px; }
+.acct { max-width: 820px; margin: 0 auto 80px; padding: 44px 20px 0; }
 .dash-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; align-items: center; }
 .dash-tabs button { padding: 9px 16px; border-radius: 999px; border: 1px solid #E7D8CC; background: #fff; color: #5E1B33; font-weight: 600; cursor: pointer; font-family: inherit; font-size: .9rem; }
 .dash-tabs button.on { background: #5E1B33; color: #fff; border-color: #5E1B33; }

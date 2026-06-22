@@ -100,7 +100,8 @@ async function doReset() {
 </template>
 
 <style scoped>
-.auth { max-width: 420px; margin: 0 auto; }
+.auth { max-width: 440px; margin: 0 auto; background: #fff; border: 1px solid #F0E0D4; border-radius: 18px; padding: 30px 28px; box-shadow: 0 30px 60px -42px rgba(91, 27, 51, .4); }
+@media (max-width: 480px) { .auth { padding: 22px 18px; } }
 .auth-tabs { display: flex; gap: 0; border: 1px solid #E7D8CC; border-radius: 10px; overflow: hidden; margin-bottom: 18px; }
 .auth-tabs button { flex: 1; padding: 12px; background: #fff; border: none; cursor: pointer; font-weight: 600; font-family: inherit; color: #5E1B33; }
 .auth-tabs button.on { background: #5E1B33; color: #fff; }
