@@ -41,7 +41,7 @@ async function submit() {
   busy.value = true
   try { await supabase.from('leads').insert({ email: email.value.trim(), source: 'welcome_modal' }) } catch { /* tabla puede no existir aún */ }
   busy.value = false
-  try { localStorage.setItem('amanti_welcome_seen', '1') } catch {}
+  try { localStorage.setItem('amanti_welcome_seen', '1'); localStorage.setItem('amanti_email', email.value.trim()) } catch {}
   done.value = true
 }
 async function copyCoupon() {
