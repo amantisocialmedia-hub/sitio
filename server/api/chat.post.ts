@@ -19,8 +19,13 @@ export default defineEventHandler(async (event) => {
       body: { message, sessionId, userName: (body?.userName || '').toString().slice(0, 60) },
       timeout: 30000,
     })
-    const text = typeof res === 'string' ? res : (res?.response || '')
-    return { response: (text || '').toString().trim() || fallback }
+    const raw = typeof res === 'string' ? res : (res?.response || '')
+    // Limpia markdown que el agente a veces mete pese a las instrucciones (se ve feo en chat plano).
+    const clean = (raw || '').toString().trim()
+      .replace(/\*\*(.*?)\*\*/g, '$1')
+      .replace(/\*\*/g, '')
+      .replace(/^#{1,6}\s+/gm, '')
+    return { response: clean || fallback }
   } catch {
     // n8n caído / sin credencial / timeout → degradamos con gracia.
     return { response: fallback, degraded: true }
