@@ -20,4 +20,5 @@ useHead(() => ({
   </NuxtLayout>
   <WelcomeModal />
   <InstallPrompt />
+  <ChatWidget />
 </template>

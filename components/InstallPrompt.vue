@@ -42,7 +42,7 @@ function dismiss() {
 <style scoped>
 .pwa-bar {
   position: fixed; left: 12px; right: 12px; z-index: 96; max-width: 440px; margin: 0 auto;
-  bottom: calc(138px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(204px + env(safe-area-inset-bottom, 0px));
   background: #fff; border: 1px solid #F0E0D4; border-radius: 14px;
   box-shadow: 0 22px 46px -20px rgba(91, 27, 51, .5);
   display: flex; align-items: center; gap: 12px; padding: 11px 12px 11px 16px;
@@ -55,7 +55,7 @@ function dismiss() {
 .pwa-x { background: none; border: none; color: #b9a39a; font-size: 1rem; cursor: pointer; width: 36px; height: 36px; flex: none; border-radius: 50%; }
 .pwa-x:hover { background: var(--lav2); }
 @media (min-width: 1081px) {
-  .pwa-bar { left: auto; right: 18px; bottom: 86px; max-width: 360px; margin: 0; }
+  .pwa-bar { right: auto; left: 18px; bottom: 18px; max-width: 360px; margin: 0; }
 }
 .pwa-enter-active, .pwa-leave-active { transition: opacity .3s ease, transform .3s var(--ease-out); }
 .pwa-enter-from, .pwa-leave-to { opacity: 0; transform: translateY(14px); }

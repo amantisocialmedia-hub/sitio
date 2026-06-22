@@ -93,6 +93,9 @@ export default defineNuxtConfig({
     mpAccessToken: '',
     // privado (servidor) — NUXT_MP_WEBHOOK_SECRET (panel MP → Webhooks → secreto). Valida la firma HMAC.
     mpWebhookSecret: '',
+    // privado (servidor) — webhook del agente EROS en n8n. /api/chat hace de proxy (evita CORS,
+    // oculta la URL al cliente). Sobreescribible por NUXT_N8N_CHAT_WEBHOOK.
+    n8nChatWebhook: 'https://madebyhumano.app.n8n.cloud/webhook/amanti-chat',
     public: {
       brandName: 'AMANTI',
       // NUXT_PUBLIC_WHATSAPP_PHONE (número real de AMANTI; se puede sobreescribir por env)
