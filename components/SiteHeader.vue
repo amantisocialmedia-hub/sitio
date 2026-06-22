@@ -139,12 +139,25 @@ function itemHref(m: { label: string; to: string }, it: string) {
 
       <div class="nav-right">
         <NuxtLink to="/cuenta" class="hide-sm">{{ user ? '👤 Mi cuenta' : 'Entrar' }}</NuxtLink>
-        <button class="ic discreet-btn" :class="{ on: discreetOn }" @click="toggleDiscreet" :aria-pressed="discreetOn" :aria-label="discreetOn ? 'Desactivar modo discreto' : 'Activar modo discreto'" title="Modo discreto (oculta lo sensible)">👁</button>
+        <button class="ic discreet-btn" :class="{ on: discreetOn }" @click="toggleDiscreet" :aria-pressed="discreetOn" :aria-label="discreetOn ? 'Desactivar modo discreto' : 'Activar modo discreto'" title="Modo discreto (oculta lo sensible)">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+            <circle cx="12" cy="12" r="3" />
+            <path v-if="discreetOn" d="M4 4l16 16" />
+          </svg>
+        </button>
         <NuxtLink to="/favoritos" class="ic" aria-label="Favoritos">
-          ♡<span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20.5S3.5 15.5 3.5 9.3A4 4 0 0 1 12 7a4 4 0 0 1 8.5 2.3c0 6.2-8.5 11.2-8.5 11.2z" />
+          </svg>
+          <span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
         </NuxtLink>
         <NuxtLink to="/carrito" class="ic" aria-label="Carrito">
-          🛒<span v-if="cart.totalItems" class="cart-c" :class="{ bump: cartBump }">{{ cart.totalItems }}</span>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1.5" /><circle cx="18" cy="20" r="1.5" />
+            <path d="M2.5 3h2.2l2.2 11.6a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.3L20.5 7H5.3" />
+          </svg>
+          <span v-if="cart.totalItems" class="cart-c" :class="{ bump: cartBump }">{{ cart.totalItems }}</span>
         </NuxtLink>
         <button class="burger" @click="drawerOpen = true" aria-label="Menú">☰</button>
       </div>

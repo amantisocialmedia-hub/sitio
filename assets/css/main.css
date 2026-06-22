@@ -893,7 +893,10 @@ html.discreet .sr-th img{filter:blur(10px)}
 html.discreet .pimg,html.discreet .popcard-img,html.discreet .cb-thumb-img,html.discreet .gimg,html.discreet .he-spot-img,html.discreet .othumb{filter:blur(11px);transition:filter .25s}
 html.discreet .pcard h3 a,html.discreet .popcard h3,html.discreet .pdp-info h1,html.discreet .he-spot-name,html.discreet .cd-name,html.discreet .rev-item p{filter:blur(6px);transition:filter .25s}
 html.discreet .pcard:hover .pimg,html.discreet .pcard:hover h3 a,html.discreet .popcard:hover .popcard-img,html.discreet .popcard:hover h3{filter:none}
+.discreet-btn{background:none;border:none;color:#fff;line-height:0}
 .discreet-btn.on{color:var(--pink) !important}
+/* Iconos SVG de la nav alineados al centro */
+.nav-right .ic svg{display:block}
 
 /* ===== Transición de página "velo" ===== */
 .velo-enter-active,.velo-leave-active{transition:opacity .3s var(--ease-out),transform .3s var(--ease-out)}
