@@ -53,6 +53,23 @@ function addToCart() {
   openCart()
 }
 
+// Barra de compra fija: aparece cuando el .buyrow se va del viewport (hacia arriba).
+const buyrowEl = ref<HTMLElement | null>(null)
+const showSticky = ref(false)
+let sio: IntersectionObserver | null = null
+onMounted(() => {
+  if (!import.meta.client || !buyrowEl.value) return
+  sio = new IntersectionObserver(([e]) => {
+    showSticky.value = !e.isIntersecting && e.boundingClientRect.top < 0
+  }, { threshold: 0 })
+  sio.observe(buyrowEl.value)
+})
+onBeforeUnmount(() => {
+  sio?.disconnect()
+  if (import.meta.client) document.body.classList.remove('sticky-on')
+})
+watch(showSticky, (v) => { if (import.meta.client) document.body.classList.toggle('sticky-on', v) })
+
 // SEO: título + meta description + Open Graph + JSON-LD de Producto (rich results).
 // El canonical lo pone app.vue globalmente vía route.path (no se duplica aquí).
 const seo = computed(() => {
@@ -194,7 +211,7 @@ useSeoMeta({
             <NuxtLink to="/carrito" style="text-decoration:underline">Ver carrito →</NuxtLink>
           </div>
 
-          <div class="buyrow">
+          <div class="buyrow" ref="buyrowEl">
             <button class="btn magenta block" @click="addToCart">Añadir al carrito 🛍️</button>
             <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">Pedir por WhatsApp</a>
           </div>
@@ -268,6 +285,25 @@ useSeoMeta({
           <ProductCard v-for="(p, i) in rel" :key="p.slug" :product="p" v-reveal :data-reveal-index="i" />
         </div>
       </section>
+
+      <!-- barra de compra fija -->
+      <ClientOnly>
+        <Transition name="sticky">
+          <div v-if="showSticky" class="stickybuy">
+            <div class="sb-prod">
+              <div class="sb-th" :style="{ background: product.bg }">
+                <img v-if="product.images?.length" :src="product.images[0]" :alt="product.name">
+                <span v-else>{{ product.emoji }}</span>
+              </div>
+              <div class="sb-info">
+                <span class="sb-name">{{ product.name }}</span>
+                <span class="sb-meta"><span class="stars">{{ stars(Math.round(ratingAvg)) }}</span> · {{ peso(product.price) }}</span>
+              </div>
+            </div>
+            <button class="btn magenta sb-btn" @click="addToCart">Añadir 🛍️</button>
+          </div>
+        </Transition>
+      </ClientOnly>
     </template>
 
     <!-- not found -->

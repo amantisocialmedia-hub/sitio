@@ -18,4 +18,5 @@ useHead(() => ({
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <WelcomeModal />
 </template>
