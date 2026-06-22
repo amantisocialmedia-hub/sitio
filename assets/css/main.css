@@ -305,6 +305,14 @@ img{max-width:100%;display:block}
 .toolbar select{font-family:var(--fb);border:1px solid #EBD3C4;border-radius:8px;padding:9px 12px;color:var(--purple);background:#fff;font-size:.92rem}
 .emptybox{text-align:center;padding:60px 20px;border:2px dashed var(--lav);border-radius:12px;color:var(--purple)}
 .emptybox .e{font-size:3rem;margin-bottom:10px}
+/* Chips de filtro rápido (scroll horizontal en móvil) */
+.chiprow{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 12px;margin-top:6px;scrollbar-width:none}
+.chiprow::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid #EBD3C4;background:#fff;color:var(--purple);font-family:var(--fb);font-weight:700;font-size:.86rem;padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .16s,color .16s,border-color .16s,transform .16s}
+.chip:hover{border-color:var(--magenta);transform:translateY(-2px)}
+.chip.on{background:var(--purple);color:#fff;border-color:var(--purple)}
+/* Bottom-sheet de filtros: cabecera/overlay/apply solo en móvil */
+.filters-head,.filters-bg,.filters-apply{display:none}
 
 /* ===== PDP ===== */
 .pdp{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:10px;align-items:start}
@@ -397,9 +405,14 @@ img{max-width:100%;display:block}
 }
 @media(max-width:980px){
   .shoplayout{grid-template-columns:1fr}
-  /* Filtros colapsados por defecto: el grid de productos aparece primero; "Filtrar" los revela. */
-  .filters{position:static;display:none}
-  .filters.open{display:block}
+  /* Filtros como bottom-sheet: el grid aparece primero; "Filtrar" abre el panel inferior. */
+  .filters-bg{display:block;position:fixed;inset:0;background:rgba(46,13,26,.5);z-index:1190;backdrop-filter:blur(2px)}
+  .filters{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:1200;max-height:84vh;overflow:auto;display:block;background:#fff;border-radius:20px 20px 0 0;box-shadow:0 -20px 50px -20px rgba(0,0,0,.45);transform:translateY(100%);transition:transform .3s var(--ease-out);padding:0 0 10px}
+  .filters.open{transform:translateY(0)}
+  .filters-head{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid #F9EFE7;position:sticky;top:0;background:#fff;z-index:2}
+  .filters-head b{font-family:var(--fh);font-size:1.25rem;color:var(--purple)}
+  .filters-x{width:44px;height:44px;border:none;background:none;font-size:1.1rem;color:var(--purple);cursor:pointer}
+  .filters-apply{display:inline-flex}
   .filterbtn{display:inline-flex;align-items:center}
   .pdp{grid-template-columns:1fr}
   .cartlayout{grid-template-columns:1fr}
