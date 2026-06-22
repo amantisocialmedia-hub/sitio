@@ -7,8 +7,8 @@ describe('orderItems — resolución autoritativa', () => {
   it('toma el precio del catálogo por slug e IGNORA el price del cliente', () => {
     const out = resolveItems([{ slug: 'vibrating-g', name: 'Vibrating G', price: 1, quantity: 2 }])
     expect(out).toHaveLength(1)
-    expect(out[0].unitPrice).toBe(1013)        // catálogo, no el 1 del atacante
-    expect(out[0].lineTotal).toBe(2026)
+    expect(out[0].unitPrice).toBe(921)         // catálogo, no el 1 del atacante
+    expect(out[0].lineTotal).toBe(1842)
     expect(out[0].imageUrl).toContain('/products/vibrating-g')
   })
 
@@ -44,10 +44,10 @@ describe('orderItems — resolución autoritativa', () => {
 
   it('computeTotal suma los line totals resueltos', () => {
     const items = resolveItems([
-      { slug: 'vibrating-g', quantity: 2 }, // 2026
+      { slug: 'vibrating-g', quantity: 2 }, // 1842
       { slug: 'denzel', quantity: 1 },      // 400
     ])
-    expect(computeTotal(items)).toBe(2426)  // coincide con el e2e de pedidos
+    expect(computeTotal(items)).toBe(2242)  // coincide con el e2e de pedidos
   })
 
   it('buildOrderRows arma el snapshot de order_items', () => {

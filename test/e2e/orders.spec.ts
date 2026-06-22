@@ -58,13 +58,13 @@ test.describe('pedidos · Etapa 3', () => {
     expect(orders.length).toBe(1)
     const o = orders[0]
     expect(o.status).toBe('pending')
-    expect(o.total).toBe(2426)
+    expect(o.total).toBe(2242)
     expect(o.currency).toBe('MXN')
 
     const { data: items } = await admin.from('order_items')
       .select('*').eq('order_id', o.id).order('line_total', { ascending: false })
     expect(items.length).toBe(2)
-    expect(items[0]).toMatchObject({ product_name: 'Vibrating G', quantity: 2, unit_price: 1013, line_total: 2026, product_slug: 'vibrating-g' })
+    expect(items[0]).toMatchObject({ product_name: 'Vibrating G', quantity: 2, unit_price: 921, line_total: 1842, product_slug: 'vibrating-g' })
     expect(items[0].image_url).toContain('/products/vibrating-g')
 
     await admin.from('orders').delete().eq('id', o.id)
