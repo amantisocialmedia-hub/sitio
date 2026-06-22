@@ -31,10 +31,15 @@ function toggleWish() {
 <template>
   <div class="pcard">
     <NuxtLink :to="`/tienda/${product.slug}`" class="pthumb" :style="{ background: product.bg }">
-      <NuxtImg v-if="product.images?.length" :src="product.images[0]" :alt="product.name" class="pimg"
-               format="webp" width="400" height="400" sizes="(max-width:560px) 50vw, 240px"
-               :loading="priority ? 'eager' : 'lazy'" :fetchpriority="priority ? 'high' : 'auto'"
-               :preload="priority || undefined" />
+      <template v-if="product.images?.length">
+        <NuxtImg :src="product.images[0]" :alt="product.name" class="pimg"
+                 format="webp" width="400" height="400" sizes="(max-width:560px) 50vw, 240px"
+                 :loading="priority ? 'eager' : 'lazy'" :fetchpriority="priority ? 'high' : 'auto'"
+                 :preload="priority || undefined" />
+        <!-- Segunda foto: aparece con crossfade al pasar el mouse (como PlatanoMelón/Cake) -->
+        <NuxtImg v-if="product.images.length > 1" :src="product.images[1]" :alt="product.name" class="pimg pimg2"
+                 format="webp" width="400" height="400" sizes="(max-width:560px) 50vw, 240px" loading="lazy" />
+      </template>
       <span v-else class="d">{{ product.emoji }}</span>
       <span v-if="onSale" class="pbadge">rebaja</span>
       <span v-else-if="isNew" class="pbadge" style="background:var(--cyan)">nuevo</span>

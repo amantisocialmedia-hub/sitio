@@ -516,6 +516,9 @@ img{max-width:100%;display:block}
 .pcard:hover .addmini{box-shadow:0 6px 16px -8px rgba(232,80,58,.6)}
 .addmini.added{background:var(--cyan)}
 .addmini.added{animation:pop .26s var(--ease-out)}
+/* Segunda foto del producto: crossfade al pasar el mouse (solo en dispositivos con hover real) */
+.pimg2{position:absolute;inset:0;opacity:0;transition:opacity .4s var(--ease-out)}
+@media(hover:hover){ .pcard:hover .pimg2{opacity:1} }
 
 /* Badges del carrito con pop */
 .cart-c,.bottomnav .bc{transition:transform .2s var(--ease-out)}
@@ -677,6 +680,9 @@ img{max-width:100%;display:block}
 .popcard:hover{transform:translateY(-6px);box-shadow:0 30px 56px -28px rgba(91,42,134,.65)}
 .popcard-img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease-out)}
 .popcard:hover .popcard-img{transform:scale(1.08)}
+/* Segunda foto del carrusel: crossfade al hover */
+.popcard-img2{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--ease-out)}
+@media(hover:hover){ .popcard:hover .popcard-img2{opacity:1} }
 .popcard-emo{position:absolute;inset:0;display:grid;place-items:center;font-size:6rem}
 .popcard-ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;background:linear-gradient(to top,rgba(46,13,26,.9) 0%,rgba(46,13,26,.42) 34%,transparent 62%);color:#fff}
 .popcard-cat{font-family:var(--fb);font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#FFD9CF;margin-bottom:4px}

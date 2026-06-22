@@ -66,7 +66,10 @@ useSeoMeta({
       <div class="sec-head" v-reveal><h2>Sex toys más populares</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
       <div class="poprail">
         <NuxtLink v-for="(p, i) in populares" :key="p.slug" :to="`/tienda/${p.slug}`" class="popcard" :style="{ background: p.bg }" v-reveal :data-reveal-index="i % 8">
-          <NuxtImg v-if="p.images?.length" :src="p.images[0]" :alt="p.name" class="popcard-img" format="webp" width="420" height="540" sizes="(max-width:560px) 78vw, 270px" loading="lazy" />
+          <template v-if="p.images?.length">
+            <NuxtImg :src="p.images[0]" :alt="p.name" class="popcard-img" format="webp" width="420" height="540" sizes="(max-width:560px) 78vw, 270px" loading="lazy" />
+            <NuxtImg v-if="p.images.length > 1" :src="p.images[1]" :alt="p.name" class="popcard-img popcard-img2" format="webp" width="420" height="540" sizes="(max-width:560px) 78vw, 270px" loading="lazy" />
+          </template>
           <span v-else class="popcard-emo">{{ p.emoji }}</span>
           <div class="popcard-ov">
             <span class="popcard-cat">{{ categoryName(p.category) }}</span>
