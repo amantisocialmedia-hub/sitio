@@ -10,10 +10,58 @@ const product = computed(() => getBySlug(route.params.slug as string))
 
 interface Review { name: string; rating: number; date: string; text: string; verified: boolean }
 const reviews = computed<Review[]>(() => (product.value ? ((reviewsData as Record<string, Review[]>)[product.value.slug] || []) : []))
-const ratingCount = computed(() => reviews.value.length)
+// Reseñas reales de clientes (Supabase). Se cargan en cliente y se anteponen a las curadas.
+const realReviews = ref<Review[]>([])
+const allReviews = computed<Review[]>(() => [...realReviews.value, ...reviews.value])
+const ratingCount = computed(() => allReviews.value.length)
 const ratingAvg = computed(() =>
-  ratingCount.value ? Math.round((reviews.value.reduce((s, r) => s + r.rating, 0) / ratingCount.value) * 10) / 10 : (product.value?.rating ?? 5),
+  ratingCount.value ? Math.round((allReviews.value.reduce((s, r) => s + r.rating, 0) / ratingCount.value) * 10) / 10 : (product.value?.rating ?? 5),
 )
+
+// Carga + envío de reseñas reales (degrada con gracia si la tabla no existe).
+const supabaseRev = useSupabaseClient()
+const reviewUser = useSupabaseUser()
+const myRating = ref(0)
+const myText = ref('')
+const reviewBusy = ref(false)
+const reviewMsg = ref('')
+const reviewErr = ref(false)
+
+async function loadRealReviews() {
+  realReviews.value = []
+  const slug = product.value?.slug
+  if (!slug) return
+  const { data, error } = await supabaseRev
+    .from('reviews')
+    .select('author_name, rating, text, created_at')
+    .eq('product_slug', slug)
+    .order('created_at', { ascending: false })
+  if (error) return // tabla puede no existir aún → solo curadas
+  realReviews.value = (data || []).map((r: any) => ({ name: r.author_name, rating: r.rating, date: r.created_at, text: r.text, verified: true }))
+}
+
+async function submitReview() {
+  reviewErr.value = false; reviewMsg.value = ''
+  if (!reviewUser.value) { reviewErr.value = true; reviewMsg.value = 'Inicia sesión para dejar tu reseña.'; return }
+  if (!myRating.value) { reviewErr.value = true; reviewMsg.value = 'Elige una calificación.'; return }
+  if (myText.value.trim().length < 4) { reviewErr.value = true; reviewMsg.value = 'Cuéntanos un poco más.'; return }
+  reviewBusy.value = true
+  const meta = (reviewUser.value.user_metadata || {}) as Record<string, string>
+  const name = meta.full_name || (reviewUser.value.email ? reviewUser.value.email.split('@')[0] : 'Cliente AMANTI')
+  const { error } = await supabaseRev.from('reviews').insert({
+    user_id: reviewUser.value.id, product_slug: product.value!.slug, author_name: name, rating: myRating.value, text: myText.value.trim(),
+  })
+  reviewBusy.value = false
+  if (error) {
+    reviewErr.value = true
+    reviewMsg.value = (error as any).code === '23505' ? 'Ya dejaste una reseña de este producto.' : 'No se pudo guardar tu reseña. Intenta más tarde.'
+    return
+  }
+  reviewMsg.value = '¡Gracias por tu reseña! 💜'
+  myText.value = ''; myRating.value = 0
+  await loadRealReviews()
+}
+onMounted(loadRealReviews)
 function fmtReviewDate(s: string) {
   try { return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s)) } catch { return s }
 }
@@ -57,6 +105,8 @@ watch(() => route.params.slug, () => {
   added.value = false
   tab.value = 'desc'
   lightbox.value = false
+  myRating.value = 0; myText.value = ''; reviewMsg.value = ''; reviewErr.value = false
+  loadRealReviews()
 })
 
 // Lightbox: bloquea scroll y habilita teclado (Esc cerrar, ← → navegar).
@@ -312,8 +362,22 @@ useSeoMeta({
             <b>{{ ratingAvg.toFixed(1) }}</b> <span>de 5</span>
           </div>
         </div>
+        <!-- formulario de reseña real -->
+        <div class="rev-form">
+          <template v-if="reviewUser">
+            <b>Deja tu reseña</b>
+            <div class="rev-stars-input" role="radiogroup" aria-label="Calificación">
+              <button v-for="n in 5" :key="n" type="button" class="rsi" :class="{ on: n <= myRating }" @click="myRating = n" :aria-label="`${n} estrella${n === 1 ? '' : 's'}`">★</button>
+            </div>
+            <textarea v-model="myText" rows="3" maxlength="600" placeholder="¿Qué te pareció? Ayuda a otrxs a decidir, sin pena."></textarea>
+            <button class="btn magenta" :disabled="reviewBusy" @click="submitReview">{{ reviewBusy ? 'Enviando…' : 'Publicar reseña' }}</button>
+            <p v-if="reviewMsg" class="rev-msg" :class="{ bad: reviewErr }">{{ reviewMsg }}</p>
+          </template>
+          <p v-else class="rev-login">¿Compraste este producto? <NuxtLink to="/cuenta">Inicia sesión</NuxtLink> para dejar tu reseña.</p>
+        </div>
+
         <div v-if="ratingCount" class="rev-list">
-          <article v-for="(rv, i) in reviews" :key="i" class="rev-item" v-reveal :data-reveal-index="Math.min(i, 6)">
+          <article v-for="(rv, i) in allReviews" :key="i" class="rev-item" v-reveal :data-reveal-index="Math.min(i, 6)">
             <div class="rev-top">
               <span class="rev-who">{{ rv.name }}<span v-if="rv.verified" class="verif">Verificado</span></span>
               <span class="rev-date">{{ fmtReviewDate(rv.date) }}</span>

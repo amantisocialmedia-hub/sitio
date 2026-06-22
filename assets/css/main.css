@@ -743,6 +743,20 @@ html.discreet .sr-th img{filter:blur(10px)}
 .rev-item .stars{color:var(--gold);font-size:.9rem;letter-spacing:1px;margin:2px 0 6px}
 .rev-item p{font-size:.94rem;color:#5b4a44;line-height:1.5;margin:0}
 .rev-empty{color:#9b8579;text-align:center;padding:20px}
+/* Formulario de reseña real */
+.rev-form{background:var(--lav2);border:1px solid #F3E7DD;border-radius:14px;padding:18px 20px;margin-bottom:20px;display:flex;flex-direction:column;gap:10px;max-width:560px}
+.rev-form>b{font-family:var(--fh);color:var(--purple);font-size:1.05rem}
+.rev-stars-input{display:flex;gap:4px}
+.rev-stars-input .rsi{background:none;border:none;cursor:pointer;font-size:1.7rem;line-height:1;color:#E3D2C6;transition:color .12s,transform .12s;padding:0 2px;min-width:34px;min-height:34px}
+.rev-stars-input .rsi:hover,.rev-stars-input .rsi.on{color:var(--gold)}
+.rev-stars-input .rsi:active{transform:scale(.85)}
+.rev-form textarea{font-family:var(--fb);padding:11px 14px;border:1px solid #E7D8CC;border-radius:9px;font-size:.95rem;resize:vertical;background:#fff}
+.rev-form textarea:focus{outline:none;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(232,80,58,.15)}
+.rev-form .btn{align-self:flex-start}
+.rev-msg{font-size:.88rem;font-weight:600;color:#1d7a46;margin:0}
+.rev-msg.bad{color:#C0341B}
+.rev-login{color:#5b4a44;font-size:.92rem;margin:0}
+.rev-login a{color:var(--magenta);font-weight:700;text-decoration:underline}
 @media(max-width:680px){ .rev-list{grid-template-columns:1fr} }
 
 /* ===== Carrusel de fotos "Sex toys más populares" (cards inmersivas) ===== */
