@@ -27,6 +27,27 @@ const qty = ref(1)
 const activeThumb = ref(0)
 const added = ref(false)
 const tab = ref('desc')
+const lightbox = ref(false)
+
+// Lightbox: navega TODAS las imágenes (no solo las 4 miniaturas).
+function lbStep(d: number) {
+  const imgs = product.value?.images
+  if (!imgs?.length) return
+  activeThumb.value = (activeThumb.value + d + imgs.length) % imgs.length
+}
+// Specs como chips: icono por palabra clave.
+const specIcon = (f: string) => {
+  const t = f.toLowerCase()
+  if (/sumergible|agua|waterproof|impermeable/.test(t)) return '💧'
+  if (/recargable|usb|carga|bater[íi]a/.test(t)) return '🔌'
+  if (/silencio|discret/.test(t)) return '🤫'
+  if (/silic[oó]n|body.?safe|hipoalerg|m[ée]dico/.test(t)) return '🧴'
+  if (/control|app|remoto|distancia/.test(t)) return '📲'
+  if (/velocidad|modo|vibrac|funci[oó]n|intensidad|patr[oó]n/.test(t)) return '🎚️'
+  if (/tama[ñn]|cm|largo|medida|long|diámetro|diametro/.test(t)) return '📏'
+  if (/textur|realista|piel|suave/.test(t)) return '✨'
+  return '•'
+}
 
 // El componente se reutiliza al navegar entre fichas (related): reinicia el estado por slug
 // para no arrastrar cantidad, miniatura, pestaña ni el banner falso de "Agregado".
@@ -35,6 +56,20 @@ watch(() => route.params.slug, () => {
   activeThumb.value = 0
   added.value = false
   tab.value = 'desc'
+  lightbox.value = false
+})
+
+// Lightbox: bloquea scroll y habilita teclado (Esc cerrar, ← → navegar).
+function onLbKey(e: KeyboardEvent) {
+  if (e.key === 'Escape') lightbox.value = false
+  else if (e.key === 'ArrowLeft') lbStep(-1)
+  else if (e.key === 'ArrowRight') lbStep(1)
+}
+watch(lightbox, (v) => {
+  if (!import.meta.client) return
+  document.body.style.overflow = v ? 'hidden' : ''
+  if (v) window.addEventListener('keydown', onLbKey)
+  else window.removeEventListener('keydown', onLbKey)
 })
 
 const waUrl = computed(() => {
@@ -66,7 +101,11 @@ onMounted(() => {
 })
 onBeforeUnmount(() => {
   sio?.disconnect()
-  if (import.meta.client) document.body.classList.remove('sticky-on')
+  if (import.meta.client) {
+    document.body.classList.remove('sticky-on')
+    document.body.style.overflow = ''
+    window.removeEventListener('keydown', onLbKey)
+  }
 })
 watch(showSticky, (v) => { if (import.meta.client) document.body.classList.toggle('sticky-on', v) })
 
@@ -137,7 +176,8 @@ useSeoMeta({
       <div class="pdp">
         <!-- gallery -->
         <div class="gallery">
-          <div class="main" :style="{ background: product.bg }">
+          <div class="main" :class="{ zoomable: product.images?.length }" :style="{ background: product.bg }"
+               @click="product.images?.length && (lightbox = true)">
             <Transition name="gfade" mode="out-in">
               <NuxtImg v-if="product.images?.length" :key="activeThumb" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
                    :alt="product.name" class="gimg" format="webp" width="800" height="800"
@@ -145,6 +185,7 @@ useSeoMeta({
               <span v-else class="big">{{ product.emoji }}</span>
             </Transition>
             <span v-if="onSale" class="pbadge">rebaja</span>
+            <span v-if="product.images?.length" class="zoom-hint" aria-hidden="true">🔍 Ampliar</span>
           </div>
           <div class="thumbs">
             <template v-if="product.images?.length">
@@ -242,7 +283,9 @@ useSeoMeta({
             <div v-if="tab === 'desc'" key="desc">
               <p v-for="(par, i) in product.description.split('\n\n')" :key="i">{{ par }}</p>
               <b style="color:var(--purple)">Características:</b>
-              <ul><li v-for="f in product.features" :key="f">{{ f }}</li></ul>
+              <div class="spec-chips">
+                <span v-for="f in product.features" :key="f" class="spec-chip"><span class="sc-i">{{ specIcon(f) }}</span>{{ f }}</span>
+              </div>
             </div>
             <div v-else-if="tab === 'pol'" key="pol">
               <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago, OXXO, Kueski y Aplazo. Puedes pagar a 3 meses sin intereses o a tu ritmo.</p>
@@ -307,6 +350,21 @@ useSeoMeta({
             <button class="btn magenta sb-btn" @click="addToCart">Añadir 🛍️</button>
           </div>
         </Transition>
+      </ClientOnly>
+
+      <!-- lightbox de la galería -->
+      <ClientOnly>
+        <Teleport to="body">
+          <Transition name="lb">
+            <div v-if="lightbox && product.images?.length" class="lightbox" @click="lightbox = false" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+              <button class="lb-x" @click="lightbox = false" aria-label="Cerrar">✕</button>
+              <button v-if="product.images.length > 1" class="lb-nav lb-prev" @click.stop="lbStep(-1)" aria-label="Anterior">‹</button>
+              <img :src="product.images[Math.min(activeThumb, product.images.length - 1)]" :alt="product.name" class="lb-img" @click.stop>
+              <button v-if="product.images.length > 1" class="lb-nav lb-next" @click.stop="lbStep(1)" aria-label="Siguiente">›</button>
+              <span v-if="product.images.length > 1" class="lb-count">{{ Math.min(activeThumb, product.images.length - 1) + 1 }} / {{ product.images.length }}</span>
+            </div>
+          </Transition>
+        </Teleport>
       </ClientOnly>
     </template>
 
