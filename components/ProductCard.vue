@@ -42,7 +42,8 @@ function toggleWish() {
       </template>
       <span v-else class="d">{{ product.emoji }}</span>
       <span v-if="onSale" class="pbadge">rebaja</span>
-      <span v-else-if="isNew" class="pbadge" style="background:var(--cyan)">nuevo</span>
+      <span v-else-if="isNew" class="pbadge pbadge-new">nuevo</span>
+      <span v-else-if="product.hot" class="pbadge pbadge-gold">★ Top ventas</span>
     </NuxtLink>
     <!-- ClientOnly: la wishlist solo existe en el cliente (localStorage); evita el parpadeo ♡→♥ -->
     <ClientOnly>

@@ -18,6 +18,15 @@ const moods = [
   { label: 'Los que ya saben', sub: 'sin límites', emoji: '🖤', to: '/tienda?cat=bdsm', grad: 'linear-gradient(150deg,#3A2228,#5E1B33)' },
 ]
 
+// "¿Por qué AMANTI?" como teselas de color (en vez de muro de texto)
+const whyItems = [
+  { e: '🛍️', t: 'Variedad', s: 'Para todos los gustos', grad: 'linear-gradient(150deg,#FF8A5C,#E8503A)' },
+  { e: '📦', t: 'Discreto', s: 'Caja sin logo', grad: 'linear-gradient(150deg,#8E5BD6,#5E1B33)' },
+  { e: '💬', t: 'Sin juicios', s: 'Te guiamos por WhatsApp', grad: 'linear-gradient(150deg,#0FA38B,#0F94C2)' },
+  { e: '📚', t: 'Educativo', s: 'Guías y tips para disfrutar', grad: 'linear-gradient(150deg,#C9924B,#8E2B4A)' },
+  { e: '🇲🇽', t: 'Mexicana', s: 'Hecha por los tuyos', grad: 'linear-gradient(150deg,#E8503A,#5E1B33)' },
+]
+
 // SEO de la home: og/twitter + reafirma título/descripción. El canonical lo pone app.vue.
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
@@ -78,6 +87,21 @@ useSeoMeta({
           </div>
         </NuxtLink>
       </div>
+    </div>
+  </section>
+
+  <!-- quiz CTA (gancho temprano) -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <NuxtLink to="/quiz" class="quizband" v-reveal>
+        <div class="qb-text">
+          <span class="qb-eyebrow">¿No sabes por dónde empezar?</span>
+          <h2>Encuentra tu match en 4 preguntas</h2>
+          <p>Sin pena, sin tabúes — a tu manera.</p>
+          <span class="qb-btn">Quiero empezar ✨</span>
+        </div>
+        <span class="qb-emo">🔮</span>
+      </NuxtLink>
     </div>
   </section>
 
@@ -156,21 +180,6 @@ useSeoMeta({
     </div>
   </section>
 
-  <!-- quiz CTA -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <NuxtLink to="/quiz" class="quizband" v-reveal>
-        <div class="qb-text">
-          <span class="qb-eyebrow">¿No sabes por dónde empezar?</span>
-          <h2>Encuentra tu match en 4 preguntas</h2>
-          <p>Sin pena, sin tabúes. Te recomendamos tu juguete ideal según lo que buscas.</p>
-          <span class="qb-btn">Empezar el quiz ✨</span>
-        </div>
-        <span class="qb-emo">🔮</span>
-      </NuxtLink>
-    </div>
-  </section>
-
   <!-- special -->
   <section class="section special" v-if="special">
     <div class="wrap">
@@ -215,20 +224,20 @@ useSeoMeta({
     </div>
   </section>
 
-  <!-- why + manifesto -->
+  <!-- why (teselas de color) -->
   <section class="section why">
     <div class="wrap">
-      <h2 v-reveal>¿Por qué AMANTI?</h2>
-      <div class="why-grid">
-        <div class="why-i" v-reveal :data-reveal-index="0"><span class="e">🛍️</span><b>Variedad</b><span>Productos para todas las preferencias.</span></div>
-        <div class="why-i" v-reveal :data-reveal-index="1"><span class="e">📦</span><b>Discreto</b><span>Llega sin etiquetas que revelen nada.</span></div>
-        <div class="why-i" v-reveal :data-reveal-index="2"><span class="e">💬</span><b>Sin juicios</b><span>Te orientamos por WhatsApp.</span></div>
-        <div class="why-i" v-reveal :data-reveal-index="3"><span class="e">📚</span><b>Educativo</b><span>Guías y tips para disfrutar mejor.</span></div>
-        <div class="why-i" v-reveal :data-reveal-index="4"><span class="e">🇲🇽</span><b>Mexicana</b><span>Hecha por quienes te entienden.</span></div>
+      <div class="sec-head" v-reveal><h2>¿Por qué AMANTI?</h2></div>
+      <div class="whyrow">
+        <div v-for="(w, i) in whyItems" :key="w.t" class="moodcard" :style="{ background: w.grad }" v-reveal :data-reveal-index="i">
+          <span class="mc-emo">{{ w.e }}</span>
+          <span class="mc-label">{{ w.t }}</span>
+          <span class="mc-sub">{{ w.s }}</span>
+        </div>
       </div>
       <div class="manifesto" v-reveal>
-        <h3>Celebramos el placer, sin tabúes.</h3>
-        <p>Creemos en explorar con libertad y responsabilidad, en romper la idea de que el placer es algo de qué avergonzarse, y en una sexualidad más libre, sana y feliz — para todxs. Bienvenidx. 💜</p>
+        <h3>Sin tabúes. Solo placer. 💜</h3>
+        <p>Explóralo con libertad — a tu manera. Bienvenidx.</p>
       </div>
     </div>
   </section>

@@ -16,8 +16,9 @@ const bProd = computed(() => show.value[2])
       <!-- Panel titular -->
       <div class="hm-tile hm-head">
         <span class="hm-eyebrow">Sex shop premium · Envío 100% discreto</span>
-        <h1 class="hm-title">El placer es <em>tuyo</em>.<br>Explóralo sin pena.</h1>
-        <NuxtLink to="/tienda" class="hm-cta">Explorar la tienda →</NuxtLink>
+        <h1 class="hm-title">El placer<br>es <em>tuyo</em>.</h1>
+        <span class="hm-script">explóralo sin pena</span>
+        <NuxtLink to="/tienda" class="hm-cta">Quiero descubrir →</NuxtLink>
       </div>
 
       <!-- Panel de cupón -->
@@ -54,7 +55,7 @@ const bProd = computed(() => show.value[2])
 
     <ul class="hm-trust">
       <li>🔒 Pago seguro</li>
-      <li>🕵️ Envío discreto</li>
+      <li>🕵️ Caja sin logo</li>
       <li>⭐ 4.8 · +500 reseñas</li>
       <li>🚚 Gratis desde $799</li>
       <li>↩️ Garantía 3 meses</li>
@@ -84,8 +85,9 @@ const bProd = computed(() => show.value[2])
     linear-gradient(140deg, #44101F 0%, #5E1B33 52%, #8E2B4A 100%);
 }
 .hm-eyebrow { font-family: var(--fb); font-weight: 700; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #FFD9CF; }
-.hm-title { font-family: var(--fh); font-weight: 800; color: #fff; font-size: clamp(1.8rem, 3.1vw, 3rem); line-height: 1.04; margin: 12px 0 18px; }
+.hm-title { font-family: var(--fh); font-weight: 800; color: #fff; font-size: clamp(2.1rem, 4vw, 3.7rem); line-height: .98; margin: 12px 0 4px; }
 .hm-title em { font-style: italic; color: #FF8A5C; }
+.hm-script { font-family: var(--fs); font-size: clamp(1.5rem, 2.4vw, 2.1rem); color: #FF8A5C; line-height: 1; display: block; margin: 0 0 18px; }
 .hm-cta {
   align-self: flex-start; background: #fff; color: var(--purple); font-family: var(--fb); font-weight: 700;
   font-size: .95rem; padding: 12px 22px; border-radius: 999px; transition: transform .18s var(--ease-out), box-shadow .18s;
@@ -144,7 +146,8 @@ const bProd = computed(() => show.value[2])
     height: auto;
   }
   .hm-head { padding: 22px 20px 24px; }
-  .hm-title { font-size: clamp(1.7rem, 7vw, 2.3rem); margin: 10px 0 16px; }
+  .hm-title { font-size: clamp(1.9rem, 8vw, 2.7rem); margin: 10px 0 4px; }
+  .hm-script { font-size: 1.5rem; margin: 0 0 14px; }
   .hm-c, .hm-a { aspect-ratio: 3/4; }
   .hm-b { aspect-ratio: 16/10; }
   .hm-trust { gap: 8px 16px; font-size: .82rem; }
