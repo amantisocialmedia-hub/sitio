@@ -39,7 +39,7 @@ const progress = computed(() => Math.round(((done.value ? steps.length : stepIdx
 function choose(key: keyof Answers, val: string) {
   answers[key] = val
   if (stepIdx.value < steps.length - 1) stepIdx.value++
-  else done.value = true
+  else { done.value = true; saveAnswers(answers) } // guarda para personalizar el home
 }
 function back() {
   if (done.value) done.value = false
@@ -51,24 +51,10 @@ function restart() {
   ;(Object.keys(answers) as (keyof Answers)[]).forEach((k) => (answers[k] = ''))
 }
 
-function score(p: any) {
-  let s = p.rating
-  const t = (p.name + ' ' + (p.subtitle || '') + ' ' + (p.badges || []).join(' ') + ' ' + (p.description || '')).toLowerCase()
-  if (answers.who === 'pareja' && ['parejas', 'anal', 'bdsm', 'dildos', 'arneses'].includes(p.category)) s += 2.5
-  if (answers.who === 'mi' && ['vibradores', 'masturbadores', 'hombre', 'retardantes'].includes(p.category)) s += 2.5
-  if (answers.vibe === 'suave' && (['vibradores', 'lubricantes'].includes(p.category) || /suave|sensual|cl[ií]toris|bala|caric/.test(t))) s += 2
-  if (answers.vibe === 'intenso' && (['masturbadores'].includes(p.category) || /succi|potente|intens|xl|magnum|grande|turbo/.test(t))) s += 2
-  if (answers.vibe === 'explorar' && (['anal', 'bdsm', 'arneses'].includes(p.category) || /explora|nuevo|kit|doble|set/.test(t))) s += 2
-  if (answers.vibe === 'discreto' && /silenci|discret|bala|mini|l[áa]piz|lipstick|viaje|pocket/.test(t)) s += 2.5
-  if (answers.exp === 'principiante' && (/principiante|primera|suave|f[áa]cil|mini|bala/.test(t) || p.price < 700)) s += 2
-  if (answers.exp === 'experto' && (['bdsm', 'anal'].includes(p.category) || /xl|monster|intens|avanzad|doble/.test(t))) s += 1.5
-  if (answers.budget === 'bajo') s += p.price <= 600 ? 1.8 : -2
-  if (answers.budget === 'medio') s += p.price > 600 && p.price <= 1500 ? 1.8 : -0.5
-  if (answers.budget === 'alto') s += p.price > 1200 ? 1.2 : 0
-  return s
-}
+// Scoring compartido con la personalización del home (usePersonalization).
+const { saveAnswers } = usePersonalization()
 const matches = computed(() =>
-  [...products].map((p) => ({ p, s: score(p) })).sort((a, b) => b.s - a.s).slice(0, 3).map((x) => x.p),
+  [...products].map((p) => ({ p, s: scoreProduct(p, answers) })).sort((a, b) => b.s - a.s).slice(0, 3).map((x) => x.p),
 )
 
 // Cierra el bucle descubrir→comprar: añade el match #1 y abre el mini-carrito.

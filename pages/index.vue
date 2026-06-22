@@ -2,6 +2,8 @@
 import kitsData from '~/data/kits.json'
 const { products, categories, featured, bestsellers, onSale, peso, categoryName } = useProducts()
 const kits = kitsData.kits.slice(0, 2)
+// Personalización: recomendaciones del quiz + vistos recientemente (cliente).
+const { recommendations, recentProducts } = usePersonalization()
 const novedades = featured().slice(0, 8) // rail curado, no los 55 destacados
 const masVendido = bestsellers()
 // Más populares: mejor calificados (con desempate por hot/featured) para el carrusel de fotos.
@@ -90,6 +92,18 @@ useSeoMeta({
       </div>
     </div>
   </section>
+
+  <!-- para ti (personalizado por el quiz) -->
+  <ClientOnly>
+    <section v-if="recommendations.length" class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head" v-reveal><h2>Elegidos para ti ✨</h2><NuxtLink to="/quiz" class="link-all">Rehacer el quiz</NuxtLink></div>
+        <div class="rail">
+          <ProductCard v-for="(p, i) in recommendations" :key="p.slug" :product="p" v-reveal :data-reveal-index="i % 8" />
+        </div>
+      </div>
+    </section>
+  </ClientOnly>
 
   <!-- quiz CTA (gancho temprano) -->
   <section class="section" style="padding-top:0">
@@ -206,6 +220,18 @@ useSeoMeta({
       </div>
     </div>
   </section>
+
+  <!-- vistos recientemente -->
+  <ClientOnly>
+    <section v-if="recentProducts.length" class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="sec-head" v-reveal><h2>Vistos recientemente</h2></div>
+        <div class="rail">
+          <ProductCard v-for="(p, i) in recentProducts" :key="p.slug" :product="p" v-reveal :data-reveal-index="i % 8" />
+        </div>
+      </div>
+    </section>
+  </ClientOnly>
 
   <!-- faq -->
   <section class="section">

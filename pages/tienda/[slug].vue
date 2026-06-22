@@ -62,9 +62,12 @@ async function submitReview() {
   await loadRealReviews()
 }
 const analytics = useAnalytics()
+const { addRecent } = usePersonalization()
 function trackView() {
   const p = product.value
-  if (p) analytics.viewItem({ slug: p.slug, name: p.name, price: p.price, category: p.category })
+  if (!p) return
+  analytics.viewItem({ slug: p.slug, name: p.name, price: p.price, category: p.category })
+  addRecent(p.slug)
 }
 onMounted(() => { loadRealReviews(); trackView() })
 function fmtReviewDate(s: string) {
