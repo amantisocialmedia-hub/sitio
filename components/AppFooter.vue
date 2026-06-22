@@ -45,6 +45,7 @@ function suscribir() {
             <li><NuxtLink to="/tienda?cat=parejas">Parejas</NuxtLink></li>
             <li><NuxtLink to="/tienda?cat=retardantes">Retardantes</NuxtLink></li>
             <li><NuxtLink to="/tienda?cat=lubricantes">Lubricantes</NuxtLink></li>
+            <li><NuxtLink to="/kits">Kits 🎁</NuxtLink></li>
             <li><NuxtLink to="/tienda">Ver todo</NuxtLink></li>
           </ul>
         </div>

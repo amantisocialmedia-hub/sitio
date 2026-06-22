@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import kitsData from '~/data/kits.json'
 const { products, categories, featured, bestsellers, onSale, peso, categoryName } = useProducts()
+const kits = kitsData.kits.slice(0, 2)
 const novedades = featured().slice(0, 8) // rail curado, no los 55 destacados
 const masVendido = bestsellers()
 // Más populares: mejor calificados (con desempate por hot/featured) para el carrusel de fotos.
@@ -142,6 +144,16 @@ useSeoMeta({
           <span class="mc-label">{{ m.label }}</span>
           <span class="mc-sub">{{ m.sub }}</span>
         </NuxtLink>
+      </div>
+    </div>
+  </section>
+
+  <!-- kits -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head" v-reveal><h2>Kits listos para disfrutar</h2><NuxtLink to="/kits" class="link-all">Ver todos los kits</NuxtLink></div>
+      <div class="kitgrid">
+        <KitCard v-for="(k, i) in kits" :key="k.slug" :kit="k" v-reveal :data-reveal-index="i" />
       </div>
     </div>
   </section>

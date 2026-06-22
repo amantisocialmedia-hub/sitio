@@ -1,0 +1,36 @@
+{
+  "kits": [
+    {
+      "slug": "primera-vez",
+      "name": "Kit Primera Vez",
+      "emoji": "🌱",
+      "grad": "linear-gradient(150deg,#FF8A5C,#E8503A)",
+      "blurb": "Para estrenarte sin nervios: un juguete suave y lubricante. Todo listo en un clic.",
+      "items": ["tiny-teasers-nubby", "lubricantes-sunny"]
+    },
+    {
+      "slug": "noche-de-dos",
+      "name": "Noche de Dos",
+      "emoji": "💞",
+      "grad": "linear-gradient(150deg,#8E5BD6,#5E1B33)",
+      "blurb": "Enciende la chispa en pareja con todo lo necesario para una noche inolvidable.",
+      "items": ["pleasure-couple-kit", "lubricantes-sunny"]
+    },
+    {
+      "slug": "para-el",
+      "name": "Kit Para Él",
+      "emoji": "🔥",
+      "grad": "linear-gradient(150deg,#0FA38B,#0F94C2)",
+      "blurb": "Placer y control para una experiencia más intensa y duradera.",
+      "items": ["jock-6", "super-load-delay-spray-10-ml"]
+    },
+    {
+      "slug": "exploracion",
+      "name": "Kit Exploración",
+      "emoji": "🚀",
+      "grad": "linear-gradient(150deg,#C9924B,#8E2B4A)",
+      "blurb": "Anímate a probar algo nuevo, paso a paso y con confianza.",
+      "items": ["temptasia-beginner-cuffs", "ouch-metal-butt-plug-small", "lubricantes-sunny"]
+    }
+  ]
+}
