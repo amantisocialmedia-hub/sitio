@@ -39,7 +39,7 @@ async function checkout() {
   try {
     const res = await $fetch<{ init_point: string }>('/api/checkout', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })) },
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift },
     })
     if (res?.init_point) window.location.href = res.init_point
     else errorMsg.value = 'No se recibió el enlace de pago.'
@@ -57,7 +57,7 @@ async function orderWhatsApp() {
     // Registra el pedido ANTES de abrir WhatsApp ($fetch manda la cookie de sesión si la hay).
     await $fetch('/api/order-whatsapp', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })) },
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift },
     })
   } catch (e) {
     // Degrada con gracia: si la escritura falla, el usuario igual manda su pedido.
@@ -140,6 +140,20 @@ useHead({ title: 'Tu carrito — AMANTI' })
         <div class="sline"><span>Subtotal</span><span>{{ peso(cart.totalPrice) }}</span></div>
         <div class="sline"><span>Envío</span><span>{{ cart.totalPrice >= 799 ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
         <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalPrice) }}</span></div>
+
+        <!-- Modo regalo -->
+        <div class="giftbox">
+          <label class="gift-toggle">
+            <input type="checkbox" v-model="cart.gift.isGift" />
+            <span>🎁 ¿Es un regalo?</span>
+          </label>
+          <div v-if="cart.gift.isGift" class="gift-fields">
+            <p class="gift-note">Llega en caja neutra y sin precios — perfecto para regalar 💜</p>
+            <input v-model="cart.gift.recipient" type="text" maxlength="80" placeholder="Para (nombre, opcional)" aria-label="Para" />
+            <input v-model="cart.gift.sender" type="text" maxlength="80" placeholder="De (tu nombre, opcional)" aria-label="De" />
+            <textarea v-model="cart.gift.message" rows="2" maxlength="280" placeholder="Mensaje de regalo (opcional)" aria-label="Mensaje de regalo"></textarea>
+          </div>
+        </div>
 
         <div v-if="errorMsg" class="statusmsg bad" style="font-size:.86rem">{{ errorMsg }}</div>
 

@@ -8,9 +8,9 @@ import { createPendingOrder } from '../utils/orders'
 import type { InCartItem } from '../utils/orderItems'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ items: InCartItem[] }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string } }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
-  const order = await createPendingOrder(event, items, 'whatsapp')
+  const order = await createPendingOrder(event, items, 'whatsapp', body?.gift)
   return { ok: true, orderId: order.id }
 })

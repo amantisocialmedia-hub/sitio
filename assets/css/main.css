@@ -431,6 +431,15 @@ html.discreet .sr-th img{filter:blur(10px)}
 .paytrust{margin:14px 0 4px;text-align:center}
 .paytrust .pt-disc{display:block;font-size:.84rem;color:var(--purple);font-weight:600;margin-bottom:8px}
 .paytrust .pay-icons{justify-content:center}
+/* Modo regalo en el carrito */
+.giftbox{margin:14px 0 4px;border-top:1px solid var(--line);padding-top:14px}
+.gift-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:700;color:var(--purple)}
+.gift-toggle input{width:20px;height:20px;accent-color:var(--magenta);cursor:pointer;flex:none}
+.gift-fields{display:grid;gap:8px;margin-top:10px}
+.gift-note{font-size:.82rem;color:var(--cyan);font-weight:600;margin:0}
+.gift-fields input,.gift-fields textarea{font-family:var(--fb);padding:10px 12px;border:1px solid #E7D8CC;border-radius:8px;font-size:.9rem;background:#fff;width:100%}
+.gift-fields input:focus,.gift-fields textarea:focus{outline:none;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(232,80,58,.15)}
+.gift-fields textarea{resize:vertical}
 
 /* responsive */
 @media(max-width:1080px){

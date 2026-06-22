@@ -16,9 +16,17 @@ export interface CartItem {
   quantity: number
 }
 
+export interface GiftInfo {
+  isGift: boolean
+  recipient: string
+  sender: string
+  message: string
+}
+
 export const useCartStore = defineStore('cart', {
   state: () => ({
     items: [] as CartItem[],
+    gift: { isGift: false, recipient: '', sender: '', message: '' } as GiftInfo,
   }),
 
   getters: {
@@ -53,6 +61,7 @@ export const useCartStore = defineStore('cart', {
     },
     clearCart() {
       this.items = []
+      this.gift = { isGift: false, recipient: '', sender: '', message: '' }
     },
 
     /** Re-sincroniza el precio de cada línea con el catálogo vigente (lo que cobra el server).
@@ -73,7 +82,15 @@ export const useCartStore = defineStore('cart', {
       this.items.forEach(i => {
         msg += `• ${i.name} x${i.quantity} — $${(i.price * i.quantity).toLocaleString('es-MX')} MXN\n`
       })
-      msg += `\nTotal: $${this.totalPrice.toLocaleString('es-MX')} MXN\n\n¿Me ayudan a completar mi pedido? 🙌`
+      msg += `\nTotal: $${this.totalPrice.toLocaleString('es-MX')} MXN\n`
+      if (this.gift.isGift) {
+        msg += `\n🎁 Es un regalo (caja neutra, sin precios)`
+        if (this.gift.recipient) msg += `\nPara: ${this.gift.recipient}`
+        if (this.gift.sender) msg += `\nDe: ${this.gift.sender}`
+        if (this.gift.message) msg += `\nMensaje: "${this.gift.message}"`
+        msg += `\n`
+      }
+      msg += `\n¿Me ayudan a completar mi pedido? 🙌`
       return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`
     },
   },

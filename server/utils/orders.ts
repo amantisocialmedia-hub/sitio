@@ -31,10 +31,13 @@ export interface CreatedOrder { id: string; total: number; userId: string | null
  * Los precios se RESUELVEN server-side por slug (data/products.json); el price del cliente se ignora.
  * paymentMethod: 'mercadopago' | 'whatsapp'. user_id sólo si hay sesión.
  */
+export interface GiftInfo { isGift?: boolean; recipient?: string; sender?: string; message?: string }
+
 export async function createPendingOrder(
   event: H3Event,
   items: InCartItem[],
   paymentMethod: 'mercadopago' | 'whatsapp',
+  gift?: GiftInfo | null,
 ): Promise<CreatedOrder> {
   // Valida + resuelve precios autoritativos (lanza 400 si hay items inválidos o el carrito está vacío).
   const resolved = resolveItems(items)
@@ -68,6 +71,20 @@ export async function createPendingOrder(
     const { error: delErr } = await admin.from('orders').delete().eq('id', order.id) // rollback best-effort
     if (delErr) console.error('[orders] ROLLBACK FALLÓ, order huérfano sin items:', order.id, delErr.message)
     throw createError({ statusCode: 500, message: 'No se pudieron guardar los artículos del pedido.' })
+  }
+
+  // Modo regalo (best-effort): si la columna `gift` aún no existe, el update falla y se
+  // ignora — el pedido sigue creado correctamente. Saneamos longitudes para no abusar.
+  if (gift?.isGift) {
+    const clip = (s?: string, n = 280) => (s || '').toString().slice(0, n)
+    const payload = {
+      isGift: true,
+      recipient: clip(gift.recipient, 80),
+      sender: clip(gift.sender, 80),
+      message: clip(gift.message, 280),
+    }
+    const { error: gErr } = await admin.from('orders').update({ gift: payload }).eq('id', order.id)
+    if (gErr) console.warn('[orders] no se pudo guardar gift (¿falta la columna?):', gErr.message)
   }
 
   return { id: order.id as string, total: order.total as number, userId, items: resolved }

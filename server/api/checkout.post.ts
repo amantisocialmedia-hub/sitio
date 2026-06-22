@@ -15,12 +15,12 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'MP token missing', message: 'Falta configurar el token de MercadoPago (NUXT_MP_ACCESS_TOKEN).' })
   }
 
-  const body = await readBody<{ items: InCartItem[] }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string } }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
 
   // 1) Order pending + items (con la service_role; user_id si hay sesión)
-  const order = await createPendingOrder(event, items, 'mercadopago')
+  const order = await createPendingOrder(event, items, 'mercadopago', body?.gift)
 
   const base = config.public.publicBaseUrl
   try {
