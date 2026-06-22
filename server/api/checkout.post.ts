@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
           external_reference: order.id,
           notification_url: `${base}/api/mp-webhook`,
           back_urls: {
-            success: `${base}/carrito?status=success`,
+            success: `${base}/carrito?status=success&order=${order.id}`,
             failure: `${base}/carrito?status=failure`,
             pending: `${base}/carrito?status=pending`,
           },

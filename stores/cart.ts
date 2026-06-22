@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import productsData from '~/data/products.json'
+import { useAnalytics } from '~/composables/useAnalytics'
 
 // Precio vigente por slug (fuente de verdad = catálogo, igual que el server). Para que el
 // carrito persistido en localStorage no muestre un precio obsoleto distinto al que se cobra.
@@ -40,13 +41,7 @@ export const useCartStore = defineStore('cart', {
       const existing = this.items.find(i => i.slug === item.slug)
       if (existing) existing.quantity += quantity
       else this.items.push({ ...item, quantity })
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        ;(window as any).fbq('track', 'AddToCart', {
-          content_name: item.name,
-          value: item.price * quantity,
-          currency: 'MXN',
-        })
-      }
+      useAnalytics().addToCart({ slug: item.slug, name: item.name, price: item.price, quantity })
     },
     removeItem(slug: string) {
       this.items = this.items.filter(i => i.slug !== slug)

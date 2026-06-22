@@ -3,6 +3,7 @@ const route = useRoute()
 const cart = useCartStore()
 const { bestsellers, peso } = useProducts()
 const masVendido = bestsellers()
+const analytics = useAnalytics()
 
 // Umbral de envío gratis (mismo que CartDrawer): barra de progreso motivacional.
 const FREE = 799
@@ -20,20 +21,17 @@ watch(() => cart.totalPrice, () => { totalPulse.value = true; clearTimeout(tp); 
 const status = computed(() => route.query.status as string | undefined)
 
 onMounted(() => {
-  // Tras un pago aprobado, vacía el carrito persistido para que no se re-envíe el mismo pedido.
-  if (status.value === 'success') cart.clearCart()
+  // Tras un pago aprobado: registra la compra (analítica) y vacía el carrito persistido.
+  if (status.value === 'success') {
+    if (cart.items.length) analytics.purchase((route.query.order as string) || '', cart.totalPrice, cart.items)
+    cart.clearCart()
+  }
   // Sincroniza precios con el catálogo vigente (== lo que cobra el server).
   else cart.refreshPrices()
 })
 
 async function checkout() {
-  if ((window as any).fbq) {
-    ;(window as any).fbq('track', 'InitiateCheckout', {
-      value: cart.totalPrice,
-      currency: 'MXN',
-      num_items: cart.totalItems,
-    })
-  }
+  analytics.beginCheckout(cart.totalPrice, cart.items)
   errorMsg.value = ''
   loading.value = true
   try {

@@ -61,7 +61,12 @@ async function submitReview() {
   myText.value = ''; myRating.value = 0
   await loadRealReviews()
 }
-onMounted(loadRealReviews)
+const analytics = useAnalytics()
+function trackView() {
+  const p = product.value
+  if (p) analytics.viewItem({ slug: p.slug, name: p.name, price: p.price, category: p.category })
+}
+onMounted(() => { loadRealReviews(); trackView() })
 function fmtReviewDate(s: string) {
   try { return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s)) } catch { return s }
 }
@@ -107,6 +112,7 @@ watch(() => route.params.slug, () => {
   lightbox.value = false
   myRating.value = 0; myText.value = ''; reviewMsg.value = ''; reviewErr.value = false
   loadRealReviews()
+  trackView()
 })
 
 // Lightbox: bloquea scroll y habilita teclado (Esc cerrar, ← → navegar).
