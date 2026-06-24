@@ -57,7 +57,7 @@ const bProd = computed(() => show.value[2])
       <li>🔒 Pago seguro</li>
       <li>🕵️ Caja sin logo</li>
       <li>⭐ 4.8 · +500 reseñas</li>
-      <li>🚚 Gratis desde $799</li>
+      <li>🚚 Gratis desde $1,000</li>
       <li>↩️ Garantía 3 meses</li>
     </ul>
   </section>

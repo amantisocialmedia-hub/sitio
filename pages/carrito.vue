@@ -1,17 +1,54 @@
 <script setup lang="ts">
+import { FREE_SHIPPING_THRESHOLD } from '~/stores/cart'
 const route = useRoute()
 const cart = useCartStore()
 const { bestsellers, peso } = useProducts()
 const masVendido = bestsellers()
 const analytics = useAnalytics()
 
-// Umbral de envío gratis (mismo que CartDrawer): barra de progreso motivacional.
-const FREE = 799
-const freeLeft = computed(() => Math.max(0, FREE - cart.totalPrice))
-const freePct = computed(() => Math.min(100, Math.round((cart.totalPrice / FREE) * 100)))
+// Umbral de envío gratis (fuente única en el store): barra de progreso motivacional.
+const freeLeft = computed(() => cart.freeShippingRemaining)
+const freePct = computed(() => Math.min(100, Math.round((cart.totalPrice / FREE_SHIPPING_THRESHOLD) * 100)))
 
 const loading = ref(false)
 const errorMsg = ref('')
+
+// --- Cupón de descuento ---
+const couponInput = ref('')
+const couponBusy = ref(false)
+const couponMsg = ref('')   // mensaje de error (el éxito lo muestra el bloque del cupón aplicado)
+const couponErr = ref(false)
+
+async function applyCoupon() {
+  const code = couponInput.value.trim()
+  if (!code) { couponErr.value = true; couponMsg.value = 'Ingresa un código.'; return }
+  couponBusy.value = true; couponErr.value = false; couponMsg.value = ''
+  try {
+    const res = await $fetch<{ valid: boolean; type?: 'percent' | 'fixed'; value?: number; discount: number; message: string }>(
+      '/api/coupon-validate',
+      { method: 'POST', body: { code, subtotal: cart.totalPrice } },
+    )
+    if (res.valid && res.type) {
+      cart.applyCoupon({ code: code.toUpperCase(), type: res.type, value: res.value || 0, discount: res.discount })
+      couponInput.value = ''
+      couponMsg.value = ''
+    } else {
+      couponErr.value = true
+      couponMsg.value = res.message || 'Cupón inválido.'
+    }
+  } catch (e: any) {
+    couponErr.value = true
+    couponMsg.value = e?.data?.message || 'No se pudo validar el cupón. Intenta más tarde.'
+  } finally {
+    couponBusy.value = false
+  }
+}
+
+function removeCoupon() {
+  cart.removeCoupon()
+  couponMsg.value = ''
+  couponErr.value = false
+}
 
 // Pulse del total cuando cambia.
 const totalPulse = ref(false)
@@ -31,13 +68,13 @@ onMounted(() => {
 })
 
 async function checkout() {
-  analytics.beginCheckout(cart.totalPrice, cart.items)
+  analytics.beginCheckout(cart.totalWithDiscount, cart.items)
   errorMsg.value = ''
   loading.value = true
   try {
     const res = await $fetch<{ init_point: string }>('/api/checkout', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift },
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
     })
     if (res?.init_point) window.location.href = res.init_point
     else errorMsg.value = 'No se recibió el enlace de pago.'
@@ -55,7 +92,7 @@ async function orderWhatsApp() {
     // Registra el pedido ANTES de abrir WhatsApp ($fetch manda la cookie de sesión si la hay).
     await $fetch('/api/order-whatsapp', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift },
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
     })
   } catch (e) {
     // Degrada con gracia: si la escritura falla, el usuario igual manda su pedido.
@@ -71,7 +108,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
 <template>
   <div class="wrap">
     <div class="benefits">
-      <div class="b"><span class="e">🚚</span> Envíos Gratis &gt; $799</div>
+      <div class="b"><span class="e">🚚</span> Envíos Gratis desde $1,000</div>
       <div class="b"><span class="e">🕵️</span> 100% Discreto</div>
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>
@@ -135,9 +172,33 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <div class="cd-track"><div class="cd-fill" :style="{ width: freePct + '%' }"></div></div>
         </div>
 
+        <!-- Cupón de descuento -->
+        <div class="couponbox">
+          <div v-if="cart.coupon" class="coupon-applied">
+            <span class="ca-info">✓ Cupón <b>{{ cart.coupon.code }}</b> aplicado</span>
+            <button type="button" class="ca-remove" @click="removeCoupon">Quitar</button>
+          </div>
+          <template v-else>
+            <label class="coupon-label" for="coupon">Código de descuento</label>
+            <div class="coupon-row">
+              <input id="coupon" v-model="couponInput" type="text" placeholder="Ej. AMANTI15"
+                     autocapitalize="characters" autocomplete="off" :disabled="couponBusy"
+                     @keyup.enter="applyCoupon" aria-label="Código de descuento" />
+              <button type="button" class="btn coupon-apply" :disabled="couponBusy || !couponInput.trim()" @click="applyCoupon">
+                {{ couponBusy ? '…' : 'Aplicar' }}
+              </button>
+            </div>
+            <p v-if="couponMsg" class="coupon-msg" :class="{ bad: couponErr }">{{ couponMsg }}</p>
+          </template>
+        </div>
+
         <div class="sline"><span>Subtotal</span><span>{{ peso(cart.totalPrice) }}</span></div>
-        <div class="sline"><span>Envío</span><span>{{ cart.totalPrice >= 799 ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
-        <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalPrice) }}</span></div>
+        <div v-if="cart.discount > 0" class="sline discount">
+          <span>Descuento <b class="cpill">{{ cart.coupon?.code }}</b></span>
+          <span class="disc-val">−{{ peso(cart.discount) }}</span>
+        </div>
+        <div class="sline"><span>Envío</span><span>{{ cart.freeShipping ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
+        <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalWithDiscount) }}</span></div>
 
         <!-- Modo regalo -->
         <div class="giftbox">

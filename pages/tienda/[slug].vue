@@ -4,6 +4,7 @@ const route = useRoute()
 const config = useRuntimeConfig()
 const { getBySlug, related, peso, msi, categoryName } = useProducts()
 const cart = useCartStore()
+const wishlist = useWishlistStore()
 const { openCart } = useCartUI()
 
 const product = computed(() => getBySlug(route.params.slug as string))
@@ -145,6 +146,16 @@ function addToCart() {
   added.value = true
   if (import.meta.client) window.dispatchEvent(new CustomEvent('cart:add'))
   openCart()
+}
+
+// Favoritos del producto principal (mismo store que el ProductCard del grid).
+const wishPopped = ref(false)
+function toggleWish() {
+  const p = product.value
+  if (!p) return
+  wishlist.toggle(p.slug)
+  wishPopped.value = true
+  setTimeout(() => (wishPopped.value = false), 350)
 }
 
 // Barra de compra fija: aparece cuando el .buyrow se va del viewport (hacia arriba).
@@ -317,12 +328,24 @@ useSeoMeta({
           <div class="buyrow" ref="buyrowEl">
             <button class="btn magenta block" @click="addToCart">Añadir al carrito 🛍️</button>
             <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">Pedir por WhatsApp</a>
+            <!-- Favoritos del producto principal. ClientOnly: la wishlist vive en localStorage
+                 (igual que en ProductCard); evita el desajuste de hidratación ♡→♥. -->
+            <ClientOnly>
+              <button class="btn outline block pdp-wish" :class="{ liked: wishlist.has(product.slug), pop: wishPopped }"
+                      @click="toggleWish" :aria-pressed="wishlist.has(product.slug)"
+                      :aria-label="wishlist.has(product.slug) ? 'Quitar de favoritos' : 'Agregar a favoritos'">
+                {{ wishlist.has(product.slug) ? '♥ En favoritos' : '♡ Agregar a favoritos' }}
+              </button>
+              <template #fallback>
+                <button class="btn outline block pdp-wish" aria-label="Agregar a favoritos">♡ Agregar a favoritos</button>
+              </template>
+            </ClientOnly>
           </div>
 
           <div class="trustlist">
             <div class="ti"><span class="e">🔒</span><div><b>Compra Segura</b><p>Pago cifrado y cargo neutral en tu estado de cuenta.</p></div></div>
             <div class="ti"><span class="e">🕵️</span><div><b>100% Discreto</b><p>Caja sin marca y remitente genérico. Nadie sabrá qué contiene.</p></div></div>
-            <div class="ti"><span class="e">🚚</span><div><b>Envío Gratis &gt; $799</b><p>Entrega de 3 a 5 días hábiles a todo México.</p></div></div>
+            <div class="ti"><span class="e">🚚</span><div><b>Envío Gratis desde $1,000</b><p>Entrega de 3 a 5 días hábiles a todo México.</p></div></div>
             <div class="ti"><span class="e">✅</span><div><b>Body-safe</b><p>Materiales hipoalergénicos, aptos para tu cuerpo.</p></div></div>
             <div class="ti"><span class="e">🛡️</span><div><b>Garantía</b><p>Contra defectos de fábrica por 30 días.</p></div></div>
           </div>
@@ -352,7 +375,7 @@ useSeoMeta({
             </div>
             <div v-else-if="tab === 'env'" key="env">
               <p>Envío 100% discreto a todo México, en empaque neutro sin etiquetas que revelen el contenido.</p>
-              <p>Envío gratis en compras mayores a $799. Tiempo de entrega estimado: 3 a 5 días hábiles.</p>
+              <p>Envío gratis en compras desde $1,000. Tiempo de entrega estimado: 3 a 5 días hábiles.</p>
             </div>
             <div v-else key="gar">
               <p>Todos nuestros productos tienen garantía contra defectos de fábrica por 30 días.</p>
@@ -450,3 +473,11 @@ useSeoMeta({
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Botón de favoritos del producto principal: estado "en favoritos" en magenta. */
+.pdp-wish{gap:8px}
+.pdp-wish.liked{background:var(--magenta);color:#fff;box-shadow:inset 0 0 0 2px var(--magenta)}
+.pdp-wish.liked:hover{background:var(--magenta);color:#fff}
+.pdp-wish.pop{animation:heartpop .32s var(--ease-out)}
+</style>

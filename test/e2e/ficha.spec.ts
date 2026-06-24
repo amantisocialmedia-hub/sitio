@@ -16,7 +16,7 @@ test.describe('Ficha de producto /tienda/vibrating-g', () => {
     await page.goto('/tienda/vibrating-g', { waitUntil: 'networkidle' })
 
     // El título de la ficha debe estar visible (confirma que el producto cargó).
-    await expect(page.locator('h1')).toContainText('Vibrating G')
+    await expect(page.locator('h1')).toContainText('Firmeza Vibrante')
 
     // --- Bloque de confianza: exactamente 5 ítems ---
     await expect(page.locator('.trustlist .ti')).toHaveCount(5)

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { useProducts, peso, msi, type Product } from '~/composables/useProducts'
 
-const { products, categories, byCategory, onSale, getBySlug, related, categoryName, bestsellers, featured } = useProducts()
+const { products, categories, byCategory, onSale, getBySlug, related, categoryName, bestsellers, featured, relatedForArticle } = useProducts()
 
 describe('useProducts — filtros', () => {
   it('byCategory devuelve solo productos de esa categoría', () => {
@@ -72,6 +72,46 @@ describe('useProducts — filtros', () => {
     const res = inRange(products, 100, 500)
     expect(res.every(p => p.price >= 100 && p.price <= 500)).toBe(true)
     expect(res.length).toBeLessThan(products.length)
+  })
+})
+
+describe('relatedForArticle — productos relacionados del blog', () => {
+  it('prioriza relatedProducts (slugs) y respeta el orden', () => {
+    const res = relatedForArticle({ relatedProducts: ['tempo', 'juguetona-tressa'] })
+    expect(res[0].slug).toBe('tempo')
+    expect(res[1].slug).toBe('juguetona-tressa')
+    expect(res.length).toBeGreaterThanOrEqual(3) // se rellena al mínimo con fallback
+  })
+
+  it('usa relatedCategory y tope de 8 cuando hay de sobra', () => {
+    const res = relatedForArticle({ relatedCategory: 'vibradores' })
+    expect(res.length).toBe(8)
+    expect(res.every(p => p.category === 'vibradores')).toBe(true)
+  })
+
+  it('rellena con fallback si la categoría no alcanza el mínimo', () => {
+    const res = relatedForArticle({ relatedCategory: 'lubricantes' }) // catálogo: 2
+    expect(res.length).toBeGreaterThanOrEqual(3)
+    expect(res.slice(0, 2).every(p => p.category === 'lubricantes')).toBe(true)
+  })
+
+  it('sin nada especificado usa fallback (destacados/más vendidos), 3–8', () => {
+    const res = relatedForArticle({})
+    expect(res.length).toBeGreaterThanOrEqual(3)
+    expect(res.length).toBeLessThanOrEqual(8)
+  })
+
+  it('ignora slugs inexistentes y nunca duplica', () => {
+    const res = relatedForArticle({ relatedProducts: ['no-existe-xyz', 'tempo', 'tempo'], relatedCategory: 'vibradores' })
+    expect(res.filter(p => p.slug === 'tempo').length).toBe(1)
+    expect(res.some(p => p.slug === 'no-existe-xyz')).toBe(false)
+    expect(res.length).toBeLessThanOrEqual(8)
+    expect(new Set(res.map(p => p.slug)).size).toBe(res.length) // sin duplicados
+  })
+
+  it('respeta un máximo personalizado', () => {
+    const res = relatedForArticle({ relatedCategory: 'vibradores' }, 4)
+    expect(res.length).toBe(4)
   })
 })
 

@@ -40,7 +40,7 @@ function goSearch() {
 }
 
 // Buscador instantáneo: resultados en vivo mientras se escribe (catálogo en cliente).
-const { products, peso } = useProducts()
+const { products, peso, bySubcategory, subcategories: subs } = useProducts()
 const searchFocused = ref(false)
 const results = computed(() => {
   const t = q.value.trim().toLowerCase()
@@ -53,9 +53,13 @@ const showResults = computed(() => searchFocused.value && q.value.trim().length 
 function pickResult() { searchFocused.value = false; q.value = '' }
 function onSearchBlur() { setTimeout(() => { searchFocused.value = false }, 160) }
 
-// Mega-menú estilo Cake. Los enlaces apuntan a /tienda (filtrable) — al crecer el
-// catálogo se conectan subcolecciones reales.
-const mega = [
+// Mega-menú estilo Cake. Los rótulos de subcategoría se resuelven contra la taxonomía
+// del catálogo (composables/useProducts). El menú es DINÁMICO: una subcategoría solo
+// aparece si tiene al menos 1 producto (ver `mega`), y al elegirla se filtra SOLO sus
+// productos vía /tienda?cat=&sub= (ver itemHref).
+const subByLabel = new Map(subs.map(s => [s.label, s]))
+
+const megaBase = [
   {
     label: 'Juguetes Sexuales', to: '/tienda',
     items: ['Vibradores', 'Masturbadores', 'Dildos', 'Anales', 'Lubricantes', 'Succionadores', 'Anillos Para Pene', 'Fundas Para Pene', 'Juguetes BDSM', 'Kegel', 'Accesorios'],
@@ -77,46 +81,31 @@ const mega = [
     items: ['Disfraces', 'Femenina', 'Masculina', 'Trajes De Baño'],
   },
   {
-    label: 'Blog', to: '/blog',
+    label: 'Blog', to: '/blog', blog: true,
     items: ['Tips Sexuales', 'Salud Sexual', 'Juguetes Sexuales', 'Estilo De Vida', 'Relaciones Y Amores'],
   },
-  { label: '✨ Quiz', to: '/quiz', items: [] },
+  { label: '✨ Quiz', to: '/quiz', items: [] as string[] },
 ]
 
-// Manda los sub-enlaces a la categoría real cuando existe; el blog va al blog.
-const catByLabel: Record<string, string> = {
-  Vibradores: 'vibradores',
-  Dildos: 'dildos',
-  Anales: 'anal',
-  'Vibradores Anales': 'anal',
-  'Dildo Anal': 'anal',
-  'Juguetes BDSM': 'bdsm',
-  'Vibrador Para Parejas': 'parejas',
-  'Anillos Para Pene': 'hombre',
-  'Fundas Para Pene': 'hombre',
-  'Fundas Y Extensiones': 'hombre',
-  'Anillos Retardantes': 'retardantes',
-  Masturbadores: 'masturbadores',
-  'Pocket Pussy': 'masturbadores',
-  'Masturbador Vibrador': 'masturbadores',
-  'Masturbador Con App': 'masturbadores',
-  'Huevo Masturbador': 'masturbadores',
-  'Muñecas Y Torsos': 'masturbadores',
-  '★ Porn Stars': 'masturbadores',
-  Retardantes: 'retardantes',
-  Lubricantes: 'lubricantes',
-  'Dildo Strap-On': 'arneses',
-  'Succionador De Clítoris': 'vibradores',
-  Succionadores: 'vibradores',
-  'Bala Vibradora': 'vibradores',
-  'Monster Dildo': 'dildos',
-  'Dildo Realista': 'dildos',
-  'Dildo Con Ventosa': 'dildos',
-}
-function itemHref(m: { label: string; to: string }, it: string) {
-  if (m.label === 'Blog') return '/blog'
-  if (catByLabel[it]) return `/tienda?cat=${catByLabel[it]}`
-  return m.to
+// Oculta las subcategorías sin productos (las del Blog no dependen del catálogo).
+const mega = computed(() => megaBase.map(m => ({
+  ...m,
+  items: (m as { blog?: boolean }).blog
+    ? m.items
+    : m.items.filter((it) => {
+        const sub = subByLabel.get(it)
+        return sub ? bySubcategory(sub.slug).length > 0 : false
+      }),
+})))
+
+// Resuelve cada rótulo a su URL real de catálogo. Subcategoría con palabras clave →
+// /tienda?cat=X&sub=Y (filtra SOLO sus productos); categoría completa → /tienda?cat=X.
+function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) {
+  if (m.blog) return '/blog'
+  const sub = subByLabel.get(it)
+  if (!sub) return m.to
+  const base = `/tienda?cat=${sub.category}`
+  return sub.keywords?.length ? `${base}&sub=${sub.slug}` : base
 }
 </script>
 

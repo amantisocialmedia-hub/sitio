@@ -4,7 +4,7 @@ import { setActivePinia, createPinia } from 'pinia'
 // useRuntimeConfig es un auto-import de Nuxt; lo stubeamos para el entorno de test.
 vi.stubGlobal('useRuntimeConfig', () => ({ public: { whatsappPhone: '5214431112233' } }))
 
-import { useCartStore } from '~/stores/cart'
+import { useCartStore, FREE_SHIPPING_THRESHOLD } from '~/stores/cart'
 
 const P = (over = {}) => ({ slug: 'vibrating-g', name: 'Vibrating G', price: 1013, emoji: '🪐', bg: '#fff', ...over })
 
@@ -58,6 +58,55 @@ describe('cart store', () => {
     c.addItem(P({ slug: 'a', name: 'A', price: 250 }), 4) // 1000
     expect(c.totalItems).toBe(6)
     expect(c.totalPrice).toBe(3000)
+  })
+
+  describe('envío gratis (umbral $1,000)', () => {
+    it('el umbral es 1000', () => {
+      expect(FREE_SHIPPING_THRESHOLD).toBe(1000)
+    })
+
+    it('NO aplica con subtotal por debajo del umbral (caso del bug: $818)', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 818 }))
+      expect(c.totalPrice).toBe(818)
+      expect(c.freeShipping).toBe(false)
+      expect(c.freeShippingRemaining).toBe(182)
+    })
+
+    it('NO aplica justo por debajo del umbral ($999)', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 999 }))
+      expect(c.freeShipping).toBe(false)
+      expect(c.freeShippingRemaining).toBe(1)
+    })
+
+    it('aplica con subtotal exactamente igual al umbral ($1,000) — comparador >=', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 1000 }))
+      expect(c.freeShipping).toBe(true)
+      expect(c.freeShippingRemaining).toBe(0)
+    })
+
+    it('aplica con subtotal por encima del umbral', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 1500 }))
+      expect(c.freeShipping).toBe(true)
+      expect(c.freeShippingRemaining).toBe(0)
+    })
+
+    it('decide por el SUBTOTAL, no por el número de artículos', () => {
+      const c = useCartStore()
+      // 5 artículos baratos: muchos ítems pero subtotal por debajo del umbral.
+      c.addItem(P({ price: 100 }), 5) // subtotal 500, 5 ítems
+      expect(c.totalItems).toBe(5)
+      expect(c.totalPrice).toBe(500)
+      expect(c.freeShipping).toBe(false)
+      // Un solo artículo caro: 1 ítem pero subtotal sobre el umbral → gratis.
+      c.clearCart()
+      c.addItem(P({ slug: 'caro', price: 1200 }), 1)
+      expect(c.totalItems).toBe(1)
+      expect(c.freeShipping).toBe(true)
+    })
   })
 
   it('whatsappOrderUrl arma el link con número, productos y total', () => {

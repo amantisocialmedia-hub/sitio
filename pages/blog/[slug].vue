@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import data from '~/data/articles.json'
 const route = useRoute()
+const { relatedForArticle } = useProducts()
 const article = computed(() => data.articles.find(a => a.slug === route.params.slug))
 const more = computed(() => data.articles.filter(a => a.slug !== route.params.slug).slice(0, 3))
+// Productos relacionados al tema del artículo (con fallback a destacados).
+const relatedProds = computed(() => (article.value ? relatedForArticle(article.value) : []))
 useHead(() => ({ title: article.value ? `${article.value.title} — AMANTI` : 'Eroteca — AMANTI' }))
 useSeoMeta({ description: () => article.value?.excerpt })
 </script>
@@ -28,6 +31,9 @@ useSeoMeta({ description: () => article.value?.excerpt })
       <div class="note"><p>¿Tienes dudas? Escríbenos por WhatsApp y te orientamos sin juicios 💜. ¿Buscas tu match? <NuxtLink to="/quiz">Haz el quiz →</NuxtLink></p></div>
       <p><NuxtLink to="/blog">← Volver a la Eroteca</NuxtLink></p>
     </article>
+
+    <!-- Productos relacionados al tema (se oculta solo si no hay productos) -->
+    <RelatedProducts :products="relatedProds" />
 
     <section class="section" style="padding-top:0">
       <div class="wrap">

@@ -8,9 +8,10 @@ import { createPendingOrder } from '../utils/orders'
 import type { InCartItem } from '../utils/orderItems'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string } }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
-  const order = await createPendingOrder(event, items, 'whatsapp', body?.gift)
-  return { ok: true, orderId: order.id }
+  // El cupón se re-valida y el descuento se recalcula server-side dentro de createPendingOrder.
+  const order = await createPendingOrder(event, items, 'whatsapp', body?.gift, body?.coupon)
+  return { ok: true, orderId: order.id, total: order.total, discount: order.discount, couponCode: order.couponCode }
 })

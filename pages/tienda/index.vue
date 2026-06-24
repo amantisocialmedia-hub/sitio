@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
-const { products, categories, peso } = useProducts()
+const { products, categories, peso, subcatBySlug } = useProducts()
 
 const selectedCats = ref<string[]>([])
+const selectedSub = ref('') // subcategoría activa (slug), p.ej. ?sub=bala-vibradora
 const onlyAmanti = ref(false)
 const priceMin = ref<number | null>(null)
 const priceMax = ref<number | null>(null)
@@ -11,7 +12,7 @@ const q = ref('')
 const quick = ref('') // chip rápido: '' | 'top' | 'nuevos'
 const showFilters = ref(false) // toggle de filtros en móvil (en desktop el aside siempre se muestra)
 
-function setQuick(v: string) { quick.value = quick.value === v ? '' : v }
+function setQuick(v: string) { selectedSub.value = ''; quick.value = quick.value === v ? '' : v }
 
 // Bloquea el scroll del fondo mientras el bottom-sheet de filtros está abierto (móvil).
 watch(showFilters, (v) => { if (import.meta.client) document.body.style.overflow = v ? 'hidden' : '' })
@@ -20,10 +21,14 @@ onBeforeUnmount(() => { if (import.meta.client) document.body.style.overflow = '
 // La marca casa real es 'AMANTI Select' (el resto son marcas de fabricante).
 const amantiCount = computed(() => products.filter(p => p.brand === 'AMANTI Select').length)
 
-// Sincroniza con la URL (?cat= / ?sale= / ?q=)
+// Sincroniza con la URL (?cat= / ?sub= / ?q=)
 function syncFromRoute() {
   const cat = route.query.cat as string | undefined
-  selectedCats.value = cat ? [cat] : []
+  const sub = (route.query.sub as string) || ''
+  selectedSub.value = sub
+  // Si llega ?sub= sin ?cat=, deriva la categoría desde la subcategoría.
+  const subCat = sub ? subcatBySlug(sub)?.category : undefined
+  selectedCats.value = cat ? [cat] : (subCat ? [subCat] : [])
   q.value = (route.query.q as string) || ''
 }
 syncFromRoute()
@@ -38,6 +43,11 @@ const counts = computed(() => {
 const filtered = computed(() => {
   let list = products.slice()
   if (selectedCats.value.length) list = list.filter(p => selectedCats.value.includes(p.category))
+  // Filtro de subcategoría: muestra SOLO los productos de esa subcategoría (no toda la categoría).
+  if (selectedSub.value) {
+    const sub = subcatBySlug(selectedSub.value)
+    if (sub) list = list.filter(p => matchesSub(p, sub))
+  }
   if (onlyAmanti.value) list = list.filter(p => p.brand === 'AMANTI Select')
   if (quick.value === 'top') list = list.filter(p => p.hot)
   if (quick.value === 'nuevos') list = list.filter(p => p.featured)
@@ -60,6 +70,10 @@ const filtered = computed(() => {
 
 const title = computed(() => {
   if (q.value) return `Resultados: “${q.value}”`
+  if (selectedSub.value) {
+    const sub = subcatBySlug(selectedSub.value)
+    if (sub) return sub.label
+  }
   if (selectedCats.value.length === 1) return categories.find(c => c.slug === selectedCats.value[0])?.name || 'Tienda'
   return 'Juguetes Sexuales'
 })
@@ -83,12 +97,13 @@ useSeoMeta({
 })
 
 function toggleCat(slug: string) {
+  selectedSub.value = '' // al tocar categorías manualmente, sale del filtro de subcategoría
   selectedCats.value = selectedCats.value.includes(slug)
     ? selectedCats.value.filter(s => s !== slug)
     : [...selectedCats.value, slug]
 }
 function clearAll() {
-  selectedCats.value = []; onlyAmanti.value = false; quick.value = ''
+  selectedCats.value = []; selectedSub.value = ''; onlyAmanti.value = false; quick.value = ''
   priceMin.value = null; priceMax.value = null; q.value = ''
 }
 

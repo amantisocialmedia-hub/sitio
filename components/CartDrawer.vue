@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { FREE_SHIPPING_THRESHOLD } from '~/stores/cart'
 const cart = useCartStore()
 const { peso } = useProducts()
 const { open, openCart, closeCart } = useCartUI()
 
-const FREE = 799
-const remaining = computed(() => Math.max(0, FREE - cart.totalPrice))
-const pct = computed(() => Math.min(100, (cart.totalPrice / FREE) * 100))
+// Umbral de envío gratis: fuente única en el store (mismo que /carrito).
+const remaining = computed(() => cart.freeShippingRemaining)
+const pct = computed(() => Math.min(100, (cart.totalPrice / FREE_SHIPPING_THRESHOLD) * 100))
 
 function onAdd() { cart.refreshPrices?.(); openCart() }
 function onKey(e: KeyboardEvent) { if (e.key === 'Escape') closeCart() }

@@ -17,7 +17,7 @@
 
     <h2>Costos de envío</h2>
     <ul>
-      <li><b>Envío gratis</b> en compras mayores a $999 MXN.</li>
+      <li><b>Envío gratis</b> en compras desde $1,000 MXN.</li>
       <li><b>Envío estándar:</b> $99 MXN.</li>
       <li><b>Envío express</b> (disponible): $199 MXN.</li>
     </ul>

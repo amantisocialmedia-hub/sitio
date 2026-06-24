@@ -59,6 +59,22 @@ test.describe('Artículo (/blog/iniciacion-anal)', () => {
     expect(await ul.count()).toBeGreaterThanOrEqual(1)
     await expect(ul.first()).toBeVisible()
 
+    // Carrusel de productos relacionados al final del artículo: título de marca + 3–8 cards.
+    const related = page.locator('.related-products')
+    await expect(related).toBeVisible()
+    await expect(related.locator('.rp-title')).toHaveText('Productos para ti')
+    const relCards = related.locator('.pcard')
+    const n = await relCards.count()
+    expect(n).toBeGreaterThanOrEqual(3)
+    expect(n).toBeLessThanOrEqual(8)
+    // Va después del contenido del artículo (en el orden del DOM).
+    const order = await page.evaluate(() => {
+      const art = document.querySelector('article.blogprose')
+      const rel = document.querySelector('.related-products')
+      return art && rel ? (art.compareDocumentPosition(rel) & Node.DOCUMENT_POSITION_FOLLOWING) !== 0 : false
+    })
+    expect(order).toBe(true)
+
     // Sin errores de página (excepciones JS no controladas)
     expect(pageErrors).toEqual([])
 

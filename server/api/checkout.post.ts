@@ -15,12 +15,13 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'MP token missing', message: 'Falta configurar el token de MercadoPago (NUXT_MP_ACCESS_TOKEN).' })
   }
 
-  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string } }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
 
-  // 1) Order pending + items (con la service_role; user_id si hay sesión)
-  const order = await createPendingOrder(event, items, 'mercadopago', body?.gift)
+  // 1) Order pending + items (con la service_role; user_id si hay sesión). El cupón se
+  //    re-valida y el descuento se recalcula server-side; el total del order ya viene con descuento.
+  const order = await createPendingOrder(event, items, 'mercadopago', body?.gift, body?.coupon)
 
   const base = config.public.publicBaseUrl
   try {
@@ -32,7 +33,13 @@ export default defineEventHandler(async (event) => {
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: {
           // Precios AUTORITATIVOS resueltos en el servidor (no el price del cliente).
-          items: order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' })),
+          // El total de la preferencia (suma de líneas) DEBE reflejar el descuento. MP rechaza
+          // unit_price <= 0, así que en vez de una línea negativa "recalculamos": cuando hay
+          // cupón, mandamos UNA línea con el total YA con descuento (suma exacta, sin rechazos).
+          // El detalle por producto vive en order_items (fuente de verdad) ligado por external_reference.
+          items: order.discount > 0
+            ? [{ title: `Pedido AMANTI · cupón ${order.couponCode}`, quantity: 1, unit_price: order.total, currency_id: 'MXN' }]
+            : order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' })),
           external_reference: order.id,
           notification_url: `${base}/api/mp-webhook`,
           back_urls: {

@@ -34,7 +34,7 @@ test('tienda: filtrar por categoría y abrir una ficha', async ({ page }) => {
 
 test('agregar al carrito sube el badge y aparece en /carrito', async ({ page }) => {
   await page.goto('/tienda/vibrating-g')
-  await expect(page.locator('h1')).toContainText('Vibrating G')
+  await expect(page.locator('h1')).toContainText('Firmeza Vibrante')
 
   // el botón de WhatsApp de la ficha apunta a wa.me con el número
   const waHref = await page.locator('a.btn.wa').getAttribute('href')
@@ -47,8 +47,8 @@ test('agregar al carrito sube el badge y aparece en /carrito', async ({ page }) 
 
   // ir al carrito
   await page.goto('/carrito')
-  await expect(page.getByText('Vibrating G').first()).toBeVisible()
-  await expect(page.locator('.sline.total')).toContainText('1,013')
+  await expect(page.getByText('Firmeza Vibrante').first()).toBeVisible()
+  await expect(page.locator('.sline.total')).toContainText('921')
 
   // botón de WhatsApp del pedido existe
   await expect(page.getByRole('button', { name: /Ordenar por WhatsApp/i })).toBeVisible()

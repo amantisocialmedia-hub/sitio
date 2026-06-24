@@ -53,7 +53,7 @@ useSeoMeta({
   <div class="wrap">
     <!-- benefit pills -->
     <div class="benefits">
-      <div class="b"><span class="e">🚚</span> Envíos Gratis &gt; $799</div>
+      <div class="b"><span class="e">🚚</span> Envíos Gratis desde $1,000</div>
       <div class="b"><span class="e">🕵️</span> 100% Discreto</div>
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>

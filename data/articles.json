@@ -2,6 +2,7 @@
   "articles": [
     {
       "slug": "guia-para-principiantes",
+      "relatedCategory": "vibradores",
       "title": "Guía para principiantes: tu primer juguete",
       "category": "Juguetes Sexuales",
       "emoji": "🔰",
@@ -81,6 +82,7 @@
     },
     {
       "slug": "lubricantes-101",
+      "relatedCategory": "lubricantes",
       "title": "Lubricantes 101: cuál elegir y por qué",
       "category": "Salud Sexual",
       "emoji": "💧",
@@ -154,6 +156,7 @@
     },
     {
       "slug": "limpieza-y-cuidado",
+      "relatedCategory": "vibradores",
       "title": "Cómo limpiar y cuidar tus juguetes",
       "category": "Salud Sexual",
       "emoji": "🧼",
@@ -241,6 +244,7 @@
     },
     {
       "slug": "juguetes-en-pareja",
+      "relatedCategory": "parejas",
       "title": "Juguetes en pareja: comunicación y juego",
       "category": "Relaciones y Amores",
       "emoji": "💞",
@@ -312,6 +316,7 @@
     },
     {
       "slug": "placer-sin-tabues",
+      "relatedCategory": "vibradores",
       "title": "Placer sin tabúes: rompiendo mitos",
       "category": "Estilo de Vida",
       "emoji": "✨",
@@ -387,6 +392,8 @@
     },
     {
       "slug": "juguetes-con-app",
+      "relatedProducts": ["tempo","juguetona-tressa"],
+      "relatedCategory": "vibradores",
       "title": "Juguetes con app: el futuro del placer",
       "category": "Tips Sexuales",
       "emoji": "📱",
@@ -470,6 +477,7 @@
     },
     {
       "slug": "conoce-tu-cuerpo",
+      "relatedCategory": "vibradores",
       "title": "Conoce tu cuerpo: un mapa del placer",
       "category": "Salud Sexual",
       "emoji": "🧭",
@@ -550,6 +558,8 @@
     },
     {
       "slug": "succionadores-vs-vibradores",
+      "relatedProducts": ["invincible-black","envy-handheld-suction","triple-infinity","tempo"],
+      "relatedCategory": "vibradores",
       "title": "Succionadores vs. vibradores: ¿cuál es para ti?",
       "category": "Juguetes Sexuales",
       "emoji": "💫",
@@ -627,6 +637,7 @@
     },
     {
       "slug": "iniciacion-anal",
+      "relatedCategory": "anal",
       "title": "Iniciación anal sin miedo: la guía completa",
       "category": "Tips Sexuales",
       "emoji": "🍑",
@@ -709,6 +720,7 @@
     },
     {
       "slug": "bdsm-principiantes",
+      "relatedCategory": "bdsm",
       "title": "BDSM para principiantes: confianza y consentimiento",
       "category": "Relaciones y Amores",
       "emoji": "🖤",
@@ -792,6 +804,7 @@
     },
     {
       "slug": "mitos-orgasmo",
+      "relatedCategory": "vibradores",
       "title": "Mitos y verdades sobre el orgasmo",
       "category": "Estilo de Vida",
       "emoji": "🔥",
@@ -870,6 +883,8 @@
     },
     {
       "slug": "regalar-un-juguete",
+      "relatedProducts": ["pleasure-couple-kit","neon-vibrating-couples-kit","classic-ultimate-pleasure-couple-kit"],
+      "relatedCategory": "parejas",
       "title": "Cómo regalar un juguete (sin que sea incómodo)",
       "category": "Estilo de Vida",
       "emoji": "🎁",
