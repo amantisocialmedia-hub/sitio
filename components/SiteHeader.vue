@@ -76,10 +76,14 @@ const megaBase = [
     label: 'Dildos', to: '/tienda?cat=dildos',
     items: ['Dildo Realista', 'Dildo Vibrador', 'Dildo Con Ventosa', 'Dildo Strap-On', 'Dildo Strapless', 'Dildo Control Remoto', 'Dildo Anal', 'Dildo Doble Penetración', 'Dildo Eyaculador', 'Dildo Hueco', 'Dildo De Cristal', 'Monster Dildo'],
   },
-  {
-    label: 'Lencería', to: '/tienda',
-    items: ['Disfraces', 'Femenina', 'Masculina', 'Trajes De Baño'],
-  },
+  // Lencería OCULTA del menú (QA jul-2026): la categoría no existe en el catálogo (0
+  // productos) y el rótulo mandaba a /tienda completa ("dildos bajo Lencería").
+  // Para reactivarla: descomentar cuando haya productos reales con category 'lenceria'
+  // (y dar de alta sus subcategorías en composables/useProducts.ts).
+  // {
+  //   label: 'Lencería', to: '/tienda',
+  //   items: ['Disfraces', 'Femenina', 'Masculina', 'Trajes De Baño'],
+  // },
   {
     label: 'Blog', to: '/blog', blog: true,
     items: ['Tips Sexuales', 'Salud Sexual', 'Juguetes Sexuales', 'Estilo De Vida', 'Relaciones Y Amores'],

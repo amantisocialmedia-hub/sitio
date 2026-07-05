@@ -86,7 +86,9 @@ export const subcategories: SubCategory[] = [
   { slug: 'vibrador-masajeador', label: 'Vibrador Masajeador', category: 'vibradores', keywords: ['masajeador'] },
   { slug: 'vibrador-parejas', label: 'Vibrador Para Parejas', category: 'parejas' },
   { slug: 'vibrador-succionador', label: 'Vibrador Con Succionador', category: 'vibradores', keywords: ['succion'] },
-  { slug: 'succionador-clitoris', label: 'Succionador De Clítoris', category: 'vibradores', keywords: ['clitoris'] },
+  // 'succionador' (no 'clitoris'): la palabra "clítoris" aparece en features de vibradores
+  // normales (p.ej. Salvajita Rosa) y los colaba en este submenú (QA jul-2026).
+  { slug: 'succionador-clitoris', label: 'Succionador De Clítoris', category: 'vibradores', keywords: ['succionador'] },
   { slug: 'vibradores-anales', label: 'Vibradores Anales', category: 'anal', keywords: ['vibra'] },
 
   // Tipos dentro de "Masturbadores".
