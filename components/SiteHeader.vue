@@ -151,6 +151,19 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
         <button class="burger" @click="drawerOpen = true" aria-label="Menú">☰</button>
       </div>
     </div>
+    <!-- Aviso del modo discreto: sin él, en móvil todo queda difuminado "sin explicación"
+         (QA). Vive dentro del nav sticky → siempre visible mientras el modo esté activo,
+         y tocarlo también desactiva. -->
+    <Transition name="dnote">
+      <button v-if="discreetOn" class="discreet-note" @click="toggleDiscreet" aria-label="Desactivar modo discreto">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M4 4l16 16" />
+        </svg>
+        <span role="status">Modo discreto activado — toca el ojo o aquí para volver</span>
+      </button>
+    </Transition>
   </header>
 
   <div v-if="showDiscreta" class="discreta">
