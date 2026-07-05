@@ -46,4 +46,36 @@ describe('catálogo (smoke)', () => {
     const empty = categories.filter(c => !products.some(p => p.category === c.slug))
     expect(empty.map(c => c.slug)).toEqual([])
   })
+
+  // --- Invariantes de datos que la UI asume (si fallan, la tienda degrada en silencio) ---
+
+  it('compareAt es 0 o mayor que price (si no, el badge "rebaja" miente)', () => {
+    const bad = products.filter(p => p.compareAt && p.compareAt <= p.price)
+    expect(bad.map(p => p.slug)).toEqual([])
+  })
+
+  it('todos tienen emoji y bg (el placeholder sin foto depende de ambos)', () => {
+    const bad = products.filter(p => !p.emoji || !p.bg)
+    expect(bad.map(p => p.slug)).toEqual([])
+  })
+
+  it('rating entre 1 y 5 (las estrellas se truncan a 5)', () => {
+    const bad = products.filter(p => !(p.rating >= 1 && p.rating <= 5))
+    expect(bad.map(p => p.slug)).toEqual([])
+  })
+
+  it('todos tienen brand, subtitle, descripción y al menos 1 característica', () => {
+    const bad = products.filter(p => !p.brand || !p.subtitle || !p.description || !(p.features || []).length)
+    expect(bad.map(p => p.slug)).toEqual([])
+  })
+
+  it('slugs en kebab-case URL-safe (van directo a /tienda/[slug])', () => {
+    const bad = products.filter(p => !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(p.slug))
+    expect(bad.map(p => p.slug)).toEqual([])
+  })
+
+  it('las imágenes viven bajo /products/ (contrato del smoke de archivos)', () => {
+    const bad = products.flatMap(p => (p.images || []).filter((i: string) => !i.startsWith('/products/')))
+    expect(bad).toEqual([])
+  })
 })
