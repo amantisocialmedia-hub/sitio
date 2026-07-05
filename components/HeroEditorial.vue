@@ -130,9 +130,9 @@ const bProd = computed(() => show.value[2])
   font-size: .9rem; font-weight: 600; color: var(--purple);
 }
 
-/* Modo discreto: difumina las fotos del banner */
-:global(html.discreet) .hm-img { filter: blur(12px); transition: filter .25s; }
-:global(html.discreet) .hm-pname { filter: blur(6px); transition: filter .25s; }
+/* Modo discreto: las reglas de blur del hero viven en main.css con las demás de
+   html.discreet — :global() a media selectora compilaba a `html.discreet{filter:...}`
+   y difuminaba la página COMPLETA (bug QA "pantalla vacía"). */
 
 @media (max-width: 760px) {
   .hmos {

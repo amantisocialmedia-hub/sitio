@@ -29,6 +29,23 @@ test.describe('Modo discreto — aviso visible y salida obvia', () => {
     await expect(page.locator('.discreet-note')).toHaveCount(0)
   })
 
+  test('difumina lo sensible pero NUNCA la página completa (bug :global del hero)', async ({ page }) => {
+    // La home carga el chunk de HeroEditorial, cuyo :global mal compilado emitía
+    // html.discreet{filter:blur(12px)} y difuminaba TODO el viewport.
+    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.locator('.discreet-btn').click()
+    await expect(page.locator('html')).toHaveClass(/discreet/)
+
+    const htmlFilter = await page.evaluate(() => getComputedStyle(document.documentElement).filter)
+    expect(htmlFilter).toBe('none') // la página NO se difumina completa
+
+    const imgFilter = await page.evaluate(() => {
+      const el = document.querySelector('.hm-img, .pimg')
+      return el ? getComputedStyle(el).filter : 'sin-imagen'
+    })
+    expect(imgFilter).toContain('blur') // lo sensible SÍ se difumina
+  })
+
   test('el modo persiste al recargar y el aviso sigue presente (también @390)', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
     await page.goto('/', { waitUntil: 'networkidle' })
