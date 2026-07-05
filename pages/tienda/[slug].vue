@@ -92,6 +92,45 @@ function lbStep(d: number) {
   if (!imgs?.length) return
   activeThumb.value = (activeThumb.value + d + imgs.length) % imgs.length
 }
+
+// Swipe táctil en la galería (móvil): navega entre fotos sin robar el scroll vertical
+// (touch-action:pan-y en CSS). Umbral y dominancia horizontal viven en utils/swipe.
+const swipeDir = ref(0) // dirección del último paso: 1 →, -1 ←, 0 = tap en miniatura (fundido)
+let swStart: { x: number; y: number } | null = null
+let swipedAt = 0
+
+function galStep(d: number) {
+  const imgs = product.value?.images
+  if (!imgs?.length) return
+  const next = stepIndex(activeThumb.value, d, imgs.length)
+  if (next === null) return // sin loop: en el extremo el gesto no navega
+  swipeDir.value = d
+  activeThumb.value = next
+}
+function onGalDown(e: PointerEvent) {
+  if (e.pointerType === 'mouse' || (product.value?.images?.length ?? 0) < 2) return
+  swStart = { x: e.clientX, y: e.clientY }
+  // Captura: el gesto termina en nuestro handler aunque el dedo salga de la imagen.
+  ;(e.currentTarget as HTMLElement | null)?.setPointerCapture?.(e.pointerId)
+}
+function onGalUp(e: PointerEvent) {
+  if (!swStart) return
+  const d = swipeStep(e.clientX - swStart.x, e.clientY - swStart.y)
+  swStart = null
+  if (!d) return
+  swipedAt = Date.now()
+  galStep(d)
+}
+function onGalCancel() { swStart = null } // el navegador tomó el gesto (scroll vertical)
+function openLightbox() {
+  if (!product.value?.images?.length) return
+  if (Date.now() - swipedAt < 350) return // el click fantasma tras un swipe no abre el lightbox
+  lightbox.value = true
+}
+function pickThumb(i: number) {
+  swipeDir.value = 0
+  activeThumb.value = i
+}
 // Specs como chips: icono por palabra clave.
 const specIcon = (f: string) => {
   const t = f.toLowerCase()
@@ -111,6 +150,8 @@ const specIcon = (f: string) => {
 watch(() => route.params.slug, () => {
   qty.value = 1
   activeThumb.value = 0
+  swipeDir.value = 0
+  swStart = null
   added.value = false
   tab.value = 'desc'
   lightbox.value = false
@@ -247,8 +288,8 @@ useSeoMeta({
         <!-- gallery -->
         <div class="gallery">
           <div class="main" :class="{ zoomable: product.images?.length }" :style="{ background: product.bg }"
-               @click="product.images?.length && (lightbox = true)">
-            <Transition name="gfade" mode="out-in">
+               @click="openLightbox" @pointerdown="onGalDown" @pointerup="onGalUp" @pointercancel="onGalCancel">
+            <Transition :name="swipeDir ? (swipeDir > 0 ? 'gslide-l' : 'gslide-r') : 'gfade'" mode="out-in">
               <NuxtImg v-if="product.images?.length" :key="activeThumb" :src="product.images[Math.min(activeThumb, product.images.length - 1)]"
                    :alt="product.name" class="gimg" format="webp" width="800" height="800"
                    sizes="(max-width:760px) 100vw, 520px" loading="eager" fetchpriority="high" preload />
@@ -256,17 +297,22 @@ useSeoMeta({
             </Transition>
             <span v-if="onSale" class="pbadge">rebaja</span>
             <span v-if="product.images?.length" class="zoom-hint" aria-hidden="true">🔍 Ampliar</span>
+            <!-- Dots: indicador de foto activa, sincronizado con swipe/miniaturas/lightbox -->
+            <div v-if="(product.images?.length || 0) > 1" class="gdots" aria-hidden="true">
+              <span v-for="(img, i) in product.images" :key="img" class="gd"
+                    :class="{ on: i === Math.min(activeThumb, product.images.length - 1) }" />
+            </div>
           </div>
           <div class="thumbs">
             <template v-if="product.images?.length">
               <div v-for="(img, i) in product.images.slice(0, 4)" :key="img" class="t"
-                   :class="{ active: activeThumb === i }" @click="activeThumb = i">
+                   :class="{ active: activeThumb === i }" @click="pickThumb(i)">
                 <NuxtImg :src="img" :alt="`${product.name} ${i + 1}`" class="gimg" format="webp" width="150" height="150" loading="lazy" />
               </div>
             </template>
             <template v-else>
               <div v-for="i in 3" :key="i" class="t" :class="{ active: activeThumb === i - 1 }"
-                   :style="{ background: product.bg }" @click="activeThumb = i - 1">{{ product.emoji }}</div>
+                   :style="{ background: product.bg }" @click="pickThumb(i - 1)">{{ product.emoji }}</div>
             </template>
           </div>
         </div>

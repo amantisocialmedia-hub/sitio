@@ -345,6 +345,13 @@ html.discreet .sr-th img{filter:blur(10px)}
 .gallery .gimg{width:100%;height:100%;object-fit:cover;display:block}
 .gallery .main .gimg{border-radius:12px}
 .gallery .thumbs .t{overflow:hidden}
+/* Swipe táctil: pan-y deja el scroll vertical al navegador; el gesto horizontal navega
+   las fotos (pages/tienda/[slug]). Los dots son el indicador sincronizado de foto activa. */
+.gallery .main{touch-action:pan-y pinch-zoom}
+.gallery .main .gimg{-webkit-user-drag:none;user-select:none}
+.gdots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:6px;pointer-events:none}
+.gdots .gd{width:7px;height:7px;border-radius:50%;background:rgba(46,13,26,.22);transition:background .2s,transform .2s}
+.gdots .gd.on{background:var(--magenta);transform:scale(1.2)}
 .pdp-info h1{font-size:clamp(1.6rem,3.5vw,2.2rem)}
 .pdp-info .sub{font-family:var(--fh);color:var(--purple);font-weight:600;font-size:1.15rem;margin-top:10px}
 .pdp-info .brand{font-size:.92rem;margin:6px 0 4px;color:var(--ink)}
@@ -711,6 +718,13 @@ html.discreet .sr-th img{filter:blur(10px)}
 .gfade-enter-active{transition:opacity .28s ease,transform .28s var(--ease-out)}
 .gfade-enter-from{opacity:0;transform:scale(1.03)}
 .gfade-leave-active{transition:opacity .14s ease}.gfade-leave-to{opacity:0}
+/* Swipe de la galería: deslizamiento direccional (gslide-l = siguiente, gslide-r = anterior) */
+.gslide-l-enter-active,.gslide-r-enter-active{transition:opacity .26s ease,transform .3s var(--ease-out)}
+.gslide-l-leave-active,.gslide-r-leave-active{transition:opacity .15s ease,transform .15s ease}
+.gslide-l-enter-from{opacity:0;transform:translateX(46px)}
+.gslide-l-leave-to{opacity:0;transform:translateX(-36px)}
+.gslide-r-enter-from{opacity:0;transform:translateX(-46px)}
+.gslide-r-leave-to{opacity:0;transform:translateX(36px)}
 .tabf-enter-active{transition:opacity .25s ease,transform .3s var(--ease-out)}
 .tabf-enter-from{opacity:0;transform:translateY(6px)}
 .tabf-leave-active{transition:opacity .12s ease}.tabf-leave-to{opacity:0}
