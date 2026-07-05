@@ -7,11 +7,14 @@ const SLUG = '/tienda/conejo-travieso'
 
 test.use({ hasTouch: true, viewport: { width: 390, height: 844 } })
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // El WelcomeModal sale por timer y su overlay intercepta el tap del final
+  // (carrera modal vs duración del test) → se marca como ya visto.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 /** Gesto táctil horizontal real (CDP) sobre la imagen principal de la galería.
