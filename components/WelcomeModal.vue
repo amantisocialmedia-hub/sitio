@@ -5,6 +5,20 @@
 const supabase = useSupabaseClient()
 const COUPON = 'AMANTI15'
 
+// "Ya visto" en COOKIE además de localStorage: los navegadores in-app (WhatsApp/Instagram) y el
+// modo privado suelen borrar localStorage entre visitas, por eso el modal "seguía pidiendo el
+// correo" aunque ya se hubiera dado (reporte de Raúl, jul-2026). La cookie sobrevive mejor.
+const welcomeSeen = useCookie<string | null>('amanti_welcome_seen', {
+  maxAge: 60 * 60 * 24 * 180, // ~180 días
+  sameSite: 'lax',
+  path: '/',
+})
+// Marca el modal como visto en los dos almacenes (cookie + localStorage).
+function markSeen() {
+  welcomeSeen.value = '1'
+  try { localStorage.setItem('amanti_welcome_seen', '1') } catch {}
+}
+
 const show = ref(false)
 const done = ref(false)
 const email = ref('')
@@ -15,19 +29,20 @@ const emailOk = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)
 
 function close() {
   show.value = false
-  try { localStorage.setItem('amanti_welcome_seen', '1') } catch {}
+  markSeen()
 }
 function onKey(e: KeyboardEvent) { if (e.key === 'Escape') close() }
 
 onMounted(() => {
   window.addEventListener('keydown', onKey)
-  let seen = false
-  try { seen = localStorage.getItem('amanti_welcome_seen') === '1' } catch {}
+  // Con que la cookie O localStorage marquen "visto", no se vuelve a mostrar.
+  let seen = welcomeSeen.value === '1'
+  try { if (localStorage.getItem('amanti_welcome_seen') === '1') seen = true } catch {}
   if (seen) return
   setTimeout(() => {
     const ageOk = document.cookie.includes('amanti_age_ok=1')
-    let stillUnseen = true
-    try { stillUnseen = localStorage.getItem('amanti_welcome_seen') !== '1' } catch {}
+    let stillUnseen = welcomeSeen.value !== '1'
+    try { if (localStorage.getItem('amanti_welcome_seen') === '1') stillUnseen = false } catch {}
     if (ageOk && stillUnseen) show.value = true
   }, 6000)
 })
@@ -41,7 +56,8 @@ async function submit() {
   busy.value = true
   try { await supabase.from('leads').insert({ email: email.value.trim(), source: 'welcome_modal' }) } catch { /* tabla puede no existir aún */ }
   busy.value = false
-  try { localStorage.setItem('amanti_welcome_seen', '1'); localStorage.setItem('amanti_email', email.value.trim()) } catch {}
+  markSeen()
+  try { localStorage.setItem('amanti_email', email.value.trim()) } catch {}
   done.value = true
 }
 async function copyCoupon() {
@@ -57,7 +73,7 @@ async function copyCoupon() {
           <div class="wmodal-bg" @click="close"></div>
           <div class="wmodal">
             <button class="wm-x" @click="close" aria-label="Cerrar">✕</button>
-            <div class="wm-logo">amanti</div>
+            <div class="wm-logo" role="img" aria-label="AMANTI"></div>
 
             <template v-if="!done">
               <h3>Únete al círculo AMANTI</h3>
@@ -89,7 +105,7 @@ async function copyCoupon() {
 .wmodal { position: relative; width: 100%; max-width: 420px; background: #fff; border-radius: 20px; padding: 34px 30px 30px; text-align: center; box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .6); }
 .wm-x { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 1rem; color: #b9a39a; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; }
 .wm-x:hover { background: var(--lav2); color: var(--purple); }
-.wm-logo { font-family: var(--fs); font-size: 2rem; color: var(--magenta); margin-bottom: 8px; }
+.wm-logo { width: 96px; height: 51px; margin: 0 auto 12px; background-color: var(--purple); -webkit-mask: url(/brand/isotipo.svg) no-repeat center/contain; mask: url(/brand/isotipo.svg) no-repeat center/contain; }
 .wmodal h3 { font-size: 1.55rem; margin: 0 0 8px; }
 .wm-sub { opacity: .8; font-size: .96rem; line-height: 1.5; margin: 0 0 18px; }
 .wm-form { display: grid; gap: 10px; }

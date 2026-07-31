@@ -64,11 +64,8 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'manifest', href: '/manifest.webmanifest' },
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        {
-          rel: 'icon',
-          type: 'image/svg+xml',
-          href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='31' fill='%235E1B33'/><text x='32' y='46' font-family='Georgia,serif' font-size='40' fill='white' text-anchor='middle'>a</text></svg>",
-        },
+        { rel: 'icon', type: 'image/svg+xml', href: '/brand/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/brand/favicon-32.png' },
         {
           // Carga no bloqueante: se baja con prioridad baja y se aplica al cargar
           // (display=swap evita FOIT; el fallback serif cubre el instante previo).
@@ -93,6 +90,10 @@ export default defineNuxtConfig({
     mpAccessToken: '',
     // privado (servidor) — NUXT_MP_WEBHOOK_SECRET (panel MP → Webhooks → secreto). Valida la firma HMAC.
     mpWebhookSecret: '',
+    // privado (servidor) — NUXT_STRIPE_SECRET_KEY (Stripe → Developers → API keys). sk_test_… (pruebas) o sk_live_… (real).
+    stripeSecretKey: '',
+    // privado (servidor) — NUXT_STRIPE_WEBHOOK_SECRET (Stripe → Developers → Webhooks → Signing secret, whsec_…). Valida la firma.
+    stripeWebhookSecret: '',
     // privado (servidor) — webhook del agente EROS en n8n. /api/chat hace de proxy (evita CORS,
     // oculta la URL al cliente). Sobreescribible por NUXT_N8N_CHAT_WEBHOOK.
     n8nChatWebhook: 'https://madebyhumano.app.n8n.cloud/webhook/amanti-chat',
@@ -104,6 +105,8 @@ export default defineNuxtConfig({
       siteUrl: 'https://amanti.mx',
       // NUXT_PUBLIC_PUBLIC_BASE_URL
       publicBaseUrl: 'http://localhost:3000',
+      // NUXT_PUBLIC_STRIPE_ENABLED — "1" para mostrar el botón "Pagar con tarjeta" (Stripe); vacío = oculto.
+      stripeEnabled: '',
     },
   },
 })

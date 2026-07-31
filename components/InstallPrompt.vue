@@ -27,7 +27,7 @@ function dismiss() {
   <ClientOnly>
     <Transition name="pwa">
       <div v-if="show" class="pwa-bar" role="dialog" aria-label="Instalar la app de AMANTI">
-        <span class="pwa-ic">amanti</span>
+        <span class="pwa-ic" aria-hidden="true"></span>
         <div class="pwa-txt">
           <b>Instala AMANTI</b>
           <span>Acceso directo, como una app 💜</span>
@@ -47,7 +47,7 @@ function dismiss() {
   box-shadow: 0 22px 46px -20px rgba(91, 27, 51, .5);
   display: flex; align-items: center; gap: 12px; padding: 11px 12px 11px 16px;
 }
-.pwa-ic { font-family: var(--fs); font-size: 1.5rem; color: var(--magenta); flex: none; }
+.pwa-ic { width: 46px; height: 25px; flex: none; background-color: var(--purple); -webkit-mask: url(/brand/isotipo.svg) no-repeat center/contain; mask: url(/brand/isotipo.svg) no-repeat center/contain; }
 .pwa-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.2; }
 .pwa-txt b { color: var(--purple); font-family: var(--fh); }
 .pwa-txt span { font-size: .78rem; color: #9b8579; }

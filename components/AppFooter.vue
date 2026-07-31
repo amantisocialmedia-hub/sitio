@@ -70,7 +70,10 @@ function suscribir() {
           </ul>
         </div>
         <div class="fbrand">
-          <div class="mark"><span>amanti</span></div>
+          <NuxtLink to="/" class="flogo" aria-label="AMANTI — Inicio">
+            <span class="flogo-iso" aria-hidden="true"></span>
+            <span class="flogo-word">AMANTI<span class="flogo-r" aria-hidden="true">®</span></span>
+          </NuxtLink>
           <p>Sex shop en México con juguetes sexuales para mujeres, hombres y parejas. Vibradores, succionadores, juguetes para parejas y más. Envíos discretos a todo el país.</p>
         </div>
       </div>

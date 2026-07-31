@@ -26,12 +26,29 @@ const discretaMsgs = [
 const discretaIdx = ref(0)
 let di: ReturnType<typeof setInterval>
 function onKey(e: KeyboardEvent) { if (e.key === 'Escape' && discreetOn.value) toggleDiscreet() }
+
+// Header estilo Cake: en móvil se esconde al bajar y reaparece al subir (así deja de tapar el
+// producto al hacer scroll — reporte de Raúl, jul-2026). Solo aplica en móvil (ver main.css).
+const navHidden = ref(false)
+let lastY = 0
+function onScroll() {
+  const y = window.scrollY || 0
+  if (y < 120) navHidden.value = false             // cerca del top: siempre visible
+  else if (y > lastY + 6) navHidden.value = true   // bajando → se esconde
+  else if (y < lastY - 6) navHidden.value = false  // subiendo → reaparece
+  lastY = y
+}
 onMounted(() => {
   initDiscreet()
   di = setInterval(() => { discretaIdx.value = (discretaIdx.value + 1) % discretaMsgs.length }, 4500)
   window.addEventListener('keydown', onKey)
+  window.addEventListener('scroll', onScroll, { passive: true })
 })
-onBeforeUnmount(() => { clearInterval(di); window.removeEventListener('keydown', onKey) })
+onBeforeUnmount(() => {
+  clearInterval(di)
+  window.removeEventListener('keydown', onKey)
+  window.removeEventListener('scroll', onScroll)
+})
 
 function goSearch() {
   drawerOpen.value = false
@@ -115,9 +132,12 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
 
 <template>
   <div class="strip0"></div>
-  <header class="nav">
+  <header class="nav" :class="{ 'nav--hidden': navHidden }">
     <div class="nav-in">
-      <NuxtLink to="/" class="logo"><span class="mark"><span>amanti</span></span></NuxtLink>
+      <NuxtLink to="/" class="logo" aria-label="AMANTI — Inicio">
+        <span class="logo-iso" aria-hidden="true"></span>
+        <span class="logo-word">AMANTI<span class="logo-r" aria-hidden="true">®</span></span>
+      </NuxtLink>
 
       <ul class="menu">
         <li v-for="m in mega" :key="m.label">
