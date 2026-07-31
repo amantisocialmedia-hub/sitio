@@ -176,7 +176,7 @@ watch(lightbox, (v) => {
 const waUrl = computed(() => {
   const p = product.value
   if (!p) return '#'
-  const msg = `¡Hola AMANTI! Me interesa el ${p.name} (${peso(p.price)}). ¿Me ayudan? 💜`
+  const msg = `¡Hola AMANTI! Me interesa el ${p.name} (${peso(p.price)}). ¿Me ayudan? 💜${waRef()}`
   return `https://wa.me/${config.public.whatsappPhone}?text=${encodeURIComponent(msg)}`
 })
 

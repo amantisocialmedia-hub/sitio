@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import productsData from '~/data/products.json'
 import { useAnalytics } from '~/composables/useAnalytics'
+import { waRef } from '~/utils/gclid'
 
 /** Umbral de envío gratis (MXN). Fuente única de verdad para carrito, drawer y textos.
  *  El envío gratis aplica con SUBTOTAL (no número de artículos) >= este monto. */
@@ -140,6 +141,9 @@ export const useCartStore = defineStore('cart', {
         msg += `\n`
       }
       msg += `\n¿Me ayudan a completar mi pedido? 🙌`
+      // Si la visita vino de un anuncio, la referencia del clic viaja en el mensaje: es
+      // la única forma de que Ads atribuya un pedido cerrado por chat.
+      msg += waRef()
       return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`
     },
   },

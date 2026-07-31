@@ -19,7 +19,7 @@ function enviar() {
   if (!mensaje.value.trim()) { error.value = 'Cuéntanos en qué te ayudamos.'; return }
   if (!acepta.value) { error.value = 'Debes aceptar los Términos y el Aviso de Privacidad.'; return }
   const text =
-    `¡Hola AMANTI! Soy ${nombre.value.trim()} (${correo.value.trim()}).\n\n${mensaje.value.trim()}`
+    `¡Hola AMANTI! Soy ${nombre.value.trim()} (${correo.value.trim()}).\n\n${mensaje.value.trim()}${waRef()}`
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener')
   enviado.value = true
 }

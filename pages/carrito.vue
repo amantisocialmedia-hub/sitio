@@ -11,7 +11,11 @@ const freeLeft = computed(() => cart.freeShippingRemaining)
 const freePct = computed(() => Math.min(100, Math.round((cart.totalPrice / FREE_SHIPPING_THRESHOLD) * 100)))
 
 const loading = ref(false)
+const stripeLoading = ref(false)
 const errorMsg = ref('')
+
+// Muestra el botón "Pagar con tarjeta" (Stripe) solo si NUXT_PUBLIC_STRIPE_ENABLED está activo.
+const stripeEnabled = computed(() => !!useRuntimeConfig().public.stripeEnabled)
 
 // --- Cupón de descuento ---
 const couponInput = ref('')
@@ -60,7 +64,9 @@ const status = computed(() => route.query.status as string | undefined)
 onMounted(() => {
   // Tras un pago aprobado: registra la compra (analítica) y vacía el carrito persistido.
   if (status.value === 'success') {
-    if (cart.items.length) analytics.purchase((route.query.order as string) || '', cart.totalPrice, cart.items)
+    // El valor reportado debe ser lo realmente cobrado (con cupón aplicado), no el
+    // subtotal: si no, GA4/Meta/Ads sobrestiman los ingresos y el ROAS.
+    if (cart.items.length) analytics.purchase((route.query.order as string) || '', cart.totalWithDiscount, cart.items)
     cart.clearCart()
   }
   // Sincroniza precios con el catálogo vigente (== lo que cobra el server).
@@ -82,6 +88,23 @@ async function checkout() {
     errorMsg.value = e?.data?.message || 'No se pudo iniciar el pago. Configura MercadoPago o usa WhatsApp.'
   } finally {
     loading.value = false
+  }
+}
+async function checkoutStripe() {
+  analytics.beginCheckout(cart.totalWithDiscount, cart.items)
+  errorMsg.value = ''
+  stripeLoading.value = true
+  try {
+    const res = await $fetch<{ url: string }>('/api/stripe-checkout', {
+      method: 'POST',
+      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
+    })
+    if (res?.url) window.location.href = res.url
+    else errorMsg.value = 'No se recibió el enlace de pago.'
+  } catch (e: any) {
+    errorMsg.value = e?.data?.message || 'No se pudo iniciar el pago con tarjeta.'
+  } finally {
+    stripeLoading.value = false
   }
 }
 async function orderWhatsApp() {
@@ -227,6 +250,9 @@ useHead({ title: 'Tu carrito — AMANTI' })
 
         <button class="btn magenta block" :disabled="loading" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar con MercadoPago' }}
+        </button>
+        <button v-if="stripeEnabled" class="btn block" style="background:var(--purple,#5E1B33);color:#fff" :disabled="stripeLoading" @click="checkoutStripe">
+          {{ stripeLoading ? 'Redirigiendo…' : 'Pagar con tarjeta 💳' }}
         </button>
         <button class="btn wa block" @click="orderWhatsApp">Ordenar por WhatsApp</button>
         <NuxtLink to="/tienda" class="btn light block">Seguir Comprando</NuxtLink>

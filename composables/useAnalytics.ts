@@ -2,6 +2,10 @@
 // No-op si los trackers no están cargados (sin consentimiento) — nunca lanza.
 interface Line { slug: string; name: string; price: number; quantity?: number; category?: string }
 
+// Acción de conversión "Compra" de Google Ads (la creó Emilio en la cuenta de Ads).
+// El id de la cuenta (AW-…) se configura en plugins/tracking.client.ts.
+const ADS_PURCHASE_CONVERSION = 'AW-17872915568/cKhmCNfc4NgcEPCYvMpC'
+
 function emit(gaEvent: string, gaParams: Record<string, any>, fbEvent: string, fbParams: Record<string, any>) {
   if (typeof window === 'undefined') return
   const w = window as any
@@ -35,11 +39,28 @@ export function useAnalytics() {
     'InitiateCheckout',
     { value, currency: 'MXN', num_items: items.reduce((s, i) => s + (i.quantity ?? 1), 0), content_ids: items.map(i => i.slug) },
   )
-  const purchase = (transactionId: string, value: number, items: Line[]) => emit(
-    'purchase',
-    { transaction_id: transactionId, currency: 'MXN', value, items: gaItems(items) },
-    'Purchase',
-    { value, currency: 'MXN', content_ids: items.map(i => i.slug), content_type: 'product' },
-  )
+  const purchase = (transactionId: string, value: number, items: Line[]) => {
+    emit(
+      'purchase',
+      { transaction_id: transactionId, currency: 'MXN', value, items: gaItems(items) },
+      'Purchase',
+      { value, currency: 'MXN', content_ids: items.map(i => i.slug), content_type: 'product' },
+    )
+    // Google Ads: además del purchase de GA4, la conversión de la cuenta de Ads.
+    // Lleva value + currency para que Ads calcule ROAS, y transaction_id para que no
+    // cuente dos veces si el cliente recarga la página de confirmación.
+    if (typeof window === 'undefined') return
+    const w = window as any
+    try {
+      if (typeof w.gtag === 'function') {
+        w.gtag('event', 'conversion', {
+          send_to: ADS_PURCHASE_CONVERSION,
+          value,
+          currency: 'MXN',
+          transaction_id: transactionId,
+        })
+      }
+    } catch {}
+  }
   return { viewItem, addToCart, beginCheckout, purchase }
 }

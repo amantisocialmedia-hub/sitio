@@ -1,7 +1,11 @@
 <script setup lang="ts">
 const cart = useCartStore()
 const config = useRuntimeConfig()
-const waUrl = `https://wa.me/${config.public.whatsappPhone}?text=${encodeURIComponent('¡Hola AMANTI! Tengo una duda 💜')}`
+const link = (ref_ = '') =>
+  `https://wa.me/${config.public.whatsappPhone}?text=${encodeURIComponent('¡Hola AMANTI! Tengo una duda 💜' + ref_)}`
+// Igual que en WhatsAppButton: el sufijo del clic de Ads se agrega ya en cliente.
+const waUrl = ref(link())
+onMounted(() => { waUrl.value = link(waRef()) })
 
 const cartBump = ref(false)
 let ct: ReturnType<typeof setTimeout>
