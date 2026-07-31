@@ -72,6 +72,20 @@ useSeoMeta({
     <PromoBanners />
   </div>
 
+  <!-- categorías (mosaico) — subido arriba para que las secciones se vean al ENTRAR, no hasta
+       el fondo (reporte de Raúl, jul-2026). -->
+  <section class="section" style="padding-top:34px">
+    <div class="wrap">
+      <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
+      <div class="mosaic">
+        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
+          <CategoryIcon :slug="c.slug" :emoji="c.emoji" />
+          <span class="lbl">{{ c.name }}</span>
+        </NuxtLink>
+      </div>
+    </div>
+  </section>
+
   <!-- mosaic -->
   <section class="section" style="padding-top:40px">
     <div class="wrap">
@@ -129,19 +143,6 @@ useSeoMeta({
           <NuxtLink to="/tienda" class="btn" style="margin-top:16px;background:#fff;color:var(--purple)">Comprar →</NuxtLink>
         </div>
         <span class="fe">✨</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- categorías (mosaico de color) -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
-      <div class="mosaic">
-        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
-          <CategoryIcon :slug="c.slug" :emoji="c.emoji" />
-          <span class="lbl">{{ c.name }}</span>
-        </NuxtLink>
       </div>
     </div>
   </section>

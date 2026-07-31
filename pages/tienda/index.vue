@@ -15,7 +15,13 @@ const showFilters = ref(false) // toggle de filtros en móvil (en desktop el asi
 function setQuick(v: string) { selectedSub.value = ''; quick.value = quick.value === v ? '' : v }
 
 // Bloquea el scroll del fondo mientras el bottom-sheet de filtros está abierto (móvil).
-watch(showFilters, (v) => { if (import.meta.client) document.body.style.overflow = v ? 'hidden' : '' })
+// Al CERRAR los filtros, vuelve al inicio para mostrar los resultados desde arriba (antes el
+// scroll quedaba hasta el fondo de la página tras filtrar — reporte de Raúl, jul-2026).
+watch(showFilters, (v) => {
+  if (!import.meta.client) return
+  document.body.style.overflow = v ? 'hidden' : ''
+  if (!v) window.scrollTo({ top: 0 })
+})
 onBeforeUnmount(() => { if (import.meta.client) document.body.style.overflow = '' })
 
 // La marca casa real es 'AMANTI Select' (el resto son marcas de fabricante).
@@ -33,6 +39,14 @@ function syncFromRoute() {
 }
 syncFromRoute()
 watch(() => route.query, syncFromRoute)
+
+// Al aplicar/cambiar un filtro (categoría, subcategoría, chip rápido o marca), regresa al inicio
+// de la página. Antes, al encoger la lista el scroll se quedaba hasta el fondo — "a veces te
+// manda hasta acá abajo" / "te regresa hasta mero abajo" (reporte de Raúl, jul-2026).
+watch(
+  () => [selectedCats.value.join(','), selectedSub.value, quick.value, onlyAmanti.value].join('|'),
+  () => { if (import.meta.client) nextTick(() => window.scrollTo({ top: 0 })) },
+)
 
 const counts = computed(() => {
   const m: Record<string, number> = {}
@@ -106,6 +120,14 @@ function clearAll() {
   selectedCats.value = []; selectedSub.value = ''; onlyAmanti.value = false; quick.value = ''
   priceMin.value = null; priceMax.value = null; q.value = ''
 }
+// Selección directa desde los chips de categoría siempre visibles: una categoría a la vez
+// (lo que el usuario espera al tocar "Vibradores", "Dildos", etc.).
+function pickCat(slug: string) {
+  selectedSub.value = ''
+  quick.value = ''
+  onlyAmanti.value = false
+  selectedCats.value = slug ? [slug] : []
+}
 
 // Vitrina del banner: hasta 5 productos reales de la categoría (o del catálogo si "todo").
 const bannerProducts = computed(() => {
@@ -121,6 +143,20 @@ const bannerProducts = computed(() => {
     <div class="breadcrumb">
       <NuxtLink to="/">AMANTI</NuxtLink><span class="sep">›</span><span>{{ title }}</span>
     </div>
+
+    <!-- Categorías SIEMPRE visibles (scroll horizontal). Antes solo vivían en el sidebar,
+         escondidas tras "Filtrar" en móvil → al entrar no se veían las secciones (reporte de
+         Raúl, jul-2026). Tocar una filtra al instante y vuelve arriba (ver watcher). -->
+    <nav class="catrow" aria-label="Categorías">
+      <button class="catchip" :class="{ on: !selectedCats.length && !selectedSub && !quick && !onlyAmanti }" @click="pickCat('')">✨ Todas</button>
+      <button
+        v-for="c in categories" :key="c.slug" class="catchip"
+        :class="{ on: selectedCats.length === 1 && selectedCats[0] === c.slug }"
+        @click="pickCat(c.slug)"
+      >
+        <span class="catchip-emo" aria-hidden="true">{{ c.emoji }}</span>{{ c.name }}
+      </button>
+    </nav>
 
     <section class="collbanner" v-reveal>
       <div class="cb-info">
@@ -218,3 +254,25 @@ const bannerProducts = computed(() => {
     </section>
   </div>
 </template>
+
+<style scoped>
+/* Fila de categorías siempre visible (chips con scroll horizontal en móvil). */
+.catrow {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 12px; margin: 0 0 4px;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.catrow::-webkit-scrollbar { display: none; }
+.catchip {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 15px; border-radius: 999px; border: 1px solid #E7D8CC;
+  background: #fff; color: var(--purple, #5E1B33);
+  font-family: inherit; font-weight: 600; font-size: .9rem; line-height: 1;
+  cursor: pointer; white-space: nowrap;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.catchip:hover { border-color: var(--magenta, #E8503A); }
+.catchip.on {
+  background: var(--purple, #5E1B33); color: #fff; border-color: var(--purple, #5E1B33);
+}
+.catchip-emo { font-size: 1.05rem; }
+</style>
