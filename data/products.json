@@ -75,7 +75,7 @@
     {
       "slug": "tiny-teasers-nubby",
       "name": "Mini Antojo Nubby",
-      "brand": "Bodywand",
+      "brand": "CalExotics",
       "category": "vibradores",
       "price": 501,
       "compareAt": 0,
@@ -103,7 +103,9 @@
       "images": [
         "/products/tiny-teasers-nubby_1.jpg",
         "/products/tiny-teasers-nubby_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable CalExotics — 3 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Incluye 3 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "venus-butterfly",
@@ -139,7 +141,9 @@
         "/products/venus-butterfly_3.jpg",
         "/products/venus-butterfly_4.jpg",
         "/products/venus-butterfly_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable CalExotics — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Fabricado en silicón. Incluye 10 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "frisky-finger-vibe-pink",
@@ -171,7 +175,9 @@
         "/products/frisky-finger-vibe-pink_3.jpg",
         "/products/frisky-finger-vibe-pink_4.jpg",
         "/products/frisky-finger-vibe-pink_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Frisky — Rosa",
+      "feedDescription": "Vibrador de uso personal en color rosa, marca Frisky. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "10x-bunny-slide",
@@ -206,7 +212,9 @@
         "/products/10x-bunny-slide_3.jpg",
         "/products/10x-bunny-slide_4.jpg",
         "/products/10x-bunny-slide_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Blush — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca Blush. Fabricado en silicón premium. Incluye 10 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "invincible-black",
@@ -244,7 +252,9 @@
         "/products/invincible-black_3.jpg",
         "/products/invincible-black_4.jpg",
         "/products/invincible-black_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable Invincible — Resistente al Agua, Negro",
+      "feedDescription": "Vibrador de uso personal en color negro, marca Invincible. Fabricado en silicón de grado médico. Es recargable por USB y resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "invincible-pink",
@@ -282,7 +292,9 @@
         "/products/invincible-pink_3.jpg",
         "/products/invincible-pink_4.jpg",
         "/products/invincible-pink_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Invincible — Resistente al Agua, Rosa",
+      "feedDescription": "Vibrador de uso personal en color rosa, marca Invincible. Fabricado en silicón. Es resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "envy-handheld-suction",
@@ -319,12 +331,14 @@
         "/products/envy-handheld-suction_3.jpg",
         "/products/envy-handheld-suction_4.jpg",
         "/products/envy-handheld-suction_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable Envy — 3 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca Envy. Incluye 3 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "tiny-teasers-bunny",
       "name": "Pequeña Traviesa",
-      "brand": "Bodywand",
+      "brand": "CalExotics",
       "category": "vibradores",
       "price": 501,
       "compareAt": 0,
@@ -350,7 +364,15 @@
         "Carga en solo 50 minutos",
         "Cable USB incluido."
       ],
-      "images": []
+      "images": [
+        "/products/tiny-teasers-bunny_1.jpg",
+        "/products/tiny-teasers-bunny_2.jpg",
+        "/products/tiny-teasers-bunny_3.jpg",
+        "/products/tiny-teasers-bunny_4.jpg",
+        "/products/tiny-teasers-bunny_5.jpg"
+      ],
+      "feedTitle": "Vibrador Recargable CalExotics con Conejo — 3 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Incluye 3 funciones de vibración. Es recargable por USB y resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "pacifica-bali",
@@ -387,7 +409,9 @@
         "/products/pacifica-bali_2.jpg",
         "/products/pacifica-bali_3.jpg",
         "/products/pacifica-bali_4.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Fabricado en silicón. Incluye 10 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "neon-xl-bullet",
@@ -417,7 +441,9 @@
       "images": [
         "/products/neon-xl-bullet_1.jpg",
         "/products/neon-xl-bullet_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Pipedream — Resistente al Agua",
+      "feedDescription": "Vibrador de uso personal, marca Pipedream. Es resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "contoured-g",
@@ -449,7 +475,9 @@
       ],
       "images": [
         "/products/contoured-g_1.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — Resistente al Agua",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Es resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lipstick-recharge-nude",
@@ -481,7 +509,9 @@
       "images": [
         "/products/lipstick-recharge-nude_1.jpg",
         "/products/lipstick-recharge-nude_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable CalExotics — Resistente al Agua, 10 Funciones, Nude",
+      "feedDescription": "Vibrador de uso personal en color nude, marca CalExotics. Incluye 10 funciones de vibración. Es recargable por USB y resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "hot-mess-rosa",
@@ -512,7 +542,9 @@
       ],
       "images": [
         "/products/hot-mess-rosa_1.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Hott Products — Rosa",
+      "feedDescription": "Vibrador de uso personal en color rosa, marca Hott Products. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "nelea-majestic",
@@ -544,7 +576,9 @@
         "/products/nelea-majestic_1.jpg",
         "/products/nelea-majestic_2.jpg",
         "/products/nelea-majestic_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CamToyz",
+      "feedDescription": "Vibrador de uso personal, marca CamToyz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "avery-majestic-pro",
@@ -576,7 +610,9 @@
         "/products/avery-majestic-pro_1.jpg",
         "/products/avery-majestic-pro_2.jpg",
         "/products/avery-majestic-pro_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CamToyz — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CamToyz. Incluye 10 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "bumble-bee-lolly",
@@ -606,7 +642,9 @@
       "images": [
         "/products/bumble-bee-lolly_1.jpg",
         "/products/bumble-bee-lolly_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CamToyz",
+      "feedDescription": "Vibrador de uso personal, marca CamToyz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lotus-bullet-vibrator-doble-motor",
@@ -637,7 +675,9 @@
         "/products/lotus-bullet-vibrator-doble-motor_1.jpg",
         "/products/lotus-bullet-vibrator-doble-motor_2.jpg",
         "/products/lotus-bullet-vibrator-doble-motor_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Lotus",
+      "feedDescription": "Vibrador de uso personal, marca Lotus. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "triple-infinity",
@@ -668,7 +708,9 @@
         "/products/triple-infinity_2.jpg",
         "/products/triple-infinity_3.jpg",
         "/products/triple-infinity_4.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Evolved",
+      "feedDescription": "Vibrador de uso personal, marca Evolved. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "mr-twister-blue",
@@ -706,7 +748,9 @@
         "/products/mr-twister-blue_1.jpg",
         "/products/mr-twister-blue_2.jpg",
         "/products/mr-twister-blue_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Pipedream — Azul",
+      "feedDescription": "Vibrador de uso personal en color azul, marca Pipedream. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "xl-dino-dick",
@@ -744,7 +788,9 @@
         "/products/xl-dino-dick_3.jpg",
         "/products/xl-dino-dick_4.jpg",
         "/products/xl-dino-dick_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Creature Cocks — Multicolor",
+      "feedDescription": "Dildo en color multicolor, marca Creature Cocks. Fabricado en silicón premium. Incluye base con ventosa y compatibilidad con arnés. Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "monstropus-2-0",
@@ -784,7 +830,9 @@
         "/products/monstropus-2-0_3.jpg",
         "/products/monstropus-2-0_4.jpg",
         "/products/monstropus-2-0_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo Recargable Creature Cocks — 3 Funciones, Verde",
+      "feedDescription": "Dildo en color verde, marca Creature Cocks. Incluye base con ventosa y 3 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ramming-hound",
@@ -825,7 +873,9 @@
         "/products/ramming-hound_3.jpg",
         "/products/ramming-hound_4.jpg",
         "/products/ramming-hound_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Creature Cocks — Resistente al Agua, 3 Funciones, Control Remoto",
+      "feedDescription": "Dildo, marca Creature Cocks. Fabricado en silicón premium. Incluye base con ventosa, control remoto y 3 funciones de vibración. Es resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "deluxe-dream-rider",
@@ -863,7 +913,9 @@
         "/products/deluxe-dream-rider_3.jpg",
         "/products/deluxe-dream-rider_4.jpg",
         "/products/deluxe-dream-rider_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo Recargable Creature Cocks — 3 Funciones, Multicolor",
+      "feedDescription": "Dildo en color multicolor, marca Creature Cocks. Incluye base con ventosa y 3 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "grim",
@@ -900,7 +952,9 @@
         "/products/grim_3.jpg",
         "/products/grim_4.jpg",
         "/products/grim_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Creature Cocks",
+      "feedDescription": "Dildo, marca Creature Cocks. Fabricado en silicón premium. Incluye base con ventosa y compatibilidad con arnés. Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "alienoid",
@@ -936,7 +990,9 @@
         "/products/alienoid_3.jpg",
         "/products/alienoid_4.jpg",
         "/products/alienoid_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Creature Cocks",
+      "feedDescription": "Dildo, marca Creature Cocks. Fabricado en silicón premium. Incluye base con ventosa y compatibilidad con arnés. Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "glow-in-the-dark-double-dildo-30-cm",
@@ -967,7 +1023,9 @@
       "images": [
         "/products/glow-in-the-dark-double-dildo-30-cm_1.jpg",
         "/products/glow-in-the-dark-double-dildo-30-cm_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 12\" RealRock",
+      "feedDescription": "Dildo, marca RealRock. Con longitud de 12\". Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "monster-dong-the-martian",
@@ -1002,7 +1060,9 @@
         "/products/monster-dong-the-martian_3.jpg",
         "/products/monster-dong-the-martian_4.jpg",
         "/products/monster-dong-the-martian_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Monster Dong — Resistente al Agua",
+      "feedDescription": "Dildo, marca Monster Dong. Fabricado en silicón premium. Incluye base con ventosa. Es resistente al agua. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "sabertooth-silicone-dildo",
@@ -1037,7 +1097,9 @@
         "/products/sabertooth-silicone-dildo_3.jpg",
         "/products/sabertooth-silicone-dildo_4.jpg",
         "/products/sabertooth-silicone-dildo_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo de Silicón Creature Cocks — Negro",
+      "feedDescription": "Dildo en color negro, marca Creature Cocks. Fabricado en silicón premium. Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "mephisto",
@@ -1070,7 +1132,9 @@
         "/products/mephisto_3.jpg",
         "/products/mephisto_4.jpg",
         "/products/mephisto_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7.3\" de Silicón Creature Cocks",
+      "feedDescription": "Dildo, marca Creature Cocks. Fabricado en silicón premium con longitud de 7.3\". Incluye base con ventosa y compatibilidad con arnés. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "feel-6-5",
@@ -1106,7 +1170,9 @@
         "/products/feel-6-5_2.jpg",
         "/products/feel-6-5_3.jpg",
         "/products/feel-6-5_4.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 6.5\" Feel",
+      "feedDescription": "Dildo, marca Feel. Con longitud de 6.5\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "nobu-pink",
@@ -1137,7 +1203,9 @@
         "/products/nobu-pink_1.jpg",
         "/products/nobu-pink_2.jpg",
         "/products/nobu-pink_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo Nobu",
+      "feedDescription": "Dildo, marca Nobu. Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "tailz-fox-tail-anal-plug",
@@ -1172,7 +1240,9 @@
         "/products/tailz-fox-tail-anal-plug_2.jpg",
         "/products/tailz-fox-tail-anal-plug_3.jpg",
         "/products/tailz-fox-tail-anal-plug_4.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal Tailz",
+      "feedDescription": "Juguete para estimulación anal, marca Tailz. Fabricado en vidrio. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "tailz-onyx-bunny-tail-anal-plug-black",
@@ -1205,7 +1275,9 @@
         "/products/tailz-onyx-bunny-tail-anal-plug-black_3.jpg",
         "/products/tailz-onyx-bunny-tail-anal-plug-black_4.jpg",
         "/products/tailz-onyx-bunny-tail-anal-plug-black_5.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal Tailz",
+      "feedDescription": "Juguete para estimulación anal, marca Tailz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ouch-metal-butt-plug-small",
@@ -1238,7 +1310,9 @@
         "/products/ouch-metal-butt-plug-small_3.jpg",
         "/products/ouch-metal-butt-plug-small_4.jpg",
         "/products/ouch-metal-butt-plug-small_5.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal Ouch! by Shots",
+      "feedDescription": "Juguete para estimulación anal, marca Ouch! by Shots. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "10x-triple-blast-vibrating-beads",
@@ -1276,7 +1350,9 @@
         "/products/10x-triple-blast-vibrating-beads_3.jpg",
         "/products/10x-triple-blast-vibrating-beads_4.jpg",
         "/products/10x-triple-blast-vibrating-beads_5.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal XR Brands — 10 Funciones",
+      "feedDescription": "Juguete para estimulación anal, marca XR Brands. Fabricado en silicón. Incluye 10 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ouch-metal-butt-plug-ruby-red",
@@ -1305,7 +1381,9 @@
         "/products/ouch-metal-butt-plug-ruby-red_1.jpg",
         "/products/ouch-metal-butt-plug-ruby-red_2.jpg",
         "/products/ouch-metal-butt-plug-ruby-red_3.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal Ouch! by Shots — Rojo",
+      "feedDescription": "Juguete para estimulación anal en color rojo, marca Ouch! by Shots. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "mega-ass-cleanser",
@@ -1335,7 +1413,9 @@
         "/products/mega-ass-cleanser_2.jpg",
         "/products/mega-ass-cleanser_3.jpg",
         "/products/mega-ass-cleanser_4.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal CleanStream",
+      "feedDescription": "Juguete para estimulación anal, marca CleanStream. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "introductory-bondage-kit-1-black-white",
@@ -1366,7 +1446,9 @@
         "/products/introductory-bondage-kit-1-black-white_3.jpg",
         "/products/introductory-bondage-kit-1-black-white_4.jpg",
         "/products/introductory-bondage-kit-1-black-white_5.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Ouch! by Shots — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro, marca Ouch! by Shots. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "introductory-bondage-kit-1-pink",
@@ -1397,7 +1479,9 @@
         "/products/introductory-bondage-kit-1-pink_1.jpg",
         "/products/introductory-bondage-kit-1-pink_2.jpg",
         "/products/introductory-bondage-kit-1-pink_3.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Ouch! by Shots — Rosa",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color rosa, marca Ouch! by Shots. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "inmovilizador-mango-corto",
@@ -1427,7 +1511,9 @@
         "/products/inmovilizador-mango-corto_2.jpg",
         "/products/inmovilizador-mango-corto_3.jpg",
         "/products/inmovilizador-mango-corto_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "inmovilizador-collar-esposas-antifaz-print",
@@ -1455,7 +1541,9 @@
       "images": [
         "/products/inmovilizador-collar-esposas-antifaz-print_1.jpg",
         "/products/inmovilizador-collar-esposas-antifaz-print_2.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "conjunto-inmovilizador-con-gancho-anal-y-mordaza",
@@ -1485,7 +1573,9 @@
         "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_2.jpg",
         "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_3.jpg",
         "/products/conjunto-inmovilizador-con-gancho-anal-y-mordaza_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "pleasure-wheel-scandal",
@@ -1516,7 +1606,9 @@
         "/products/pleasure-wheel-scandal_2.jpg",
         "/products/pleasure-wheel-scandal_3.jpg",
         "/products/pleasure-wheel-scandal_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Scandal",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles, marca Scandal. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "lace-eye-mask-princess-black-white",
@@ -1547,7 +1639,9 @@
         "/products/lace-eye-mask-princess-black-white_3.jpg",
         "/products/lace-eye-mask-princess-black-white_4.jpg",
         "/products/lace-eye-mask-princess-black-white_5.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "mancage-3-5-90-mm",
@@ -1576,7 +1670,9 @@
         "/products/mancage-3-5-90-mm_1.jpg",
         "/products/mancage-3-5-90-mm_2.jpg",
         "/products/mancage-3-5-90-mm_3.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM ManCage by Shots",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles, marca ManCage by Shots. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "temptasia-beginner-cuffs",
@@ -1608,7 +1704,9 @@
         "/products/temptasia-beginner-cuffs_2.jpg",
         "/products/temptasia-beginner-cuffs_3.jpg",
         "/products/temptasia-beginner-cuffs_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Temptasia by Blush — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro, marca Temptasia by Blush. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "temptasia-beginner-cuffs-rosa",
@@ -1638,7 +1736,9 @@
         "/products/temptasia-beginner-cuffs-rosa_2.jpg",
         "/products/temptasia-beginner-cuffs-rosa_3.jpg",
         "/products/temptasia-beginner-cuffs-rosa_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Temptasia by Blush — Rosa",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color rosa, marca Temptasia by Blush. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "inmovilizador-collar-esposas-antifaz-cebra",
@@ -1666,7 +1766,9 @@
       "images": [
         "/products/inmovilizador-collar-esposas-antifaz-cebra_1.jpg",
         "/products/inmovilizador-collar-esposas-antifaz-cebra_2.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "fetish-silicone-crop",
@@ -1696,7 +1798,9 @@
         "/products/fetish-silicone-crop_1.jpg",
         "/products/fetish-silicone-crop_2.jpg",
         "/products/fetish-silicone-crop_3.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Fetish",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles, marca Fetish. Fabricado en silicón. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "mordaza-ajustable-ball-gag",
@@ -1727,7 +1831,9 @@
         "/products/mordaza-ajustable-ball-gag_2.jpg",
         "/products/mordaza-ajustable-ball-gag_3.jpg",
         "/products/mordaza-ajustable-ball-gag_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Fetish",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles, marca Fetish. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "esposa-de-piel-con-cadena",
@@ -1757,7 +1863,9 @@
         "/products/esposa-de-piel-con-cadena_2.jpg",
         "/products/esposa-de-piel-con-cadena_3.jpg",
         "/products/esposa-de-piel-con-cadena_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "scandal-cuerda-10-m",
@@ -1787,7 +1895,9 @@
         "/products/scandal-cuerda-10-m_1.jpg",
         "/products/scandal-cuerda-10-m_2.jpg",
         "/products/scandal-cuerda-10-m_3.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Scandal",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles, marca Scandal. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "latigo-rhino-black",
@@ -1819,7 +1929,9 @@
         "/products/latigo-rhino-black_3.jpg",
         "/products/latigo-rhino-black_4.jpg",
         "/products/latigo-rhino-black_5.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM Rhino — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro, marca Rhino. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "conjunto-inmovilizador-barra-con-collar-y-esposas-black",
@@ -1847,7 +1959,10 @@
       "images": [
         "/products/conjunto-inmovilizador-barra-con-collar-y-esposas-black_1.jpg",
         "/products/conjunto-inmovilizador-barra-con-collar-y-esposas-black_2.jpg"
-      ]
+      ],
+      "feedId": "set-control-total-negro",
+      "feedTitle": "Kit BDSM — Negro",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles en color negro. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "fuete-mano-corazon-clasico",
@@ -1878,7 +1993,9 @@
         "/products/fuete-mano-corazon-clasico_2.jpg",
         "/products/fuete-mano-corazon-clasico_3.jpg",
         "/products/fuete-mano-corazon-clasico_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "pleasure-couple-kit",
@@ -1908,7 +2025,9 @@
       ],
       "images": [
         "/products/pleasure-couple-kit_1.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas CalExotics — Morado",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja en color morado, marca CalExotics. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "duo-vibrating-super-ring",
@@ -1939,7 +2058,9 @@
       ],
       "images": [
         "/products/duo-vibrating-super-ring_1.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas Fantasy C-Ringz",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja, marca Fantasy C-Ringz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "classic-ultimate-pleasure-couple-kit",
@@ -1971,7 +2092,9 @@
         "/products/classic-ultimate-pleasure-couple-kit_2.jpg",
         "/products/classic-ultimate-pleasure-couple-kit_3.jpg",
         "/products/classic-ultimate-pleasure-couple-kit_4.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas CalExotics — Rosa",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja en color rosa, marca CalExotics. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "gripmaster-stroker",
@@ -2002,7 +2125,9 @@
         "/products/gripmaster-stroker_3.jpg",
         "/products/gripmaster-stroker_4.jpg",
         "/products/gripmaster-stroker_5.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino Gripmaster",
+      "feedDescription": "Estimulador masculino, marca Gripmaster. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "swirls-sleeve",
@@ -2037,7 +2162,9 @@
         "/products/swirls-sleeve_3.jpg",
         "/products/swirls-sleeve_4.jpg",
         "/products/swirls-sleeve_5.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino",
+      "feedDescription": "Estimulador masculino. Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ultimate-stud-extender",
@@ -2067,7 +2194,9 @@
         "/products/ultimate-stud-extender_1.jpg",
         "/products/ultimate-stud-extender_2.jpg",
         "/products/ultimate-stud-extender_3.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino CalExotics",
+      "feedDescription": "Estimulador masculino, marca CalExotics. Fabricado en TPE. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "donut-rings-set-de-3",
@@ -2098,7 +2227,9 @@
         "/products/donut-rings-set-de-3_1.jpg",
         "/products/donut-rings-set-de-3_2.jpg",
         "/products/donut-rings-set-de-3_3.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino",
+      "feedDescription": "Estimulador masculino. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "cock-sleeve-06",
@@ -2126,7 +2257,9 @@
       ],
       "images": [
         "/products/cock-sleeve-06_1.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino",
+      "feedDescription": "Estimulador masculino. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "cock-sleeve-04",
@@ -2156,7 +2289,9 @@
         "/products/cock-sleeve-04_1.jpg",
         "/products/cock-sleeve-04_2.jpg",
         "/products/cock-sleeve-04_3.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino",
+      "feedDescription": "Estimulador masculino. Es libre de ftalatos. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "vibrating-silicone-strap-on-black",
@@ -2191,7 +2326,9 @@
         "/products/vibrating-silicone-strap-on-black_2.jpg",
         "/products/vibrating-silicone-strap-on-black_3.jpg",
         "/products/vibrating-silicone-strap-on-black_4.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo Recargable de Silicón — 10 Funciones, Negro",
+      "feedDescription": "Arnés ajustable con dildo removible en color negro. Fabricado en silicón de grado médico. Incluye 10 funciones de vibración. Es recargable por USB. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "arnes-md-ingles-con-dildo-vibrador",
@@ -2222,7 +2359,9 @@
         "/products/arnes-md-ingles-con-dildo-vibrador_3.jpg",
         "/products/arnes-md-ingles-con-dildo-vibrador_4.jpg",
         "/products/arnes-md-ingles-con-dildo-vibrador_5.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo",
+      "feedDescription": "Arnés ajustable con dildo removible. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "arnes-clasix-con-cinturones",
@@ -2250,7 +2389,9 @@
         "/products/arnes-clasix-con-cinturones_1.jpg",
         "/products/arnes-clasix-con-cinturones_2.jpg",
         "/products/arnes-clasix-con-cinturones_3.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo",
+      "feedDescription": "Arnés ajustable con dildo removible. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "silicone-stiffy",
@@ -2285,7 +2426,9 @@
         "/products/silicone-stiffy_2.jpg",
         "/products/silicone-stiffy_3.jpg",
         "/products/silicone-stiffy_4.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — 7 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Fabricado en silicón. Incluye 7 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "glow-vibes-pocket-high",
@@ -2319,7 +2462,9 @@
       "images": [
         "/products/glow-vibes-pocket-high_1.jpg",
         "/products/glow-vibes-pocket-high_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Recargable Blush — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca Blush. Incluye 10 funciones de vibración. Es recargable por USB y de funcionamiento silencioso. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "vibrating-g",
@@ -2350,7 +2495,9 @@
       "images": [
         "/products/vibrating-g_1.jpg",
         "/products/vibrating-g_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 6\" CalExotics",
+      "feedDescription": "Dildo, marca CalExotics. Con longitud de 6\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "tempo",
@@ -2388,7 +2535,9 @@
         "/products/tempo_1.jpg",
         "/products/tempo_2.jpg",
         "/products/tempo_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Honey Play Box — Control Remoto",
+      "feedDescription": "Vibrador de uso personal, marca Honey Play Box. Incluye control remoto. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "mister-happy-5-5",
@@ -2418,7 +2567,8 @@
       "images": [
         "/products/mister-happy-5-5_1.jpg",
         "/products/mister-happy-5-5_2.jpg"
-      ]
+      ],
+      "excludeFromFeed": true
     },
     {
       "slug": "magnus-7-5",
@@ -2453,7 +2603,9 @@
         "/products/magnus-7-5_1.jpg",
         "/products/magnus-7-5_2.jpg",
         "/products/magnus-7-5_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7.5\" Blush",
+      "feedDescription": "Dildo, marca Blush. Con longitud de 7.5\". Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lollicock-7-purple",
@@ -2486,7 +2638,9 @@
       "images": [
         "/products/lollicock-7-purple_1.jpg",
         "/products/lollicock-7-purple_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7\" de Silicón Curve Toys — Morado",
+      "feedDescription": "Dildo en color morado, marca Curve Toys. Fabricado en silicón con longitud de 7\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "unicorn-tails-rainbow",
@@ -2518,7 +2672,9 @@
         "/products/unicorn-tails-rainbow_1.jpg",
         "/products/unicorn-tails-rainbow_2.jpg",
         "/products/unicorn-tails-rainbow_3.jpg"
-      ]
+      ],
+      "feedTitle": "Juguete Anal NS Novelties",
+      "feedDescription": "Juguete para estimulación anal, marca NS Novelties. Fabricado en silicón. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "hot-mess-purple",
@@ -2551,7 +2707,9 @@
         "/products/hot-mess-purple_1.jpg",
         "/products/hot-mess-purple_2.jpg",
         "/products/hot-mess-purple_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Hott Products — Morado",
+      "feedDescription": "Vibrador de uso personal en color morado, marca Hott Products. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lipstick-wireless-purple",
@@ -2582,7 +2740,9 @@
       "images": [
         "/products/lipstick-wireless-purple_1.jpg",
         "/products/lipstick-wireless-purple_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — 8 Funciones, Morado",
+      "feedDescription": "Vibrador de uso personal en color morado, marca CalExotics. Incluye 8 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "size-queen-8",
@@ -2614,7 +2774,9 @@
         "/products/size-queen-8_1.jpg",
         "/products/size-queen-8_2.jpg",
         "/products/size-queen-8_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 8\" CalExotics",
+      "feedDescription": "Dildo, marca CalExotics. Con longitud de 8\". Incluye base con ventosa y compatibilidad con arnés. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "sugar-baby-purple",
@@ -2643,7 +2805,9 @@
       "images": [
         "/products/sugar-baby-purple_1.jpg",
         "/products/sugar-baby-purple_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Blush — Morado",
+      "feedDescription": "Vibrador de uso personal en color morado, marca Blush. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "mr-twister-purple",
@@ -2679,7 +2843,9 @@
       "images": [
         "/products/mr-twister-purple_1.jpg",
         "/products/mr-twister-purple_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Pipedream — Morado",
+      "feedDescription": "Vibrador de uso personal en color morado, marca Pipedream. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "pink-leopard-mini",
@@ -2707,7 +2873,9 @@
       ],
       "images": [
         "/products/pink-leopard-mini_1.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — Rosa",
+      "feedDescription": "Vibrador de uso personal en color rosa, marca CalExotics. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "infinity-super-ring",
@@ -2733,7 +2901,9 @@
       ],
       "images": [
         "/products/infinity-super-ring_1.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas Fantasy C-Ringz",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja, marca Fantasy C-Ringz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "neon-vibrating-couples-kit",
@@ -2763,7 +2933,9 @@
       "images": [
         "/products/neon-vibrating-couples-kit_1.jpg",
         "/products/neon-vibrating-couples-kit_2.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas Pipedream",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja, marca Pipedream. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "intimate-pump-mini",
@@ -2795,7 +2967,9 @@
         "/products/intimate-pump-mini_1.jpg",
         "/products/intimate-pump-mini_2.jpg",
         "/products/intimate-pump-mini_3.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino CalExotics",
+      "feedDescription": "Estimulador masculino, marca CalExotics. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lollicock-7-pink",
@@ -2828,7 +3002,9 @@
       "images": [
         "/products/lollicock-7-pink_1.jpg",
         "/products/lollicock-7-pink_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7\" de Silicón Curve Toys",
+      "feedDescription": "Dildo, marca Curve Toys. Fabricado en silicón con longitud de 7\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "jock-6",
@@ -2863,7 +3039,8 @@
         "/products/jock-6_3.jpg",
         "/products/jock-6_4.jpg",
         "/products/jock-6_5.jpg"
-      ]
+      ],
+      "excludeFromFeed": true
     },
     {
       "slug": "jock-6-de-pared",
@@ -2890,7 +3067,9 @@
       "images": [
         "/products/jock-6-de-pared_1.jpg",
         "/products/jock-6-de-pared_2.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador 6\" Curve Toys",
+      "feedDescription": "Masturbador masculino, marca Curve Toys. Con longitud de 6\". Incluye base con ventosa. Es libre de ftalatos. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "colours-pleasure-8",
@@ -2924,7 +3103,9 @@
         "/products/colours-pleasure-8_3.jpg",
         "/products/colours-pleasure-8_4.jpg",
         "/products/colours-pleasure-8_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 8\" NS Novelties",
+      "feedDescription": "Dildo, marca NS Novelties. Con longitud de 8\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "dildo-colours-4-pleasures",
@@ -2954,7 +3135,9 @@
       "images": [
         "/products/dildo-colours-4-pleasures_1.jpg",
         "/products/dildo-colours-4-pleasures_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo NS Novelties",
+      "feedDescription": "Dildo, marca NS Novelties. Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "natural-real-skin-feel-7",
@@ -2989,7 +3172,9 @@
         "/products/natural-real-skin-feel-7_1.jpg",
         "/products/natural-real-skin-feel-7_2.jpg",
         "/products/natural-real-skin-feel-7_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7\" Blush",
+      "feedDescription": "Dildo, marca Blush. Con longitud de 7\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "vibrating-super-ring",
@@ -3017,7 +3202,9 @@
       ],
       "images": [
         "/products/vibrating-super-ring_1.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas Fantasy C-Ringz",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja, marca Fantasy C-Ringz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "private-tube-julia-de-lucia",
@@ -3049,7 +3236,9 @@
         "/products/private-tube-julia-de-lucia_2.jpg",
         "/products/private-tube-julia-de-lucia_3.jpg",
         "/products/private-tube-julia-de-lucia_4.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador Private",
+      "feedDescription": "Masturbador masculino, marca Private. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "private-personal-trainer",
@@ -3080,7 +3269,9 @@
         "/products/private-personal-trainer_3.jpg",
         "/products/private-personal-trainer_4.jpg",
         "/products/private-personal-trainer_5.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador Private",
+      "feedDescription": "Masturbador masculino, marca Private. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "cyclone-dual-chamber-stroker-xl",
@@ -3112,7 +3303,9 @@
         "/products/cyclone-dual-chamber-stroker-xl_1.jpg",
         "/products/cyclone-dual-chamber-stroker-xl_2.jpg",
         "/products/cyclone-dual-chamber-stroker-xl_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CalExotics — Transparente",
+      "feedDescription": "Masturbador masculino en color transparente, marca CalExotics. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "gender-x-clearly-combo",
@@ -3147,7 +3340,9 @@
         "/products/gender-x-clearly-combo_3.jpg",
         "/products/gender-x-clearly-combo_4.jpg",
         "/products/gender-x-clearly-combo_5.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador Gender X — Transparente",
+      "feedDescription": "Masturbador masculino en color transparente, marca Gender X. Incluye base con ventosa. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "sarah-s-sexy-mouth",
@@ -3181,7 +3376,9 @@
         "/products/sarah-s-sexy-mouth_3.jpg",
         "/products/sarah-s-sexy-mouth_4.jpg",
         "/products/sarah-s-sexy-mouth_5.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador SexFlesh",
+      "feedDescription": "Masturbador masculino, marca SexFlesh. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "vivid-raw-cock-tease",
@@ -3215,7 +3412,9 @@
         "/products/vivid-raw-cock-tease_3.jpg",
         "/products/vivid-raw-cock-tease_4.jpg",
         "/products/vivid-raw-cock-tease_5.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador Vivid",
+      "feedDescription": "Masturbador masculino, marca Vivid. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "private-suction-base",
@@ -3244,7 +3443,9 @@
         "/products/private-suction-base_1.jpg",
         "/products/private-suction-base_2.jpg",
         "/products/private-suction-base_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador Private",
+      "feedDescription": "Masturbador masculino, marca Private. Incluye base con ventosa. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "boundless-ftm-stroker",
@@ -3279,7 +3480,9 @@
         "/products/boundless-ftm-stroker_3.jpg",
         "/products/boundless-ftm-stroker_4.jpg",
         "/products/boundless-ftm-stroker_5.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CalExotics",
+      "feedDescription": "Masturbador masculino, marca CalExotics. Fabricado en silicón premium. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "elsie-pussy",
@@ -3312,7 +3515,9 @@
         "/products/elsie-pussy_1.jpg",
         "/products/elsie-pussy_2.jpg",
         "/products/elsie-pussy_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CamToyz — Resistente al Agua",
+      "feedDescription": "Masturbador masculino, marca CamToyz. Es resistente al agua. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "bella-pussy-azul",
@@ -3345,7 +3550,9 @@
         "/products/bella-pussy-azul_1.jpg",
         "/products/bella-pussy-azul_2.jpg",
         "/products/bella-pussy-azul_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CamToyz — Resistente al Agua",
+      "feedDescription": "Masturbador masculino, marca CamToyz. Es resistente al agua. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "bella-pussy-roja",
@@ -3378,7 +3585,9 @@
         "/products/bella-pussy-roja_1.jpg",
         "/products/bella-pussy-roja_2.jpg",
         "/products/bella-pussy-roja_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CamToyz — Rosa",
+      "feedDescription": "Masturbador masculino en color rosa, marca CamToyz. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "clear-stroke-twister",
@@ -3411,7 +3620,9 @@
         "/products/clear-stroke-twister_1.jpg",
         "/products/clear-stroke-twister_2.jpg",
         "/products/clear-stroke-twister_3.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador 5.25\" Icon Brands — Transparente",
+      "feedDescription": "Masturbador masculino en color transparente, marca Icon Brands. Con longitud de 5.25\". Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "huevo-masturbador-goggy",
@@ -3444,7 +3655,9 @@
       "images": [
         "/products/huevo-masturbador-goggy_1.jpg",
         "/products/huevo-masturbador-goggy_2.jpg"
-      ]
+      ],
+      "feedTitle": "Masturbador CamToyz",
+      "feedDescription": "Masturbador masculino, marca CamToyz. Fácil de limpiar. Se envía en empaque discreto sin logotipos."
     },
     {
       "slug": "sun-ring",
@@ -3473,7 +3686,9 @@
       "images": [
         "/products/sun-ring_1.jpg",
         "/products/sun-ring_2.jpg"
-      ]
+      ],
+      "feedTitle": "Kit para Parejas CamToyz",
+      "feedDescription": "Kit de juguetes para disfrutar en pareja, marca CamToyz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "admiral-erect-sta-hard-serum",
@@ -3504,7 +3719,9 @@
       "images": [
         "/products/admiral-erect-sta-hard-serum_1.jpg",
         "/products/admiral-erect-sta-hard-serum_2.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante CalExotics",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca CalExotics. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "super-load-delay-spray-10-ml",
@@ -3531,7 +3748,9 @@
       ],
       "images": [
         "/products/super-load-delay-spray-10-ml_1.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Doc Johnson — Control Remoto",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Doc Johnson. Incluye control remoto. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "fire-ant-delay-spray-10-ml",
@@ -3559,7 +3778,9 @@
       ],
       "images": [
         "/products/fire-ant-delay-spray-10-ml_1.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Hott Products",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Hott Products. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "sta-hard-crema-1-5-oz",
@@ -3589,7 +3810,9 @@
       "images": [
         "/products/sta-hard-crema-1-5-oz_1.jpg",
         "/products/sta-hard-crema-1-5-oz_2.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Doc Johnson",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Doc Johnson. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "sta-hard-crema-0-5-oz",
@@ -3618,7 +3841,9 @@
       ],
       "images": [
         "/products/sta-hard-crema-0-5-oz_1.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Doc Johnson",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Doc Johnson. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "extra-maximum-delay-lubricant",
@@ -3649,7 +3874,9 @@
       "images": [
         "/products/extra-maximum-delay-lubricant_1.jpg",
         "/products/extra-maximum-delay-lubricant_2.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Doc Johnson",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Doc Johnson. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "sunny-side-up-retardante-1-oz",
@@ -3677,7 +3904,9 @@
       "images": [
         "/products/sunny-side-up-retardante-1-oz_1.jpg",
         "/products/sunny-side-up-retardante-1-oz_2.jpg"
-      ]
+      ],
+      "feedTitle": "Retardante Sunny",
+      "feedDescription": "Producto retardante de uso íntimo externo, marca Sunny. Para uso externo; revisa el modo de empleo antes de usar."
     },
     {
       "slug": "lubricantes-sunny",
@@ -3712,7 +3941,9 @@
         "/products/lubricantes-sunny_3.jpg",
         "/products/lubricantes-sunny_4.jpg",
         "/products/lubricantes-sunny_5.jpg"
-      ]
+      ],
+      "feedTitle": "Lubricante Sunny",
+      "feedDescription": "Lubricante íntimo, marca Sunny. A base de agua, compatible con juguetes y preservativos."
     },
     {
       "slug": "fun-crystal-sets",
@@ -3742,7 +3973,9 @@
         "/products/fun-crystal-sets_3.jpg",
         "/products/fun-crystal-sets_4.jpg",
         "/products/fun-crystal-sets_5.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino Fun",
+      "feedDescription": "Estimulador masculino, marca Fun. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "crystal-set-vibration",
@@ -3773,7 +4006,9 @@
         "/products/crystal-set-vibration_2.jpg",
         "/products/crystal-set-vibration_3.jpg",
         "/products/crystal-set-vibration_4.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino Fun",
+      "feedDescription": "Estimulador masculino, marca Fun. Fabricado en silicón de grado médico. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ariel-bullet-vibrator",
@@ -3803,7 +4038,9 @@
         "/products/ariel-bullet-vibrator_1.jpg",
         "/products/ariel-bullet-vibrator_2.jpg",
         "/products/ariel-bullet-vibrator_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Fabricado en silicón. Es de funcionamiento silencioso. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "aselia-majestic-vibrator",
@@ -3833,7 +4070,9 @@
       ],
       "images": [
         "/products/aselia-majestic-vibrator_1.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CamToyz",
+      "feedDescription": "Vibrador de uso personal, marca CamToyz. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "bendie-stud-cliterrific",
@@ -3864,7 +4103,9 @@
         "/products/bendie-stud-cliterrific_1.jpg",
         "/products/bendie-stud-cliterrific_2.jpg",
         "/products/bendie-stud-cliterrific_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics — 3 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Incluye 3 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "betty-s-jelly-bumble-bee",
@@ -3895,7 +4136,9 @@
         "/products/betty-s-jelly-bumble-bee_2.jpg",
         "/products/betty-s-jelly-bumble-bee_3.jpg",
         "/products/betty-s-jelly-bumble-bee_4.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo Doc Johnson",
+      "feedDescription": "Arnés ajustable con dildo removible, marca Doc Johnson. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "conejo-travieso",
@@ -3935,7 +4178,9 @@
         "/products/conejo-travieso_3.jpg",
         "/products/conejo-travieso_4.jpg",
         "/products/conejo-travieso_5.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "denzel",
@@ -3968,7 +4213,9 @@
         "/products/denzel_2.jpg",
         "/products/denzel_3.jpg",
         "/products/denzel_4.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 8\" King Cock",
+      "feedDescription": "Dildo, marca King Cock. Con longitud de 8\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "dillio-6-strap-on",
@@ -3999,7 +4246,9 @@
         "/products/dillio-6-strap-on_1.jpg",
         "/products/dillio-6-strap-on_2.jpg",
         "/products/dillio-6-strap-on_3.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo Dillio (Pipedream)",
+      "feedDescription": "Arnés ajustable con dildo removible, marca Dillio (Pipedream). Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "dillio-7-strap-on",
@@ -4030,7 +4279,9 @@
         "/products/dillio-7-strap-on_1.jpg",
         "/products/dillio-7-strap-on_2.jpg",
         "/products/dillio-7-strap-on_3.jpg"
-      ]
+      ],
+      "feedTitle": "Arnés con Dildo 7\" Dillio (Pipedream)",
+      "feedDescription": "Arnés ajustable con dildo removible, marca Dillio (Pipedream). Con longitud de 7\". Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "ritual-fantasia",
@@ -4062,7 +4313,9 @@
         "/products/ritual-fantasia_1.jpg",
         "/products/ritual-fantasia_2.jpg",
         "/products/ritual-fantasia_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Pipedream",
+      "feedDescription": "Vibrador de uso personal, marca Pipedream. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "gem-vibe-bliss",
@@ -4095,7 +4348,9 @@
         "/products/gem-vibe-bliss_2.jpg",
         "/products/gem-vibe-bliss_3.jpg",
         "/products/gem-vibe-bliss_4.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa — 10 Funciones",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Incluye 10 funciones de vibración. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "escapada-intima",
@@ -4125,7 +4380,9 @@
       "images": [
         "/products/escapada-intima_1.jpg",
         "/products/escapada-intima_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "calorcito-real-8-curved",
@@ -4161,7 +4418,9 @@
         "/products/calorcito-real-8-curved_3.jpg",
         "/products/calorcito-real-8-curved_4.jpg",
         "/products/calorcito-real-8-curved_5.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 8\" Blush — Control Remoto",
+      "feedDescription": "Dildo, marca Blush. Con longitud de 8\". Incluye control remoto. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "krono-dildo-realista",
@@ -4192,7 +4451,9 @@
         "/products/krono-dildo-realista_1.jpg",
         "/products/krono-dildo-realista_2.jpg",
         "/products/krono-dildo-realista_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7.5\" King Cock",
+      "feedDescription": "Dildo, marca King Cock. Con longitud de 7.5\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lemon-squeeze",
@@ -4224,7 +4485,9 @@
         "/products/lemon-squeeze_1.jpg",
         "/products/lemon-squeeze_2.jpg",
         "/products/lemon-squeeze_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Fabricado en silicón. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "deseo-de-bolsillo",
@@ -4263,7 +4526,9 @@
         "/products/deseo-de-bolsillo_1.jpg",
         "/products/deseo-de-bolsillo_2.jpg",
         "/products/deseo-de-bolsillo_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "deseo-silencioso",
@@ -4302,7 +4567,9 @@
         "/products/deseo-silencioso_1.jpg",
         "/products/deseo-silencioso_2.jpg",
         "/products/deseo-silencioso_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "el-macizo",
@@ -4335,7 +4602,9 @@
         "/products/el-macizo_1.jpg",
         "/products/el-macizo_2.jpg",
         "/products/el-macizo_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo Blush",
+      "feedDescription": "Dildo, marca Blush. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "nebula-glow",
@@ -4369,7 +4638,9 @@
         "/products/nebula-glow_2.jpg",
         "/products/nebula-glow_3.jpg",
         "/products/nebula-glow_4.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7.5\" NS Novelties",
+      "feedDescription": "Dildo, marca NS Novelties. Con longitud de 7.5\". Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "intimate-silicone-pump",
@@ -4398,7 +4669,9 @@
       "images": [
         "/products/intimate-silicone-pump_1.jpg",
         "/products/intimate-silicone-pump_2.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador CalExotics",
+      "feedDescription": "Vibrador de uso personal, marca CalExotics. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "parker-vibrador",
@@ -4430,7 +4703,8 @@
         "/products/parker-vibrador_1.jpg",
         "/products/parker-vibrador_2.jpg",
         "/products/parker-vibrador_3.jpg"
-      ]
+      ],
+      "excludeFromFeed": true
     },
     {
       "slug": "terrible-terri",
@@ -4471,7 +4745,9 @@
         "/products/terrible-terri_1.jpg",
         "/products/terrible-terri_2.jpg",
         "/products/terrible-terri_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa — Control Remoto",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Incluye control remoto. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "thicc-boi",
@@ -4501,7 +4777,9 @@
       "images": [
         "/products/thicc-boi_1.jpg",
         "/products/thicc-boi_2.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo King Cock",
+      "feedDescription": "Dildo, marca King Cock. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "juguetona-tressa",
@@ -4534,7 +4812,9 @@
         "/products/juguetona-tressa_1.jpg",
         "/products/juguetona-tressa_2.jpg",
         "/products/juguetona-tressa_3.jpg"
-      ]
+      ],
+      "feedTitle": "Vibrador Selopa — Control Remoto",
+      "feedDescription": "Vibrador de uso personal, marca Selopa. Incluye control remoto. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "natural-feel-7",
@@ -4566,7 +4846,9 @@
         "/products/natural-feel-7_2.jpg",
         "/products/natural-feel-7_3.jpg",
         "/products/natural-feel-7_4.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7\"",
+      "feedDescription": "Dildo. Con longitud de 7\". Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lollicock-7-glow",
@@ -4599,7 +4881,9 @@
         "/products/lollicock-7-glow_1.jpg",
         "/products/lollicock-7-glow_2.jpg",
         "/products/lollicock-7-glow_3.jpg"
-      ]
+      ],
+      "feedTitle": "Dildo 7\" de Silicón CalExotics",
+      "feedDescription": "Dildo, marca CalExotics. Fabricado en silicón premium con longitud de 7\". Incluye base con ventosa. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "noche-traviesa",
@@ -4630,7 +4914,9 @@
         "/products/noche-traviesa_3.jpg",
         "/products/noche-traviesa_4.jpg",
         "/products/noche-traviesa_5.jpg"
-      ]
+      ],
+      "feedTitle": "Kit BDSM",
+      "feedDescription": "Kit de accesorios para juego de restricción y roles. Ideal para quienes se inician en el juego de roles y restricción."
     },
     {
       "slug": "trio-sensaciones",
@@ -4660,7 +4946,9 @@
         "/products/trio-sensaciones_1.jpg",
         "/products/trio-sensaciones_2.jpg",
         "/products/trio-sensaciones_3.jpg"
-      ]
+      ],
+      "feedTitle": "Estimulador Masculino",
+      "feedDescription": "Estimulador masculino. Diseño discreto y fácil de limpiar. Se envía en empaque neutro sin logotipos."
     },
     {
       "slug": "lociones-masaje-sunny",
@@ -4693,7 +4981,9 @@
         "/products/lociones-masaje-sunny_3.jpg",
         "/products/lociones-masaje-sunny_4.jpg",
         "/products/lociones-masaje-sunny_5.jpg"
-      ]
+      ],
+      "feedTitle": "Lubricante Sunny",
+      "feedDescription": "Lubricante íntimo, marca Sunny. A base de agua, compatible con juguetes y preservativos."
     }
   ]
 }
