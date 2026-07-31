@@ -41,6 +41,26 @@ node .output/server/index.mjs   # corre el build (puerto 3000)
 
 ---
 
+## Stripe (pagos con tarjeta) 💳
+
+Alternativa a MercadoPago para cobrar con tarjeta. Espeja el mismo patrón: crea el order `pending` en Supabase, abre **Stripe Checkout** (página hospedada por Stripe) y un **webhook** confirma el cobro (firmado, idempotente, forward-only). Convive con MercadoPago y WhatsApp; el carrito muestra el botón **"Pagar con tarjeta"** solo si `NUXT_PUBLIC_STRIPE_ENABLED=1`. Archivos: `server/api/stripe-checkout.post.ts` y `server/api/stripe-webhook.post.ts`.
+
+**Pasos para activarlo:**
+
+1. Crea/usa tu cuenta en [stripe.com](https://stripe.com). Empieza en **modo prueba** (toggle *Test mode*).
+2. **Llaves** (Developers → API keys): copia la *Secret key* (`sk_test_…`) a `NUXT_STRIPE_SECRET_KEY` en tu `.env` (y en Vercel). No hace falta la publishable key (usamos Checkout hospedado, redirección server-side).
+3. **Webhook** (Developers → Webhooks → *Add endpoint*):
+   - URL prod: `https://<tu-dominio>/api/stripe-webhook`. En local: `stripe listen --forward-to localhost:3000/api/stripe-webhook`.
+   - Eventos: `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`, `checkout.session.expired`, `charge.refunded`.
+   - Copia el *Signing secret* (`whsec_…`) a `NUXT_STRIPE_WEBHOOK_SECRET`.
+4. Pon `NUXT_PUBLIC_STRIPE_ENABLED=1` para que aparezca el botón.
+5. Prueba con la tarjeta `4242 4242 4242 4242`, fecha futura y cualquier CVC. Verifica que el order pase a `paid` en Supabase.
+6. Para vender de verdad: repite con `sk_live_…` / `whsec_…` (requiere la cuenta Stripe verificada) y `NUXT_PUBLIC_PUBLIC_BASE_URL` = tu dominio real.
+
+> 💰 Montos en **centavos MXN** (se multiplican por 100). El precio es **autoritativo del servidor** (`data/products.json`), nunca el del cliente. `stripe_session_id` / `stripe_payment_intent_id` se guardan en `orders` si existen esas columnas (opcionales, best-effort).
+
+---
+
 ## Qué YA está hecho
 
 - **Home** completa: barra discreta, búsqueda, pills de beneficios, hero SALE, banda MercadoPago, banda Aplazo, mosaico de categorías, banner de marca, íconos redondos, carruseles (Novedades / Lo más vendido), Especial de la semana, FAQ, AMANTI Rewards, reseñas, "¿Por qué AMANTI?" + manifiesto, newsletter.

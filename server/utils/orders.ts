@@ -65,14 +65,14 @@ async function incrementCouponUsage(admin: ReturnType<typeof supabaseAdmin>, cod
 /**
  * Crea un order 'pending' + sus order_items (snapshot) con la service_role.
  * Los precios se RESUELVEN server-side por slug (data/products.json); el price del cliente se ignora.
- * paymentMethod: 'mercadopago' | 'whatsapp'. user_id sólo si hay sesión.
+ * paymentMethod: 'mercadopago' | 'whatsapp' | 'stripe'. user_id sólo si hay sesión.
  */
 export interface GiftInfo { isGift?: boolean; recipient?: string; sender?: string; message?: string }
 
 export async function createPendingOrder(
   event: H3Event,
   items: InCartItem[],
-  paymentMethod: 'mercadopago' | 'whatsapp',
+  paymentMethod: 'mercadopago' | 'whatsapp' | 'stripe',
   gift?: GiftInfo | null,
   couponCodeRaw?: string | null,
 ): Promise<CreatedOrder> {
