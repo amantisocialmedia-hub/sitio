@@ -276,7 +276,9 @@ useSeoMeta({
 <template>
   <div class="wrap">
     <template v-if="product">
-      <PromoBanners />
+      <!-- Solo la banda delgada de Mercado Pago: el banner grande de Aplazo va
+           después de la ficha para que el producto se vea sin hacer scroll. -->
+      <PromoBanners show="mp" />
 
       <div class="breadcrumb">
         <NuxtLink to="/">AMANTI</NuxtLink><span class="sep">›</span>
@@ -397,6 +399,8 @@ useSeoMeta({
           </div>
         </div>
       </div>
+
+      <PromoBanners show="aplazo" />
 
       <!-- tabs -->
       <div class="tabs">
