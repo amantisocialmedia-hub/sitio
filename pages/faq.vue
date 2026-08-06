@@ -8,7 +8,7 @@
       <details><summary>¿Es seguro comprar aquí?</summary><p>Totalmente. Pago seguro con MercadoPago (tarjetas, OXXO y meses sin intereses). También puedes ordenar por WhatsApp.</p></details>
       <details><summary>¿Tienen opciones para principiantes?</summary><p>¡Claro! Revisa el Kit Ritual Completo o escríbenos por WhatsApp y te orientamos sin pena.</p></details>
       <details><summary>¿Puedo regalar un juguete sin que se note qué es?</summary><p>Sí, el empaque es 100% discreto — perfecto para regalar(te).</p></details>
-      <details><summary>¿Puedo pagar a meses sin intereses?</summary><p>Sí, hasta 3 meses sin intereses con tarjetas participantes, y también con Aplazo a tu ritmo.</p></details>
+      <details><summary>¿Puedo pagar a meses sin intereses?</summary><p>Sí, hasta 3 meses sin intereses con tarjetas participantes al pagar con MercadoPago.</p></details>
       <details><summary>¿Tienen tienda física?</summary><p>Por ahora somos 100% en línea, con envíos a todo el país.</p></details>
       <details><summary>¿De qué material son los juguetes?</summary><p>Trabajamos con materiales body-safe: silicón de grado médico y ABS, hipoalergénicos y no porosos. El material exacto viene en la ficha de cada producto.</p></details>
       <details><summary>¿Cómo limpio y cuido mi juguete?</summary><p>Con agua tibia y jabón neutro (o un limpiador especial) antes y después de cada uso. Si es recargable, no lo sumerjas salvo que sea resistente al agua, y guárdalo seco. Tenemos una guía completa en la Eroteca.</p></details>

@@ -276,8 +276,8 @@ useSeoMeta({
 <template>
   <div class="wrap">
     <template v-if="product">
-      <!-- Solo la banda delgada de Mercado Pago: el banner grande de Aplazo va
-           después de la ficha para que el producto se vea sin hacer scroll. -->
+      <!-- Solo la banda delgada de Mercado Pago, para que el producto se vea
+           sin hacer scroll. -->
       <PromoBanners show="mp" />
 
       <div class="breadcrumb">
@@ -349,15 +349,14 @@ useSeoMeta({
             <div class="pay-icons">
               <span class="pi">AMEX</span><span class="pi">VISA</span><span class="pi">MC</span>
               <span class="pi">MercadoPago</span><span class="pi">OXXO</span>
-              <span class="pi">Kueski</span><span class="pi">Aplazo</span>
             </div>
           </div>
 
           <div class="msi-note" v-if="product.price >= 300">
-            <b>3 meses sin intereses</b> de {{ msi(product.price) }} · o paga a tu ritmo con Aplazo
+            <b>3 meses sin intereses</b> de {{ msi(product.price) }} con tarjetas participantes
           </div>
           <div class="msi-note" v-else>
-            Pago 100% seguro con MercadoPago · o a tu ritmo con Aplazo y Kueski
+            Pago 100% seguro con MercadoPago · tarjetas, OXXO y transferencia
           </div>
 
           <div class="qtybox">
@@ -400,8 +399,6 @@ useSeoMeta({
         </div>
       </div>
 
-      <PromoBanners show="aplazo" />
-
       <!-- tabs -->
       <div class="tabs">
         <div class="tabnav">
@@ -420,7 +417,7 @@ useSeoMeta({
               </div>
             </div>
             <div v-else-if="tab === 'pol'" key="pol">
-              <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago, OXXO, Kueski y Aplazo. Puedes pagar a 3 meses sin intereses o a tu ritmo.</p>
+              <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago y pago en OXXO. Puedes pagar a 3 meses sin intereses con tarjetas participantes.</p>
               <p>Si tienes dudas antes de comprar, escríbenos por WhatsApp y te orientamos sin juicios.</p>
             </div>
             <div v-else-if="tab === 'env'" key="env">
