@@ -5167,31 +5167,32 @@
       "badge": "",
       "hot": false,
       "featured": false,
-      "slug": "after-dark-spray-oral-sandia",
-      "name": "Suave Sandía",
+      "slug": "after-dark-spray-retardante-melon",
+      "name": "Aguante Melón Jugoso",
       "brand": "CalExotics",
-      "category": "parejas",
+      "category": "retardantes",
       "price": 267,
-      "emoji": "💦",
-      "bg": "#E4F0E8",
-      "subtitle": "Spray oral desensibilizante sabor sandía · 60 ml",
+      "emoji": "🍈",
+      "bg": "#E8F3DC",
+      "subtitle": "Spray retardante con benzocaína · sabor melón jugoso",
       "badges": [
         "Envío Discreto",
-        "Sabor sandía",
+        "Base agua",
         "Entrega Express"
       ],
-      "description": "Spray de la línea After Dark Essentials de CalExotics, con sabor sandía y efecto desensibilizante suave en boca y garganta. Está pensado para el sexo oral: relaja la zona y hace más cómodo llegar más profundo.\n\nSe aplica un par de disparos y se espera un momento antes de empezar. Botella con atomizador de 60 ml, cómoda y discreta.",
+      "description": "Más tiempo, más presencia, más disfrute para los dos. After Dark Essentials es un spray retardante de CalExotics formulado para reducir el exceso de sensibilidad en el pene y ayudarte a prolongar el encuentro de forma natural y sin interrupciones. No adormece, solo regula: la diferencia es que tú controlas el ritmo, no al revés.\n\nSe aplica de 5 a 10 minutos antes, se deja absorber y listo. Con un toque inesperado: sabor melón jugoso, para que el sexo oral también forme parte del momento.\n\nModo de uso: agita el spray, aplica 2 o 3 pulsaciones sobre el glande y el cuerpo del pene, masajea suavemente hasta que se absorba y espera de 5 a 10 minutos antes de empezar. Si habrá sexo oral o contacto sin preservativo, retira el exceso con una toallita húmeda para no transferir el efecto a tu pareja.",
       "features": [
-        "Spray oral desensibilizante",
-        "Sabor sandía",
-        "Botella de 2 oz (60 ml)",
-        "Con atomizador",
-        "Para sexo oral"
+        "Mayor duración sin perder sensación",
+        "Con benzocaína, anestésico local suave",
+        "Sabor melón jugoso, comestible",
+        "Base agua, no grasoso",
+        "Compatible con condones de látex",
+        "Formato spray, aplicación precisa"
       ],
-      "feedTitle": "Spray Oral Saborizado Sandía 60 ml — CalExotics After Dark",
-      "feedDescription": "Spray de uso oral saborizado, marca CalExotics, línea After Dark Essentials. Sabor sandía. Contenido 2 oz (60 ml). Se envía en empaque neutro sin logotipos.",
+      "feedTitle": "Spray Retardante Sabor Melón 60 ml — CalExotics After Dark Essentials",
+      "feedDescription": "Spray retardante de uso íntimo masculino, marca CalExotics, línea After Dark Essentials. Fórmula con benzocaína en base agua, sabor melón jugoso. Compatible con condones de látex. Contenido 2 oz (60 ml). Se envía en empaque neutro sin logotipos.",
       "images": [
-        "/products/after-dark-spray-oral-sandia_1.jpg"
+        "/products/after-dark-spray-retardante-melon_1.jpg"
       ]
     },
     {
@@ -5225,6 +5226,75 @@
       "feedDescription": "Lubricante de uso íntimo para sexo anal, marca Sunny Side Up. Incluye agente desensibilizante. Contenido 1 oz. Se envía en empaque neutro sin logotipos.",
       "images": [
         "/products/sunny-side-up-lubricante-anal_1.jpg"
+      ]
+    },
+    {
+      "compareAt": 0,
+      "rating": 5,
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "excludeFromFeed": true,
+      "slug": "pink-pussycat-honey",
+      "name": "Pink Pussycat Honey",
+      "brand": "Pink Pussycat",
+      "category": "parejas",
+      "price": 124,
+      "emoji": "🐱",
+      "bg": "#FBD9EC",
+      "subtitle": "Suplemento alimenticio en miel para ella · sobre de 20 g",
+      "badges": [
+        "Envío Discreto",
+        "Sobre individual",
+        "Entrega Express"
+      ],
+      "description": "Miel en sobre individual de 20 g, de la línea Pink Pussycat Honey, pensada para tomarse antes del encuentro.\n\nSe toma directo del sobre. Es un suplemento alimenticio de uso ocasional, no un medicamento.\n\nAviso: es un suplemento alimenticio, no un medicamento, y no sustituye ninguna indicación médica. No se recomienda a personas con diabetes, presión arterial alta, colesterol alto o enfermedades cardíacas. Si tomas algún medicamento o tienes dudas, consulta a tu médico antes de usarlo.",
+      "features": [
+        "Suplemento alimenticio",
+        "Sobre individual de 20 g",
+        "Presentación en miel",
+        "Fácil de llevar"
+      ],
+      "feedTitle": "Pink Pussycat Honey — Sobre de 20 g",
+      "feedDescription": "Suplemento alimenticio en presentación de miel, sobre individual de 20 g.",
+      "images": [
+        "/products/pink-pussycat-honey_1.jpg",
+        "/products/pink-pussycat-honey_2.jpg",
+        "/products/pink-pussycat-honey_3.jpg"
+      ]
+    },
+    {
+      "compareAt": 0,
+      "rating": 5,
+      "badge": "",
+      "hot": false,
+      "featured": false,
+      "excludeFromFeed": true,
+      "slug": "royal-honey-vip",
+      "name": "Royal Honey VIP",
+      "brand": "Royal Honey",
+      "category": "hombre",
+      "price": 116,
+      "emoji": "🍯",
+      "bg": "#FCEFCB",
+      "subtitle": "Suplemento alimenticio en miel para él · sobre de 20 g",
+      "badges": [
+        "Envío Discreto",
+        "Sobre individual",
+        "Entrega Express"
+      ],
+      "description": "Miel en sobre individual de 20 g, de la línea Royal Honey VIP. Se toma aproximadamente una hora antes del encuentro.\n\nSe toma directo del sobre. Es un suplemento alimenticio de uso ocasional, no un medicamento.\n\nAviso: es un suplemento alimenticio, no un medicamento, y no sustituye ninguna indicación médica. No se recomienda a personas con diabetes, presión arterial alta, colesterol alto o enfermedades cardíacas. Si tomas algún medicamento o tienes dudas, consulta a tu médico antes de usarlo.",
+      "features": [
+        "Suplemento alimenticio",
+        "Sobre individual de 20 g",
+        "Presentación en miel",
+        "Tomar una hora antes"
+      ],
+      "feedTitle": "Royal Honey VIP — Sobre de 20 g",
+      "feedDescription": "Suplemento alimenticio en presentación de miel, sobre individual de 20 g.",
+      "images": [
+        "/products/royal-honey-vip_1.jpg",
+        "/products/royal-honey-vip_2.jpg"
       ]
     }
   ]
