@@ -347,9 +347,13 @@ useSeoMeta({
           <div class="payblock">
             <div class="lbl">Formas de Pago:</div>
             <div class="pay-icons">
-              <span class="pi">AMEX</span><span class="pi">VISA</span><span class="pi">MC</span>
-              <span class="pi">MercadoPago</span><span class="pi">OXXO</span>
+              <span class="pi pi-amex">AMEX</span><span class="pi pi-visa">VISA</span><span class="pi pi-mc">MC</span>
+              <span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span>
+              <span class="pi pi-spei">SPEI</span><span class="pi pi-msi">Meses sin intereses</span>
             </div>
+            <!-- Aclaración: los logos son informativos, no botones. Raúl reportó que
+                 les daba clic esperando que abrieran algo. -->
+            <p class="paynote">Eliges cuál al pagar, dentro de Mercado Pago.</p>
           </div>
 
           <div class="msi-note" v-if="product.price >= 300">

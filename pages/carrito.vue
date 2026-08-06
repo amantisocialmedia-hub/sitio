@@ -243,8 +243,8 @@ useHead({ title: 'Tu carrito — AMANTI' })
         <div class="paytrust">
           <span class="pt-disc">🕵️ Entrega 100% discreta · caja sin logo</span>
           <div class="pay-icons">
-            <span class="pi">Visa</span><span class="pi">MC</span><span class="pi">Amex</span>
-            <span class="pi">MercadoPago</span><span class="pi">OXXO</span><span class="pi">MSI</span>
+            <span class="pi pi-visa">Visa</span><span class="pi pi-mc">MC</span><span class="pi pi-amex">Amex</span>
+            <span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span><span class="pi pi-msi">MSI</span>
           </div>
         </div>
 
