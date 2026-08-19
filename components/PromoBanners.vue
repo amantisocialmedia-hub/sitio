@@ -11,7 +11,7 @@ withDefaults(defineProps<{ show?: 'all' | 'mp' | 'aplazo' }>(), { show: 'all' })
     <div v-if="show !== 'aplazo'" class="mpband">
       <span class="mp">Mercado Pago</span>
       <span class="off">Hasta 15% OFF</span>
-      <span>al pagar con Mercado Pago</span>
+      <span class="sub">al pagar con Mercado Pago</span>
       <span class="banks">BBVA · HSBC · Amex · Afirme · Inbursa · y más</span>
       <span class="cup">Cupón AMANTI15</span>
     </div>

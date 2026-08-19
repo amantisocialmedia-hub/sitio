@@ -61,7 +61,15 @@ watch(() => cart.totalPrice, () => { totalPulse.value = true; clearTimeout(tp); 
 
 const status = computed(() => route.query.status as string | undefined)
 
+// El carrito vive en localStorage, así que en SSR siempre parece vacío. Si
+// pintamos el estado "vacío" en el servidor y el cliente hidrata con productos,
+// Vue parcha mal y termina metiendo la tabla DENTRO del bloque de carrito vacío
+// (por eso el nombre del producto salía enorme: heredaba el font-size del emoji).
+// Con esta bandera el servidor no compromete ninguno de los dos estados.
+const ready = ref(false)
+
 onMounted(() => {
+  ready.value = true
   // Tras un pago aprobado: registra la compra (analítica) y vacía el carrito persistido.
   if (status.value === 'success') {
     // El valor reportado debe ser lo realmente cobrado (con cupón aplicado), no el
@@ -125,6 +133,27 @@ async function orderWhatsApp() {
   else window.location.href = url
 }
 
+// Barra de pago fija (móvil). Raúl reportó que al dar "Ir a pagar" en el drawer
+// aterrizas arriba de /carrito y hay que bajar hasta el final para encontrar el
+// botón. Con la barra, el pago está siempre a la mano venga de donde venga.
+const payBtnEl = ref<HTMLElement | null>(null)
+const showPayBar = ref(false)
+let pio: IntersectionObserver | null = null
+
+function observarPago() {
+  pio?.disconnect()
+  if (!import.meta.client || !payBtnEl.value) { showPayBar.value = false; return }
+  pio = new IntersectionObserver(([e]) => { showPayBar.value = !e.isIntersecting }, { threshold: 0 })
+  pio.observe(payBtnEl.value)
+}
+// El botón solo existe con carrito lleno: re-observamos cuando aparece o desaparece.
+watch(payBtnEl, observarPago, { flush: 'post' })
+watch(showPayBar, (v) => { if (import.meta.client) document.body.classList.toggle('sticky-on', v) })
+onBeforeUnmount(() => {
+  pio?.disconnect()
+  if (import.meta.client) document.body.classList.remove('sticky-on')
+})
+
 useHead({ title: 'Tu carrito — AMANTI' })
 </script>
 
@@ -144,8 +173,11 @@ useHead({ title: 'Tu carrito — AMANTI' })
     <div v-else-if="status === 'failure'" class="statusmsg bad">El pago no se completó. Intenta de nuevo o escríbenos por WhatsApp.</div>
     <div v-else-if="status === 'pending'" class="statusmsg ok">Tu pago está pendiente de confirmación.</div>
 
+    <!-- hasta que el cliente lea el carrito no sabemos si está vacío -->
+    <div v-if="!ready" class="cartload" aria-live="polite">Cargando tu carrito…</div>
+
     <!-- empty -->
-    <div v-if="cart.isEmpty" class="emptybox beat" style="margin:30px 0 10px">
+    <div v-else-if="cart.isEmpty" class="emptybox beat" style="margin:30px 0 10px">
       <div class="e">🛒</div>
       <h3>Tu carrito está vacío</h3>
       <p style="opacity:.7;margin:8px 0 16px">Explora la tienda y encuentra algo que te encante.</p>
@@ -248,7 +280,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
           </div>
         </div>
 
-        <button class="btn magenta block" :disabled="loading" @click="checkout">
+        <button ref="payBtnEl" class="btn magenta block" :disabled="loading" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar con MercadoPago' }}
         </button>
         <button v-if="stripeEnabled" class="btn block" style="background:var(--purple,#5E1B33);color:#fff" :disabled="stripeLoading" @click="checkoutStripe">
@@ -260,6 +292,21 @@ useHead({ title: 'Tu carrito — AMANTI' })
     </div>
 
   </div>
+
+  <!-- barra de pago fija: solo móvil y solo mientras el botón real no se ve -->
+  <ClientOnly>
+    <Transition name="sticky">
+      <div v-if="showPayBar && !cart.isEmpty" class="stickybuy cartbar">
+        <div class="sb-info">
+          <span class="sb-meta">Total</span>
+          <b class="cb-total">{{ peso(cart.totalWithDiscount) }}</b>
+        </div>
+        <button class="btn magenta sb-btn" :disabled="loading" @click="checkout">
+          {{ loading ? 'Redirigiendo…' : 'Pagar' }}
+        </button>
+      </div>
+    </Transition>
+  </ClientOnly>
 
   <!-- más vendidos -->
   <section class="section">
