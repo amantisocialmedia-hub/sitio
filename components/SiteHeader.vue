@@ -163,14 +163,20 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 20.5S3.5 15.5 3.5 9.3A4 4 0 0 1 12 7a4 4 0 0 1 8.5 2.3c0 6.2-8.5 11.2-8.5 11.2z" />
           </svg>
-          <span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
+          <!-- Los contadores salen de localStorage: el servidor no los conoce. Sin
+               ClientOnly el SSR pinta 0 y la hidratación queda desalineada. -->
+          <ClientOnly>
+            <span v-if="wishlist.count" class="cart-c" :class="{ bump: wishBump }">{{ wishlist.count }}</span>
+          </ClientOnly>
         </NuxtLink>
         <NuxtLink to="/carrito" class="ic" aria-label="Carrito">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="9" cy="20" r="1.5" /><circle cx="18" cy="20" r="1.5" />
             <path d="M2.5 3h2.2l2.2 11.6a1.6 1.6 0 0 0 1.6 1.3h8.6a1.6 1.6 0 0 0 1.6-1.3L20.5 7H5.3" />
           </svg>
-          <span v-if="cart.totalItems" class="cart-c" :class="{ bump: cartBump }">{{ cart.totalItems }}</span>
+          <ClientOnly>
+            <span v-if="cart.totalItems" class="cart-c" :class="{ bump: cartBump }">{{ cart.totalItems }}</span>
+          </ClientOnly>
         </NuxtLink>
         <button class="burger" @click="drawerOpen = true" aria-label="Menú">☰</button>
       </div>
@@ -235,8 +241,8 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
         <NuxtLink v-else :to="m.to" @click="drawerOpen = false">{{ m.label }}</NuxtLink>
       </div>
       <NuxtLink to="/cuenta" @click="drawerOpen = false">{{ user ? 'Mi cuenta' : 'Entrar' }}</NuxtLink>
-      <NuxtLink to="/favoritos" @click="drawerOpen = false">Favoritos ({{ wishlist.count }})</NuxtLink>
-      <NuxtLink to="/carrito" @click="drawerOpen = false">Carrito ({{ cart.totalItems }})</NuxtLink>
+      <NuxtLink to="/favoritos" @click="drawerOpen = false">Favoritos <ClientOnly>({{ wishlist.count }})</ClientOnly></NuxtLink>
+      <NuxtLink to="/carrito" @click="drawerOpen = false">Carrito <ClientOnly>({{ cart.totalItems }})</ClientOnly></NuxtLink>
     </nav>
   </div>
 </template>

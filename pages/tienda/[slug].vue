@@ -72,7 +72,18 @@ function trackView() {
 }
 onMounted(() => { loadRealReviews(); trackView() })
 function fmtReviewDate(s: string) {
-  try { return new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s)) } catch { return s }
+  try {
+    // "2026-03-29" (sin hora) lo interpreta el motor como medianoche UTC, que en
+    // México cae el día anterior: el servidor imprimía "29 de marzo" y el navegador
+    // "28". Además de mostrar mal la fecha, rompía la hidratación de la ficha.
+    // Anclamos esas fechas a mediodía UTC y fijamos la zona para que servidor y
+    // navegador escriban siempre lo mismo.
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s)
+    const d = m ? new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], 12)) : new Date(s)
+    return new Intl.DateTimeFormat('es-MX', {
+      day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Mexico_City',
+    }).format(d)
+  } catch { return s }
 }
 const onSale = computed(() => !!product.value?.compareAt && product.value.compareAt > product.value.price)
 const pct = computed(() => onSale.value

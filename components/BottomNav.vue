@@ -16,7 +16,8 @@ watch(() => cart.totalItems, () => { cartBump.value = true; clearTimeout(ct); ct
   <nav class="bottomnav">
     <NuxtLink to="/"><span class="bi">🏠</span>Inicio</NuxtLink>
     <NuxtLink to="/tienda"><span class="bi">🗂️</span>Categorías</NuxtLink>
-    <NuxtLink to="/carrito"><span class="bi">🛒<span v-if="cart.totalItems" class="bc" :class="{ bump: cartBump }">{{ cart.totalItems }}</span></span>Carrito</NuxtLink>
+    <!-- El contador viene de localStorage: fuera del SSR para no desalinear la hidratación. -->
+    <NuxtLink to="/carrito"><span class="bi">🛒<ClientOnly><span v-if="cart.totalItems" class="bc" :class="{ bump: cartBump }">{{ cart.totalItems }}</span></ClientOnly></span>Carrito</NuxtLink>
     <a :href="waUrl" target="_blank" rel="noopener"><span class="bi">💬</span>WhatsApp</a>
   </nav>
 </template>
