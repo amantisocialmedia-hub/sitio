@@ -264,6 +264,9 @@ html.discreet .sr-th img{filter:blur(10px)}
 .news{background:var(--lav2);text-align:center;padding:46px 0}
 .news h2{font-size:clamp(1.5rem,3.5vw,2rem)}
 .news p{opacity:.7;margin:10px 0 22px}
+/* Caja del formulario de newsletter (iframe de GHL): acotado y centrado para que
+   no se estire a todo el ancho del footer en escritorio. */
+.nf-embed{max-width:460px;margin:0 auto}
 .nf{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .nf input{font-family:var(--fb);padding:14px 20px;border-radius:8px;border:1px solid #EBD3C4;font-size:1rem;flex:1 1 240px;min-width:0;max-width:360px;background:#fff}
 .socials{display:flex;gap:12px;justify-content:center;margin-top:22px}

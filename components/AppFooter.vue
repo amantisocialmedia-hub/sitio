@@ -1,28 +1,15 @@
 <script setup lang="ts">
-const news = ref('')
-const newsErr = ref('')
-const newsOk = ref(false)
-function suscribir() {
-  newsErr.value = ''
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(news.value)) { newsErr.value = 'Escribe un correo válido.'; return }
-  const subject = encodeURIComponent('Suscripción newsletter')
-  const body = encodeURIComponent(`Quiero suscribirme al newsletter de AMANTI con el correo: ${news.value.trim()}`)
-  window.location.href = `mailto:hola@amanti.mx?subject=${subject}&body=${body}`
-  newsOk.value = true
-}
+// El campo de suscripción era un mailto: abría el correo del visitante y el
+// dato no llegaba a ningún lado. Ahora es el formulario de GHL, que es de donde
+// César dispara los flujos de correo (ver components/NewsletterForm.vue).
 </script>
 <template>
   <section class="news">
     <div class="wrap">
       <h2>Info &amp; Blog en tu correo</h2>
       <p>Recibe promociones, novedades y ofertas exclusivas. Sin spam.</p>
-      <div v-if="!newsOk" class="nf">
-        <input v-model="news" type="email" placeholder="Tu email" @keyup.enter="suscribir" />
-        <button class="btn" @click="suscribir">Enviar</button>
-      </div>
-      <p v-if="!newsOk" style="font-size:.8rem;opacity:.8;margin-top:8px">Al suscribirte aceptas nuestro <NuxtLink to="/privacidad" style="color:#5E1B33;text-decoration:underline">Aviso de Privacidad</NuxtLink>.</p>
-      <p v-if="newsErr && !newsOk" style="color:#C0341B;font-size:.85rem;margin-top:8px">{{ newsErr }}</p>
-      <p v-if="newsOk" style="margin-top:10px;font-weight:600">¡Gracias! Te suscribiremos a hola@amanti.mx 💜</p>
+      <div class="nf-embed"><NewsletterForm /></div>
+      <p style="font-size:.8rem;opacity:.8;margin-top:8px">Al suscribirte aceptas nuestro <NuxtLink to="/privacidad" style="color:#5E1B33;text-decoration:underline">Aviso de Privacidad</NuxtLink>.</p>
       <div class="socials">
         <a href="https://www.facebook.com/profile.php?id=61583596012406" target="_blank" rel="noopener" aria-label="Facebook">f</a>
         <a href="https://www.instagram.com/amanti.wellness/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
