@@ -58,18 +58,30 @@ useSeoMeta({
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>
 
-    <!-- Promo de cupones (los descuentos viven en los cupones, no por producto) -->
-    <div class="salehero">
-      <div class="flame">CUPÓN</div>
+    <!-- Venta especial. Solo aparece con la campaña encendida (utils/campana.ts). -->
+    <div v-if="CAMPANA.activa" class="salehero">
+      <div class="flame">VENTA<br>ESPECIAL</div>
       <div class="mid">
-        <div class="gd">DESCUENTOS CON CUPÓN</div>
-        <div class="pct">HASTA 25% OFF</div>
+        <div class="gd">{{ CAMPANA.nombre.toUpperCase() }}</div>
+        <div class="pct">{{ CAMPANA_PCT }}% OFF</div>
         <div class="emo">🌙 💞 🌿 🚀 💧</div>
-        <div class="valid">Con tus cupones AMANTI15 y AMANTI25 al pagar · solo en línea</div>
+        <div class="valid">En toda la tienda · el precio que ves ya trae el descuento</div>
       </div>
     </div>
 
-    <PromoBanners />
+    <!-- Promo de cupones. Bajada mientras César prepara el relanzamiento; se
+         vuelve a prender desde utils/campana.ts. -->
+    <div v-else-if="MOSTRAR_CUPONES" class="salehero">
+      <div class="flame">CUPÓN</div>
+      <div class="mid">
+        <div class="gd">DESCUENTOS CON CUPÓN</div>
+        <div class="pct">HASTA 15% OFF</div>
+        <div class="emo">🌙 💞 🌿 🚀 💧</div>
+        <div class="valid">Con tu cupón AMANTI15 al pagar · solo en línea</div>
+      </div>
+    </div>
+
+    <PromoBanners v-if="MOSTRAR_CUPONES" />
   </div>
 
   <!-- categorías (mosaico) — subido arriba para que las secciones se vean al ENTRAR, no hasta
@@ -206,7 +218,7 @@ useSeoMeta({
   </section>
 
   <!-- special -->
-  <section class="section special" v-if="special">
+  <section class="section special" v-if="special && !CAMPANA.activa">
     <div class="wrap">
       <div class="box" v-reveal>
         <span class="ws">amanti</span>

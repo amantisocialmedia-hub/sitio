@@ -164,7 +164,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
       <div class="b"><span class="e">🕵️</span> 100% Discreto</div>
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>
-    <PromoBanners />
+    <PromoBanners v-if="MOSTRAR_CUPONES" />
 
     <div class="breadcrumb"><NuxtLink to="/">AMANTI</NuxtLink><span class="sep">›</span><span>Tu Carrito</span></div>
     <h1 style="font-size:clamp(1.7rem,4vw,2.4rem);text-transform:uppercase;margin-bottom:6px">Tu Carrito</h1>
@@ -227,8 +227,9 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <div class="cd-track"><div class="cd-fill" :style="{ width: freePct + '%' }"></div></div>
         </div>
 
-        <!-- Cupón de descuento -->
-        <div class="couponbox">
+        <!-- Cupón de descuento. Durante una campaña global el servidor no los
+             acepta (el precio ya viene rebajado), así que ni se ofrece el campo. -->
+        <div v-if="CUPONES_ACEPTADOS" class="couponbox">
           <div v-if="cart.coupon" class="coupon-applied">
             <span class="ca-info">✓ Cupón <b>{{ cart.coupon.code }}</b> aplicado</span>
             <button type="button" class="ca-remove" @click="removeCoupon">Quitar</button>

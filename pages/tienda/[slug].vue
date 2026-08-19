@@ -289,7 +289,7 @@ useSeoMeta({
     <template v-if="product">
       <!-- Solo la banda delgada de Mercado Pago, para que el producto se vea
            sin hacer scroll. -->
-      <PromoBanners show="mp" />
+      <PromoBanners v-if="MOSTRAR_CUPONES" show="mp" />
 
       <div class="breadcrumb">
         <NuxtLink to="/">AMANTI</NuxtLink><span class="sep">›</span>

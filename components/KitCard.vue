@@ -39,7 +39,8 @@ function addKit() {
       <div class="kit-foot">
         <div class="kit-total"><span>Total del kit</span><b>{{ peso(total) }}</b></div>
         <button class="btn magenta block" :class="{ added }" @click="addKit">{{ added ? '✓ Kit añadido' : 'Añadir kit al carrito 🛍️' }}</button>
-        <span class="kit-coupon">+ aplica tu cupón <b>AMANTI15</b> al pagar</span>
+        <span v-if="CAMPANA.activa" class="kit-coupon">Precios con <b>-{{ CAMPANA_PCT }}%</b> ya aplicado</span>
+        <span v-else-if="MOSTRAR_CUPONES" class="kit-coupon">+ aplica tu cupón <b>AMANTI15</b> al pagar</span>
       </div>
     </div>
   </div>

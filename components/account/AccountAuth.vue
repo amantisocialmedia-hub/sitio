@@ -101,7 +101,9 @@ async function doReset() {
       <li>📦 Sigue tus pedidos y vuelve a pedir en un clic</li>
       <li>⚡ Checkout más rápido</li>
       <li>💜 Guarda tus favoritos</li>
-      <li>🎁 -15% en tu primera compra con <b>AMANTI15</b></li>
+      <li v-if="CAMPANA.activa">🎁 {{ CAMPANA_PCT }}% de descuento en toda la tienda</li>
+      <li v-else-if="MOSTRAR_CUPONES">🎁 -15% en tu primera compra con <b>AMANTI15</b></li>
+      <li v-else>🔔 Entérate antes de las novedades</li>
     </ul>
   </div>
 </template>
