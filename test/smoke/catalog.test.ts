@@ -9,9 +9,9 @@ const categories = data.categories as any[]
 const catSlugs = new Set(categories.map(c => c.slug))
 
 describe('catálogo (smoke)', () => {
-  it('products.json es válido y tiene 143 productos', () => {
+  it('products.json es válido y tiene 152 productos', () => {
     expect(Array.isArray(products)).toBe(true)
-    expect(products.length).toBe(143)
+    expect(products.length).toBe(152)
   })
 
   it('hay 10 categorías', () => {
