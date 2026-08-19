@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { useProducts, peso, msi, type Product } from '~/composables/useProducts'
+import { CAMPANA } from '~/utils/campana'
 
 const { products, categories, byCategory, onSale, getBySlug, related, categoryName, bestsellers, featured, relatedForArticle } = useProducts()
 
@@ -54,8 +55,11 @@ describe('useProducts — filtros', () => {
     expect(featured().length).toBeGreaterThan(0)
   })
 
-  it('onSale está vacío: los descuentos son por cupón, no precios "antes" por producto', () => {
-    expect(onSale().length).toBe(0)
+  it('onSale sigue a la campaña: vacío sin ella, catálogo completo con ella', () => {
+    // Fuera de campaña ningún producto trae precio "antes": los descuentos viven
+    // en los cupones. Con la campaña encendida, en cambio, TODO está rebajado.
+    expect(onSale().length).toBe(CAMPANA.activa ? products.length : 0)
+    onSale().forEach(p => expect(p.compareAt).toBeGreaterThan(p.price))
   })
 
   it('búsqueda por q (nombre + subtitle) — misma lógica que /tienda', () => {

@@ -1,6 +1,7 @@
 // Lógica PURA de cupones (sin Supabase ni auto-imports de Nuxt) -> testeable bajo vitest.
 // La validación REAL siempre ocurre en el servidor: el cliente nunca decide el descuento.
 import { round2 } from './orderItems'
+import { CAMPANA, CUPONES_ACEPTADOS } from '../../utils/campana'
 
 export type CouponType = 'percent' | 'fixed'
 
@@ -52,8 +53,18 @@ export function validateCoupon(
   coupon: CouponRow | null | undefined,
   subtotal: number,
   now: Date = new Date(),
+  aceptados: boolean = CUPONES_ACEPTADOS,
 ): CouponResult {
   const s = Math.max(0, Number(subtotal) || 0)
+  // Durante una campaña global el catálogo ya viene rebajado. Un cupón encima
+  // apilaría los dos descuentos (40% + 15% = 49%) sin que nadie lo decidiera.
+  if (!aceptados) {
+    return {
+      valid: false,
+      discount: 0,
+      message: `Durante ${CAMPANA.nombre} el descuento ya viene aplicado en cada precio, no se acumulan cupones.`,
+    }
+  }
   if (!coupon) return { valid: false, discount: 0, message: 'Cupón inválido.' }
   if (!coupon.active) return { valid: false, discount: 0, message: 'Este cupón ya no está disponible.' }
   if (coupon.expires_at && new Date(coupon.expires_at).getTime() < now.getTime()) {

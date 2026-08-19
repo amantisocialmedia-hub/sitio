@@ -3,6 +3,7 @@
 // NUNCA el precio que mande el cliente. Esto cierra el agujero de manipulación de precios.
 import { createError } from 'h3'
 import productsData from '../../data/products.json'
+import { aplicarCampana } from '../../utils/campana'
 
 export interface InCartItem { slug?: string; name?: string; price?: number; quantity: number }
 export interface ResolvedItem {
@@ -14,7 +15,10 @@ export interface ResolvedItem {
   imageUrl: string | null
 }
 
-const catalog = (productsData as any).products as any[]
+// La campaña se aplica AQUÍ, en el mismo lugar del que sale el precio que se
+// cobra. Si se aplicara solo en la vista, el cliente vería 40% menos y Mercado
+// Pago le cobraría el precio completo.
+const catalog = aplicarCampana((productsData as any).products as any[])
 export const priceBySlug: Record<string, number> = Object.fromEntries(catalog.map((p) => [p.slug, p.price]))
 export const nameBySlug: Record<string, string> = Object.fromEntries(catalog.map((p) => [p.slug, p.name]))
 export const imgBySlug: Record<string, string | null> = Object.fromEntries(

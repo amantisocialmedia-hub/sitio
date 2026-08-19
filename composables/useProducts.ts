@@ -1,4 +1,5 @@
 import data from '~/data/products.json'
+import { aplicarCampana } from '~/utils/campana'
 
 export interface Product {
   slug: string
@@ -32,7 +33,9 @@ export interface ArticleRelated {
   relatedCategory?: string
 }
 
-const products = data.products as Product[]
+// El catálogo pasa por la campaña ANTES de que lo vea nadie: así la tienda, la
+// ficha, el buscador y los filtros de precio hablan todos del precio de venta real.
+const products = aplicarCampana(data.products as Product[])
 const categories = data.categories as Category[]
 
 /** Subcategoría del mega-menú. Se resuelve contra el catálogo:

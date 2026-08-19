@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import productsData from '~/data/products.json'
+import { aplicarCampana } from '~/utils/campana'
 import { useAnalytics } from '~/composables/useAnalytics'
 import { waRef } from '~/utils/gclid'
 
@@ -22,7 +23,7 @@ export interface AppliedCoupon {
 // Precio vigente por slug (fuente de verdad = catálogo, igual que el server). Para que el
 // carrito persistido en localStorage no muestre un precio obsoleto distinto al que se cobra.
 const priceBySlug: Record<string, number> = Object.fromEntries(
-  (productsData.products as { slug: string; price: number }[]).map((p) => [p.slug, p.price]),
+  aplicarCampana(productsData.products as { slug: string; price: number }[]).map((p) => [p.slug, p.price]),
 )
 
 export interface CartItem {

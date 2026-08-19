@@ -16,6 +16,7 @@
 // funcionan igual servido en amanti-store-cake.vercel.app o en amanti.mx (fallback: siteUrl).
 import { defineEventHandler, setHeader, getRequestURL } from 'h3'
 import productsData from '../../../data/products.json'
+import { aplicarCampana } from '../../../utils/campana'
 
 interface FeedProduct {
   slug: string
@@ -32,7 +33,9 @@ interface FeedProduct {
   excludeFromFeed?: boolean // saca el producto del feed sin quitarlo de la tienda
 }
 
-const products = ((productsData as any).products || []) as FeedProduct[]
+// Con la campaña encendida, Google tiene que ver el mismo precio que la tienda,
+// o Merchant Center marca discrepancia y suspende los productos.
+const products = aplicarCampana(((productsData as any).products || []) as FeedProduct[])
 
 function xmlEscape(s: unknown): string {
   return String(s ?? '')

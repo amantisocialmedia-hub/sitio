@@ -3,8 +3,9 @@
 // agente siempre recomienda productos reales y actuales sin depender de Wix.
 import { defineEventHandler } from 'h3'
 import productsData from '../../data/products.json'
+import { aplicarCampana } from '../../utils/campana'
 
-const catalog = (productsData as any).products as any[]
+const catalog = aplicarCampana((productsData as any).products as any[])
 const categories: Record<string, string> = Object.fromEntries(
   ((productsData as any).categories as any[]).map((c) => [c.slug, c.name]),
 )
