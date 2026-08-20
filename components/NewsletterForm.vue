@@ -10,13 +10,22 @@
 // de dónde disparar.
 //
 // SOBRE EL SCRIPT DE GHL: el alto que declara el formulario (434) no alcanza
-// para su propio contenido —la imagen de cabecera más nombre, correo y botón—,
-// así que sin el form_embed.js el botón de enviar queda cortado y nadie puede
-// suscribirse. Ese script es justo el que mide el contenido real y le manda el
-// alto al iframe. Se carga una sola vez aunque el componente aparezca dos veces
-// en la página (modal + footer).
-const FORM_ID = '69P88igNWtvW6UeFdWGG'
-const EMBED_JS = 'https://link.msgsndr.com/js/form_embed.js'
+// para su propio contenido, así que sin el form_embed.js el botón de enviar
+// queda cortado y nadie puede suscribirse. Ese script es justo el que mide el
+// contenido real y le manda el alto al iframe. Se carga una sola vez aunque el
+// componente aparezca dos veces en la página (modal + footer).
+//
+// El iframe que manda GHL trae display:none y un trigger "showAfter", pensado
+// para un pop-up que ellos mismos disparan. Aquí el iframe ya vive dentro de
+// nuestro modal y del pie, así que se deja visible desde el principio: si no,
+// dependeríamos de que su script lo revele y el hueco se quedaría en blanco.
+// Formulario SIN descuento. El primero que mandó César ofrecía 10% en la
+// primera compra —justo lo que él había pedido bajar—, y ese 10% no existía
+// como cupón en la tienda: quien se suscribiera esperaba algo que no le
+// podíamos cobrar. Lo cambió él mismo (19-ago) por este.
+const FORM_ID = 'lrTrIoVrF3bo7kjIUMK8'
+// El script del propio dominio de Amanti en GHL, que es el que César usa.
+const EMBED_JS = 'https://link.amanti.mx/js/form_embed.js'
 
 withDefaults(defineProps<{ height?: number }>(), { height: 620 })
 
