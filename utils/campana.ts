@@ -26,7 +26,7 @@ export interface CampanaCfg {
 }
 
 export const CAMPANA: CampanaCfg = {
-  activa: false,
+  activa: true,
   nombre: 'AMANTI sin filtros',
   gancho: '40% de descuento en toda la tienda',
   descuento: 0.4,
