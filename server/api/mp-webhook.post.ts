@@ -13,6 +13,7 @@
 import { defineEventHandler, readBody, getQuery, getHeader, createError } from 'h3'
 import { createHmac, timingSafeEqual } from 'node:crypto'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
+import { ghlConectado, emitirEventoGhlSinEsperar, payloadCompra } from '../utils/ghl'
 
 function mapStatus(mp: string): string | null {
   switch (mp) {
@@ -131,6 +132,48 @@ export default defineEventHandler(async (event) => {
     .select('id')
   if (error) throw createError({ statusCode: 500, message: 'No se pudo actualizar el pedido.' })
   if (!updated || updated.length === 0) return { ok: true, idempotent: true } // perdió la carrera
+
+  // Aviso a GoHighLevel. Este es el punto que César pidió: cuando el sitio
+  // confirma una compra, GHL tiene que enterarse para disparar postcompra,
+  // la petición de reseña del día 10 y el cross-selling del 21, y para SACAR al
+  // cliente de la secuencia de carrito abandonado.
+  //
+  // Va aquí a propósito —después del UPDATE atómico y solo si este ganó la
+  // carrera— para que un reintento de MP no dispare el correo dos veces.
+  //
+  // Todo el bloque está envuelto y no se espera la respuesta: si GHL o esta
+  // consulta fallan, el pedido YA quedó pagado y la función devuelve ok igual.
+  // Un correo que no sale se arregla; un pago que MP reintenta porque le
+  // devolvimos un 500 es mucho peor.
+  if (newStatus === 'paid' && ghlConectado()) {
+    try {
+      const [{ data: full }, { data: lineas }] = await Promise.all([
+        admin.from('orders').select('user_id, total').eq('id', orderId).maybeSingle(),
+        admin.from('order_items').select('product_slug, product_name, unit_price, quantity').eq('order_id', orderId),
+      ])
+      // El correo no vive en `orders`: se resuelve desde el usuario de Supabase.
+      // En pedidos de invitado no hay user_id y GHL recibe email null; su propio
+      // workflow decide qué hacer con eso.
+      let email: string | null = null
+      if (full?.user_id) {
+        const { data: u } = await admin.auth.admin.getUserById(String(full.user_id))
+        email = u?.user?.email ?? null
+      }
+      emitirEventoGhlSinEsperar('compra_confirmada', payloadCompra({
+        orderId,
+        email,
+        total: Number(full?.total) || 0,
+        items: (lineas || []).map((l: any) => ({
+          slug: String(l.product_slug || ''),
+          name: String(l.product_name || ''),
+          price: Number(l.unit_price) || 0,
+          quantity: Number(l.quantity) || 1,
+        })),
+      }))
+    } catch (e: any) {
+      console.warn('[mp-webhook] no se pudo avisar a GHL:', e?.message || e)
+    }
+  }
 
   return { ok: true, orderId, status: newStatus }
 })
