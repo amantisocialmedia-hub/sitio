@@ -5,7 +5,7 @@
 import { defineEventHandler, readBody } from 'h3'
 import { serverSupabaseUser } from '#supabase/server'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
-import { ghlConectado, emitirEventoGhlSinEsperar } from '../utils/ghl'
+import { ghlConectado, emitirEventoGhlSinEsperar, debeAvisarCarrito } from '../utils/ghl'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ email?: string; items?: any[]; total?: number; recovered?: boolean }>(event)
@@ -30,25 +30,52 @@ export default defineEventHandler(async (event) => {
       }))
   const total = Number(body?.total) || 0
 
+  // ¿Hay que avisarle a GHL? Solo si este carrito es un episodio NUEVO.
+  //
+  // Este endpoint se llama muchísimo: 4s despues de cada cambio del carrito y
+  // cada vez que se oculta la pestaña. Un solo comprador genera facilmente 8-10
+  // llamadas. Los triggers de GHL son premium y se cobran POR USO, asi que
+  // seguir cada guardado seria tirar dinero — y ademas re-meteria al mismo
+  // contacto en la secuencia de 1h/24h/48h una y otra vez.
+  //
+  // El candado: si ya existe una fila viva (no recuperada) para este correo, es
+  // que ya le avisamos de este episodio y nos callamos. Solo disparamos en la
+  // transicion de "sin carrito abandonado" a "con carrito abandonado".
+  let episodioVivo = true // pesimista: si no logramos leer, asumimos que ya avisamos
+  let registroDisponible = false
+
   try {
     const admin = supabaseAdmin()
     if (recuperado) {
+      // No hay webhook de "recuperado": en GHL los extractores sacan al cliente
+      // de la secuencia cuando compra. Aqui solo cerramos nuestro registro, que
+      // es lo que rearma el candado para el proximo carrito.
       await admin.from('abandoned_carts').update({ recovered: true, updated_at: new Date().toISOString() }).eq('email', email)
     } else {
+      const { data: previo } = await admin
+        .from('abandoned_carts')
+        .select('email')
+        .eq('email', email)
+        .eq('recovered', false)
+        .maybeSingle()
+      episodioVivo = !!previo
+      registroDisponible = true
       await admin.from('abandoned_carts').upsert(
         { user_id: userId, email, items, total, recovered: false, updated_at: new Date().toISOString() },
         { onConflict: 'email' },
       )
     }
-  } catch { /* tabla puede no existir aún */ }
+  } catch {
+    // La tabla puede no existir aun. Sin ella no hay forma de saber si ya
+    // avisamos, y ante la duda NO disparamos: equivocarse hacia el lado de
+    // mandar de mas aqui significa cobrar de mas y spamear al cliente.
+    registroDisponible = false
+  }
 
-  // Aviso a GoHighLevel, que es quien manda los correos de 1h / 24h / 48h.
-  //
-  // Va FUERA del try de Supabase a propósito: nuestra tabla es el registro
-  // interno, pero el correo lo dispara GHL. Si alguien no ha corrido
-  // supabase/abandoned-carts.sql, la secuencia debe funcionar igual.
-  if (ghlConectado()) {
-    emitirEventoGhlSinEsperar(recuperado ? 'carrito_recuperado' : 'carrito_abandonado', {
+  // GHL es quien manda los correos de 1h / 24h / 48h. Le contamos una sola vez
+  // por episodio; los tiempos y el contenido los maneja el workflow.
+  if (debeAvisarCarrito({ recuperado, episodioVivo, registroDisponible }) && ghlConectado('carrito_abandonado')) {
+    emitirEventoGhlSinEsperar('carrito_abandonado', {
       email,
       total,
       num_articulos: items.reduce((n, i) => n + i.quantity, 0),

@@ -1,55 +1,67 @@
 // Puente de eventos del sitio hacia GoHighLevel.
 //
-// César tiene armadas en GHL las plantillas y las automatizaciones (carrito
-// abandonado, postcompra, reseña al día 10, cross-selling al 21, reactivación,
-// extractores). Lo que le falta para dispararlas son los datos del sitio: qué
-// compró el cliente, cuánto, cuándo, y a qué ficha mandarlo. Este archivo es
-// ese puente, y nada más: un POST de JSON al webhook entrante de GHL.
+// César tiene armadas en GHL las secuencias (postcompra, reseña al día 10,
+// cross-selling al 21, carrito abandonado 1h/24h/48h, reactivación). Lo que le
+// falta para dispararlas son los datos del sitio. Esto es ese puente.
+//
+// UNA URL POR AUTOMATIZACIÓN, NO UNA GLOBAL
+// GHL genera una URL de "Inbound Webhook" distinta por cada workflow, así que
+// aquí el evento no viaja como campo: el evento ES la URL a la que se manda.
+// El campo `evento` va igual dentro del cuerpo, pero solo para depurar.
+//
+// ⚠️ CADA DISPARO CUESTA DINERO
+// César avisó que estos triggers son premium y se cobran POR USO. Eso cambia el
+// diseño: no basta con que funcione, tiene que dispararse el mínimo de veces
+// posible. Por eso `carrito_abandonado` lleva un candado en el llamador (ver
+// server/api/cart-save.post.ts) que lo limita a UNA vez por episodio de
+// carrito, en vez de las 8-10 que saldrían si siguiéramos cada guardado.
 //
 // TRES REGLAS QUE NO SE NEGOCIAN
 //
-// 1. SIN URL CONFIGURADA NO HACE NADA.
-//    Devuelve false y se acabó. El sitio se comporta igual con GHL conectado o
-//    sin conectar, así que esto se puede mezclar y desplegar hoy, antes de que
-//    exista la URL. El día que César la dé, se pega en la env y empieza a fluir
-//    sin tocar código.
+// 1. SIN URL CONFIGURADA NO HACE NADA. Devuelve false y ya. El sitio se comporta
+//    igual con GHL conectado o sin conectar, y cada evento se enciende por
+//    separado según qué URLs estén puestas.
 //
-// 2. NUNCA LANZA.
-//    Va enganchado al webhook de Mercado Pago, que es el camino por el que se
-//    confirma un pago. Si un fallo de red con GHL tumbara ese handler, MP lo
-//    reintentaría y —peor— el pedido podría quedarse sin marcar como pagado.
-//    Un correo de marketing que no sale es un problema; un pago que no se
-//    registra es otro tamaño de problema. Por eso aquí todo va envuelto y lo
-//    máximo que pasa es un console.warn.
+// 2. NUNCA LANZA. Va enganchado al webhook de Mercado Pago, que es el camino por
+//    el que se confirma un pago. Si un fallo de red con GHL tumbara ese handler,
+//    MP lo reintentaría y el pedido podría quedarse sin marcar como pagado. Un
+//    correo de marketing que no sale es un problema; un pago que no se registra
+//    es otro tamaño de problema.
 //
-// 3. NO BLOQUEA AL CLIENTE.
-//    Timeout corto y el llamador no espera el resultado. Nadie debería ver la
-//    pantalla de "gracias por tu compra" más lenta porque GHL tardó.
-//
-// El contrato con GHL es deliberadamente plano: `evento` + `datos`. Los
-// workflows de GHL filtran por `evento` y leen los campos de `datos`. Si mañana
-// cambia el nombre de un workflow, no se toca este archivo.
+// 3. NO BLOQUEA AL CLIENTE. Timeout corto y el llamador no espera el resultado.
 
-/** Eventos que el sitio sabe emitir. Cada uno alimenta un workflow de GHL. */
+/** Eventos que el sitio sabe emitir. Cada uno tiene su propia URL en GHL. */
 export type GhlEvento =
-  | 'compra_confirmada' // dispara postcompra, reseña, cross-selling y saca de las secuencias de abandono
-  | 'carrito_abandonado' // dispara la secuencia de 1h / 24h / 48h
-  | 'carrito_recuperado' // saca al cliente de la secuencia de abandono
+  | 'compra_confirmada' // → workflow de postcompra (reseña día 10, cross-selling día 21)
+  | 'carrito_abandonado' // → workflow de carrito abandonado (1h / 24h / 48h)
+  | 'reactivacion' // → workflow de reactivación / recompra
+
+/**
+ * De qué variable de entorno sale la URL de cada evento.
+ *
+ * Las URLs NO se commitean: llevan el id de la cuenta de GHL y quien las tenga
+ * puede disparar el workflow —y generar cobro— sin más. Van en .env y en las
+ * variables de entorno de Vercel.
+ */
+const ENV_POR_EVENTO: Record<GhlEvento, string> = {
+  compra_confirmada: 'NUXT_GHL_WEBHOOK_POSTCOMPRA',
+  carrito_abandonado: 'NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO',
+  reactivacion: 'NUXT_GHL_WEBHOOK_REACTIVACION',
+}
 
 /** Cuánto esperamos a GHL antes de rendirnos. Corto a propósito: ver regla 3. */
 const TIMEOUT_MS = 4000
 
-/** La URL del webhook entrante de GHL. Vacía = integración apagada. */
-function webhookUrl(): string {
-  return (process.env.NUXT_GHL_WEBHOOK_URL || '').trim()
+function urlDe(evento: GhlEvento): string {
+  return (process.env[ENV_POR_EVENTO[evento]] || '').trim()
 }
 
 /**
- * Si la integración con GHL está conectada ahora mismo.
- * Útil para no armar payloads caros cuando no hay a dónde mandarlos.
+ * Si ESTE evento tiene su URL puesta. Se pregunta por evento, no global: se
+ * puede tener postcompra conectado y carrito todavía no.
  */
-export function ghlConectado(): boolean {
-  return webhookUrl().length > 0
+export function ghlConectado(evento: GhlEvento): boolean {
+  return urlDe(evento).length > 0
 }
 
 /**
@@ -57,15 +69,12 @@ export function ghlConectado(): boolean {
  *
  * NUNCA rechaza la promesa: un fallo devuelve false. Eso es intencional y es lo
  * que permite llamarla desde el camino de confirmación de pago sin miedo.
- *
- * @param evento  cuál de los workflows de GHL se busca disparar
- * @param datos   campos que el correo necesita para personalizarse
  */
 export async function emitirEventoGhl(
   evento: GhlEvento,
   datos: Record<string, unknown>,
 ): Promise<boolean> {
-  const url = webhookUrl()
+  const url = urlDe(evento)
   if (!url) return false // regla 1: sin configurar, no-op silencioso
 
   try {
@@ -91,9 +100,8 @@ export async function emitirEventoGhl(
  * Igual que `emitirEventoGhl` pero sin esperar: dispara y sigue.
  *
  * Esta es la que se usa desde los handlers que tienen un cliente esperando del
- * otro lado (confirmación de pago, guardado de carrito). El `void` y el `.catch`
- * redundante son a propósito: garantizan que ni siquiera una promesa rechazada
- * escape hacia el runtime y ensucie los logs con "unhandled rejection".
+ * otro lado. El `void` y el `.catch` redundante son a propósito: garantizan que
+ * ni una promesa rechazada escape al runtime como "unhandled rejection".
  */
 export function emitirEventoGhlSinEsperar(
   evento: GhlEvento,
@@ -103,13 +111,34 @@ export function emitirEventoGhlSinEsperar(
 }
 
 /**
+ * Decide si hay que avisarle a GHL de un carrito abandonado.
+ *
+ * Vive aquí y no dentro del endpoint porque es LA regla que evita que nos cobren
+ * de más: el trigger es premium y se paga por uso, y /api/cart-save se llama 8-10
+ * veces por comprador. Separada así queda probada.
+ *
+ * @param recuperado          el carrito se vació o ya compró
+ * @param episodioVivo        ya hay una fila sin recuperar para este correo, o sea
+ *                            que de este mismo carrito ya le avisamos a GHL
+ * @param registroDisponible  se pudo leer la tabla `abandoned_carts`
+ */
+export function debeAvisarCarrito(opts: {
+  recuperado: boolean
+  episodioVivo: boolean
+  registroDisponible: boolean
+}): boolean {
+  if (opts.recuperado) return false // no hay webhook de "recuperado": lo hacen los extractores
+  if (!opts.registroDisponible) return false // sin registro no sabemos si ya avisamos; ante la duda, no
+  return !opts.episodioVivo // solo en la transición de "sin carrito" a "carrito abandonado"
+}
+
+/**
  * Arma el payload de una compra confirmada.
  *
- * Lo que César pidió explícitamente que GHL pudiera recibir del sitio: qué
- * producto compró, datos del pedido, enlace a la ficha del producto, e
- * información suficiente para recomendar relacionados. El `url_resena` es el
- * que va en el correo del día 10 — César lo pidió por su nombre: poder mandar
- * al cliente directo a la ficha a dejar su review.
+ * Lo que César pidió que GHL pudiera recibir del sitio: qué producto compró,
+ * datos del pedido, enlace a la ficha y lo suficiente para recomendar
+ * relacionados. `url_resena` es el que va en el correo del día 10 — lo pidió por
+ * su nombre: mandar al cliente directo a la ficha a dejar su review.
  */
 export function payloadCompra(opts: {
   orderId: string

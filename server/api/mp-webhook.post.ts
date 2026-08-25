@@ -145,7 +145,7 @@ export default defineEventHandler(async (event) => {
   // consulta fallan, el pedido YA quedó pagado y la función devuelve ok igual.
   // Un correo que no sale se arregla; un pago que MP reintenta porque le
   // devolvimos un 500 es mucho peor.
-  if (newStatus === 'paid' && ghlConectado()) {
+  if (newStatus === 'paid' && ghlConectado('compra_confirmada')) {
     try {
       const [{ data: full }, { data: lineas }] = await Promise.all([
         admin.from('orders').select('user_id, total').eq('id', orderId).maybeSingle(),
