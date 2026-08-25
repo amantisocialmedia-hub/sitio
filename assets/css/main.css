@@ -124,6 +124,11 @@ html.discreet .sr-th img{filter:blur(10px)}
 .benefits .b .e{font-size:1.4rem}
 
 /* SALE hero */
+/* Venta especial arriba del hero. Cesar la pidio pegada a la barra de busqueda
+   (mockup 25-ago-2026); ahi no aplica el margen que trae cuando cae despues
+   del hero, porque no hay nada arriba de que separarse mas que el header. */
+.salewrap-top{margin-top:14px}
+.salewrap-top .salehero{margin-top:0}
 .salehero{background:linear-gradient(120deg,#FBE9D9,#FFE7DA);border-radius:6px;margin-top:18px;position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;padding:30px 36px;flex-wrap:wrap;justify-content:center}
 .flame{background:var(--red);color:#fff;font-family:var(--fh);font-weight:800;font-size:1.5rem;padding:22px 26px;border-radius:50% 50% 50% 6px;transform:rotate(-8deg);box-shadow:0 12px 24px -10px rgba(229,23,42,.6);text-align:center;line-height:1}
 .salehero .mid{text-align:center}

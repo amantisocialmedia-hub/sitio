@@ -21,16 +21,15 @@ const bProd = computed(() => show.value[2])
         <NuxtLink to="/tienda" class="hm-cta">Quiero descubrir →</NuxtLink>
       </div>
 
-      <!-- Panel de campaña. Ocupa el hueco del cupón mientras dure la venta. -->
-      <NuxtLink v-if="CAMPANA.activa" to="/tienda" class="hm-tile hm-coupon">
-        <span class="hm-cup-top">{{ CAMPANA.nombre }}</span>
-        <span class="hm-cup-code">-{{ CAMPANA_PCT }}%</span>
-        <span class="hm-cup-off">en <b>toda la tienda</b>, ya aplicado en cada precio</span>
-        <span class="hm-cup-btn">Ver la venta</span>
-      </NuxtLink>
+      <!-- El panel de campaña vivía aquí. Se quitó cuando el banner de la venta
+           subió arriba del hero (25-ago-2026): quedaban los dos anunciando el
+           mismo 40% uno encima del otro, y es la misma razón por la que
+           MOSTRAR_CUPONES se apaga durante la campaña — dos descuentos
+           encimados confunden y se restan entre sí. El hueco del mosaico ya
+           sabía quedarse vacío: es como estuvo desde que se bajaron los cupones. -->
 
       <!-- Panel de cupón (bajado hasta la luz verde del relanzamiento) -->
-      <NuxtLink v-else-if="MOSTRAR_CUPONES" to="/tienda" class="hm-tile hm-coupon">
+      <NuxtLink v-if="MOSTRAR_CUPONES" to="/tienda" class="hm-tile hm-coupon">
         <span class="hm-cup-top">Aquí decimos</span>
         <span class="hm-cup-code">AMANTI15</span>
         <span class="hm-cup-off">tu código para <b>-15%</b> en tu primera compra</span>

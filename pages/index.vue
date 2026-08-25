@@ -48,6 +48,22 @@ useSeoMeta({
 </script>
 
 <template>
+  <!-- Venta especial, ANTES del hero: César la pidió pegada a la barra de
+       búsqueda para que sea lo primero que se ve (mockup del 25-ago-2026).
+       Con la campaña apagada este bloque no existe y el hero vuelve a ser lo
+       primero, igual que antes. -->
+  <div v-if="CAMPANA.activa" class="wrap salewrap-top">
+    <div class="salehero">
+      <div class="flame">VENTA<br>ESPECIAL</div>
+      <div class="mid">
+        <div class="gd">{{ CAMPANA.nombre.toUpperCase() }}</div>
+        <div class="pct">{{ CAMPANA_PCT }}% OFF</div>
+        <div class="emo">🌙 💞 🌿 🚀 💧</div>
+        <div class="valid">En toda la tienda · el precio que ves ya trae el descuento</div>
+      </div>
+    </div>
+  </div>
+
   <HeroEditorial :products="populares" />
 
   <div class="wrap">
@@ -58,20 +74,10 @@ useSeoMeta({
       <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
     </div>
 
-    <!-- Venta especial. Solo aparece con la campaña encendida (utils/campana.ts). -->
-    <div v-if="CAMPANA.activa" class="salehero">
-      <div class="flame">VENTA<br>ESPECIAL</div>
-      <div class="mid">
-        <div class="gd">{{ CAMPANA.nombre.toUpperCase() }}</div>
-        <div class="pct">{{ CAMPANA_PCT }}% OFF</div>
-        <div class="emo">🌙 💞 🌿 🚀 💧</div>
-        <div class="valid">En toda la tienda · el precio que ves ya trae el descuento</div>
-      </div>
-    </div>
-
     <!-- Promo de cupones. Bajada mientras César prepara el relanzamiento; se
-         vuelve a prender desde utils/campana.ts. -->
-    <div v-else-if="MOSTRAR_CUPONES" class="salehero">
+         vuelve a prender desde utils/campana.ts. Nunca coincide con la venta:
+         MOSTRAR_CUPONES ya es false mientras la campaña esté encendida. -->
+    <div v-if="MOSTRAR_CUPONES" class="salehero">
       <div class="flame">CUPÓN</div>
       <div class="mid">
         <div class="gd">DESCUENTOS CON CUPÓN</div>
