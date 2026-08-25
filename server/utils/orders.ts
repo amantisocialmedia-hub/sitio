@@ -21,7 +21,7 @@ async function defaultAddressSnapshot(userId: string | null): Promise<any | null
   if (!userId) return null
   const admin = supabaseAdmin()
   const { data } = await admin.from('addresses')
-    .select('label, recipient, phone, line1, line2, city, state, postal_code, country')
+    .select('label, recipient, phone, line1, colonia, line2, city, state, postal_code, country')
     .eq('user_id', userId).eq('is_default', true).limit(1).maybeSingle()
   return data || null
 }

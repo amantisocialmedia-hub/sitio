@@ -4,11 +4,11 @@ const supabase = useSupabaseClient()
 
 interface Address {
   id?: string; label: string; recipient: string; phone: string
-  line1: string; line2: string; city: string; state: string
+  line1: string; colonia: string; line2: string; city: string; state: string
   postal_code: string; country: string; is_default: boolean
 }
 const empty = (): Address => ({
-  label: '', recipient: '', phone: '', line1: '', line2: '',
+  label: '', recipient: '', phone: '', line1: '', colonia: '', line2: '',
   city: '', state: '', postal_code: '', country: 'MX', is_default: false,
 })
 
@@ -46,7 +46,7 @@ function openEdit(a: Address) {
   // Coacciona null→'' (los campos opcionales vienen null del DB) para no romper .trim().
   form.value = {
     label: a.label ?? '', recipient: a.recipient ?? '', phone: a.phone ?? '',
-    line1: a.line1 ?? '', line2: a.line2 ?? '', city: a.city ?? '', state: a.state ?? '',
+    line1: a.line1 ?? '', colonia: a.colonia ?? '', line2: a.line2 ?? '', city: a.city ?? '', state: a.state ?? '',
     postal_code: a.postal_code ?? '', country: a.country ?? 'MX', is_default: !!a.is_default,
   }
   editingId.value = a.id || null; err.value = ''; msg.value = ''; showForm.value = true
@@ -76,6 +76,7 @@ async function save() {
     recipient: f.recipient.trim() || null,
     phone: f.phone.trim() ? cleanMxPhone(f.phone) : null,
     line1: f.line1.trim(),
+    colonia: f.colonia.trim() || null,
     line2: f.line2.trim() || null,
     city: f.city.trim(),
     state: f.state.trim(),
@@ -148,7 +149,10 @@ async function makeDefault(a: Address) {
       </div>
       <label>Teléfono<input v-model="form.phone" type="tel" placeholder="10 dígitos" /></label>
       <label>Calle y número *<input v-model="form.line1" placeholder="Av. Siempre Viva 742" /></label>
-      <label>Interior / referencias<input v-model="form.line2" placeholder="Depto, colonia, referencias (opcional)" /></label>
+      <label>Colonia<input v-model="form.colonia" placeholder="Del Valle" /></label>
+      <!-- La colonia salio de aqui (25-ago-2026): es direccion postal y la usa la
+           paqueteria para rutear, no una referencia. -->
+      <label>Interior / referencias<input v-model="form.line2" placeholder="Depto 3B, porton verde (opcional)" /></label>
       <div class="grid2">
         <label>Ciudad *<input v-model="form.city" placeholder="Ciudad" /></label>
         <label>Estado *<input v-model="form.state" placeholder="Estado" /></label>
@@ -180,7 +184,7 @@ async function makeDefault(a: Address) {
               <span v-if="a.is_default" class="adef">Predeterminada</span>
             </div>
             <p class="aline">{{ a.recipient ? a.recipient + ' · ' : '' }}{{ a.phone || '' }}</p>
-            <p class="aline">{{ a.line1 }}<template v-if="a.line2">, {{ a.line2 }}</template></p>
+            <p class="aline">{{ a.line1 }}<template v-if="a.colonia">, {{ a.colonia }}</template><template v-if="a.line2">, {{ a.line2 }}</template></p>
             <p class="aline">{{ a.city }}, {{ a.state }} {{ a.postal_code }} · {{ a.country }}</p>
           </div>
           <div class="aacts">
