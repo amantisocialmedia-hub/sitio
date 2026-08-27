@@ -14,6 +14,7 @@ import { defineEventHandler, readBody, getQuery, getHeader, createError } from '
 import { createHmac, timingSafeEqual } from 'node:crypto'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 import { ghlConectado, emitirEventoGhlSinEsperar, payloadCompra } from '../utils/ghl'
+import { avisarPedidoParaSurtir } from '../utils/avisoPedido'
 
 function mapStatus(mp: string): string | null {
   switch (mp) {
@@ -148,7 +149,7 @@ export default defineEventHandler(async (event) => {
   if (newStatus === 'paid' && ghlConectado('compra_confirmada')) {
     try {
       const [{ data: full }, { data: lineas }] = await Promise.all([
-        admin.from('orders').select('user_id, total').eq('id', orderId).maybeSingle(),
+        admin.from('orders').select('user_id, total, shipping_address, gift').eq('id', orderId).maybeSingle(),
         admin.from('order_items').select('product_slug, product_name, unit_price, quantity').eq('order_id', orderId),
       ])
       // El correo no vive en `orders`: se resuelve desde el usuario de Supabase.
@@ -159,6 +160,20 @@ export default defineEventHandler(async (event) => {
         const { data: u } = await admin.auth.admin.getUserById(String(full.user_id))
         email = u?.user?.email ?? null
       }
+      // Aviso a quien surte, con la direccion ya formateada para la guia.
+      // Va aparte del evento de marketing: son dos destinatarios distintos y
+      // dos workflows distintos en GHL.
+      avisarPedidoParaSurtir({
+        pedidoId: orderId,
+        total: Number(full?.total) || 0,
+        items: (lineas || []).map((l: any) => ({
+          nombre: String(l.product_name || ''),
+          cantidad: Number(l.quantity) || 1,
+        })),
+        envio: (full as any)?.shipping_address ?? null,
+        esRegalo: !!(full as any)?.gift?.isGift,
+      })
+
       emitirEventoGhlSinEsperar('compra_confirmada', payloadCompra({
         orderId,
         email,

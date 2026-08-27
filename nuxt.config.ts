@@ -107,6 +107,11 @@ export default defineNuxtConfig({
       publicBaseUrl: 'http://localhost:3000',
       // NUXT_PUBLIC_STRIPE_ENABLED — "1" para mostrar el botón "Pagar con tarjeta" (Stripe); vacío = oculto.
       stripeEnabled: '',
+      // NUXT_PUBLIC_ENVIO_COSTO — lo que se cobra de envío bajo los $1,000.
+      // Vacío o "0" = envío gratis para todos, que es como estaba el sitio.
+      // El servidor lee NUXT_ENVIO_COSTO (sin PUBLIC) y ESE es el autoritativo:
+      // este solo pinta. Los dos deben tener el mismo valor.
+      envioCosto: '',
     },
   },
 })

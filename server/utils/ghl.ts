@@ -35,6 +35,9 @@ export type GhlEvento =
   | 'compra_confirmada' // → workflow de postcompra (reseña día 10, cross-selling día 21)
   | 'carrito_abandonado' // → workflow de carrito abandonado (1h / 24h / 48h)
   | 'reactivacion' // → workflow de reactivación / recompra
+  // → mensaje de WhatsApp a quien surte. Lo pidió Nancy el 27-ago-2026:
+  //   «que me llegue por whats por favor».
+  | 'pedido_para_surtir'
 
 /**
  * De qué variable de entorno sale la URL de cada evento.
@@ -47,6 +50,7 @@ const ENV_POR_EVENTO: Record<GhlEvento, string> = {
   compra_confirmada: 'NUXT_GHL_WEBHOOK_POSTCOMPRA',
   carrito_abandonado: 'NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO',
   reactivacion: 'NUXT_GHL_WEBHOOK_REACTIVACION',
+  pedido_para_surtir: 'NUXT_GHL_WEBHOOK_AVISO_PEDIDO',
 }
 
 /** Cuánto esperamos a GHL antes de rendirnos. Corto a propósito: ver regla 3. */

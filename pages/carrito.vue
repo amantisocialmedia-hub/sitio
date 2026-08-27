@@ -81,6 +81,21 @@ onMounted(() => {
   else cart.refreshPrices()
 })
 
+// Costo de envio. El valor autoritativo es el del servidor (NUXT_ENVIO_COSTO);
+// esto solo lo pinta para que el cliente lo vea ANTES de pagar y no se lleve la
+// sorpresa en Mercado Pago.
+const cfgEnvio = useRuntimeConfig().public
+const costoEnvio = computed(() => Number(cfgEnvio.envioCosto || 0) || 0)
+const envioACobrar = computed(() =>
+  costoEnvio.value > 0 && !cart.freeShipping ? costoEnvio.value : 0,
+)
+const totalAPagar = computed(() => cart.totalWithDiscount + envioACobrar.value)
+const envioTexto = computed(() => {
+  if (cart.freeShipping) return 'Gratis'
+  if (envioACobrar.value > 0) return peso(envioACobrar.value)
+  return 'Gratis'  // costo no configurado: se comporta como antes
+})
+
 /**
  * Direccion de envio.
  *
@@ -317,8 +332,8 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <span>Descuento <b class="cpill">{{ cart.coupon?.code }}</b></span>
           <span class="disc-val">−{{ peso(cart.discount) }}</span>
         </div>
-        <div class="sline"><span>Envío</span><span>{{ cart.freeShipping ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
-        <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalWithDiscount) }}</span></div>
+        <div class="sline"><span>Envío</span><span>{{ envioTexto }}</span></div>
+        <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(totalAPagar) }}</span></div>
 
         <!-- Direccion de envio. Va ANTES del boton de pagar a proposito: sin
              esto el pedido se cobra y no hay a donde mandarlo. -->
@@ -369,7 +384,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
         </div>
 
         <button ref="payBtnEl" class="btn magenta block" :disabled="loading" @click="checkout">
-          {{ loading ? 'Redirigiendo…' : 'Pagar con MercadoPago' }}
+          {{ loading ? 'Redirigiendo…' : 'Pagar' }}
         </button>
         <button v-if="stripeEnabled" class="btn block" style="background:var(--purple,#5E1B33);color:#fff" :disabled="stripeLoading" @click="checkoutStripe">
           {{ stripeLoading ? 'Redirigiendo…' : 'Pagar con tarjeta 💳' }}

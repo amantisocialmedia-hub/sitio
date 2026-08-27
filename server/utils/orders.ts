@@ -35,6 +35,8 @@ export interface CreatedOrder {
   couponCode: string | null
   /** Direccion con la que se va a enviar. null = el pedido no se puede surtir. */
   shippingAddress: EnvioInfo | null
+  /** Lo que se cobro de envio. 0 = gratis (por umbral o porque esta apagado). */
+  shippingCost: number
 }
 
 /**
@@ -107,8 +109,13 @@ export async function createPendingOrder(
     discount = res.discount
   }
 
-  const total = round2(subtotal - discount)
-  if (total <= 0) {
+  // El envio se suma DESPUES del descuento: es lo que el cliente paga de
+  // producto. Calcularlo antes del cupon regalaria envios, porque alguien con
+  // un cupon grande cruzaria el umbral sin haber pagado esa cantidad.
+  const subtotalConDescuento = round2(subtotal - discount)
+  const envioCosto = calcularEnvio(subtotalConDescuento)
+  const total = round2(subtotalConDescuento + envioCosto)
+  if (subtotalConDescuento <= 0) {
     throw createError({ statusCode: 400, message: 'El descuento deja el total en $0 o menos. Ajusta tu carrito o usa otro cupón.' })
   }
 
@@ -163,5 +170,5 @@ export async function createPendingOrder(
     if (gErr) console.warn('[orders] no se pudo guardar gift (¿falta la columna?):', gErr.message)
   }
 
-  return { id: order.id as string, total: order.total as number, userId, items: resolved, discount, couponCode, shippingAddress: shipping }
+  return { id: order.id as string, total: order.total as number, userId, items: resolved, discount, couponCode, shippingAddress: shipping, shippingCost: envioCosto }
 }

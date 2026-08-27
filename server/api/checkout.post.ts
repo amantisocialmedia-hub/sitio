@@ -6,6 +6,7 @@
 import { defineEventHandler, readBody, createError } from 'h3'
 import { serverSupabaseUser } from '#supabase/server'
 import { createPendingOrder } from '../utils/orders'
+import { round2 } from '../utils/orderItems'
 import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 
@@ -89,9 +90,17 @@ export default defineEventHandler(async (event) => {
           // unit_price <= 0, así que en vez de una línea negativa "recalculamos": cuando hay
           // cupón, mandamos UNA línea con el total YA con descuento (suma exacta, sin rechazos).
           // El detalle por producto vive en order_items (fuente de verdad) ligado por external_reference.
-          items: order.discount > 0
-            ? [{ title: `Pedido AMANTI · cupón ${order.couponCode}`, quantity: 1, unit_price: order.total, currency_id: 'MXN' }]
-            : order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' })),
+          // La suma de estas lineas DEBE dar exactamente order.total, o MP cobra
+          // distinto de lo que dice el pedido. Por eso el envio va como linea
+          // propia: si se omite, se cobra de menos.
+          items: [
+            ...(order.discount > 0
+              ? [{ title: `Pedido AMANTI · cupón ${order.couponCode}`, quantity: 1, unit_price: round2(order.total - order.shippingCost), currency_id: 'MXN' }]
+              : order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' }))),
+            ...(order.shippingCost > 0
+              ? [{ title: 'Envío', quantity: 1, unit_price: order.shippingCost, currency_id: 'MXN' }]
+              : []),
+          ],
           external_reference: order.id,
           // Sin esto el boton de pagar no se habilita. Ver datosDelComprador().
           ...(payer ? { payer } : {}),
