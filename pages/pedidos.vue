@@ -149,6 +149,13 @@ definePageMeta({ layout: 'default' })
           </button>
         </div>
 
+        <!-- El correo va FUERA del bloque que se copia: eso se pega en una guia
+             de envio y ahi no pinta nada. Aparte sirve para avisarle al cliente
+             si el paquete rebota o falta un dato. -->
+        <p v-if="p.shipping_address?.email" class="correo">
+          ✉️ <a :href="`mailto:${p.shipping_address.email}`">{{ p.shipping_address.email }}</a>
+        </p>
+
         <div v-if="p.gift?.isGift" class="regalo">
           🎁 <b>Es regalo.</b>
           <span v-if="p.gift.recipient">Para {{ p.gift.recipient }}. </span>
@@ -195,6 +202,8 @@ h1 { margin: 0 0 18px; }
 .sin-dir { background: #FDF3E3; border-radius: 6px; padding: 9px 11px; font-size: .88rem; margin-bottom: 10px; }
 .dir { display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
 .dir pre { margin: 0; font: inherit; font-size: .9rem; white-space: pre-wrap; background: var(--bg-soft, #F7F3F0); padding: 9px 11px; border-radius: 6px; flex: 1; min-width: 200px; }
+.correo { font-size: .86rem; margin: -4px 0 10px; opacity: .8; }
+.correo a { color: inherit; }
 .regalo { font-size: .88rem; background: #F6EEF6; border-radius: 6px; padding: 8px 11px; margin-bottom: 10px; }
 
 .pie { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-top: 10px; border-top: 1px solid var(--line); }

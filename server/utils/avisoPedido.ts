@@ -25,6 +25,7 @@ export interface DatosAviso {
   total: number
   items: { nombre: string; cantidad: number }[]
   envio: {
+    email?: string
     recipient?: string
     phone?: string
     line1?: string
@@ -83,6 +84,8 @@ export function avisarPedidoParaSurtir(d: DatosAviso): void {
     sin_direccion: !d.envio?.line1,
     es_regalo: !!d.esRegalo,
     telefono: d.envio?.phone ?? null,
+    // Para poder contactar al cliente si el paquete rebota o falta un dato.
+    email: d.envio?.email ?? null,
     mensaje: textoAviso(d),
     url_pedidos: 'https://amanti.mx/pedidos',
   }).catch(() => false)
