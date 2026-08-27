@@ -493,6 +493,15 @@ html.discreet .sr-th img{filter:blur(10px)}
 .paytrust .pt-disc{display:block;font-size:.84rem;color:var(--purple);font-weight:600;margin-bottom:8px}
 .paytrust .pay-icons{justify-content:center}
 /* Modo regalo en el carrito */
+/* Direccion de envio en el carrito. Va antes del boton de pagar: sin esto el
+   pedido se cobra y no hay a donde mandarlo (27-ago-2026). */
+.enviobox{margin:14px 0 4px;border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:8px}
+.envio-tit{font-weight:600;font-size:.94rem;margin:0 0 2px}
+.enviobox input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:.92rem;background:#fff;color:inherit}
+.enviobox input:focus{outline:2px solid var(--red);outline-offset:1px;border-color:transparent}
+.envio-fila{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.envio-nota{font-size:.76rem;opacity:.6;margin:2px 0 0}
+.pt-como{font-size:.78rem;opacity:.7;margin:6px 0 0;text-align:center}
 .giftbox{margin:14px 0 4px;border-top:1px solid var(--line);padding-top:14px}
 .gift-toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:700;color:var(--purple)}
 .gift-toggle input{width:20px;height:20px;accent-color:var(--magenta);cursor:pointer;flex:none}

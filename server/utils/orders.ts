@@ -33,6 +33,8 @@ export interface CreatedOrder {
   items: ResolvedItem[]
   discount: number
   couponCode: string | null
+  /** Direccion con la que se va a enviar. null = el pedido no se puede surtir. */
+  shippingAddress: EnvioInfo | null
 }
 
 /**
@@ -69,12 +71,15 @@ async function incrementCouponUsage(admin: ReturnType<typeof supabaseAdmin>, cod
  */
 export interface GiftInfo { isGift?: boolean; recipient?: string; sender?: string; message?: string }
 
+
+
 export async function createPendingOrder(
   event: H3Event,
   items: InCartItem[],
   paymentMethod: 'mercadopago' | 'whatsapp' | 'stripe',
   gift?: GiftInfo | null,
   couponCodeRaw?: string | null,
+  envio?: EnvioInfo | null,
 ): Promise<CreatedOrder> {
   // Valida + resuelve precios autoritativos (lanza 400 si hay items inválidos o el carrito está vacío).
   const resolved = resolveItems(items)
@@ -108,7 +113,10 @@ export async function createPendingOrder(
   }
 
   const userId = await getUserId(event)
-  const shipping = await defaultAddressSnapshot(userId)
+  // La direccion que el cliente acaba de escribir en el carrito manda sobre la
+  // guardada en su perfil: es la de ESTE pedido. La del perfil queda de respaldo
+  // para clientes con cuenta que no capturaron nada.
+  const shipping = normalizarEnvio(envio) ?? (await defaultAddressSnapshot(userId))
 
   const { data: order, error: oErr } = await admin
     .from('orders')
@@ -155,5 +163,5 @@ export async function createPendingOrder(
     if (gErr) console.warn('[orders] no se pudo guardar gift (¿falta la columna?):', gErr.message)
   }
 
-  return { id: order.id as string, total: order.total as number, userId, items: resolved, discount, couponCode }
+  return { id: order.id as string, total: order.total as number, userId, items: resolved, discount, couponCode, shippingAddress: shipping }
 }

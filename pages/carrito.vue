@@ -81,7 +81,58 @@ onMounted(() => {
   else cart.refreshPrices()
 })
 
+/**
+ * Direccion de envio.
+ *
+ * Antes del 27-ago-2026 el sitio NO la pedia: solo usaba la del perfil si el
+ * cliente tenia cuenta. Las compras de invitado se cobraban sin direccion y no
+ * habia a donde mandar el paquete. Se detecto con los tres pedidos pagados de
+ * ese dia, los tres sin direccion.
+ *
+ * Se guarda en localStorage para que quien vuelva no tenga que teclearla otra
+ * vez -- es la friccion que mas carritos abandona en movil.
+ */
+const envio = ref({
+  recipient: '', phone: '', line1: '', colonia: '',
+  line2: '', city: '', state: '', postal_code: '',
+})
+
+onMounted(() => {
+  try {
+    const g = localStorage.getItem('amanti_envio')
+    if (g) Object.assign(envio.value, JSON.parse(g))
+  } catch { /* modo privado */ }
+})
+
+function guardarEnvio() {
+  try { localStorage.setItem('amanti_envio', JSON.stringify(envio.value)) } catch { /* modo privado */ }
+}
+
+/** Lo minimo para que la paqueteria pueda entregar. */
+const envioCompleto = computed(() =>
+  !!envio.value.recipient.trim() && !!envio.value.phone.trim() && !!envio.value.line1.trim() &&
+  !!envio.value.city.trim() && !!envio.value.state.trim() && /^\d{5}$/.test(envio.value.postal_code.trim()),
+)
+
+const faltaEnvio = computed(() => {
+  const f: string[] = []
+  if (!envio.value.recipient.trim()) f.push('nombre de quien recibe')
+  if (!envio.value.phone.trim()) f.push('teléfono')
+  if (!envio.value.line1.trim()) f.push('calle y número')
+  if (!envio.value.city.trim()) f.push('ciudad')
+  if (!envio.value.state.trim()) f.push('estado')
+  if (!/^\d{5}$/.test(envio.value.postal_code.trim())) f.push('código postal de 5 dígitos')
+  return f
+})
+
 async function checkout() {
+  // Frenar ANTES de cobrar. Cobrar y no poder enviar es peor que no vender.
+  if (!envioCompleto.value) {
+    errorMsg.value = `Falta ${faltaEnvio.value.join(', ')} para poder enviarte el pedido.`
+    document.getElementById('envio-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    return
+  }
+  guardarEnvio()
   analytics.beginCheckout(cart.totalWithDiscount, cart.items)
   errorMsg.value = ''
   loading.value = true
@@ -99,6 +150,7 @@ async function checkout() {
         items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
         gift: cart.gift,
         coupon: cart.coupon?.code,
+        envio: envio.value,
         ...(correo ? { payer: { email: correo } } : {}),
       },
     })
@@ -268,6 +320,25 @@ useHead({ title: 'Tu carrito — AMANTI' })
         <div class="sline"><span>Envío</span><span>{{ cart.freeShipping ? 'Gratis' : 'Se calcula al pagar' }}</span></div>
         <div class="sline total"><span>Total</span><span class="totalval" :class="{ pulse: totalPulse }">{{ peso(cart.totalWithDiscount) }}</span></div>
 
+        <!-- Direccion de envio. Va ANTES del boton de pagar a proposito: sin
+             esto el pedido se cobra y no hay a donde mandarlo. -->
+        <div id="envio-form" class="enviobox">
+          <p class="envio-tit">📦 ¿A dónde te lo enviamos?</p>
+          <input v-model="envio.recipient" type="text" maxlength="80" placeholder="Nombre de quien recibe *" aria-label="Nombre de quien recibe" @blur="guardarEnvio" />
+          <input v-model="envio.phone" type="tel" inputmode="tel" maxlength="20" placeholder="Teléfono (para la entrega) *" aria-label="Teléfono" @blur="guardarEnvio" />
+          <input v-model="envio.line1" type="text" maxlength="120" placeholder="Calle y número *" aria-label="Calle y número" @blur="guardarEnvio" />
+          <input v-model="envio.colonia" type="text" maxlength="80" placeholder="Colonia" aria-label="Colonia" @blur="guardarEnvio" />
+          <div class="envio-fila">
+            <input v-model="envio.city" type="text" maxlength="60" placeholder="Ciudad *" aria-label="Ciudad" @blur="guardarEnvio" />
+            <input v-model="envio.state" type="text" maxlength="60" placeholder="Estado *" aria-label="Estado" @blur="guardarEnvio" />
+          </div>
+          <div class="envio-fila">
+            <input v-model="envio.postal_code" type="text" inputmode="numeric" maxlength="5" placeholder="C.P. *" aria-label="Código postal" @blur="guardarEnvio" />
+            <input v-model="envio.line2" type="text" maxlength="120" placeholder="Interior, referencias" aria-label="Interior o referencias" @blur="guardarEnvio" />
+          </div>
+          <p class="envio-nota">Los campos con * son necesarios para poder entregarte.</p>
+        </div>
+
         <!-- Modo regalo -->
         <div class="giftbox">
           <label class="gift-toggle">
@@ -287,10 +358,14 @@ useHead({ title: 'Tu carrito — AMANTI' })
         <!-- Vence la última objeción: discreción + métodos de pago, pegado al botón -->
         <div class="paytrust">
           <span class="pt-disc">🕵️ Entrega 100% discreta · caja sin logo</span>
-          <div class="pay-icons">
+          <div class="pay-icons" aria-hidden="true">
             <span class="pi pi-visa">Visa</span><span class="pi pi-mc">MC</span><span class="pi pi-amex">Amex</span>
             <span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span><span class="pi pi-msi">MSI</span>
           </div>
+          <!-- Raul (27-ago-2026): la gente le pica a "Visa" creyendo que es un
+               boton y no pasa nada. Los logos dicen QUE se acepta, no COMO se
+               paga: todo entra por Mercado Pago y ahi se elige. -->
+          <p class="pt-como">Eliges cuál al pagar, dentro de Mercado Pago.</p>
         </div>
 
         <button ref="payBtnEl" class="btn magenta block" :disabled="loading" @click="checkout">

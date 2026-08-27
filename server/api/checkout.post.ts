@@ -53,13 +53,23 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'MP token missing', message: 'Falta configurar el token de MercadoPago (NUXT_MP_ACCESS_TOKEN).' })
   }
 
-  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string; payer?: { email?: string; name?: string; surname?: string } }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string; payer?: { email?: string; name?: string; surname?: string }; envio?: any }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
 
   // 1) Order pending + items (con la service_role; user_id si hay sesión). El cupón se
   //    re-valida y el descuento se recalcula server-side; el total del order ya viene con descuento.
-  const order = await createPendingOrder(event, items, 'mercadopago', body?.gift, body?.coupon)
+  const order = await createPendingOrder(event, items, 'mercadopago', body?.gift, body?.coupon, body?.envio)
+
+  // Sin direccion no se cobra. Antes se aceptaba el pago y el pedido quedaba sin
+  // a donde enviarse -- pasó con los tres pagados del 27-ago-2026. Es mejor
+  // frenar aqui, donde el cliente puede corregir, que despues de cobrarle.
+  if (!order.shippingAddress) {
+    throw createError({
+      statusCode: 400,
+      message: 'Falta la dirección de envío. Complétala antes de continuar al pago.',
+    })
+  }
 
   // Datos del comprador ANTES de armar la preferencia: sin ellos MP no habilita
   // el boton de pagar.

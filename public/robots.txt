@@ -3,5 +3,6 @@ Allow: /
 Disallow: /carrito
 Disallow: /cuenta
 Disallow: /favoritos
+Disallow: /pedidos
 
 Sitemap: https://amanti.mx/sitemap.xml
