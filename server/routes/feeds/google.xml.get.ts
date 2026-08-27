@@ -24,6 +24,10 @@ interface FeedProduct {
   brand?: string
   category?: string
   price: number
+  // Precio de lista. Con la campaña encendida, aplicarCampana() deja aquí el
+  // precio ANTES del descuento y baja `price` al rebajado. Es lo que permite
+  // mandarle a Google el tachado (g:price + g:sale_price).
+  compareAt?: number
   description?: string
   images?: string[]
   // Campos específicos del feed (no se usan en la web):
@@ -36,6 +40,19 @@ interface FeedProduct {
 // Con la campaña encendida, Google tiene que ver el mismo precio que la tienda,
 // o Merchant Center marca discrepancia y suspende los productos.
 const products = aplicarCampana(((productsData as any).products || []) as FeedProduct[])
+
+/**
+ * Vigencia de la promocion para Google Shopping, en ISO 8601 con offset y
+ * separada por diagonal, que es el unico formato que acepta.
+ *
+ * Se llena desde NUXT_PROMO_VIGENCIA porque la fecha de fin es una decision de
+ * campana, no de codigo: cuando Cesar y Emilio la muevan, se cambia la variable
+ * en Vercel sin desplegar. Vacia = no se manda la etiqueta, y el descuento se
+ * ve igual pero sin fecha de corte.
+ *
+ * Ejemplo: 2026-08-01T00:00-06:00/2026-08-31T23:59-06:00
+ */
+const VIGENCIA_PROMO = (process.env.NUXT_PROMO_VIGENCIA || '').trim()
 
 function xmlEscape(s: unknown): string {
   return String(s ?? '')
@@ -110,7 +127,29 @@ export default defineEventHandler((event) => {
         rows.push(`      <g:additional_image_link>${xmlEscape(absUrl(base, im))}</g:additional_image_link>`),
       )
       rows.push(`      <g:availability>in_stock</g:availability>`)
-      rows.push(`      <g:price>${xmlEscape(priceStr)}</g:price>`)
+
+      // Precio tachado en Shopping (lo pidio Emilio, 26-ago-2026).
+      //
+      // El problema que resuelve: aplicarCampana() ya deja el precio CON el 40%
+      // en `price` y el de lista en `compareAt`, asi que el feed venia mandando
+      // el precio rebajado como si fuera el normal. Google no tenia forma de
+      // saber que habia descuento y el anuncio salia sin tachado -- se pierde
+      // justo el gancho de la promocion.
+      //
+      // Como lo quiere Google: `price` es el precio de LISTA y `sale_price` el
+      // rebajado. Va al reves de lo que hace el sitio, por eso el swap de abajo.
+      // `sale_price_effective_date` es opcional; sin ella el descuento se ve
+      // igual, pero con ella Google sabe cuando termina y no hay que acordarse
+      // de volver a tocar el feed el dia que se apague la campana.
+      if (p.compareAt && p.compareAt > p.price) {
+        rows.push(`      <g:price>${xmlEscape(`${Number(p.compareAt).toFixed(2)} MXN`)}</g:price>`)
+        rows.push(`      <g:sale_price>${xmlEscape(priceStr)}</g:sale_price>`)
+        if (VIGENCIA_PROMO) {
+          rows.push(`      <g:sale_price_effective_date>${xmlEscape(VIGENCIA_PROMO)}</g:sale_price_effective_date>`)
+        }
+      } else {
+        rows.push(`      <g:price>${xmlEscape(priceStr)}</g:price>`)
+      }
       rows.push(`      <g:condition>new</g:condition>`)
       if (p.brand) rows.push(`      <g:brand>${xmlEscape(p.brand)}</g:brand>`)
       if (p.category) rows.push(`      <g:product_type>${xmlEscape(p.category)}</g:product_type>`)
