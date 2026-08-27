@@ -55,12 +55,18 @@ export const useCartStore = defineStore('cart', {
     isEmpty: (state) => state.items.length === 0,
     // Envío gratis: SOLO cuando el SUBTOTAL (no el número de artículos) alcanza el umbral.
     // Comparación >= : con subtotal exactamente igual al umbral, ya es gratis.
+    //
+    // Se mide DESPUÉS del cupón, sobre lo que el cliente realmente paga. Tiene que
+    // ser el mismo criterio que server/utils/costoEnvio.ts: si aquí se midiera
+    // sobre el subtotal sin descuento, una compra de $1,200 con cupón de $300
+    // diría "Gratis" en el carrito y Mercado Pago cobraría el envío de todos
+    // modos — el cliente vería un total y pagaría otro.
     freeShipping(): boolean {
-      return this.totalPrice >= FREE_SHIPPING_THRESHOLD
+      return this.totalWithDiscount >= FREE_SHIPPING_THRESHOLD
     },
     // Cuánto falta para alcanzar el envío gratis (0 si ya califica).
     freeShippingRemaining(): number {
-      return Math.max(0, FREE_SHIPPING_THRESHOLD - this.totalPrice)
+      return Math.max(0, FREE_SHIPPING_THRESHOLD - this.totalWithDiscount)
     },
     // Descuento del cupón validado por el servidor (acotado al subtotal vigente por seguridad).
     // Solo previsualización; el servidor recalcula y es la autoridad al cobrar.
@@ -127,13 +133,19 @@ export const useCartStore = defineStore('cart', {
       this.items.forEach(i => {
         msg += `• ${i.name} x${i.quantity} — $${(i.price * i.quantity).toLocaleString('es-MX')} MXN\n`
       })
+      // El envio se desglosa aqui igual que en el resumen del carrito. Este mensaje
+      // y el pedido que /api/order-whatsapp guarda son la MISMA venta: si aqui
+      // dijera un total y en la pantalla de Nancy apareciera otro, alguien acaba
+      // cobrando de menos. El monto sale de la misma variable que usa el servidor.
+      const envio = this.freeShipping ? 0 : Number(config.public.envioCosto || 0) || 0
       if (this.coupon && this.discount > 0) {
         msg += `\nSubtotal: $${this.totalPrice.toLocaleString('es-MX')} MXN`
         msg += `\nCupón ${this.coupon.code}: −$${this.discount.toLocaleString('es-MX')} MXN`
-        msg += `\nTotal: $${this.totalWithDiscount.toLocaleString('es-MX')} MXN\n`
-      } else {
-        msg += `\nTotal: $${this.totalPrice.toLocaleString('es-MX')} MXN\n`
+      } else if (envio > 0) {
+        msg += `\nSubtotal: $${this.totalPrice.toLocaleString('es-MX')} MXN`
       }
+      if (envio > 0) msg += `\nEnvío: $${envio.toLocaleString('es-MX')} MXN`
+      msg += `\nTotal: $${(this.totalWithDiscount + envio).toLocaleString('es-MX')} MXN\n`
       if (this.gift.isGift) {
         msg += `\n🎁 Es un regalo (caja neutra, sin precios)`
         if (this.gift.recipient) msg += `\nPara: ${this.gift.recipient}`

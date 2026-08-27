@@ -184,7 +184,14 @@ async function checkoutStripe() {
   try {
     const res = await $fetch<{ url: string }>('/api/stripe-checkout', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
+      // La direccion va solo si esta completa: por WhatsApp no se exige (ahi la
+      // pide quien atiende), pero si el cliente ya la lleno se la ahorramos.
+      body: {
+        items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
+        gift: cart.gift,
+        coupon: cart.coupon?.code,
+        ...(envioCompleto.value ? { envio: envio.value } : {}),
+      },
     })
     if (res?.url) window.location.href = res.url
     else errorMsg.value = 'No se recibió el enlace de pago.'
@@ -195,6 +202,7 @@ async function checkoutStripe() {
   }
 }
 async function orderWhatsApp() {
+  if (envioCompleto.value) guardarEnvio()
   const url = cart.whatsappOrderUrl()
   // Abrimos la ventana dentro del gesto del clic para que no la bloquee el navegador.
   const win = window.open('about:blank', '_blank')
@@ -202,7 +210,14 @@ async function orderWhatsApp() {
     // Registra el pedido ANTES de abrir WhatsApp ($fetch manda la cookie de sesión si la hay).
     await $fetch('/api/order-whatsapp', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
+      // La direccion va solo si esta completa: por WhatsApp no se exige (ahi la
+      // pide quien atiende), pero si el cliente ya la lleno se la ahorramos.
+      body: {
+        items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
+        gift: cart.gift,
+        coupon: cart.coupon?.code,
+        ...(envioCompleto.value ? { envio: envio.value } : {}),
+      },
     })
   } catch (e) {
     // Degrada con gracia: si la escritura falla, el usuario igual manda su pedido.

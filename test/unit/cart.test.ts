@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 
 // useRuntimeConfig es un auto-import de Nuxt; lo stubeamos para el entorno de test.
@@ -109,6 +109,35 @@ describe('cart store', () => {
     })
   })
 
+  // El carrito y el servidor tienen que medir el umbral IGUAL. Hasta el
+  // 27-ago-2026 el carrito lo mediía sobre el subtotal sin descuento y el
+  // servidor (server/utils/costoEnvio.ts) sobre el subtotal con descuento: una
+  // compra de $1,200 con cupón de $300 decía "Envío GRATIS" en pantalla y
+  // Mercado Pago cobraba el envío de todos modos. El cliente veía un total y
+  // pagaba otro.
+  describe('envío gratis y cupones', () => {
+    const CUPON = { code: 'PRUEBA', type: 'fixed' as const, value: 300, discount: 300 }
+
+    it('el umbral se mide sobre lo que el cliente REALMENTE paga', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 1200 }))
+      expect(c.freeShipping).toBe(true) // sin cupón sí califica
+      c.applyCoupon(CUPON)
+      expect(c.totalWithDiscount).toBe(900)
+      expect(c.freeShipping).toBe(false) // paga $900: no califica
+      expect(c.freeShippingRemaining).toBe(100)
+    })
+
+    it('quitar el cupón devuelve el envío gratis', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 1200 }))
+      c.applyCoupon(CUPON)
+      expect(c.freeShipping).toBe(false)
+      c.removeCoupon()
+      expect(c.freeShipping).toBe(true)
+    })
+  })
+
   it('whatsappOrderUrl arma el link con número, productos y total', () => {
     const c = useCartStore()
     c.addItem(P({ price: 1000 }), 2)
@@ -117,6 +146,47 @@ describe('cart store', () => {
     const text = decodeURIComponent(url.split('text=')[1])
     expect(text).toContain('Vibrating G x2')
     expect(text).toContain('Total: $2,000 MXN')
+  })
+
+  // El mensaje que le sale al cliente y el pedido que /api/order-whatsapp guarda
+  // son la MISMA venta. Si el mensaje dijera $824 y en la pantalla de Nancy
+  // apareciera $894, alguien acaba cobrando de menos.
+  describe('whatsappOrderUrl con cobro de envío', () => {
+    const conEnvio = (costo: number) =>
+      vi.stubGlobal('useRuntimeConfig', () => ({
+        public: { whatsappPhone: '5214431112233', envioCosto: costo },
+      }))
+
+    afterEach(() => {
+      vi.stubGlobal('useRuntimeConfig', () => ({ public: { whatsappPhone: '5214431112233' } }))
+    })
+
+    it('desglosa el envío y suma el total bajo el umbral', () => {
+      conEnvio(70)
+      const c = useCartStore()
+      c.addItem(P({ price: 412 }), 2) // subtotal 824
+      const text = decodeURIComponent(c.whatsappOrderUrl().split('text=')[1])
+      expect(text).toContain('Subtotal: $824 MXN')
+      expect(text).toContain('Envío: $70 MXN')
+      expect(text).toContain('Total: $894 MXN')
+    })
+
+    it('sobre el umbral no menciona envío y el total es el subtotal', () => {
+      conEnvio(70)
+      const c = useCartStore()
+      c.addItem(P({ price: 1200 }))
+      const text = decodeURIComponent(c.whatsappOrderUrl().split('text=')[1])
+      expect(text).not.toContain('Envío:')
+      expect(text).toContain('Total: $1,200 MXN')
+    })
+
+    it('con la variable sin poner el mensaje queda como antes', () => {
+      const c = useCartStore()
+      c.addItem(P({ price: 412 }), 2)
+      const text = decodeURIComponent(c.whatsappOrderUrl().split('text=')[1])
+      expect(text).not.toContain('Envío:')
+      expect(text).toContain('Total: $824 MXN')
+    })
   })
 
   it('whatsappOrderUrl arma el mensaje multilínea con subtotales por línea y total (es-MX)', () => {
