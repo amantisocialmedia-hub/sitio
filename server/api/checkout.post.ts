@@ -4,9 +4,47 @@
 // 3) Guarda el mp_preference_id en el order y devuelve el init_point.
 // Requiere NUXT_MP_ACCESS_TOKEN (token MP) y SUPABASE_SERVICE_ROLE_KEY (server).
 import { defineEventHandler, readBody, createError } from 'h3'
+import { serverSupabaseUser } from '#supabase/server'
 import { createPendingOrder } from '../utils/orders'
 import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
+
+/**
+ * Datos del comprador para la preferencia de Mercado Pago.
+ *
+ * POR QUE ESTO IMPORTA: sin `payer.email`, MP pinta el checkout completo
+ * --tarjeta, mensualidades, todo-- pero el boton de pagar NUNCA se habilita.
+ * El cliente llega hasta el final y no puede cerrar la compra, sin mensaje de
+ * error. Raul lo reporto el 26-ago-2026 con dos tarjetas distintas: "Solo
+ * ingreso el tipo de pago pero no me deja pagar".
+ *
+ * Es tambien la explicacion de por que la conversion de compra de Google Ads
+ * llevaba en 0: no es que no disparara, es que nunca hubo una compra que la
+ * disparara.
+ *
+ * De donde sale el correo, en orden: la sesion de Supabase si la hay, y si no
+ * el que el cliente escribio en el carrito (compra de invitado). Si no hay
+ * ninguno, se manda sin `payer` -- MP deja que el comprador lo teclee en su
+ * pantalla, que es peor experiencia pero no bloquea.
+ */
+async function datosDelComprador(event: any, body: any) {
+  let email: string | null = null
+  try {
+    const u = (await serverSupabaseUser(event)) as any
+    email = u?.email ?? null
+  } catch { /* sin sesion: compra de invitado */ }
+
+  email = email || (body?.payer?.email ? String(body.payer.email).trim() : null)
+  if (!email) return undefined
+
+  const nombre = String(body?.payer?.name || '').trim()
+  const apellido = String(body?.payer?.surname || '').trim()
+  return {
+    email,
+    ...(nombre ? { name: nombre } : {}),
+    ...(apellido ? { surname: apellido } : {}),
+  }
+}
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
@@ -15,13 +53,17 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'MP token missing', message: 'Falta configurar el token de MercadoPago (NUXT_MP_ACCESS_TOKEN).' })
   }
 
-  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string; payer?: { email?: string; name?: string; surname?: string } }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
 
   // 1) Order pending + items (con la service_role; user_id si hay sesión). El cupón se
   //    re-valida y el descuento se recalcula server-side; el total del order ya viene con descuento.
   const order = await createPendingOrder(event, items, 'mercadopago', body?.gift, body?.coupon)
+
+  // Datos del comprador ANTES de armar la preferencia: sin ellos MP no habilita
+  // el boton de pagar.
+  const payer = await datosDelComprador(event, body)
 
   const base = config.public.publicBaseUrl
   try {
@@ -41,6 +83,8 @@ export default defineEventHandler(async (event) => {
             ? [{ title: `Pedido AMANTI · cupón ${order.couponCode}`, quantity: 1, unit_price: order.total, currency_id: 'MXN' }]
             : order.items.map((i) => ({ title: i.name, quantity: i.quantity, unit_price: i.unitPrice, currency_id: 'MXN' })),
           external_reference: order.id,
+          // Sin esto el boton de pagar no se habilita. Ver datosDelComprador().
+          ...(payer ? { payer } : {}),
           notification_url: `${base}/api/mp-webhook`,
           back_urls: {
             success: `${base}/carrito?status=success&order=${order.id}`,

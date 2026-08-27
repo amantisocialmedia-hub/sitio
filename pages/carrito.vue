@@ -86,9 +86,21 @@ async function checkout() {
   errorMsg.value = ''
   loading.value = true
   try {
+    // El correo va al `payer` de Mercado Pago. SIN el, MP pinta el checkout
+    // completo pero nunca habilita el boton de pagar -- el cliente llega hasta
+    // el final y no puede cerrar la compra. Si hay sesion, el servidor usa el
+    // de la cuenta y este se ignora; esto es para la compra de invitado.
+    let correo: string | null = null
+    try { correo = localStorage.getItem('amanti_email') } catch { /* modo privado */ }
+
     const res = await $fetch<{ init_point: string }>('/api/checkout', {
       method: 'POST',
-      body: { items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })), gift: cart.gift, coupon: cart.coupon?.code },
+      body: {
+        items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
+        gift: cart.gift,
+        coupon: cart.coupon?.code,
+        ...(correo ? { payer: { email: correo } } : {}),
+      },
     })
     if (res?.init_point) window.location.href = res.init_point
     else errorMsg.value = 'No se recibió el enlace de pago.'
