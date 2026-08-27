@@ -9,6 +9,7 @@ import { createPendingOrder } from '../utils/orders'
 import { round2 } from '../utils/orderItems'
 import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
+import { correoValido } from '../utils/envio'
 
 /**
  * Datos del comprador para la preferencia de Mercado Pago.
@@ -35,10 +36,20 @@ async function datosDelComprador(event: any, body: any) {
     email = u?.email ?? null
   } catch { /* sin sesion: compra de invitado */ }
 
-  email = email || (body?.payer?.email ? String(body.payer.email).trim() : null)
+  // Sin sesion, el correo sale del formulario de envio. Antes se leia de
+  // localStorage ('amanti_email'), pero ese dato lo escribia el modal de
+  // bienvenida y ese modal se sustituyo por el formulario de GoHighLevel: la
+  // llave quedo huerfana y para un invitado SIEMPRE era null. Resultado: la
+  // preferencia se creaba sin `payer` y Mercado Pago pintaba el checkout
+  // completo sin habilitar nunca el boton de pagar. Lo reporto Raul el
+  // 27-ago-2026: «me comentan que no pidio correo electronico solo la
+  // direccion».
+  email = email || correoValido(body?.envio?.email) || correoValido(body?.payer?.email) || null
   if (!email) return undefined
 
-  const nombre = String(body?.payer?.name || '').trim()
+  // El nombre de quien recibe sirve tambien como nombre del pagador: es la
+  // misma persona en la practica y MP muestra el checkout mas completo.
+  const nombre = String(body?.payer?.name || body?.envio?.recipient || '').trim().split(/\s+/)[0] || ''
   const apellido = String(body?.payer?.surname || '').trim()
   return {
     email,
@@ -75,6 +86,16 @@ export default defineEventHandler(async (event) => {
   // Datos del comprador ANTES de armar la preferencia: sin ellos MP no habilita
   // el boton de pagar.
   const payer = await datosDelComprador(event, body)
+
+  // Sin correo, mandar al cliente a Mercado Pago es mandarlo a una pared: el
+  // checkout se pinta entero y el boton de pagar jamas se habilita, sin mensaje
+  // de error. Mejor detenerlo aqui, donde puede escribir su correo y seguir.
+  if (!payer?.email) {
+    throw createError({
+      statusCode: 400,
+      message: 'Falta tu correo. Lo necesitamos para enviarte el comprobante y poder cobrar.',
+    })
+  }
 
   const base = config.public.publicBaseUrl
   try {

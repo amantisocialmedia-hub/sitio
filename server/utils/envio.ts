@@ -12,6 +12,12 @@
  * día: los tres cobrados, ninguno con a dónde enviarse.
  */
 export interface EnvioInfo {
+  /**
+   * Correo de quien compra. Va aqui y no aparte porque se pide en el mismo
+   * formulario y se guarda con el pedido: es el unico modo de avisarle a un
+   * invitado que su compra salió.
+   */
+  email?: string
   recipient?: string
   phone?: string
   line1?: string
@@ -21,6 +27,22 @@ export interface EnvioInfo {
   state?: string
   postal_code?: string
   country?: string
+}
+
+/**
+ * El correo, o undefined si no parece correo.
+ *
+ * Se valida en el servidor y no solo en el navegador porque este dato viaja al
+ * `payer` de Mercado Pago: un correo mal formado hace que MP rechace la
+ * preferencia entera y el cliente se queda sin poder pagar, que es exactamente
+ * el problema que este campo vino a resolver.
+ */
+export function correoValido(v: any): string | undefined {
+  const s = String(v ?? '').trim().slice(0, 200).toLowerCase()
+  if (!s) return undefined
+  // Deliberadamente laxa: algo@algo.algo. Validar correos "bien" es imposible y
+  // rechazar uno bueno cuesta una venta.
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s) ? s : undefined
 }
 
 /**
@@ -37,6 +59,7 @@ export function normalizarEnvio(e: any): EnvioInfo | null {
   if (!e || typeof e !== 'object') return null
   const t = (v: any) => String(v ?? '').trim().slice(0, 200) || undefined
   const dir: EnvioInfo = {
+    email: correoValido(e.email),
     recipient: t(e.recipient),
     phone: t(e.phone),
     line1: t(e.line1),

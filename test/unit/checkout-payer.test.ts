@@ -12,20 +12,22 @@
 //
 // Se prueba la REGLA de resolucion del comprador, que es donde esta el riesgo.
 import { describe, it, expect } from 'vitest'
+import { correoValido } from '~/server/utils/envio'
 
 /**
  * Misma regla que server/api/checkout.post.ts:
- * la sesion manda; si no hay, el correo que dejo el invitado; si no hay
- * ninguno, undefined (MP lo pide en su pantalla: peor experiencia, pero no
- * bloquea la compra).
+ * la sesion manda; si no hay, el correo del formulario de envio; si no hay
+ * ninguno, undefined -- y entonces el checkout se detiene antes de mandar al
+ * cliente a Mercado Pago, porque alla se toparia con un boton que no se habilita
+ * y ningun mensaje que lo explique.
  */
 function resolverComprador(
   emailSesion: string | null,
-  body: { payer?: { email?: string; name?: string; surname?: string } },
+  body: { envio?: { email?: string; recipient?: string }; payer?: { email?: string; name?: string; surname?: string } },
 ) {
-  const email = emailSesion || (body?.payer?.email ? String(body.payer.email).trim() : null)
+  const email = emailSesion || correoValido(body?.envio?.email) || correoValido(body?.payer?.email) || null
   if (!email) return undefined
-  const nombre = String(body?.payer?.name || '').trim()
+  const nombre = String(body?.payer?.name || body?.envio?.recipient || '').trim().split(/\s+/)[0] || ''
   const apellido = String(body?.payer?.surname || '').trim()
   return { email, ...(nombre ? { name: nombre } : {}), ...(apellido ? { surname: apellido } : {}) }
 }
@@ -37,26 +39,43 @@ describe('comprador en la preferencia de MP', () => {
 
   it('la sesión gana sobre lo que mande el navegador', () => {
     // El navegador es manipulable; la sesión no. Si alguien edita el
-    // localStorage, el cobro sigue asociado a quien de verdad inició sesión.
-    const r = resolverComprador('real@ejemplo.mx', { payer: { email: 'otro@ejemplo.mx' } })
+    // formulario, el cobro sigue asociado a quien de verdad inició sesión.
+    const r = resolverComprador('real@ejemplo.mx', { envio: { email: 'otro@ejemplo.mx' } })
     expect(r?.email).toBe('real@ejemplo.mx')
   })
 
-  it('en compra de invitado usa el correo que dejó el cliente', () => {
-    const r = resolverComprador(null, { payer: { email: 'invitado@ejemplo.mx' } })
+  it('en compra de invitado usa el correo del formulario de envío', () => {
+    // Este es EL caso que estaba roto: hasta el 27-ago-2026 el correo se leía de
+    // localStorage, que ya nadie llenaba, así que ningún invitado podía pagar.
+    const r = resolverComprador(null, { envio: { email: 'invitado@ejemplo.mx' } })
     expect(r?.email).toBe('invitado@ejemplo.mx')
   })
 
-  it('limpia espacios alrededor del correo', () => {
+  it('limpia espacios y mayúsculas del correo', () => {
     // Un correo con espacios lo rechaza MP y el botón se queda muerto otra vez.
-    expect(resolverComprador(null, { payer: { email: '  x@y.mx  ' } })?.email).toBe('x@y.mx')
+    expect(resolverComprador(null, { envio: { email: '  X@Y.mx  ' } })?.email).toBe('x@y.mx')
+  })
+
+  it('un correo mal escrito cuenta como no tener correo', () => {
+    // Mejor detener el checkout aquí, donde el cliente puede corregirlo, que
+    // mandarlo a una preferencia que MP va a rechazar.
+    expect(resolverComprador(null, { envio: { email: 'nancy@amanti' } })).toBeUndefined()
+    expect(resolverComprador(null, { envio: { email: 'sin arroba .mx' } })).toBeUndefined()
   })
 
   it('sin ningún correo devuelve undefined, no un objeto vacío', () => {
     // Mandar `payer: {}` a MP es peor que no mandarlo: lo rechaza.
     expect(resolverComprador(null, {})).toBeUndefined()
     expect(resolverComprador(null, { payer: {} })).toBeUndefined()
-    expect(resolverComprador(null, { payer: { email: '   ' } })).toBeUndefined()
+    expect(resolverComprador(null, { envio: { email: '   ' } })).toBeUndefined()
+  })
+
+  it('toma el nombre de quien recibe como nombre del pagador', () => {
+    // Es la misma persona en la práctica, y con nombre MP pinta un checkout más
+    // completo. Solo el primer nombre: el apellido va en su propio campo y MP
+    // valida el formato de lo que recibe.
+    const r = resolverComprador(null, { envio: { email: 'a@b.mx', recipient: 'Nancy Pérez Ortiz' } })
+    expect(r).toEqual({ email: 'a@b.mx', name: 'Nancy' })
   })
 
   it('incluye nombre y apellido solo cuando vienen', () => {

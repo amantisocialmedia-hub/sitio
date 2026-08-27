@@ -5,6 +5,8 @@ const cart = useCartStore()
 const { bestsellers, peso } = useProducts()
 const masVendido = bestsellers()
 const analytics = useAnalytics()
+// Con sesion el correo sale de la cuenta; sin ella, del formulario de envio.
+const usuario = useSupabaseUser()
 
 // Umbral de envío gratis (fuente única en el store): barra de progreso motivacional.
 const freeLeft = computed(() => cart.freeShippingRemaining)
@@ -108,29 +110,48 @@ const envioTexto = computed(() => {
  * vez -- es la friccion que mas carritos abandona en movil.
  */
 const envio = ref({
-  recipient: '', phone: '', line1: '', colonia: '',
+  email: '', recipient: '', phone: '', line1: '', colonia: '',
   line2: '', city: '', state: '', postal_code: '',
 })
+
+/** Laxa a proposito: algo@algo.algo. Rechazar un correo bueno cuesta una venta. */
+const CORREO = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 onMounted(() => {
   try {
     const g = localStorage.getItem('amanti_envio')
     if (g) Object.assign(envio.value, JSON.parse(g))
   } catch { /* modo privado */ }
+  // Con sesion, el correo de la cuenta. El servidor lo usa de todos modos, pero
+  // verlo ya escrito evita que lo teclee de nuevo.
+  if (!envio.value.email && usuario.value?.email) envio.value.email = usuario.value.email
 })
 
 function guardarEnvio() {
-  try { localStorage.setItem('amanti_envio', JSON.stringify(envio.value)) } catch { /* modo privado */ }
+  try {
+    localStorage.setItem('amanti_envio', JSON.stringify(envio.value))
+    // 'amanti_email' es donde busca el plugin de carrito abandonado. La escribia
+    // el modal de bienvenida, que se sustituyo por el formulario de GoHighLevel;
+    // desde entonces la llave quedo huerfana y ningun invitado entraba a la
+    // secuencia de recuperacion de Cesar. Este es el unico lugar del sitio donde
+    // hoy se le pide el correo a quien no tiene cuenta.
+    const c = envio.value.email.trim().toLowerCase()
+    if (CORREO.test(c)) localStorage.setItem('amanti_email', c)
+  } catch { /* modo privado */ }
 }
 
 /** Lo minimo para que la paqueteria pueda entregar. */
 const envioCompleto = computed(() =>
+  // El correo es tan obligatorio como la calle: sin el, Mercado Pago pinta el
+  // checkout pero nunca habilita el boton de pagar. Ver server/api/checkout.post.ts.
+  (CORREO.test(envio.value.email.trim()) || !!usuario.value?.email) &&
   !!envio.value.recipient.trim() && !!envio.value.phone.trim() && !!envio.value.line1.trim() &&
   !!envio.value.city.trim() && !!envio.value.state.trim() && /^\d{5}$/.test(envio.value.postal_code.trim()),
 )
 
 const faltaEnvio = computed(() => {
   const f: string[] = []
+  if (!CORREO.test(envio.value.email.trim()) && !usuario.value?.email) f.push('tu correo')
   if (!envio.value.recipient.trim()) f.push('nombre de quien recibe')
   if (!envio.value.phone.trim()) f.push('teléfono')
   if (!envio.value.line1.trim()) f.push('calle y número')
@@ -152,13 +173,11 @@ async function checkout() {
   errorMsg.value = ''
   loading.value = true
   try {
-    // El correo va al `payer` de Mercado Pago. SIN el, MP pinta el checkout
-    // completo pero nunca habilita el boton de pagar -- el cliente llega hasta
-    // el final y no puede cerrar la compra. Si hay sesion, el servidor usa el
-    // de la cuenta y este se ignora; esto es para la compra de invitado.
-    let correo: string | null = null
-    try { correo = localStorage.getItem('amanti_email') } catch { /* modo privado */ }
-
+    // El correo viaja dentro de `envio` y el servidor lo pasa al `payer` de
+    // Mercado Pago. SIN el, MP pinta el checkout completo pero nunca habilita el
+    // boton de pagar -- el cliente llega hasta el final y no puede cerrar la
+    // compra, sin mensaje de error. Si hay sesion, el servidor usa el de la
+    // cuenta y este se ignora.
     const res = await $fetch<{ init_point: string }>('/api/checkout', {
       method: 'POST',
       body: {
@@ -166,7 +185,6 @@ async function checkout() {
         gift: cart.gift,
         coupon: cart.coupon?.code,
         envio: envio.value,
-        ...(correo ? { payer: { email: correo } } : {}),
       },
     })
     if (res?.init_point) window.location.href = res.init_point
@@ -354,6 +372,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
              esto el pedido se cobra y no hay a donde mandarlo. -->
         <div id="envio-form" class="enviobox">
           <p class="envio-tit">📦 ¿A dónde te lo enviamos?</p>
+          <input v-model="envio.email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="Tu correo *" aria-label="Tu correo" @blur="guardarEnvio" />
           <input v-model="envio.recipient" type="text" maxlength="80" placeholder="Nombre de quien recibe *" aria-label="Nombre de quien recibe" @blur="guardarEnvio" />
           <input v-model="envio.phone" type="tel" inputmode="tel" maxlength="20" placeholder="Teléfono (para la entrega) *" aria-label="Teléfono" @blur="guardarEnvio" />
           <input v-model="envio.line1" type="text" maxlength="120" placeholder="Calle y número *" aria-label="Calle y número" @blur="guardarEnvio" />
