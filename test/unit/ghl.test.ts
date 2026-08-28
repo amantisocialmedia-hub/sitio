@@ -188,6 +188,37 @@ describe('payloadCompra', () => {
     expect(p.url_resena).toBe('https://amanti.mx/tienda/tiny-teasers-nubby#resenas')
   })
 
+  // Con la llave puesta, ese mismo enlace lleva firmado el permiso para reseñar
+  // sin cuenta. Es de lo que depende el correo del día 10 de César: sin el
+  // permiso, el invitado llega a la ficha y le sale "Inicia sesión".
+  describe('con las reseñas de invitado encendidas', () => {
+    beforeEach(() => { process.env.NUXT_RESENA_SECRET = 'llave-de-prueba' })
+    afterEach(() => { delete process.env.NUXT_RESENA_SECRET })
+
+    it('el enlace del día 10 lleva el permiso firmado', () => {
+      const p = payloadCompra(base) as any
+      expect(p.url_resena).toContain(`pedido=${base.orderId}`)
+      expect(p.url_resena).toContain('firma=')
+      expect(p.url_resena.endsWith('#resenas')).toBe(true)
+    })
+
+    it('manda un enlace por artículo, no sólo del principal', () => {
+      // Para que el correo pueda pedir reseña de todo lo que se llevó.
+      const p = payloadCompra(base) as any
+      expect(p.urls_resena).toHaveLength(2)
+      expect(p.urls_resena[0].slug).toBe('tiny-teasers-nubby')
+      expect(p.urls_resena[1].slug).toBe('venus-butterfly')
+      // Cada uno con SU firma: la de un producto no debe servir para el otro.
+      const f = (u: string) => u.split('firma=')[1]
+      expect(f(p.urls_resena[0].url)).not.toBe(f(p.urls_resena[1].url))
+    })
+
+    it('el enlace del principal es el mismo que el de su renglón', () => {
+      const p = payloadCompra(base) as any
+      expect(p.url_resena).toBe(p.urls_resena[0].url)
+    })
+  })
+
   it('suma las cantidades, no los renglones', () => {
     expect((payloadCompra(base) as any).num_articulos).toBe(3)
   })
