@@ -8,6 +8,7 @@
 import { defineEventHandler, readBody, createError } from 'h3'
 import { createPendingOrder } from '../utils/orders'
 import type { InCartItem } from '../utils/orderItems'
+import type { EnvioInfo } from '../utils/envio'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 
 export default defineEventHandler(async (event) => {
@@ -17,13 +18,22 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Stripe key missing', message: 'Falta configurar la llave de Stripe (NUXT_STRIPE_SECRET_KEY).' })
   }
 
-  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string }>(event)
+  const body = await readBody<{ items: InCartItem[]; gift?: { isGift?: boolean; recipient?: string; sender?: string; message?: string }; coupon?: string; envio?: EnvioInfo }>(event)
   const items = body?.items ?? []
   if (!items.length) throw createError({ statusCode: 400, message: 'El carrito está vacío.' })
 
   // 1) Order pending + items (service_role; user_id si hay sesión). El cupón se re-valida y el
-  //    descuento se recalcula server-side; el total del order ya viene con descuento.
-  const order = await createPendingOrder(event, items, 'stripe', body?.gift, body?.coupon)
+  //    descuento se recalcula server-side; el total del order ya viene con descuento y envio.
+  const order = await createPendingOrder(event, items, 'stripe', body?.gift, body?.coupon, body?.envio)
+
+  // Igual que en /api/checkout: sin direccion no se cobra. Cobrar y no poder
+  // enviar es peor que no vender.
+  if (!order.shippingAddress) {
+    throw createError({
+      statusCode: 400,
+      message: 'Falta la dirección de envío. Complétala antes de continuar al pago.',
+    })
+  }
 
   const base = config.public.publicBaseUrl
 
@@ -55,6 +65,17 @@ export default defineEventHandler(async (event) => {
       form.set(`line_items[${idx}][price_data][unit_amount]`, String(cents(i.unitPrice)))
       form.set(`line_items[${idx}][price_data][product_data][name]`, i.name)
     })
+    // El envio como su propia linea. Sin esto las lineas suman solo el producto
+    // y el pedido guardado dice otra cosa: se cobraria de menos en cada compra
+    // bajo el umbral. (En la rama del cupon no hace falta: ahi va una sola linea
+    // con order.total, que ya trae el envio adentro.)
+    if (order.shippingCost > 0) {
+      const idx = order.items.length
+      form.set(`line_items[${idx}][quantity]`, '1')
+      form.set(`line_items[${idx}][price_data][currency]`, 'mxn')
+      form.set(`line_items[${idx}][price_data][unit_amount]`, String(cents(order.shippingCost)))
+      form.set(`line_items[${idx}][price_data][product_data][name]`, 'Envío')
+    }
   }
 
   try {

@@ -196,19 +196,26 @@ async function checkout() {
   }
 }
 async function checkoutStripe() {
+  // Mismo freno que el pago con Mercado Pago: cobrar y no poder enviar es peor
+  // que no vender. Este camino esta apagado hoy (NUXT_PUBLIC_STRIPE_ENABLED),
+  // pero el dia que lo enciendan tiene que pedir lo mismo que el otro.
+  if (!envioCompleto.value) {
+    errorMsg.value = `Falta ${faltaEnvio.value.join(', ')} para poder enviarte el pedido.`
+    document.getElementById('envio-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    return
+  }
+  guardarEnvio()
   analytics.beginCheckout(cart.totalWithDiscount, cart.items)
   errorMsg.value = ''
   stripeLoading.value = true
   try {
     const res = await $fetch<{ url: string }>('/api/stripe-checkout', {
       method: 'POST',
-      // La direccion va solo si esta completa: por WhatsApp no se exige (ahi la
-      // pide quien atiende), pero si el cliente ya la lleno se la ahorramos.
       body: {
         items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
         gift: cart.gift,
         coupon: cart.coupon?.code,
-        ...(envioCompleto.value ? { envio: envio.value } : {}),
+        envio: envio.value,
       },
     })
     if (res?.url) window.location.href = res.url
