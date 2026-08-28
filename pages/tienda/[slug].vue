@@ -41,9 +41,56 @@ async function loadRealReviews() {
   realReviews.value = (data || []).map((r: any) => ({ name: r.author_name, rating: r.rating, date: r.created_at, text: r.text, verified: true }))
 }
 
+// Permiso para reseñar sin cuenta. Viene firmado en el enlace del correo del
+// día 10; el servidor comprueba la firma, que el pedido esté pagado y que
+// incluya este producto. Ver server/utils/resenaToken.ts.
+const rutaResena = useRoute()
+const permisoResena = computed(() => {
+  const q = rutaResena.query
+  const pedido = String(q.pedido || '').trim()
+  const firma = String(q.firma || '').trim()
+  return pedido && firma ? { pedido, firma } : null
+})
+const myName = ref('')
+
 async function submitReview() {
   reviewErr.value = false; reviewMsg.value = ''
-  if (!reviewUser.value) { reviewErr.value = true; reviewMsg.value = 'Inicia sesión para dejar tu reseña.'; return }
+  if (!reviewUser.value && !permisoResena.value) {
+    reviewErr.value = true; reviewMsg.value = 'Inicia sesión para dejar tu reseña.'; return
+  }
+  if (!myRating.value) { reviewErr.value = true; reviewMsg.value = 'Elige una calificación.'; return }
+  if (myText.value.trim().length < 4) { reviewErr.value = true; reviewMsg.value = 'Cuéntanos un poco más.'; return }
+
+  // Quien llegó por el enlace del correo entra por el servidor, que es quien
+  // puede verificar la compra. Se prefiere sobre la sesión aunque tenga cuenta:
+  // esa reseña queda marcada como compra verificada.
+  if (permisoResena.value) {
+    reviewBusy.value = true
+    try {
+      await $fetch('/api/resena', {
+        method: 'POST',
+        body: {
+          pedido: permisoResena.value.pedido,
+          firma: permisoResena.value.firma,
+          slug: product.value!.slug,
+          rating: myRating.value,
+          texto: myText.value.trim(),
+          nombre: myName.value.trim(),
+        },
+      })
+      reviewMsg.value = '¡Gracias por tu reseña! 💜'
+      myText.value = ''; myRating.value = 0
+      await loadRealReviews()
+    } catch (e: any) {
+      reviewErr.value = true
+      reviewMsg.value = e?.data?.message || 'No se pudo guardar tu reseña. Intenta más tarde.'
+    } finally {
+      reviewBusy.value = false
+    }
+    return
+  }
+
+  reviewBusy.value = true
   if (!myRating.value) { reviewErr.value = true; reviewMsg.value = 'Elige una calificación.'; return }
   if (myText.value.trim().length < 4) { reviewErr.value = true; reviewMsg.value = 'Cuéntanos un poco más.'; return }
   reviewBusy.value = true
@@ -458,8 +505,20 @@ useSeoMeta({
         </div>
         <!-- formulario de reseña real -->
         <div class="rev-form">
-          <template v-if="reviewUser">
+          <template v-if="reviewUser || permisoResena">
             <b>Deja tu reseña</b>
+            <!-- Quien llegó por el enlace del correo no tiene cuenta, así que no
+                 hay de dónde sacarle un nombre. Si lo deja en blanco se usa el de
+                 quien recibió el paquete. -->
+            <input
+              v-if="permisoResena && !reviewUser"
+              v-model="myName"
+              type="text"
+              maxlength="60"
+              class="rev-nombre"
+              placeholder="Tu nombre (opcional)"
+              aria-label="Tu nombre"
+            />
             <div class="rev-stars-input" role="radiogroup" aria-label="Calificación">
               <button v-for="n in 5" :key="n" type="button" class="rsi" :class="{ on: n <= myRating }" @click="myRating = n" :aria-label="`${n} estrella${n === 1 ? '' : 's'}`">★</button>
             </div>

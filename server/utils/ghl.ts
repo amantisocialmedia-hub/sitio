@@ -30,6 +30,8 @@
 //
 // 3. NO BLOQUEA AL CLIENTE. Timeout corto y el llamador no espera el resultado.
 
+import { urlResena } from './resenaToken'
+
 /** Eventos que el sitio sabe emitir. Cada uno tiene su propia URL en GHL. */
 export type GhlEvento =
   | 'compra_confirmada' // → workflow de postcompra (reseña día 10, cross-selling día 21)
@@ -172,6 +174,13 @@ export function payloadCompra(opts: {
     producto_principal: principal?.nombre ?? null,
     producto_principal_slug: principal?.slug ?? null,
     url_producto: principal?.url_producto ?? null,
-    url_resena: principal ? `${base}/tienda/${principal.slug}#resenas` : null,
+    url_resena: principal ? urlResena(base, opts.orderId, principal.slug) : null,
+    // Un enlace por producto: el correo del día 10 puede pedir reseña de cada
+    // cosa que se llevó, no solo de la primera.
+    urls_resena: items.map((i) => ({
+      producto: i.nombre,
+      slug: i.slug,
+      url: urlResena(base, opts.orderId, i.slug),
+    })),
   }
 }
