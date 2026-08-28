@@ -146,7 +146,18 @@ export default defineEventHandler(async (event) => {
   // consulta fallan, el pedido YA quedó pagado y la función devuelve ok igual.
   // Un correo que no sale se arregla; un pago que MP reintenta porque le
   // devolvimos un 500 es mucho peor.
-  if (newStatus === 'paid' && ghlConectado('compra_confirmada')) {
+  // ⚠️ El aviso a quien surte y el evento de marketing son DOS cosas distintas y
+  // se configuran por separado (dos URLs, dos workflows, dos destinatarios).
+  // Este bloque colgaba entero de `ghlConectado('compra_confirmada')`, así que si
+  // la URL de postcompra no estaba puesta, Nancy NO recibía su aviso aunque su
+  // propia URL sí estuviera — y sin ruido en los logs, porque no es un error:
+  // simplemente nunca se llamaba. Un aviso de marketing que no sale se arregla
+  // luego; un pedido que nadie sabe que hay que surtir se queda sin enviar.
+  //
+  // Cada emisor ya se auto-protege y no hace nada si su URL falta, así que aquí
+  // solo se pregunta si hay ALGO que mandar — nada más para no pagar las
+  // consultas a Supabase de abajo en balde cuando GHL no está conectado.
+  if (newStatus === 'paid' && (ghlConectado('compra_confirmada') || ghlConectado('pedido_para_surtir'))) {
     try {
       const [{ data: full }, { data: lineas }] = await Promise.all([
         admin.from('orders').select('user_id, total, shipping_address, gift').eq('id', orderId).maybeSingle(),
