@@ -386,16 +386,24 @@ html.discreet .sr-th img{filter:blur(10px)}
 .payblock{margin:14px 0}
 .payblock .lbl{font-size:.85rem;color:var(--ink);margin-bottom:6px}
 .pay-icons{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.pay-icons .pi{background:#fff;border:1px solid #F2DFD2;border-radius:6px;padding:5px 9px;font-size:.72rem;font-weight:700;color:#444}
-/* Colores de marca de cada medio de pago. Raúl pidió verlos a color, como la
-   competencia. Son informativos: no son botones y no llevan a ningún lado. */
-.pay-icons .pi-visa{color:#1A1F71;border-color:#1A1F71}
-.pay-icons .pi-mc{color:#EB001B;border-color:#EB001B}
-.pay-icons .pi-amex{color:#006FCF;border-color:#006FCF}
-.pay-icons .pi-mp{color:#00A6DE;border-color:#00A6DE}
-.pay-icons .pi-oxxo{color:#E30613;border-color:#E30613}
-.pay-icons .pi-spei{color:#0F7B6C;border-color:#0F7B6C}
-.pay-icons .pi-msi{color:var(--purple);border-color:var(--purple)}
+/* SIN CAJA: los medios de pago son TEXTO, no botones.
+   Traían fondo blanco, borde de color y esquinas redondeadas, o sea que se leían
+   como seis botones. Raúl lo reportó el 27-ago ("la gente le pica a Visa creyendo
+   que es un botón") y César insistió el 28: «quitar el rectángulo de cada método
+   de pago para que no intente darle clic».
+   El color de marca SE QUEDA — eso lo pidió Raúl para verse como la competencia—;
+   lo único que se va es la caja. El separador los vuelve lo que de verdad son:
+   una lista de lo que se acepta, no una botonera para elegir. El CÓMO se paga se
+   elige dentro de Mercado Pago, y eso lo dice la leyenda de abajo. */
+.pay-icons .pi{font-size:.78rem;font-weight:700;color:#6B5A50}
+.pay-icons .pi + .pi::before{content:'·';margin-right:8px;color:#C9B7AC;font-weight:400}
+.pay-icons .pi-visa{color:#1A1F71}
+.pay-icons .pi-mc{color:#EB001B}
+.pay-icons .pi-amex{color:#006FCF}
+.pay-icons .pi-mp{color:#00A6DE}
+.pay-icons .pi-oxxo{color:#E30613}
+.pay-icons .pi-spei{color:#0F7B6C}
+.pay-icons .pi-msi{color:var(--purple)}
 .paynote{font-size:.78rem;opacity:.7;margin-top:7px}
 .msi-note{background:var(--lav2);border-radius:8px;padding:10px 14px;font-size:.88rem;color:var(--purple);margin:12px 0}
 .msi-note b{color:var(--magenta)}
