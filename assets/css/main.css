@@ -385,7 +385,10 @@ html.discreet .sr-th img{filter:blur(10px)}
 .pdp-price .pct{background:var(--red);color:#fff;font-weight:700;font-size:.78rem;padding:3px 8px;border-radius:5px}
 .payblock{margin:14px 0}
 .payblock .lbl{font-size:.85rem;color:var(--ink);margin-bottom:6px}
-.pay-icons{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* Separación por espacio y NO por un punto entre elementos: la fila se parte en
+   dos renglones en la columna angosta del carrito, y con separador el segundo
+   renglón arrancaba con un "·" suelto. El espacio no tiene ese problema. */
+.pay-icons{display:flex;gap:6px 16px;flex-wrap:wrap;align-items:center}
 /* SIN CAJA: los medios de pago son TEXTO, no botones.
    Traían fondo blanco, borde de color y esquinas redondeadas, o sea que se leían
    como seis botones. Raúl lo reportó el 27-ago ("la gente le pica a Visa creyendo
@@ -396,7 +399,6 @@ html.discreet .sr-th img{filter:blur(10px)}
    una lista de lo que se acepta, no una botonera para elegir. El CÓMO se paga se
    elige dentro de Mercado Pago, y eso lo dice la leyenda de abajo. */
 .pay-icons .pi{font-size:.78rem;font-weight:700;color:#6B5A50}
-.pay-icons .pi + .pi::before{content:'·';margin-right:8px;color:#C9B7AC;font-weight:400}
 .pay-icons .pi-visa{color:#1A1F71}
 .pay-icons .pi-mc{color:#EB001B}
 .pay-icons .pi-amex{color:#006FCF}
