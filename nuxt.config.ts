@@ -99,8 +99,19 @@ export default defineNuxtConfig({
     n8nChatWebhook: 'https://madebyhumano.app.n8n.cloud/webhook/amanti-chat',
     public: {
       brandName: 'AMANTI',
-      // NUXT_PUBLIC_WHATSAPP_PHONE (número real de AMANTI; se puede sobreescribir por env)
-      whatsappPhone: '5214437270349',
+      // NUXT_PUBLIC_WHATSAPP_PHONE (número real de AMANTI; se puede sobreescribir por env).
+      //
+      // Este respaldo TIENE que ser el número bueno. Hasta el 31-ago-2026 decía
+      // 5214437270349, un número viejo: cuando cambió el de AMANTI solo se actualizó
+      // la variable en Vercel y esta línea se quedó atrás. Nadie lo notaba porque en
+      // producción la variable siempre gana.
+      //
+      // Lo que estaba en juego: si esa variable llegara a faltar —alguien la borra, un
+      // entorno nuevo, un deploy de preview sin ella— los NUEVE lugares que arman
+      // enlaces de WhatsApp caerían aquí en silencio, incluido stores/cart.ts, que es
+      // por donde se piden pedidos. Serían pedidos yéndose a un número ajeno sin un
+      // solo error en ningún lado.
+      whatsappPhone: '5214431230732',
       // NUXT_PUBLIC_SITE_URL
       siteUrl: 'https://amanti.mx',
       // NUXT_PUBLIC_PUBLIC_BASE_URL
