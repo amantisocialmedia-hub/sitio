@@ -15,6 +15,7 @@ import {
   emitirEventoGhlSinEsperar,
   debeAvisarCarrito,
   payloadCompra,
+  payloadEnvio,
 } from '~/server/utils/ghl'
 
 const URL_POSTCOMPRA = 'https://services.leadconnectorhq.com/hooks/CUENTA/webhook-trigger/postcompra'
@@ -25,6 +26,8 @@ const TODAS = [
   'NUXT_GHL_WEBHOOK_POSTCOMPRA',
   'NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO',
   'NUXT_GHL_WEBHOOK_REACTIVACION',
+  'NUXT_GHL_WEBHOOK_AVISO_PEDIDO',
+  'NUXT_GHL_WEBHOOK_PEDIDO_ENVIADO',
 ]
 const limpiar = () => TODAS.forEach((k) => delete process.env[k])
 
@@ -261,5 +264,74 @@ describe('payloadCompra', () => {
     const p = payloadCompra({ ...base, email: null }) as any
     expect(p.email).toBeNull()
     expect(p.pedido_id).toBe('ord-1')
+  })
+})
+
+// Aviso de envio al cliente. Lo pidio Raul el 31-ago-2026, y hasta ese dia la
+// respuesta era que NO se avisaba nada -- aunque /envios ya prometia por escrito
+// que llegaria un numero de rastreo por correo.
+describe('payloadEnvio', () => {
+  const base = {
+    orderId: 'ord-309',
+    email: 'cliente@ejemplo.mx',
+    nombre: 'Josué Morales',
+    telefono: '5512345678',
+    total: 309,
+    items: [{ name: 'Bellami Tentación', quantity: 1 }],
+  }
+
+  it('lleva a quien avisar y con que guia', () => {
+    const p = payloadEnvio({ ...base, guia: 'ABC123456' }) as any
+    expect(p.pedido_id).toBe('ord-309')
+    expect(p.email).toBe('cliente@ejemplo.mx')
+    expect(p.nombre).toBe('Josué Morales')
+    expect(p.telefono).toBe('5512345678')
+    expect(p.guia).toBe('ABC123456')
+    expect(p.tiene_guia).toBe(true)
+  })
+
+  // A veces se marca el envio antes de tener el numero. La plantilla necesita
+  // poder distinguir ese caso en vez de mandar un mensaje con un hueco.
+  it('sin guia manda null y tiene_guia en false, nunca cadena vacia', () => {
+    for (const g of [undefined, null, '', '   ']) {
+      const p = payloadEnvio({ ...base, guia: g }) as any
+      expect(p.guia).toBeNull()
+      expect(p.tiene_guia).toBe(false)
+    }
+  })
+
+  it('cuenta los articulos y conserva los nombres', () => {
+    const p = payloadEnvio({
+      ...base,
+      guia: 'X1',
+      items: [{ name: 'Bellami', quantity: 2 }, { name: 'Antifaz', quantity: 3 }],
+    }) as any
+    expect(p.num_articulos).toBe(5)
+    expect(p.items).toEqual([
+      { nombre: 'Bellami', cantidad: 2 },
+      { nombre: 'Antifaz', cantidad: 3 },
+    ])
+  })
+
+  it('sin datos del cliente no truena: manda null en vez de undefined', () => {
+    const p = payloadEnvio({ orderId: 'ord-1', email: null }) as any
+    expect(p.email).toBeNull()
+    expect(p.nombre).toBeNull()
+    expect(p.telefono).toBeNull()
+    expect(p.num_articulos).toBe(0)
+    expect(p.total).toBe(0)
+  })
+})
+
+// El evento nuevo tiene que colgar de SU propia variable: si colgara de la de
+// postcompra, encender uno encenderia el otro sin que nadie lo decidiera.
+describe('pedido_enviado sale de su propia variable', () => {
+  it('se apaga y se prende solo, sin arrastrar a los demas', () => {
+    limpiar()
+    expect(ghlConectado('pedido_enviado')).toBe(false)
+    process.env.NUXT_GHL_WEBHOOK_PEDIDO_ENVIADO = URL_POSTCOMPRA
+    expect(ghlConectado('pedido_enviado')).toBe(true)
+    expect(ghlConectado('compra_confirmada')).toBe(false)
+    limpiar()
   })
 })

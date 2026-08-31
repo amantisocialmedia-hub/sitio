@@ -40,6 +40,12 @@ export type GhlEvento =
   // → mensaje de WhatsApp a quien surte. Lo pidió Nancy el 27-ago-2026:
   //   «que me llegue por whats por favor».
   | 'pedido_para_surtir'
+  // → aviso al CLIENTE de que su pedido ya salio, con el numero de guia.
+  //   Lo pidio Raul el 31-ago-2026: «a los que compran cuando mandemos el envio
+  //   se les notificara en automatico de que fue enviado? Y se les da el numero
+  //   de envio?». Hasta ese dia la respuesta era no, aunque /envios ya lo
+  //   prometia por escrito.
+  | 'pedido_enviado'
 
 /**
  * De qué variable de entorno sale la URL de cada evento.
@@ -53,6 +59,7 @@ const ENV_POR_EVENTO: Record<GhlEvento, string> = {
   carrito_abandonado: 'NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO',
   reactivacion: 'NUXT_GHL_WEBHOOK_REACTIVACION',
   pedido_para_surtir: 'NUXT_GHL_WEBHOOK_AVISO_PEDIDO',
+  pedido_enviado: 'NUXT_GHL_WEBHOOK_PEDIDO_ENVIADO',
 }
 
 /** Cuánto esperamos a GHL antes de rendirnos. Corto a propósito: ver regla 3. */
@@ -190,5 +197,41 @@ export function payloadCompra(opts: {
       slug: i.slug,
       url: urlResena(base, opts.orderId, i.slug),
     })),
+  }
+}
+
+/**
+ * Lo que se le manda a GHL cuando Nancy marca un pedido como enviado.
+ *
+ * Va aparte de `payloadCompra` a proposito: son dos momentos distintos de la
+ * vida del pedido y GHL los atiende con workflows distintos. Aqui lo unico que
+ * de verdad importa es que la persona sepa que su paquete salio y con que guia
+ * puede rastrearlo.
+ *
+ * `guia` puede venir en null: a veces se marca el envio antes de tener el
+ * numero. Se manda null explicito (no cadena vacia) para que la plantilla pueda
+ * decidir entre «ya salio, en cuanto tengamos la guia te la pasamos» y el
+ * mensaje con numero, sin pintar un hueco.
+ */
+export function payloadEnvio(opts: {
+  orderId: string
+  email: string | null
+  nombre?: string | null
+  telefono?: string | null
+  guia?: string | null
+  total?: number
+  items?: { name: string; quantity: number }[]
+}): Record<string, unknown> {
+  const items = (opts.items || []).map((i) => ({ nombre: i.name, cantidad: i.quantity }))
+  return {
+    pedido_id: opts.orderId,
+    email: opts.email || null,
+    nombre: opts.nombre || null,
+    telefono: opts.telefono || null,
+    guia: (opts.guia || '').trim() || null,
+    tiene_guia: !!(opts.guia || '').trim(),
+    total: Number(opts.total) || 0,
+    num_articulos: items.reduce((n, i) => n + (Number(i.cantidad) || 0), 0),
+    items,
   }
 }
