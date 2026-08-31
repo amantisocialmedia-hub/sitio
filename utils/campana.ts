@@ -25,6 +25,20 @@ export interface CampanaCfg {
   descuento: number
 }
 
+// FECHA ACORDADA DE FIN: 30 de septiembre de 2026.
+//
+// El equipo lo decidio en el grupo el 31-ago-2026. Raul: «Se dejara todo el mes
+// el 40%». Cesar: «yo lo dejaria todo septiembre».
+//
+// NO se apaga solo. Esto es un booleano y alguien tiene que venir a ponerlo en
+// false. Si el 1 de octubre nadie lo hace, la tienda sigue regalando el 40%
+// indefinidamente y nada avisa.
+//
+// Por eso tampoco se le puso `sale_price_effective_date` al feed de Google (ver
+// server/routes/feeds/google.xml.get.ts): si el feed caducara el 30-sep y este
+// interruptor siguiera encendido, Google anunciaria el precio de lista mientras
+// el sitio cobra el rebajado. Eso es discrepancia de precio, y Merchant Center
+// suspende por eso. Los dos tienen que apagarse el mismo dia o ninguno.
 export const CAMPANA: CampanaCfg = {
   activa: true,
   nombre: 'AMANTI sin filtros',
