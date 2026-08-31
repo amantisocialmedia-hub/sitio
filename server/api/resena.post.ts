@@ -14,6 +14,7 @@
 import { defineEventHandler, readBody, createError } from 'h3'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 import { verificarResena, resenasInvitadoActivas } from '../utils/resenaToken'
+import { nombreResena } from '../../utils/nombreResena'
 
 export default defineEventHandler(async (event) => {
   if (!resenasInvitadoActivas()) throw createError({ statusCode: 404, message: 'No disponible.' })
@@ -46,7 +47,7 @@ export default defineEventHandler(async (event) => {
   // 2) y 3) El pedido está pagado y trae ese producto.
   const { data: orden, error: e1 } = await admin
     .from('orders')
-    .select('id, status, shipping_address')
+    .select('id, status')
     .eq('id', pedido)
     .maybeSingle()
   if (e1 || !orden) throw createError({ statusCode: 403, message: 'Este enlace no es válido.' })
@@ -63,10 +64,10 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 403, message: 'Ese producto no viene en tu pedido.' })
   }
 
-  // El nombre que se muestra. Si no escribe uno, el de quien recibió el paquete;
-  // y si tampoco, algo neutro. NUNCA el correo: es una página pública.
-  const dir = (orden.shipping_address || {}) as Record<string, string>
-  const nombre = (String(body?.nombre || '').trim() || String(dir.recipient || '').trim() || 'Cliente AMANTI').slice(0, 60)
+  // El nombre que se muestra: SOLO el que el cliente escribió. Si lo deja en
+  // blanco va la etiqueta neutra. Nunca el del envío ni el correo — la ficha es
+  // pública y aquí se entrega discreto. Ver utils/nombreResena.ts.
+  const nombre = nombreResena(body?.nombre)
 
   const { error } = await admin.from('reviews').insert({
     user_id: null,

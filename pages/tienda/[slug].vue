@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import reviewsData from '~/data/reviews.json'
+import { nombreResena } from '~/utils/nombreResena'
 const route = useRoute()
 const config = useRuntimeConfig()
 const { getBySlug, related, peso, msi, categoryName } = useProducts()
@@ -94,8 +95,11 @@ async function submitReview() {
   if (!myRating.value) { reviewErr.value = true; reviewMsg.value = 'Elige una calificación.'; return }
   if (myText.value.trim().length < 4) { reviewErr.value = true; reviewMsg.value = 'Cuéntanos un poco más.'; return }
   reviewBusy.value = true
+  // Solo el nombre que la persona puso en su perfil. Antes, si no tenia, se
+  // usaba el pedazo de su correo antes de la arroba, que suele traer nombre y
+  // apellido. Nunca el correo: la ficha es publica. Ver utils/nombreResena.ts.
   const meta = (reviewUser.value.user_metadata || {}) as Record<string, string>
-  const name = meta.full_name || (reviewUser.value.email ? reviewUser.value.email.split('@')[0] : 'Cliente AMANTI')
+  const name = nombreResena(meta.full_name)
   const { error } = await supabaseRev.from('reviews').insert({
     user_id: reviewUser.value.id, product_slug: product.value!.slug, author_name: name, rating: myRating.value, text: myText.value.trim(),
   })
@@ -507,9 +511,9 @@ useSeoMeta({
         <div class="rev-form">
           <template v-if="reviewUser || permisoResena">
             <b>Deja tu reseña</b>
-            <!-- Quien llegó por el enlace del correo no tiene cuenta, así que no
-                 hay de dónde sacarle un nombre. Si lo deja en blanco se usa el de
-                 quien recibió el paquete. -->
+            <!-- Quien llegó por el enlace del correo no tiene cuenta. Si deja
+                 esto en blanco se publica como "Cliente AMANTI": nunca su
+                 nombre real. Ver utils/nombreResena.ts. -->
             <input
               v-if="permisoResena && !reviewUser"
               v-model="myName"
@@ -519,6 +523,9 @@ useSeoMeta({
               placeholder="Tu nombre (opcional)"
               aria-label="Tu nombre"
             />
+            <p v-if="permisoResena && !reviewUser" class="rev-nota">
+              Si lo dejas en blanco, tu reseña se publica como «Cliente AMANTI».
+            </p>
             <div class="rev-stars-input" role="radiogroup" aria-label="Calificación">
               <button v-for="n in 5" :key="n" type="button" class="rsi" :class="{ on: n <= myRating }" @click="myRating = n" :aria-label="`${n} estrella${n === 1 ? '' : 's'}`">★</button>
             </div>

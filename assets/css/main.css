@@ -858,6 +858,7 @@ html.discreet .sr-th img{filter:blur(10px)}
 .rev-stars-input .rsi:active{transform:scale(.85)}
 .rev-nombre{font-family:var(--fb);padding:10px 14px;border:1px solid #E7D8CC;border-radius:9px;font-size:.95rem;background:#fff}
 .rev-nombre:focus{outline:none;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(232,80,58,.15)}
+.rev-nota{color:#5b4a44;font-size:.82rem;margin:-4px 0 0;line-height:1.35}
 .rev-form textarea{font-family:var(--fb);padding:11px 14px;border:1px solid #E7D8CC;border-radius:9px;font-size:.95rem;resize:vertical;background:#fff}
 .rev-form textarea:focus{outline:none;border-color:var(--magenta);box-shadow:0 0 0 3px rgba(232,80,58,.15)}
 .rev-form .btn{align-self:flex-start}
