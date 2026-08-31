@@ -175,6 +175,22 @@ describe('payloadCompra', () => {
     ],
   }
 
+  // Sin nombre, la plantilla de GHL saluda "Hola ," y el comprador entra al CRM
+  // como un ID sin persona. Cesar lo pidio el 31-ago-2026: que los datos dinamicos
+  // de los correos cuadren con lo que manda el sitio.
+  it('manda nombre y telefono para que GHL arme un contacto de verdad', () => {
+    const p = payloadCompra({ ...base, nombre: 'Josué Morales', telefono: '5512345678' }) as any
+    expect(p.nombre).toBe('Josué Morales')
+    expect(p.telefono).toBe('5512345678')
+  })
+
+  it('sin nombre ni telefono manda null, nunca undefined ni cadena vacia', () => {
+    const p = payloadCompra(base) as any
+    expect(p.nombre).toBeNull()
+    expect(p.telefono).toBeNull()
+    expect(payloadCompra({ ...base, nombre: '', telefono: '' } as any).nombre).toBeNull()
+  })
+
   it('arma los enlaces a la ficha de cada producto', () => {
     const p = payloadCompra(base) as any
     expect(p.items[0].url_producto).toBe('https://amanti.mx/tienda/tiny-teasers-nubby')

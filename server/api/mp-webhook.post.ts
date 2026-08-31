@@ -194,9 +194,12 @@ export default defineEventHandler(async (event) => {
         esRegalo: !!(full as any)?.gift?.isGift,
       })
 
+      const dir = ((full as any)?.shipping_address || {}) as Record<string, string>
       emitirEventoGhlSinEsperar('compra_confirmada', payloadCompra({
         orderId,
         email,
+        nombre: dir.recipient || null,
+        telefono: dir.phone || null,
         total: Number(full?.total) || 0,
         items: (lineas || []).map((l: any) => ({
           slug: String(l.product_slug || ''),

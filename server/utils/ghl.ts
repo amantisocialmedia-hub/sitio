@@ -152,6 +152,8 @@ export function payloadCompra(opts: {
   total: number
   items: { slug: string; name: string; price: number; quantity: number }[]
   sitio?: string
+  nombre?: string | null
+  telefono?: string | null
 }): Record<string, unknown> {
   const base = (opts.sitio || process.env.NUXT_PUBLIC_SITE_URL || 'https://amanti.mx').replace(/\/+$/, '')
   const items = (opts.items || []).map((i) => ({
@@ -166,6 +168,12 @@ export function payloadCompra(opts: {
   return {
     pedido_id: opts.orderId,
     email: opts.email,
+    // Nombre y telefono van para que GHL pueda armar un CONTACTO de verdad y la
+    // plantilla tenga con quien saludar. Sin esto el correo de confirmacion sale
+    // como "Hola ," y en GHL el comprador aparece como un ID sin persona: asi se
+    // veia el unico registro que existia en el historial de postcompra.
+    nombre: opts.nombre || null,
+    telefono: opts.telefono || null,
     total: opts.total,
     num_articulos: items.reduce((n, i) => n + (Number(i.cantidad) || 0), 0),
     items,
