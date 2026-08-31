@@ -15,6 +15,7 @@ import { createHmac, timingSafeEqual } from 'node:crypto'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 import { ghlConectado, emitirEventoGhlSinEsperar, payloadCompra } from '../utils/ghl'
 import { avisarPedidoParaSurtir } from '../utils/avisoPedido'
+import { correoValido } from '../utils/envio'
 
 function mapStatus(mp: string): string | null {
   switch (mp) {
@@ -163,14 +164,22 @@ export default defineEventHandler(async (event) => {
         admin.from('orders').select('user_id, total, shipping_address, gift').eq('id', orderId).maybeSingle(),
         admin.from('order_items').select('product_slug, product_name, unit_price, quantity').eq('order_id', orderId),
       ])
-      // El correo no vive en `orders`: se resuelve desde el usuario de Supabase.
-      // En pedidos de invitado no hay user_id y GHL recibe email null; su propio
-      // workflow decide qué hacer con eso.
+      // El correo no vive en una columna de `orders`. Si el pedido trae cuenta, sale
+      // del usuario de Supabase; si es de invitado, del que la persona tecleó en el
+      // carrito, que normalizarEnvio ya guardó dentro de shipping_address.
+      //
+      // Ese respaldo es lo que faltaba: antes solo se miraba user_id, y como hasta
+      // hoy TODOS los pedidos han sido de invitado, GHL recibía email null en cada
+      // compra y su workflow de postcompra no tenía a dónde mandar el comprobante.
+      // Josué pagó el 29-ago-2026, no le llegó nada, y volvió a levantar el mismo
+      // pedido dos veces en los dos minutos siguientes: sin acuse, quien ya pagó
+      // cree que no pagó, y el siguiente clic es pagar otra vez.
       let email: string | null = null
       if (full?.user_id) {
         const { data: u } = await admin.auth.admin.getUserById(String(full.user_id))
         email = u?.user?.email ?? null
       }
+      if (!email) email = correoValido((full as any)?.shipping_address?.email) ?? null
       // Aviso a quien surte, con la direccion ya formateada para la guia.
       // Va aparte del evento de marketing: son dos destinatarios distintos y
       // dos workflows distintos en GHL.
