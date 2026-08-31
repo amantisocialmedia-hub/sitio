@@ -21,7 +21,14 @@ export default defineEventHandler(() => {
     price: p.price,
     priceMXN: `$${Math.round(p.price).toLocaleString('es-MX')} MXN`,
     subtitle: p.subtitle,
-    inStock: true,
+    // Tiene que respetar la bandera `agotado`, como lo hacen las otras tres
+    // superficies del catalogo (la ficha, el feed de Google y resolveItems).
+    // Esta se quedo fuera cuando se agrego la bandera el 31-ago-2026, y es la
+    // peor de las cuatro para equivocarse: las demas solo MUESTRAN algo que ya
+    // no hay; esta le dice al agente de chat que lo recomiende, o sea que la
+    // tienda le ofrece a alguien, en una conversacion, algo que no le puede
+    // enviar.
+    inStock: !(p as any).agotado,
     url: `${base}/tienda/${p.slug}`,
   }))
   return { store: 'AMANTI', count: products.length, currency: 'MXN', products }
