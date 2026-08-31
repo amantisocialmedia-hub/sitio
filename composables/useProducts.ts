@@ -19,6 +19,8 @@ export interface Product {
   description: string
   features: string[]
   images?: string[]
+  /** Se acabo la existencia. Se prende a mano en data/products.json cuando Nancy avisa. */
+  agotado?: boolean
 }
 export interface Category {
   slug: string

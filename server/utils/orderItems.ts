@@ -24,6 +24,12 @@ export const nameBySlug: Record<string, string> = Object.fromEntries(catalog.map
 export const imgBySlug: Record<string, string | null> = Object.fromEntries(
   catalog.map((p) => [p.slug, (p.images && p.images[0]) || null]),
 )
+// Productos marcados como agotados en data/products.json (`"agotado": true`).
+// No hay conteo de inventario: es una bandera que se prende a mano cuando Nancy
+// avisa que se acabo algo.
+export const agotadoBySlug: Record<string, boolean> = Object.fromEntries(
+  catalog.map((p) => [p.slug, !!(p as any).agotado]),
+)
 
 // Tope por línea (anti-abuso). Ajustable según el negocio.
 export const MAX_QTY = 99
@@ -34,8 +40,9 @@ export interface Catalog {
   price: Record<string, number>
   name: Record<string, string>
   img: Record<string, string | null>
+  agotado?: Record<string, boolean>
 }
-const DEFAULT_CATALOG: Catalog = { price: priceBySlug, name: nameBySlug, img: imgBySlug }
+const DEFAULT_CATALOG: Catalog = { price: priceBySlug, name: nameBySlug, img: imgBySlug, agotado: agotadoBySlug }
 
 /**
  * Valida y resuelve los items del carrito contra el catálogo del servidor:
@@ -51,6 +58,17 @@ export function resolveItems(items: InCartItem[], catalog: Catalog = DEFAULT_CAT
     const unitPrice = slug != null ? catalog.price[slug] : undefined
     if (!slug || unitPrice == null || !Number.isFinite(qty) || qty < 1 || qty > MAX_QTY) {
       throw createError({ statusCode: 400, message: 'Artículo del carrito inválido.' })
+    }
+    // Lo agotado se rechaza AQUI, no solo escondiendo el boton en la ficha.
+    // Alguien puede traer la pagina abierta desde antes, un carrito guardado, o
+    // entrar por el enlace directo del anuncio de Google. Si el rechazo viviera
+    // solo en la vista, esa persona pagaria por algo que Nancy no puede meter en
+    // la caja -- y devolver un cobro cuesta mas que perder la venta.
+    if (catalog.agotado?.[slug]) {
+      throw createError({
+        statusCode: 409,
+        message: `${catalog.name[slug] || slug} se agotó. Quítalo del carrito para continuar.`,
+      })
     }
     return {
       slug,

@@ -244,7 +244,9 @@ const waUrl = computed(() => {
 
 function addToCart() {
   const p = product.value
-  if (!p) return
+  // Agotado no se agrega ni por accidente: el boton ya no esta, pero esta funcion
+  // tambien la llama la barra pegada de abajo.
+  if (!p || p.agotado) return
   cart.addItem({ slug: p.slug, name: p.name, price: p.price, emoji: p.emoji, bg: p.bg }, qty.value)
   added.value = true
   if (import.meta.client) window.dispatchEvent(new CustomEvent('cart:add'))
@@ -307,7 +309,7 @@ useHead(() => ({
             '@type': 'Offer',
             price: seo.value.p.price,
             priceCurrency: 'MXN',
-            availability: 'https://schema.org/InStock',
+            availability: seo.value.p.agotado ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
             url: seo.value.url,
           },
           aggregateRating: ratingCount.value
@@ -439,8 +441,9 @@ useSeoMeta({
           </div>
 
           <div class="buyrow" ref="buyrowEl">
-            <button class="btn magenta block" @click="addToCart">Añadir al carrito 🛍️</button>
-            <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">Pedir por WhatsApp</a>
+            <button v-if="!product.agotado" class="btn magenta block" @click="addToCart">Añadir al carrito 🛍️</button>
+            <button v-else class="btn block btn-agotado" disabled>Agotado por ahora</button>
+            <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">{{ product.agotado ? 'Avísame cuando vuelva' : 'Pedir por WhatsApp' }}</a>
             <!-- Favoritos del producto principal. ClientOnly: la wishlist vive en localStorage
                  (igual que en ProductCard); evita el desajuste de hidratación ♡→♥. -->
             <ClientOnly>
@@ -571,7 +574,8 @@ useSeoMeta({
                 <span class="sb-meta"><span class="stars">{{ stars(Math.round(ratingAvg)) }}</span> · {{ peso(product.price) }}</span>
               </div>
             </div>
-            <button class="btn magenta sb-btn" @click="addToCart">Añadir 🛍️</button>
+            <button v-if="!product.agotado" class="btn magenta sb-btn" @click="addToCart">Añadir 🛍️</button>
+            <button v-else class="btn sb-btn btn-agotado" disabled>Agotado</button>
           </div>
         </Transition>
       </ClientOnly>

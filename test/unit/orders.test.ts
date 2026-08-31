@@ -43,6 +43,42 @@ describe('orderItems — resolución autoritativa', () => {
     expect(() => resolveItems(null as any)).toThrow()
   })
 
+  // Lo agotado tiene que morir en el SERVIDOR. Esconder el botón en la ficha no
+  // basta: queda gente con la página abierta desde antes, con el carrito guardado
+  // en el navegador, o entrando por el enlace del anuncio de Google. Si el
+  // rechazo no vive aquí, esa persona paga por algo que no se le puede enviar.
+  const CATALOGO = {
+    price: { hay: 100, nohay: 200 },
+    name: { hay: 'Sí Hay', nohay: 'Ya No Hay' },
+    img: { hay: null, nohay: null },
+    agotado: { hay: false, nohay: true },
+  }
+
+  it('rechaza un producto agotado aunque el cliente lo mande en el carrito', () => {
+    expect(() => resolveItems([{ slug: 'nohay', quantity: 1 }], CATALOGO)).toThrow(/se agotó/)
+  })
+
+  it('nombra el producto agotado, para que se sepa cuál quitar', () => {
+    expect(() => resolveItems([{ slug: 'nohay', quantity: 1 }], CATALOGO)).toThrow(/Ya No Hay/)
+  })
+
+  it('un carrito mixto no pasa: basta un agotado para detener el pedido completo', () => {
+    expect(() => resolveItems([
+      { slug: 'hay', quantity: 1 },
+      { slug: 'nohay', quantity: 1 },
+    ], CATALOGO)).toThrow(/se agotó/)
+  })
+
+  it('lo que no está agotado sigue pasando normal', () => {
+    const out = resolveItems([{ slug: 'hay', quantity: 2 }], CATALOGO)
+    expect(out[0].lineTotal).toBe(200)
+  })
+
+  it('un catálogo sin la bandera agotado no rompe nada', () => {
+    const sinBandera = { price: { hay: 100 }, name: { hay: 'Sí Hay' }, img: { hay: null } }
+    expect(resolveItems([{ slug: 'hay', quantity: 1 }], sinBandera)[0].slug).toBe('hay')
+  })
+
   it('acepta un catálogo inyectado (testabilidad)', () => {
     const cat = { price: { foo: 50 }, name: { foo: 'Foo' }, img: { foo: '/x.jpg' } }
     const out = resolveItems([{ slug: 'foo', quantity: 3 }], cat)

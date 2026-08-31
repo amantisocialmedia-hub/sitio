@@ -7,7 +7,7 @@
 //   g:id            = slug (único y estable)      g:title       = name
 //   g:description   = description                 g:link        = {origen}/tienda/{slug}
 //   g:image_link    = images[0]                   g:additional_image_link = images[1..10]
-//   g:price         = "0.00 MXN"                  g:availability = in_stock (catálogo estático)
+//   g:price         = "0.00 MXN"                  g:availability = in_stock / out_of_stock (bandera `agotado`)
 //   g:condition     = new                         g:brand        = brand (si existe)
 //   g:product_type  = category                    g:identifier_exists = no (sin GTIN/MPN)
 //   g:adult         = yes (requisito de Google para este catálogo, en TODOS los productos)
@@ -126,7 +126,10 @@ export default defineEventHandler((event) => {
       imgs.slice(1, 11).forEach((im) =>
         rows.push(`      <g:additional_image_link>${xmlEscape(absUrl(base, im))}</g:additional_image_link>`),
       )
-      rows.push(`      <g:availability>in_stock</g:availability>`)
+      // Si esta agotado hay que decirselo a Google. Anunciar como disponible algo
+      // que ya no hay es lo que hace que Merchant Center suspenda la cuenta, y
+      // ademas paga clics que terminan en un carrito que no se puede cobrar.
+      rows.push(`      <g:availability>${(p as any).agotado ? 'out_of_stock' : 'in_stock'}</g:availability>`)
 
       // Precio tachado en Shopping (lo pidio Emilio, 26-ago-2026).
       //
