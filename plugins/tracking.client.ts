@@ -9,16 +9,12 @@
 //
 // La decisión vive en la cookie 'amanti_cookie_consent' ('accepted' | 'rejected').
 // El banner (CookieConsent.vue) llama a $loadTrackers() al Aceptar.
+import { gtagPush } from '~/utils/gtag'
+
 const GA_ID = 'G-HE23F0TWMG'
 const ADS_ID = 'AW-17872915568'
 const CLARITY_ID = 'u8nz8w7mf3'
 const PIXEL_ID = '947187697884149'
-
-function gtagPush(...args: any[]) {
-  const w = window as any
-  w.dataLayer = w.dataLayer || []
-  w.dataLayer.push(args)
-}
 
 /** gtag.js con Consent Mode v2 en 'denied'. Idempotente. */
 function loadGoogle() {
