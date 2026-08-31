@@ -10,6 +10,7 @@ import { round2 } from '../utils/orderItems'
 import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
 import { correoValido } from '../utils/envio'
+import { baseParaPasarela } from '../utils/baseUrl'
 
 /**
  * Datos del comprador para la preferencia de Mercado Pago.
@@ -97,7 +98,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const base = config.public.publicBaseUrl
+  const base = baseParaPasarela(config.public.publicBaseUrl, config.public.siteUrl)
   try {
     // 2) Preferencia MP con external_reference = order.id y notification_url al webhook
     const pref = await $fetch<{ init_point: string; sandbox_init_point: string; id: string }>(

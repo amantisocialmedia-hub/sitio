@@ -10,6 +10,7 @@ import { createPendingOrder } from '../utils/orders'
 import type { InCartItem } from '../utils/orderItems'
 import type { EnvioInfo } from '../utils/envio'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
+import { baseParaPasarela } from '../utils/baseUrl'
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
@@ -35,7 +36,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const base = config.public.publicBaseUrl
+  const base = baseParaPasarela(config.public.publicBaseUrl, config.public.siteUrl)
 
   // 2) Line items de Stripe (form-encoded). Igual que en MercadoPago: si hay cupón mandamos UNA
   //    línea con el total YA con descuento (Stripe no admite líneas negativas). El desglose real
