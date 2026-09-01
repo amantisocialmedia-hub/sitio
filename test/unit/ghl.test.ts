@@ -321,6 +321,31 @@ describe('payloadEnvio', () => {
     expect(p.num_articulos).toBe(0)
     expect(p.total).toBe(0)
   })
+
+  // GHL sufre para iterar un arreglo dentro de una plantilla de correo: `items`
+  // a secas sale como [object Object]. Por eso va tambien la version en texto,
+  // con saltos de linea de verdad — que es lo unico que hace algo con el CSS
+  // `white-space: pre-line` que Cesar dejo puesto en la plantilla.
+  it('items_texto trae una linea por producto, lista para imprimir', () => {
+    const p = payloadEnvio({
+      ...base,
+      items: [{ name: 'Jock 6', quantity: 2 }, { name: 'Antifaz Princesa', quantity: 1 }],
+    }) as any
+    expect(p.items_texto).toBe('2 × Jock 6\n1 × Antifaz Princesa')
+    expect(p.items_texto.split('\n')).toHaveLength(2)
+  })
+
+  it('items_texto es cadena vacia sin productos, nunca undefined', () => {
+    const p = payloadEnvio({ orderId: 'ord-1', email: null }) as any
+    expect(p.items_texto).toBe('')
+  })
+
+  // El arreglo NO se quita: quien pueda iterarlo que lo itere. Se manda ademas.
+  it('sigue mandando el arreglo items junto al texto', () => {
+    const p = payloadEnvio({ ...base, items: [{ name: 'Jock 6', quantity: 2 }] }) as any
+    expect(p.items).toEqual([{ nombre: 'Jock 6', cantidad: 2 }])
+    expect(typeof p.items_texto).toBe('string')
+  })
 })
 
 // El evento nuevo tiene que colgar de SU propia variable: si colgara de la de

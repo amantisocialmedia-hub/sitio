@@ -233,5 +233,17 @@ export function payloadEnvio(opts: {
     total: Number(opts.total) || 0,
     num_articulos: items.reduce((n, i) => n + (Number(i.cantidad) || 0), 0),
     items,
+    // La MISMA lista, ya formateada como texto con saltos de linea.
+    //
+    // Existe porque GHL sufre para iterar un arreglo dentro de una plantilla de
+    // correo: si le pones `items` a secas, un arreglo de objetos sale como
+    // [object Object] o como JSON crudo. Cesar lo pidio sin saberlo el
+    // 31-ago-2026, cuando conto que habia dejado el CSS con white-space:pre-line
+    // "para que la lista de articulos no se amontone en un solo renglon": ese CSS
+    // solo hace algo si el valor YA trae saltos de linea.
+    //
+    // Se manda ADEMAS del arreglo, no en vez de: quien pueda iterar que itere,
+    // y quien no, que imprima esto y ya.
+    items_texto: items.map((i) => `${i.cantidad} × ${i.nombre}`).join('\n'),
   }
 }
