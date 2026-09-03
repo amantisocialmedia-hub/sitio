@@ -65,10 +65,9 @@ const filtered = computed(() => {
   if (onlyAmanti.value) list = list.filter(p => p.brand === 'AMANTI Select')
   if (quick.value === 'top') list = list.filter(p => p.hot)
   if (quick.value === 'nuevos') list = list.filter(p => p.featured)
-  if (q.value) {
-    const t = q.value.toLowerCase()
-    list = list.filter(p => (p.name + ' ' + p.subtitle + ' ' + p.brand + ' ' + p.description).toLowerCase().includes(t))
-  }
+  // Parte la consulta en palabras y las pide todas, sin acentos. Ver utils/buscar.ts:
+  // antes era un includes() de la frase completa y «Lubricante coco» daba cero.
+  if (q.value) list = list.filter(p => coincideBusqueda(p, q.value))
   if (priceMin.value != null) list = list.filter(p => p.price >= priceMin.value!)
   if (priceMax.value != null) list = list.filter(p => p.price <= priceMax.value!)
   switch (sort.value) {

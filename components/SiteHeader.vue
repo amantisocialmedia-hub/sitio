@@ -62,8 +62,11 @@ const searchFocused = ref(false)
 const results = computed(() => {
   const t = q.value.trim().toLowerCase()
   if (t.length < 2) return []
+  // Mismo comparador que la tienda (utils/buscar.ts). Antes este miraba la
+  // categoria pero NO la descripcion, y como ahi viven los sabores, «coco» no
+  // devolvia nada.
   return products
-    .filter(p => `${p.name} ${p.subtitle || ''} ${p.brand} ${p.category}`.toLowerCase().includes(t))
+    .filter(p => coincideBusqueda(p, q.value))
     .slice(0, 6)
 })
 const showResults = computed(() => searchFocused.value && q.value.trim().length >= 2)
