@@ -27,6 +27,35 @@ describe('useAnalytics — payloads', () => {
     })
   })
 
+  it('search manda search (GA4) con el termino y cuantos resultados dio, y Search (Pixel)', () => {
+    w.gtag = vi.fn()
+    w.fbq = vi.fn()
+    useAnalytics().search('Lubricante coco', 12)
+
+    expect(w.gtag).toHaveBeenCalledWith('event', 'search', {
+      search_term: 'Lubricante coco',
+      search_results: 12,
+    })
+    expect(w.fbq).toHaveBeenCalledWith('track', 'Search', {
+      search_string: 'Lubricante coco', content_type: 'product',
+    })
+  })
+
+  it('search registra la busqueda que dio CERO resultados (es la que interesa)', () => {
+    w.gtag = vi.fn()
+    useAnalytics().search('chocolate', 0)
+    expect(w.gtag.mock.calls[0][2]).toEqual({ search_term: 'chocolate', search_results: 0 })
+  })
+
+  it('search recorta el termino y no dispara si queda vacio', () => {
+    w.gtag = vi.fn()
+    const a = useAnalytics()
+    a.search('  coco  ', 3)
+    expect(w.gtag.mock.calls[0][2].search_term).toBe('coco')
+    a.search('   ', 0)
+    expect(w.gtag).toHaveBeenCalledOnce()
+  })
+
   it('addToCart multiplica value por quantity (y quantity omitida = 1)', () => {
     w.gtag = vi.fn()
     w.fbq = vi.fn()

@@ -18,6 +18,19 @@ const gaItems = (items: Line[]) => items.map(i => ({
 }))
 
 export function useAnalytics() {
+  // Busqueda dentro del sitio. Va el numero de resultados porque el caso que interesa
+  // es el que devuelve cero: en sep-2026 «Lubricante coco» daba vacio y el producto SI
+  // existia, y eso no se vio hasta que alguien reviso a mano. Con esto se ve solo.
+  const search = (term: string, results: number) => {
+    const t = term.trim()
+    if (!t) return
+    emit(
+      'search',
+      { search_term: t, search_results: results },
+      'Search',
+      { search_string: t, content_type: 'product' },
+    )
+  }
   const viewItem = (p: Line) => emit(
     'view_item',
     { currency: 'MXN', value: p.price, items: gaItems([p]) },
@@ -62,5 +75,5 @@ export function useAnalytics() {
       }
     } catch {}
   }
-  return { viewItem, addToCart, beginCheckout, purchase }
+  return { search, viewItem, addToCart, beginCheckout, purchase }
 }

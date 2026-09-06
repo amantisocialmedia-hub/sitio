@@ -70,7 +70,14 @@ const results = computed(() => {
     .slice(0, 6)
 })
 const showResults = computed(() => searchFocused.value && q.value.trim().length >= 2)
-function pickResult() { searchFocused.value = false; q.value = '' }
+// Elegir un resultado del pop sin pasar por /tienda?q=: esa busqueda no la ve nadie mas,
+// asi que se registra aqui. Es ademas la que mas dice, porque acabo en clic.
+const { search: trackSearch } = useAnalytics()
+function pickResult() {
+  trackSearch(q.value, results.value.length)
+  searchFocused.value = false
+  q.value = ''
+}
 function onSearchBlur() { setTimeout(() => { searchFocused.value = false }, 160) }
 
 // Mega-menú estilo Cake. Los rótulos de subcategoría se resuelven contra la taxonomía

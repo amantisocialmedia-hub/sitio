@@ -81,6 +81,20 @@ const filtered = computed(() => {
   return list
 })
 
+// Busqueda del sitio -> GA4 / Pixel. Se dispara aqui y no en la cabecera porque TODA
+// busqueda escrita acaba en /tienda?q= (la lupa y el Enter hacen push a esta ruta), y asi
+// tambien cuenta la que llega por un enlace pegado o al recargar. El ultimo termino se
+// guarda para no repetir el evento cuando se toca otro filtro con la busqueda puesta.
+const { search: trackSearch } = useAnalytics()
+let ultimaBusqueda = ''
+watch(q, (term) => {
+  if (!import.meta.client) return
+  const t = (term || '').trim()
+  if (!t || t === ultimaBusqueda) return
+  ultimaBusqueda = t
+  trackSearch(t, filtered.value.length)
+}, { immediate: true })
+
 const title = computed(() => {
   if (q.value) return `Resultados: “${q.value}”`
   if (selectedSub.value) {
