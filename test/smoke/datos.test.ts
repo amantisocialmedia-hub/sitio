@@ -12,8 +12,12 @@ const articles = (articlesData as any).articles as any[]
 const kits = (kitsData as any).kits as any[]
 
 describe('datos (smoke) — integridad referencial', () => {
-  it('articles.json: 12 artículos con slug único y campos base', () => {
-    expect(articles.length).toBe(12)
+  // Sin número exacto a propósito: la Eroteca crece con el plan editorial (7 artículos
+  // programados desde sep-2026), y clavar el conteo obliga a tocar el test cada semana
+  // sin comprobar nada más. Lo que importa es que no haya slugs repetidos —eso sí rompe
+  // el ruteo de /blog/<slug>— y que ninguno entre sin sus campos base.
+  it('articles.json: artículos con slug único y campos base', () => {
+    expect(articles.length).toBeGreaterThanOrEqual(12)
     const s = articles.map(a => a.slug)
     expect(new Set(s).size).toBe(s.length)
     const bad = articles.filter(a => !a.title || !a.excerpt || !a.body || !a.category)
