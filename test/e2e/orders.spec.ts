@@ -22,11 +22,13 @@ test.describe('pedidos · Etapa 3', () => {
     if (!probe.error && probe.data) { guestOk = true; await admin.from('orders').delete().eq('id', probe.data.id) }
   })
   test.afterAll(async () => { if (admin && uid) await admin.auth.admin.deleteUser(uid) })
-  test.beforeEach(async ({ context }) => {
+  test.beforeEach(async ({ context, page }) => {
     await context.addCookies([
       { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
       { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
     ])
+    // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+    await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
   })
 
   async function login(page: any) {

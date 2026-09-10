@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // La búsqueda del sitio tiene que llegar a GA4 (composables/useAnalytics.ts -> evento `search`).
 // Raúl pidió saber "qué es lo que más andan buscando" y hasta sep-2026 eso no se guardaba en
@@ -17,6 +18,8 @@ test.beforeEach(async ({ context, page }) => {
   ])
   // Sin la librería de Google el dataLayer queda intacto y el test no depende de la red.
   await page.route('https://www.googletagmanager.com/**', r => r.abort())
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 const searches = (page: import('@playwright/test').Page) =>
@@ -28,7 +31,8 @@ const searches = (page: import('@playwright/test').Page) =>
   )
 
 test('buscar desde el header manda search al dataLayer con el término y el número de resultados', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   const input = page.getByPlaceholder('Búsqueda Rápida')
   await input.click()
@@ -46,7 +50,8 @@ test('buscar desde el header manda search al dataLayer con el término y el núm
 })
 
 test('elegir un resultado del pop también registra la búsqueda (no pasa por /tienda?q=)', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   const input = page.getByPlaceholder('Búsqueda Rápida')
   await input.click()
@@ -65,7 +70,8 @@ test('elegir un resultado del pop también registra la búsqueda (no pasa por /t
 })
 
 test('una búsqueda sin resultados se registra con search_results en 0', async ({ page }) => {
-  await page.goto('/tienda?q=zxqwk', { waitUntil: 'networkidle' })
+  await page.goto('/tienda?q=zxqwk', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   await page.waitForTimeout(500)
 
   const hits = await searches(page)
@@ -74,7 +80,8 @@ test('una búsqueda sin resultados se registra con search_results en 0', async (
 })
 
 test('cambiar un filtro con la búsqueda puesta no vuelve a mandar el mismo evento', async ({ page }) => {
-  await page.goto('/tienda?q=lubricante', { waitUntil: 'networkidle' })
+  await page.goto('/tienda?q=lubricante', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   await page.waitForTimeout(500)
   expect(await searches(page)).toHaveLength(1)
 

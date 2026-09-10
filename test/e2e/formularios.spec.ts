@@ -2,11 +2,13 @@ import { test, expect } from '@playwright/test'
 
 // El age-gate (overlay full-screen) y el banner de cookies tapan la UI; los suprimimos
 // pre-seteando sus cookies para poder validar la app.
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test('form de contacto: valida y arma WhatsApp con los datos', async ({ page, context }) => {

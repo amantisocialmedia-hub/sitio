@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su iframe de GoHighLevel retrasaría el load que se espera abajo.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test.describe('PWA', () => {
@@ -12,7 +15,8 @@ test.describe('PWA', () => {
     const pageErrors: string[] = []
     page.on('pageerror', (err) => pageErrors.push(err.message))
 
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // link[rel="manifest"] con href "/manifest.webmanifest"
     const manifestLink = page.locator('link[rel="manifest"]')
@@ -22,7 +26,9 @@ test.describe('PWA', () => {
     // link[rel="apple-touch-icon"] existe
     await expect(page.locator('link[rel="apple-touch-icon"]')).toHaveCount(1)
 
-    // Sin errores de página en el home
+    // Sin errores de página en el home. Se espera también al evento load: lo que falla tarde
+    // (scripts que se agregan al montar) quedaría fuera si se revisara justo al hidratar.
+    await page.waitForLoadState('load')
     expect(pageErrors, `pageerror(s): ${pageErrors.join(' | ')}`).toEqual([])
   })
 
@@ -52,7 +58,8 @@ test.describe('PWA', () => {
   })
 
   test('.pwa-bar no aparece sin beforeinstallprompt', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     // El banner solo se monta cuando el navegador dispara beforeinstallprompt (canInstall).
     // En Playwright nunca se dispara, así que la barra no debe existir.
     await page.waitForTimeout(400)

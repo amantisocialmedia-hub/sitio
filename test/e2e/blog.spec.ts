@@ -1,17 +1,21 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test.describe('Blog hub (/blog)', () => {
   test('muestra el destacado y el resto de articulos como cards en "Todo"', async ({ page }) => {
-    await page.goto('/blog', { waitUntil: 'networkidle' })
+    await page.goto('/blog', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // Artículo destacado visible (solo se renderiza en la categoría "Todo")
     await expect(page.locator('.blogfeat')).toBeVisible()
@@ -27,7 +31,8 @@ test.describe('Blog hub (/blog)', () => {
   })
 
   test('filtrar por "Salud Sexual" oculta el destacado y deja al menos 1 card', async ({ page }) => {
-    await page.goto('/blog', { waitUntil: 'networkidle' })
+    await page.goto('/blog', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // El chip es un <button class="chip"> con el texto exacto de la categoría
     const chip = page.locator('button.chip', { hasText: 'Salud Sexual' })
@@ -53,7 +58,8 @@ test.describe('Artículo (/blog/iniciacion-anal)', () => {
     const pageErrors: string[] = []
     page.on('pageerror', (err) => pageErrors.push(err.message))
 
-    await page.goto('/blog/iniciacion-anal', { waitUntil: 'networkidle' })
+    await page.goto('/blog/iniciacion-anal', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // Hero editorial con el título del artículo
     await expect(page.locator('.bloghero h1')).toBeVisible()
@@ -82,7 +88,9 @@ test.describe('Artículo (/blog/iniciacion-anal)', () => {
     })
     expect(order).toBe(true)
 
-    // Sin errores de página (excepciones JS no controladas)
+    // Sin errores de página (excepciones JS no controladas). Se espera al evento load para no
+    // perder lo que falla tarde (ver pwa.spec.ts).
+    await page.waitForLoadState('load')
     expect(pageErrors).toEqual([])
 
     // Sin overflow horizontal a 390px

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // Modo discreto (ojo del header): al activarlo SIEMPRE debe haber un aviso visible con
 // salida obvia — antes en móvil quedaba todo difuminado "sin explicación" (QA móvil).
@@ -13,7 +14,8 @@ test.beforeEach(async ({ context, page }) => {
 
 test.describe('Modo discreto — aviso visible y salida obvia', () => {
   test('activar muestra la franja; tocarla desactiva y restaura todo', async ({ page }) => {
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // Sin modo discreto no hay franja.
     await expect(page.locator('.discreet-note')).toHaveCount(0)
@@ -34,7 +36,8 @@ test.describe('Modo discreto — aviso visible y salida obvia', () => {
   test('difumina lo sensible pero NUNCA la página completa (bug :global del hero)', async ({ page }) => {
     // La home carga el chunk de HeroEditorial, cuyo :global mal compilado emitía
     // html.discreet{filter:blur(12px)} y difuminaba TODO el viewport.
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await page.locator('.discreet-btn').click()
     await expect(page.locator('html')).toHaveClass(/discreet/)
 
@@ -50,12 +53,14 @@ test.describe('Modo discreto — aviso visible y salida obvia', () => {
 
   test('el modo persiste al recargar y el aviso sigue presente (también @390)', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 })
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     await page.locator('.discreet-btn').click()
     await expect(page.locator('html')).toHaveClass(/discreet/)
 
-    await page.reload({ waitUntil: 'networkidle' })
+    await page.reload({ waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await expect(page.locator('html')).toHaveClass(/discreet/)
     await expect(page.locator('.discreet-note')).toBeVisible()
 

@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test.describe('Proxy /api/chat', () => {
@@ -32,7 +35,8 @@ test.describe('Widget de chat EROS en el home', () => {
     page.on('pageerror', (err) => pageErrors.push(err))
 
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     // Launcher visible (el widget se monta dentro de ClientOnly)
     const launcher = page.locator('.eros-launcher')
@@ -75,7 +79,8 @@ test.describe('Widget de chat EROS en el home', () => {
 test.describe('Abrir EROS desde la URL', () => {
   test('?chat=1 abre el panel solo, sin tocar el launcher', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await page.goto('/?chat=1', { waitUntil: 'networkidle' })
+    await page.goto('/?chat=1', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await page.waitForTimeout(500)
 
     await expect(page.locator('.eros-panel')).toBeVisible()
@@ -86,21 +91,24 @@ test.describe('Abrir EROS desde la URL', () => {
 
   test('funciona con las utm de la pauta en la misma URL y fuera del home', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await page.goto('/tienda?utm_source=whatsapp&utm_medium=cpc&chat=1', { waitUntil: 'networkidle' })
+    await page.goto('/tienda?utm_source=whatsapp&utm_medium=cpc&chat=1', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await page.waitForTimeout(500)
     await expect(page.locator('.eros-panel')).toBeVisible()
   })
 
   test('#chat también lo abre', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await page.goto('/#chat', { waitUntil: 'networkidle' })
+    await page.goto('/#chat', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await page.waitForTimeout(500)
     await expect(page.locator('.eros-panel')).toBeVisible()
   })
 
   test('sin el parámetro el chat sigue cerrado', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
-    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     await page.waitForTimeout(500)
     await expect(page.locator('.eros-panel')).toHaveCount(0)
     await expect(page.locator('.eros-launcher')).toBeVisible()

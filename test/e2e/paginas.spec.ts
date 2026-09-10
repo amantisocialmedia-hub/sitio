@@ -1,11 +1,13 @@
 import { test, expect } from '@playwright/test'
 
 // Suprime age-gate y banner de cookies para que no tapen el contenido durante el smoke.
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 // Smoke de montaje: cada página clave responde 200 y renderiza su encabezado, sin errores de consola graves.

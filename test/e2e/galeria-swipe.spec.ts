@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // Swipe táctil de la galería (QA móvil): deslizar entre fotos con el dedo, sin abrir
 // el lightbox por accidente y con el indicador (dots/miniaturas) sincronizado.
@@ -38,7 +39,8 @@ async function swipeMain(page: Page, dx: number) {
 
 test.describe('Galería móvil: swipe entre fotos', () => {
   test('swipe navega, sincroniza indicadores, no abre lightbox y no da la vuelta', async ({ page }) => {
-    await page.goto(SLUG, { waitUntil: 'networkidle' })
+    await page.goto(SLUG, { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     const dots = page.locator('.gdots .gd')
     const nDots = await dots.count()
@@ -78,7 +80,8 @@ test.describe('Galería móvil: swipe entre fotos', () => {
   })
 
   test('el swipe vertical se queda como scroll (no navega fotos)', async ({ page }) => {
-    await page.goto(SLUG, { waitUntil: 'networkidle' })
+    await page.goto(SLUG, { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
     const dots = page.locator('.gdots .gd')
     await expect(dots.first()).toHaveClass(/on/)
 

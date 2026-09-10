@@ -1,10 +1,13 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 // Lee la opacidad computada de un elemento como número
@@ -13,7 +16,8 @@ async function opacityOf(el: import('@playwright/test').Locator): Promise<number
 }
 
 test('hover de 2ª foto: .pimg2 crossfade de oculta a visible al pasar el mouse', async ({ page }) => {
-  await page.goto('/tienda', { waitUntil: 'networkidle' })
+  await page.goto('/tienda', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   // Primera .pcard que contenga una segunda foto (.pimg2)
   const card = page.locator('.pcard:has(.pimg2)').first()

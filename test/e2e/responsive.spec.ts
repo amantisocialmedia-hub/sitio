@@ -10,6 +10,8 @@ test.beforeEach(async ({ context, page }) => {
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
   await page.setViewportSize(MOBILE)
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test('móvil: el drawer abre desde el burger y expone subcategorías + carrito', async ({ page }) => {

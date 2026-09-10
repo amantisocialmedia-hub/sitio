@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // Buscador instantáneo del header (components/SiteHeader.vue + assets/css/main.css).
 // El input vive en .searchrow .searchbox con placeholder "Búsqueda Rápida"; al enfocar
@@ -6,11 +7,13 @@ import { test, expect } from '@playwright/test'
 // composable). Cada .sr-item es un NuxtLink a /tienda/<slug>. Sin coincidencias se muestra
 // .sr-empty. Verificamos también que a 390px de ancho no haya overflow horizontal.
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 // Mide el overflow horizontal real del documento.
@@ -21,7 +24,8 @@ async function horizontalOverflow(page: import('@playwright/test').Page) {
 }
 
 test('home: escribir "vibra" muestra .searchpop con 1-6 resultados y el primero navega a /tienda/<slug>', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   // El input del buscador instantáneo (placeholder real "Búsqueda Rápida").
   const input = page.getByPlaceholder('Búsqueda Rápida')
@@ -59,7 +63,8 @@ test('home: escribir "vibra" muestra .searchpop con 1-6 resultados y el primero 
 })
 
 test('home: escribir "zxqwk" (sin coincidencias) muestra .sr-empty', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   const input = page.getByPlaceholder('Búsqueda Rápida')
   await expect(input).toBeVisible()
@@ -79,7 +84,8 @@ test('home: escribir "zxqwk" (sin coincidencias) muestra .sr-empty', async ({ pa
 
 test('home: a 390px de ancho el buscador no provoca overflow horizontal', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
 
   const input = page.getByPlaceholder('Búsqueda Rápida')
   await expect(input).toBeVisible()
