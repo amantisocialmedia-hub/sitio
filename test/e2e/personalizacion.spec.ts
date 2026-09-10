@@ -1,11 +1,14 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // Suprime age-gate y banner de cookies (overlays globales) para poder interactuar.
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test('personalización: el quiz alimenta "Elegidos para ti" y la ficha alimenta "Vistos recientemente"', async ({ page }) => {
@@ -13,7 +16,8 @@ test('personalización: el quiz alimenta "Elegidos para ti" y la ficha alimenta 
   await page.emulateMedia({ reducedMotion: 'reduce' })
 
   // 1) Completar el quiz: 4 preguntas, eligiendo siempre la primera opción.
-  await page.goto('/quiz', { waitUntil: 'networkidle' })
+  await page.goto('/quiz', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   await expect(page.locator('.quiz-opt').first()).toBeVisible()
 
   for (let i = 0; i < 4; i++) {
@@ -29,7 +33,8 @@ test('personalización: el quiz alimenta "Elegidos para ti" y la ficha alimenta 
   await expect(page.getByRole('heading', { name: 'Esto es para ti' })).toBeVisible()
 
   // 3) Ir al home: debe aparecer la sección personalizada "Elegidos para ti".
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   const elegidos = page.getByRole('heading', { name: /Elegidos para ti/i })
   await expect(elegidos).toBeVisible()
 
@@ -45,11 +50,18 @@ test('personalización: el quiz alimenta "Elegidos para ti" y la ficha alimenta 
   expect(ov1).toBeLessThanOrEqual(1)
 
   // 4) Visitar una ficha de producto registra "visto recientemente" (addRecent onMounted).
-  await page.goto('/tienda/vibrating-g', { waitUntil: 'networkidle' })
-  await page.waitForTimeout(250)
+  // Sin networkidle: en la ficha no llegó en 3 de 3 corridas (10-sep). Se espera la señal real,
+  // que el slug ya esté guardado en amanti_recent.
+  await page.goto('/tienda/vibrating-g', { waitUntil: 'domcontentloaded' })
+  await page.waitForFunction(
+    () => (localStorage.getItem('amanti_recent') || '').includes('vibrating-g'),
+    undefined,
+    { timeout: 15_000 },
+  )
 
   // 5) Volver al home: debe aparecer la sección "Vistos recientemente".
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   const vistos = page.getByRole('heading', { name: /Vistos recientemente/i })
   await expect(vistos).toBeVisible()
 

@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
 // Suprime age-gate y banner de cookies (overlays globales).
 test.beforeEach(async ({ context }) => {
@@ -12,13 +13,16 @@ test.beforeEach(async ({ context }) => {
 // TODA la categoría. Solo navega y cuenta (sin clicks → no depende de overlays).
 test('subcategoría: muestra SOLO sus productos, no toda la categoría', async ({ page }) => {
   // Categoría completa.
-  await page.goto('/tienda?cat=masturbadores', { waitUntil: 'networkidle' })
+  await page.goto('/tienda?cat=masturbadores', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   await expect(page.locator('.pcard').first()).toBeVisible()
   const totalCat = await page.locator('.pcard').count()
   expect(totalCat).toBeGreaterThan(1)
 
   // Subcategoría: el título refleja la subcategoría y el listado es un subconjunto.
-  await page.goto('/tienda?cat=masturbadores&sub=pocket-pussy', { waitUntil: 'networkidle' })
+  // Sin networkidle: aquí no llegó en 2 de 2 (10-sep); depende de terceros (ver regalo.spec.ts).
+  // El filtro corre en SSR (syncFromRoute en el setup), así que contar tras domcontentloaded es fiel.
+  await page.goto('/tienda?cat=masturbadores&sub=pocket-pussy', { waitUntil: 'domcontentloaded' })
   await expect(page.locator('h1')).toHaveText('Pocket Pussy')
   await expect(page.locator('.pcard').first()).toBeVisible()
   const subCount = await page.locator('.pcard').count()
@@ -29,7 +33,8 @@ test('subcategoría: muestra SOLO sus productos, no toda la categoría', async (
 // Bug 3: el menú no muestra subcategorías vacías. "Calzón Vibrador" (0 productos) no
 // debe aparecer en el desplegable de Vibradores, mientras que "Bala Vibradora" sí.
 test('menú: oculta subcategorías sin productos y muestra las que sí tienen', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await esperarHidratacion(page)
   // El desplegable de Vibradores es el único que contiene "Bala Vibradora".
   // (Los enlaces están en el DOM aunque el dropdown solo se muestre al hover → contamos por DOM.)
   const dropdown = page.locator('ul.menu .dropdown', { hasText: 'Bala Vibradora' })

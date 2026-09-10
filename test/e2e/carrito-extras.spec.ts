@@ -1,18 +1,23 @@
 import { test, expect } from '@playwright/test'
+import { esperarHidratacion } from './hidratacion'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test.describe('Carrito · extras (vacío, freeship, paytrust)', () => {
   test('carrito vacío muestra enlace de "Inicia sesión" en .emptybox', async ({ page }) => {
-    await page.goto('/carrito', { waitUntil: 'networkidle' })
+    // Sin networkidle (ver regalo.spec.ts). .emptybox solo se pinta ya montado: antes se ve
+    // "Cargando tu carrito…" (pages/carrito.vue, bandera ready).
+    await page.goto('/carrito', { waitUntil: 'domcontentloaded' })
 
     const empty = page.locator('.emptybox')
-    await expect(empty).toBeVisible()
+    await expect(empty).toBeVisible({ timeout: 15_000 })
 
     // El bloque vacío invita a iniciar sesión para un checkout más rápido.
     const loginLink = empty.getByRole('link', { name: /Inicia sesión/i })
@@ -24,7 +29,8 @@ test.describe('Carrito · extras (vacío, freeship, paytrust)', () => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
 
     // Completa el quiz: 4 preguntas, una opción por paso.
-    await page.goto('/quiz', { waitUntil: 'networkidle' })
+    await page.goto('/quiz', { waitUntil: 'domcontentloaded' })
+    await esperarHidratacion(page)
 
     for (let step = 0; step < 4; step++) {
       const opt = page.locator('.quiz-opt').first()
@@ -40,12 +46,13 @@ test.describe('Carrito · extras (vacío, freeship, paytrust)', () => {
     await addBtn.click()
     await page.waitForTimeout(500)
 
-    // Va al carrito (el item persiste en localStorage vía Pinia persist).
-    await page.goto('/carrito', { waitUntil: 'networkidle' })
+    // Va al carrito (el item persiste en localStorage vía Pinia persist). Sin networkidle: ahí
+    // depende de terceros (ver regalo.spec.ts); se espera el resumen, que solo se pinta ya hidratado.
+    await page.goto('/carrito', { waitUntil: 'domcontentloaded' })
 
     // El resumen del pedido se renderiza (no estado vacío).
     const freeship = page.locator('.freeship')
-    await expect(freeship).toBeVisible()
+    await expect(freeship).toBeVisible({ timeout: 15_000 })
 
     const paytrust = page.locator('.paytrust')
     await expect(paytrust).toBeVisible()

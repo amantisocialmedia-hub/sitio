@@ -1,10 +1,12 @@
 import { test, expect } from '@playwright/test'
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }) => {
   await context.addCookies([
     { name: 'amanti_age_ok', value: '1', url: 'http://localhost:3010' },
     { name: 'amanti_cookie_consent', value: 'rejected', url: 'http://localhost:3010' },
   ])
+  // Suprime el WelcomeModal (timer): su overlay intercepta clicks a media prueba.
+  await page.addInitScript(() => localStorage.setItem('amanti_welcome_seen', '1'))
 })
 
 test.describe('Ficha de producto /tienda/vibrating-g', () => {
@@ -13,7 +15,15 @@ test.describe('Ficha de producto /tienda/vibrating-g', () => {
     page.on('pageerror', (e) => errors.push(String(e)))
 
     await page.setViewportSize({ width: 390, height: 844 })
-    await page.goto('/tienda/vibrating-g', { waitUntil: 'networkidle' })
+    // Sin networkidle: con esta misma URL no llegó en 3 de 3 corridas de personalizacion.spec.ts
+    // (10-sep). La ficha escribe amanti_recent al montarse (onMounted): es la señal de que la
+    // galería ya tiene sus handlers antes de hacerle clic.
+    await page.goto('/tienda/vibrating-g', { waitUntil: 'domcontentloaded' })
+    await page.waitForFunction(
+      () => (localStorage.getItem('amanti_recent') || '').includes('vibrating-g'),
+      undefined,
+      { timeout: 15_000 },
+    )
 
     // El título de la ficha debe estar visible (confirma que el producto cargó).
     await expect(page.locator('h1')).toContainText('Firmeza Vibrante')
