@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { precioVigente } from '../../utils/campana'
 
 // Suprime age-gate y banner de cookies (overlays globales) para poder interactuar.
 test.beforeEach(async ({ context }) => {
@@ -48,7 +49,11 @@ test('agregar al carrito sube el badge y aparece en /carrito', async ({ page }) 
   // ir al carrito
   await page.goto('/carrito')
   await expect(page.getByText('Firmeza Vibrante').first()).toBeVisible()
-  await expect(page.locator('.sline.total')).toContainText('921')
+  // El total sale del precio de lista pasado por la campana, no de un numero fijo: con el
+  // 40% encendido "Firmeza Vibrante" cobra 553 y no 921, y clavar cualquiera de los dos
+  // deja el test rojo en cuanto alguien prenda o apague la venta (utils/campana.ts).
+  const esperado = precioVigente(921)
+  await expect(page.locator('.sline.total')).toContainText(String(esperado))
 
   // botón de WhatsApp del pedido existe
   await expect(page.getByRole('button', { name: /Ordenar por WhatsApp/i })).toBeVisible()
