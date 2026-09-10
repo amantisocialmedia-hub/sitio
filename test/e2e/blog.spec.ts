@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
 
 test.beforeEach(async ({ context }) => {
   await context.addCookies([
@@ -8,15 +10,20 @@ test.beforeEach(async ({ context }) => {
 })
 
 test.describe('Blog hub (/blog)', () => {
-  test('muestra el destacado y 11 cards en "Todo"', async ({ page }) => {
+  test('muestra el destacado y el resto de articulos como cards en "Todo"', async ({ page }) => {
     await page.goto('/blog', { waitUntil: 'networkidle' })
 
     // Artículo destacado visible (solo se renderiza en la categoría "Todo")
     await expect(page.locator('.blogfeat')).toBeVisible()
 
-    // En "Todo", la grilla principal lista articles.slice(1) => 11 cards
+    // En "Todo" la grilla lista articles.slice(1): todos menos el destacado. El conteo se
+    // saca de data/articles.json en vez de clavarlo, porque la Eroteca crece con el plan
+    // editorial (7 articulos programados desde sep-2026) y el numero fijo rompia el test
+    // cada vez que se publica uno, sin comprobar nada mas.
+    const ruta = fileURLToPath(new URL('../../data/articles.json', import.meta.url))
+    const total = JSON.parse(readFileSync(ruta, 'utf8')).articles.length
     const cards = page.locator('.bloggrid .blogcard')
-    await expect(cards).toHaveCount(11)
+    await expect(cards).toHaveCount(total - 1)
   })
 
   test('filtrar por "Salud Sexual" oculta el destacado y deja al menos 1 card', async ({ page }) => {

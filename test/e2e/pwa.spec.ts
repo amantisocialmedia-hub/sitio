@@ -35,13 +35,13 @@ test.describe('PWA', () => {
       '/apple-touch-icon.png',
     ]
     for (const path of assets) {
-      const res = await request.get(`http://localhost:3010${path}`)
+      const res = await request.get(`${path}`)
       expect(res.status(), `${path} debería responder 200`).toBe(200)
     }
   })
 
   test('el manifest parseado es válido (name AMANTI, display standalone, >=2 icons)', async ({ request }) => {
-    const res = await request.get('http://localhost:3010/manifest.webmanifest')
+    const res = await request.get('/manifest.webmanifest')
     expect(res.status()).toBe(200)
 
     const manifest = await res.json()
