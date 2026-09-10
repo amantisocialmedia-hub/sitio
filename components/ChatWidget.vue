@@ -12,13 +12,30 @@ const messages = ref<Msg[]>([
   { role: 'bot', text: '¡Hola! Soy EROS, tu asistente de AMANTI 💜 ¿Buscas algo en especial o quieres una recomendación? Pregúntame sin pena.' },
 ])
 
+// Abrir EROS desde un enlace: amanti.mx/?chat=1 (tambien vale #chat). Lo pidio Emilio
+// para la campana de WhatsApp de sep-2026: manda el link y la persona cae con el chat ya
+// abierto, sin tener que encontrar el boton flotante. Se aceptan otros parametros en la
+// misma URL, que ahi es donde viajan las utm y el gclid de la pauta.
+const route = useRoute()
+function pidenChat() {
+  const q = route.query.chat
+  const v = Array.isArray(q) ? q[0] : q
+  if (v !== undefined && v !== null && v !== '0' && v !== 'false') return true
+  return import.meta.client && window.location.hash === '#chat'
+}
+
 onMounted(() => {
   try { sid.value = localStorage.getItem('amanti_chat_sid') || '' } catch {}
   if (!sid.value) {
     sid.value = (globalThis.crypto?.randomUUID?.() || 'sid-' + Math.random().toString(36).slice(2) + Date.now().toString(36))
     try { localStorage.setItem('amanti_chat_sid', sid.value) } catch {}
   }
+  if (pidenChat()) { open.value = true; scrollDown() }
 })
+
+// Tambien si se llega por navegacion interna (la pauta puede mandar a /tienda?chat=1 y de
+// ahi el router mueve la query sin volver a montar el componente).
+watch(() => route.query.chat, () => { if (pidenChat() && !open.value) { open.value = true; scrollDown() } })
 
 async function scrollDown() {
   await nextTick()

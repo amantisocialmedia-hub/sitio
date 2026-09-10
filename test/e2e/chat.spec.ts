@@ -9,7 +9,7 @@ test.beforeEach(async ({ context }) => {
 
 test.describe('Proxy /api/chat', () => {
   test('POST con message y sessionId → 200 y response string no vacío', async ({ request }) => {
-    const res = await request.post('http://localhost:3010/api/chat', {
+    const res = await request.post('/api/chat', {
       data: { message: 'hola', sessionId: 't1' },
     })
     expect(res.status()).toBe(200)
@@ -19,7 +19,7 @@ test.describe('Proxy /api/chat', () => {
   })
 
   test('POST sin message → 400', async ({ request }) => {
-    const res = await request.post('http://localhost:3010/api/chat', {
+    const res = await request.post('/api/chat', {
       data: { sessionId: 'x' },
     })
     expect(res.status()).toBe(400)
@@ -67,5 +67,42 @@ test.describe('Widget de chat EROS en el home', () => {
 
     // Sin errores de página en toda la interacción
     expect(pageErrors).toEqual([])
+  })
+})
+
+// Enlace directo al chat (?chat=1 / #chat). Lo pidió Emilio para la campaña de WhatsApp de
+// sep-2026: el link tiene que caer con EROS ya abierto, sin buscar el botón flotante.
+test.describe('Abrir EROS desde la URL', () => {
+  test('?chat=1 abre el panel solo, sin tocar el launcher', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/?chat=1', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(500)
+
+    await expect(page.locator('.eros-panel')).toBeVisible()
+    // Con el panel abierto el launcher se esconde (v-show="!open").
+    await expect(page.locator('.eros-launcher')).toBeHidden()
+    await expect(page.locator('.eros-panel .ep-msg.bot')).toHaveCount(1)
+  })
+
+  test('funciona con las utm de la pauta en la misma URL y fuera del home', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/tienda?utm_source=whatsapp&utm_medium=cpc&chat=1', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(500)
+    await expect(page.locator('.eros-panel')).toBeVisible()
+  })
+
+  test('#chat también lo abre', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/#chat', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(500)
+    await expect(page.locator('.eros-panel')).toBeVisible()
+  })
+
+  test('sin el parámetro el chat sigue cerrado', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/', { waitUntil: 'networkidle' })
+    await page.waitForTimeout(500)
+    await expect(page.locator('.eros-panel')).toHaveCount(0)
+    await expect(page.locator('.eros-launcher')).toBeVisible()
   })
 })

@@ -1,6 +1,9 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const PORT = 3010
+// Puerto configurable, y ya no el 3010: en la maquina de Memo ese cae dentro del rango que
+// Windows reserva (Hyper-V/WSL) y node truena con EACCES antes de escuchar, asi que Playwright
+// no podia levantar su servidor y NINGUN e2e corria. Se puede pisar con E2E_PORT.
+const PORT = Number(process.env.E2E_PORT || 3457)
 const BASE = `http://localhost:${PORT}`
 
 export default defineConfig({
