@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
-const { products, categories, peso, subcatBySlug } = useProducts()
+const { products, categories, peso, subcatBySlug, bySubcategory } = useProducts()
 
 const selectedCats = ref<string[]>([])
 const selectedSub = ref('') // subcategoría activa (slug), p.ej. ?sub=bala-vibradora
@@ -32,8 +32,11 @@ function syncFromRoute() {
   const cat = route.query.cat as string | undefined
   const sub = (route.query.sub as string) || ''
   selectedSub.value = sub
-  // Si llega ?sub= sin ?cat=, deriva la categoría desde la subcategoría.
-  const subCat = sub ? subcatBySlug(sub)?.category : undefined
+  // Si llega ?sub= sin ?cat=, deriva la categoría desde la subcategoría. Solo cuando la
+  // subcategoría vive en UNA categoría: si es transversal (p.ej. "Oral", que cruza
+  // lubricantes y parejas), fijar una dejaría fuera a la otra mitad de sus productos.
+  const subDef = sub ? subcatBySlug(sub) : undefined
+  const subCat = typeof subDef?.category === 'string' ? subDef.category : undefined
   selectedCats.value = cat ? [cat] : (subCat ? [subCat] : [])
   q.value = (route.query.q as string) || ''
 }
@@ -142,11 +145,15 @@ function pickCat(slug: string) {
   selectedCats.value = slug ? [slug] : []
 }
 
-// Vitrina del banner: hasta 5 productos reales de la categoría (o del catálogo si "todo").
+// Vitrina del banner: hasta 5 productos reales de lo que se está viendo. La subcategoría
+// manda sobre la categoría: sin esto, una transversal como "Oral" —que a propósito no fija
+// ?cat=— caía al "o del catálogo" y enseñaba vibradores en la página de sexo oral.
 const bannerProducts = computed(() => {
-  const base = selectedCats.value.length === 1
-    ? products.filter(p => p.category === selectedCats.value[0])
-    : products
+  const base = selectedSub.value
+    ? bySubcategory(selectedSub.value)
+    : selectedCats.value.length === 1
+      ? products.filter(p => p.category === selectedCats.value[0])
+      : products
   return base.slice(0, 5)
 })
 </script>

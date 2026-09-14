@@ -17,7 +17,14 @@ const populares = [...products]
   .sort((a, b) => (b.rating - a.rating) || ((b.hot ? 1 : 0) - (a.hot ? 1 : 0)) || ((b.featured ? 1 : 0) - (a.featured ? 1 : 0)))
   .slice(0, 12)
 const special = onSale()[0]
-const circleCats = categories
+// Mosaico "Explora por categoría": las categorías del catálogo MÁS las puertas de entrada
+// transversales. "Oral" no es una categoría de `product.category` —sus productos viven en
+// lubricantes y en parejas— pero el cliente la quiere visible aquí (César, 14-sep-2026), así
+// que se pinta como una tesela igual y enlaza a la subcategoría (/tienda?sub=oral).
+const circleCats = [
+  ...categories.map(c => ({ slug: c.slug, name: c.name, emoji: c.emoji, to: `/tienda?cat=${c.slug}` })),
+  { slug: 'oral', name: 'Oral', emoji: '👄', to: '/tienda?sub=oral' },
+]
 
 // Colecciones "por sensación" (puntos de entrada emocionales, no taxonomía).
 const moods = [
@@ -102,7 +109,7 @@ useSeoMeta({
     <div class="wrap">
       <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
       <div class="mosaic">
-        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="`/tienda?cat=${c.slug}`" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
+        <NuxtLink v-for="(c, i) in circleCats" :key="c.slug" :to="c.to" class="tile" :class="`t${(i % 5) + 1}`" v-reveal :data-reveal-index="i % 8">
           <CategoryIcon :slug="c.slug" :emoji="c.emoji" />
           <span class="lbl">{{ c.name }}</span>
         </NuxtLink>

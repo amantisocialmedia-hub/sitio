@@ -89,7 +89,7 @@ const subByLabel = new Map(subs.map(s => [s.label, s]))
 const megaBase = [
   {
     label: 'Juguetes Sexuales', to: '/tienda',
-    items: ['Vibradores', 'Masturbadores', 'Dildos', 'Anales', 'Lubricantes', 'Succionadores', 'Anillos Para Pene', 'Fundas Para Pene', 'Juguetes BDSM', 'Kegel', 'Accesorios'],
+    items: ['Vibradores', 'Masturbadores', 'Dildos', 'Anales', 'Lubricantes', 'Oral', 'Succionadores', 'Anillos Para Pene', 'Fundas Para Pene', 'Juguetes BDSM', 'Kegel', 'Accesorios'],
   },
   {
     label: 'Vibradores', to: '/tienda?cat=vibradores',
@@ -135,6 +135,9 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
   if (m.blog) return '/blog'
   const sub = subByLabel.get(it)
   if (!sub) return m.to
+  // Subcategoría transversal (varias categorías): solo ?sub=. Un ?cat= volvería a recortar
+  // el resultado a una sola categoría y tiraría la mitad de sus productos.
+  if (Array.isArray(sub.category)) return `/tienda?sub=${sub.slug}`
   const base = `/tienda?cat=${sub.category}`
   return sub.keywords?.length ? `${base}&sub=${sub.slug}` : base
 }

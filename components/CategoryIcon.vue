@@ -14,6 +14,10 @@ const icons: Record<string, string> = {
   masturbadores: `<svg viewBox="0 0 48 48"><rect x="16" y="11" width="16" height="27" rx="8" fill="#fff"/><ellipse cx="24" cy="15.5" rx="5" ry="2.8" fill="rgba(60,20,30,.45)"/><path d="M19.5 23v9" stroke="rgba(60,20,30,.12)" stroke-width="1.6" stroke-linecap="round"/><path d="M28.5 23v9" stroke="rgba(60,20,30,.12)" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   retardantes: `<svg viewBox="0 0 48 48"><circle cx="24" cy="27" r="11" fill="none" stroke="#fff" stroke-width="3"/><rect x="20.8" y="6.5" width="6.4" height="4.2" rx="1.6" fill="#fff"/><path d="M24 11v3" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M24 21.5v6l4 3" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   lubricantes: `<svg viewBox="0 0 48 48"><path d="M24 8.5c5.2 7.2 9.2 11.3 9.2 16.4a9.2 9.2 0 1 1-18.4 0c0-5.1 4-9.2 9.2-16.4z" fill="#fff"/><path d="M19.5 22.5c-1.5 1.6-2.1 3.7-1.8 5.6" stroke="rgba(60,20,30,.14)" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`,
+  // "Oral" no es una categoría del catálogo sino la subcategoría transversal (ver
+  // composables/useProducts.ts). Lleva icono propio para que su tesela del mosaico se vea
+  // como las demás y no caiga al emoji.
+  oral: `<svg viewBox="0 0 48 48"><path d="M11.9 19.6c-1-1.2-.7-2.8.7-3.8 3.6-2.6 8.8-1.2 11.4 2.8 2.6-4 7.8-5.4 11.4-2.8 1.4 1 1.7 2.6.7 3.8z" fill="#fff"/><path d="M12.2 20.9h23.6c-1.9 5.3-6.4 9.1-11.8 9.1s-9.9-3.8-11.8-9.1z" fill="#fff"/></svg>`,
 }
 
 const svg = computed(() => icons[props.slug] || '')

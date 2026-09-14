@@ -48,7 +48,11 @@ const categories = data.categories as Category[]
 export interface SubCategory {
   slug: string        // id estable para la URL (?sub=)
   label: string       // texto visible en el menú
-  category: string    // categoría (product.category) a la que pertenece
+  /** Categoría(s) de `product.category` a las que pertenece. Un arreglo la vuelve
+   *  TRANSVERSAL: "Oral" vive a la vez en lubricantes y en parejas, porque las chispas
+   *  BJ Bang están catalogadas como producto de pareja y los lubricantes de sabor como
+   *  lubricante. Con una sola categoría esa agrupación no podía existir. */
+  category: string | string[]
   keywords?: string[]
 }
 
@@ -56,9 +60,13 @@ export interface SubCategory {
 const normTxt = (s: string) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '')
 const haystack = (p: Product) => normTxt(`${p.name} ${p.subtitle || ''} ${(p.features || []).join(' ')}`)
 
-/** ¿El producto pertenece a la subcategoría? (misma categoría + palabra clave si la hay). */
+/** Las categorías de una subcategoría, siempre como arreglo. */
+export const subCats = (sub: SubCategory): string[] =>
+  Array.isArray(sub.category) ? sub.category : [sub.category]
+
+/** ¿El producto pertenece a la subcategoría? (alguna de sus categorías + palabra clave si la hay). */
 export function matchesSub(p: Product, sub: SubCategory): boolean {
-  if (p.category !== sub.category) return false
+  if (!subCats(sub).includes(p.category)) return false
   if (!sub.keywords || sub.keywords.length === 0) return true
   const h = haystack(p)
   return sub.keywords.some(k => h.includes(normTxt(k)))
@@ -72,6 +80,11 @@ export const subcategories: SubCategory[] = [
   { slug: 'jt-dildos', label: 'Dildos', category: 'dildos' },
   { slug: 'jt-anal', label: 'Anales', category: 'anal' },
   { slug: 'jt-lubricantes', label: 'Lubricantes', category: 'lubricantes' },
+  // Transversal (lubricantes + parejas): lo pidió César el 14-sep-2026 junto con el artículo
+  // de intimidad oral. Entran por la palabra "oral" en nombre/subtítulo/características, que
+  // es donde el catálogo la tiene: Lubricantes Sunny ("uso externo y oral"), Antojo Piña
+  // Colada ("ideal para sexo oral") y las dos Chispas BJ Bang ("para sexo oral").
+  { slug: 'oral', label: 'Oral', category: ['lubricantes', 'parejas'], keywords: ['oral'] },
   { slug: 'jt-bdsm', label: 'Juguetes BDSM', category: 'bdsm' },
   { slug: 'succionadores', label: 'Succionadores', category: 'vibradores', keywords: ['succion'] },
   { slug: 'anillos-pene', label: 'Anillos Para Pene', category: 'parejas', keywords: ['anillo'] },
@@ -174,7 +187,7 @@ export function useProducts() {
   const subcategoryCount = (slug: string) => bySubcategory(slug).length
   /** Subcategorías con al menos 1 producto. Filtra por categoría si se indica. */
   const subcategoriesWithProducts = (category?: string) =>
-    subcategories.filter(s => (!category || s.category === category) && products.some(p => matchesSub(p, s)))
+    subcategories.filter(s => (!category || subCats(s).includes(category)) && products.some(p => matchesSub(p, s)))
 
   return {
     products, categories, subcategories, getBySlug, byCategory, categoryName, onSale, bestsellers, featured, related,
