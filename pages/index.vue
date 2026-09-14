@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import kitsData from '~/data/kits.json'
-const { products, categories, featured, bestsellers, onSale, peso, categoryName } = useProducts()
+const { products, categories, bestsellers, onSale, peso, categoryName } = useProducts()
 const kits = kitsData.kits.slice(0, 2)
 // Personalización: recomendaciones del quiz + vistos recientemente (cliente).
 const { recommendations, recentProducts } = usePersonalization()
-const novedades = featured().slice(0, 8) // rail curado, no los 55 destacados
+// Novedades: los últimos productos dados de alta, el más reciente primero. Antes era
+// `featured().slice(0, 8)`, que no es "lo nuevo" sino los primeros 8 destacados en orden
+// de archivo — o sea, catálogo de junio: lo que se subía después nunca llegaba al rail
+// (lo reportó César el 14-sep-2026). El orden de data/products.json ES el orden de alta
+// (cada alta agrega al final, verificado en el historial), así que el final del arreglo es
+// lo más nuevo. Si algún día se reordena ese JSON, este rail deja de decir la verdad.
+const novedades = [...products].slice(-8).reverse()
 const masVendido = bestsellers()
 // Más populares: mejor calificados (con desempate por hot/featured) para el carrusel de fotos.
 const populares = [...products]
