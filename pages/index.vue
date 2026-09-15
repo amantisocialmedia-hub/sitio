@@ -43,6 +43,12 @@ const whyItems = [
   { e: '🇲🇽', t: 'Mexicana', s: 'Hecha por los tuyos', grad: 'linear-gradient(150deg,#E8503A,#5E1B33)' },
 ]
 
+// El banner de temporada se decide UNA sola vez, en el servidor, y el navegador hidrata con
+// ese valor (por eso useState y no una llamada directa). Si cada lado consultara su propio
+// reloj, un visitante con la computadora en otra zona horaria podría recibir un HTML con el
+// banner y quitarlo al hidratar, o al revés.
+const bannerTemporada = useState('banner-temporada', () => bannerVigente())
+
 // SEO de la home: og/twitter + reafirma título/descripción. El canonical lo pone app.vue.
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl
@@ -61,11 +67,23 @@ useSeoMeta({
 </script>
 
 <template>
+  <!-- Banner de temporada (fiestas patrias 2026). Ocupa el lugar del bloque de la
+       venta mientras esté vigente y se apaga solo por fecha: ver BANNER_TEMPORADA
+       en utils/campana.ts. Anuncia el mismo 40%, así que no cambia ningún precio. -->
+  <div v-if="bannerTemporada" class="wrap salewrap-top">
+    <NuxtLink :to="BANNER_TEMPORADA.href" class="bantemp">
+      <picture>
+        <source media="(max-width:640px)" :srcset="BANNER_TEMPORADA.imagenMovil" width="940" height="900">
+        <img :src="BANNER_TEMPORADA.imagen" :alt="BANNER_TEMPORADA.alt" width="1600" height="900" fetchpriority="high">
+      </picture>
+    </NuxtLink>
+  </div>
+
   <!-- Venta especial, ANTES del hero: César la pidió pegada a la barra de
        búsqueda para que sea lo primero que se ve (mockup del 25-ago-2026).
        Con la campaña apagada este bloque no existe y el hero vuelve a ser lo
        primero, igual que antes. -->
-  <div v-if="CAMPANA.activa" class="wrap salewrap-top">
+  <div v-else-if="CAMPANA.activa" class="wrap salewrap-top">
     <div class="salehero">
       <div class="flame">VENTA<br>ESPECIAL</div>
       <div class="mid">

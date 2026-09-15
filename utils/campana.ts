@@ -47,6 +47,74 @@ export const CAMPANA: CampanaCfg = {
 }
 
 // ---------------------------------------------------------------------------
+// Banner de temporada (una imagen, con fecha de caducidad)
+// ---------------------------------------------------------------------------
+// A diferencia de CAMPANA, este SÍ se apaga solo. Es la pieza que César manda para
+// una fecha concreta (fiestas patrias 2026) y que tiene que desaparecer sin que
+// nadie se acuerde de venir a apagarla.
+//
+// Va atado a `CAMPANA.activa` a propósito: el banner anuncia el mismo 40%, así que
+// si la campaña se apagara antes, el banner no puede quedarse prometiendo un
+// descuento que la tienda ya no da.
+//
+// PARA CAMBIAR LAS FECHAS: `desde` y `hasta` son días de calendario en hora de
+// México, los dos INCLUSIVE. Con `hasta: '2026-09-16'` el banner se ve todo el 16 y
+// a las 00:00 del 17 (hora de México) ya no existe; vuelve el bloque de siempre.
+
+export interface BannerTemporada {
+  activo: boolean
+  /** Primer día en que se ve, hora de México (YYYY-MM-DD, inclusive). */
+  desde: string
+  /** Último día en que se ve, hora de México (YYYY-MM-DD, inclusive). */
+  hasta: string
+  imagen: string
+  /** Recorte para pantallas chicas: el original es 16:9 y a 390px el texto no se lee. */
+  imagenMovil: string
+  alt: string
+  href: string
+}
+
+export const BANNER_TEMPORADA: BannerTemporada = {
+  activo: true,
+  desde: '2026-09-15',
+  hasta: '2026-09-16',
+  imagen: '/banners/patrio-2026.webp',
+  imagenMovil: '/banners/patrio-2026-movil.webp',
+  alt: 'Da el grito a tu manera — 40% de descuento en todos los productos',
+  href: '/tienda',
+}
+
+/**
+ * El día de hoy en México como 'YYYY-MM-DD'.
+ *
+ * Se calcula con la zona horaria explícita y NO con la del servidor: en Vercel el
+ * reloj está en UTC, así que entre las 18:00 y la medianoche de México el servidor
+ * ya cree que es el día siguiente. Con esto, el banner cambia a la medianoche de
+ * Morelia y no seis horas antes.
+ *
+ * El formato en-CA da ISO (2026-09-15), que se puede comparar como texto.
+ */
+export function diaMx(ahora: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Mexico_City',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(ahora)
+}
+
+/** Si el banner de temporada debe verse ahora mismo. */
+export function bannerVigente(
+  ahora: Date = new Date(),
+  cfg: BannerTemporada = BANNER_TEMPORADA,
+  campana: CampanaCfg = CAMPANA,
+): boolean {
+  if (!cfg.activo || !campana.activa) return false
+  const hoy = diaMx(ahora)
+  return hoy >= cfg.desde && hoy <= cfg.hasta
+}
+
+// ---------------------------------------------------------------------------
 // Comunicación de cupones (AMANTI15)
 // ---------------------------------------------------------------------------
 // César pidió (12-ago) bajar del sitio todo anuncio, banner o comunicación de

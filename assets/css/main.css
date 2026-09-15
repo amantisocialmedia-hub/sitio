@@ -127,6 +127,10 @@ html.discreet .sr-th img{filter:blur(10px)}
 /* Venta especial arriba del hero. Cesar la pidio pegada a la barra de busqueda
    (mockup 25-ago-2026); ahi no aplica el margen que trae cuando cae despues
    del hero, porque no hay nada arriba de que separarse mas que el header. */
+/* Banner de temporada: la imagen manda, el bloque entero es el enlace. Las medidas van en
+   el <img> (width/height) para que no brinque el layout mientras carga. */
+.bantemp{display:block;border-radius:6px;overflow:hidden;margin-top:14px}
+.bantemp img{display:block;width:100%;height:auto}
 .salewrap-top{margin-top:14px}
 .salewrap-top .salehero{margin-top:0}
 .salehero{background:linear-gradient(120deg,#FBE9D9,#FFE7DA);border-radius:6px;margin-top:18px;position:relative;overflow:hidden;display:flex;align-items:center;gap:24px;padding:30px 36px;flex-wrap:wrap;justify-content:center}

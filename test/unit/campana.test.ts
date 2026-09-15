@@ -5,12 +5,16 @@
 import { describe, it, expect } from 'vitest'
 import productsData from '~/data/products.json'
 import {
+  BANNER_TEMPORADA,
   CAMPANA,
   CAMPANA_PCT,
   CUPONES_ACEPTADOS,
   MOSTRAR_CUPONES,
   aplicarCampana,
+  bannerVigente,
+  diaMx,
   precioCampana,
+  type BannerTemporada,
   type CampanaCfg,
 } from '~/utils/campana'
 import { priceBySlug } from '~/server/utils/orderItems'
@@ -20,6 +24,50 @@ const catalogo = (productsData as any).products as { slug: string; price: number
 
 const encendida: CampanaCfg = { activa: true, nombre: 'Prueba', gancho: '', descuento: 0.4 }
 const apagada: CampanaCfg = { ...encendida, activa: false }
+
+// Banner de temporada. Lo que se prueba aquí es la promesa que se le hizo a César: que se
+// apaga SOLO, y que lo hace a la medianoche de México y no a la de UTC (seis horas antes,
+// que es la que tiene el servidor de Vercel).
+describe('bannerVigente — caducidad por fecha', () => {
+  const patrio: BannerTemporada = { ...BANNER_TEMPORADA, activo: true, desde: '2026-09-15', hasta: '2026-09-16' }
+  // México (CDMX) es UTC-6 todo el año desde que se quitó el horario de verano en 2022.
+  const mx = (y: number, m: number, d: number, h: number, min = 0) => new Date(Date.UTC(y, m - 1, d, h + 6, min))
+
+  it('el día de hoy se lee en hora de México, no en la del servidor', () => {
+    // 15-sep 21:00 en Morelia. En UTC ya es 16-sep 03:00.
+    expect(diaMx(mx(2026, 9, 15, 21))).toBe('2026-09-15')
+  })
+
+  it('no se ve antes de la fecha de inicio', () => {
+    expect(bannerVigente(mx(2026, 9, 14, 23, 59), patrio, encendida)).toBe(false)
+  })
+
+  it('se ve desde el primer minuto del 15 y hasta el último del 16', () => {
+    expect(bannerVigente(mx(2026, 9, 15, 0, 1), patrio, encendida)).toBe(true)
+    expect(bannerVigente(mx(2026, 9, 15, 23, 0), patrio, encendida)).toBe(true)
+    expect(bannerVigente(mx(2026, 9, 16, 23, 59), patrio, encendida)).toBe(true)
+  })
+
+  it('se apaga solo a la medianoche del 17, sin que nadie lo toque', () => {
+    expect(bannerVigente(mx(2026, 9, 17, 0, 1), patrio, encendida)).toBe(false)
+    expect(bannerVigente(mx(2026, 9, 20, 12), patrio, encendida)).toBe(false)
+  })
+
+  it('con la campaña apagada no se ve, aunque esté en fecha: anuncia un 40% que ya no existe', () => {
+    expect(bannerVigente(mx(2026, 9, 15, 12), patrio, apagada)).toBe(false)
+  })
+
+  it('el interruptor manual también lo apaga', () => {
+    expect(bannerVigente(mx(2026, 9, 15, 12), { ...patrio, activo: false }, encendida)).toBe(false)
+  })
+
+  it('las imágenes que anuncia existen en public/', async () => {
+    const { existsSync } = await import('node:fs')
+    for (const ruta of [BANNER_TEMPORADA.imagen, BANNER_TEMPORADA.imagenMovil]) {
+      expect(existsSync(`public${ruta}`), `falta public${ruta}`).toBe(true)
+    }
+  })
+})
 
 describe('precioCampana', () => {
   it('descuenta el porcentaje y redondea al peso', () => {
