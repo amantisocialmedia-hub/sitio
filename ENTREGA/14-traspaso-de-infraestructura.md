@@ -155,18 +155,16 @@ siempre y nadie se entera. Eso está previsto: `server/utils/baseUrl.ts:26-35` d
 Vercel, ve un `localhost` y lo sustituye por `NUXT_PUBLIC_SITE_URL`. **Esa protección depende de que
 `NUXT_PUBLIC_SITE_URL` esté bien.** Cárgala primero que ninguna otra.
 
-### El `.env` de la carpeta local lleva llaves vivas
+### Las llaves del `.env` de desarrollo se rotan
 
-El `.env` del directorio de trabajo contiene ocho claves, y entre ellas están la llave anónima y la
-**`SUPABASE_SERVICE_ROLE_KEY` reales de producción**, más `MP_WEBHOOK_TEST_MODE`. Está listado en
-`.gitignore:5` (junto con `.env.*` en `:6`), así que **no viaja en el repositorio** — pero sí vive
-en cualquier copia de la carpeta de trabajo que exista en cualquier máquina.
+El `.env` de desarrollo lleva llaves reales de producción, entre ellas la
+**`SUPABASE_SERVICE_ROLE_KEY`**. Está listado en `.gitignore:5` (junto con `.env.*` en `:6`), así que
+**no viaja en el repositorio**.
 
-**Lo que hay que entender:** borrar carpetas no resuelve nada. La `service_role` se salta RLS por
-definición, así que quien la tenga puede leer y escribir toda la base sin importar dónde esté
-parado. **Esas llaves siguen sirviendo hasta que alguien las rote en el panel de Supabase**, y esa
-rotación es un paso obligatorio del traspaso, no una recomendación. Está en la sección de rotación,
-más abajo.
+**Lo que hay que entender:** la `service_role` se salta RLS por definición, así que quien la tenga
+puede leer y escribir toda la base. **Esas llaves siguen sirviendo hasta que alguien las rote en el
+panel de Supabase**, y esa rotación es un paso obligatorio del traspaso, no una recomendación. Está
+en la sección de rotación, más abajo.
 
 ### El respaldo de la base
 

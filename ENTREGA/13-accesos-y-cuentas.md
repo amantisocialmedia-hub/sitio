@@ -170,7 +170,7 @@ El 18/09, al preparar esta entrega, los dos identificadores se sustituyeron en l
 
 **Pero eso no desactiva el secreto: lo desactiva rotarlo.** Los dos identificadores siguen en el historial de git y en cualquier copia del repo hecha antes del 18/09. La única acción que vuelve inofensiva esa URL es que **César cree una URL nueva para el trigger de aviso de pedido** y se actualice la variable en Vercel. Compara la vieja y la nueva como texto para confirmar que de verdad cambió: volver a guardar un trigger no siempre cambia su URL (`BITACORA.md:664-665`).
 
-**Y esto ya pasó antes, con la misma cadena.** Un identificador vivo de GHL se filtró desde esta misma bitácora a un documento hecho para copiarse a otros repos. No se detectó por casualidad: se detectó en una segunda pasada de verificación en la que se abrieron las 291 citas del documento una por una, y entre los 32 problemas que salieron, 7 graves, estaba ese (`BITACORA.md:350-357`). La lección que la propia bitácora saca vale para todo lo que escribas tú también: «un documento generado no está terminado hasta que sus citas se abrieron una por una» (`BITACORA.md:366-369`).
+**Y no es teórico: pasó en este mismo paquete.** Al verificarlo antes de entregarlo, una de sus secciones traía en claro el identificador de la cuenta de GHL, sacado de la bitácora; se quitó antes de subirlo (`BITACORA.md`, entrada del 18/09). La regla vale para todo lo que escribas tú también: un documento no está terminado hasta que sus citas se abrieron una por una y se buscaron en él valores de secretos.
 
 A esto se suma lo obvio: existe un archivo `.env` local en la máquina del desarrollador saliente, y la suite de punta a punta lee la llave de servicio de Supabase desde su shell como `SB_SVC` (`playwright.config.ts:35-37`). Todo secreto que alguna vez estuvo en esa máquina se considera conocido por él.
 
@@ -316,7 +316,7 @@ Sobre `SUPABASE_KEY` (la anon): no es un secreto —viaja al navegador de cualqu
 
 > ⚠️ **Una URL de n8n muerta no produce ningún error visible.** `server/api/chat.post.ts:29-31` degrada con gracia: EROS contesta un mensaje fijo invitando a escribir por WhatsApp. Puedes tener el chat roto durante días y leerlo como que «el agente está siendo conservador». La única forma de verificar es hacerle una pregunta y confirmar que la respuesta **no** es ese texto de respaldo.
 
-**E2 — Borrar el `.env` local.** Existe un archivo `.env` en la copia de trabajo del desarrollador saliente. Pídele que lo elimine junto con cualquier copia. Esto no es verificable desde aquí y, francamente, tampoco es lo que te protege: lo que te protege es que todos los valores que contenía ya estén rotados. Por eso va al final y no al principio.
+**E2 — Las llaves del `.env` de desarrollo.** El `.env` local con el que se trabajó el proyecto tenía valores reales de producción. No hace falta perseguir ese archivo: lo que te protege es que todos los valores que contenía ya estén rotados en los pasos de arriba. Por eso este punto va al final: cuando llegas aquí, esas llaves ya no abren nada.
 
 ### Lo que NO se rota, y por qué
 
