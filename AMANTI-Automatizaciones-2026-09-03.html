@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AMANTI — Automatizaciones de la tienda</title>
+<style>
+  @page { size: A4; margin: 17mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 10.6pt; line-height: 1.5; color: #2b1a22; margin: 0; }
+  h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; color: #5E1B33; line-height: 1.2; }
+  h1 { font-size: 22pt; margin: 0 0 6pt; }
+  h1.section { page-break-before: always; border-bottom: 2px solid #5E1B33; padding-bottom: 6pt; margin-bottom: 12pt; }
+  h1.section small { display: block; font-family: "Segoe UI", Arial, sans-serif; font-weight: normal; font-size: 10pt; color: #8a5a6c; margin-top: 3pt; }
+  h2 { font-size: 14.5pt; margin: 18pt 0 6pt; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14pt 0 4pt; color: #7a2b47; page-break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  ul, ol { margin: 0 0 8pt 0; padding-left: 20pt; }
+  li { margin-bottom: 3pt; }
+  strong { color: #3f1224; }
+  code, .mono { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: #f6eef1; padding: 1px 4px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.6pt; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  th, td { border: 1px solid #dcc7cf; padding: 5pt 6pt; vertical-align: top; text-align: left; }
+  th { background: #5E1B33; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #fbf6f8; }
+  .box { border: 1px solid #dcc7cf; border-left: 5px solid #5E1B33; background: #fcf6f0; padding: 8pt 10pt; margin: 8pt 0 10pt; page-break-inside: avoid; border-radius: 4px; }
+  .box.ok { border-left-color: #2e7d4f; background: #eef7f1; }
+  .box.warn { border-left-color: #d98b1c; background: #fff7e8; }
+  .box.bad { border-left-color: #C0341B; background: #fdf0ed; }
+  .box.gray { border-left-color: #888; background: #f5f5f5; }
+  .box p:last-child { margin-bottom: 0; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 8.8pt; font-weight: 600; color: #fff; white-space: nowrap; }
+  .pill.ok { background: #2e7d4f; } .pill.mid { background: #d98b1c; } .pill.bad { background: #C0341B; } .pill.off { background: #777; }
+  .meta { color: #8a5a6c; font-size: 9.3pt; }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover .brand { font-family: Georgia, serif; letter-spacing: .35em; font-size: 13pt; color: #C0341B; margin-bottom: 30pt; }
+  .cover h1 { font-size: 34pt; margin-bottom: 14pt; }
+  .cover .sub { font-size: 15pt; color: #7a2b47; font-family: Georgia, serif; margin-bottom: 40pt; }
+  .cover .info { border-top: 1px solid #dcc7cf; padding-top: 14pt; font-size: 10.5pt; }
+  .toc li { margin-bottom: 4pt; }
+  .toc .n { display: inline-block; width: 22pt; color: #C0341B; font-weight: 700; }
+  .ficha { border: 1px solid #dcc7cf; border-radius: 5px; margin: 8pt 0 14pt; page-break-inside: auto; }
+  .ficha .head { page-break-after: avoid; page-break-inside: avoid; background: #f3e6eb; padding: 6pt 10pt; font-weight: 600; color: #5E1B33; border-bottom: 1px solid #dcc7cf; display: flex; justify-content: space-between; align-items: center; }
+  .ficha .row { display: flex; border-bottom: 1px solid #eee0e5; page-break-inside: avoid; }
+  .ficha .row:last-child { border-bottom: none; }
+  .ficha .k { flex: 0 0 120pt; padding: 5pt 10pt; font-weight: 600; color: #7a2b47; background: #fcf8f9; font-size: 9.6pt; }
+  .ficha .v { flex: 1; padding: 5pt 10pt; font-size: 9.9pt; }
+  .ficha .v p { margin-bottom: 4pt; }
+  .steps { counter-reset: paso; list-style: none; padding-left: 0; }
+  .steps li { position: relative; padding-left: 30pt; margin-bottom: 9pt; page-break-inside: avoid; }
+  .steps li::before { counter-increment: paso; content: counter(paso); position: absolute; left: 0; top: 1pt; width: 20pt; height: 20pt; border-radius: 50%; background: #5E1B33; color: #fff; font-weight: 700; font-size: 10pt; text-align: center; line-height: 20pt; }
+  .steps li .auto { display: block; color: #2e7d4f; font-size: 9.4pt; margin-top: 2pt; }
+  .steps li .manual { display: block; color: #b26a00; font-size: 9.4pt; margin-top: 2pt; }
+  .two { display: flex; gap: 12pt; }
+  .two > * { flex: 1; }
+  .avoid { page-break-inside: avoid; }
+  svg text { font-family: "Segoe UI", Arial, sans-serif; }
+  .foot { margin-top: 24pt; font-size: 9pt; color: #8a5a6c; border-top: 1px solid #dcc7cf; padding-top: 6pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<div class="cover">
+  <div class="brand">AMANTI</div>
+  <h1>Automatizaciones de la tienda</h1>
+  <div class="sub">Qué se construyó, cómo funciona, qué está encendido y cómo se cuida a partir de ahora</div>
+  <div class="info">
+    <p><strong>Estado al 3 de septiembre de 2026.</strong></p>
+    <p>Preparado por Memo (Izalith) para el grupo de trabajo de AMANTI: Raúl, Nancy, César y Emilio.</p>
+    <p>Escrito para leerse sin saber nada de sistemas. Todo lo que dice aquí se comprobó contra el código de la tienda, la bitácora del proyecto y el grupo de WhatsApp. Donde algo <em>no</em> está comprobado, se dice así.</p>
+  </div>
+</div>
+
+<!-- ================= ÍNDICE ================= -->
+<h1 class="section">Índice</h1>
+<ol class="toc" style="list-style:none;padding-left:0">
+  <li><span class="n">1</span> Para qué es este documento</li>
+  <li><span class="n">2</span> Las palabras que vamos a usar</li>
+  <li><span class="n">3</span> El mapa: quién habla con quién</li>
+  <li><span class="n">4</span> Resumen en una página: las automatizaciones y su estado</li>
+  <li><span class="n">5</span> El viaje de un pedido, paso a paso</li>
+  <li><span class="n">6</span> Cada automatización a detalle</li>
+  <li><span class="n">7</span> Qué está encendido hoy (los interruptores)</li>
+  <li><span class="n">8</span> Lo que se aprendió a golpes y las reglas que quedan</li>
+  <li><span class="n">9</span> Supervisión: quién revisa qué y cada cuánto</li>
+  <li><span class="n">10</span> Pendientes al cierre</li>
+  <li><span class="n">A</span> Anexo A: los datos que viajan en cada aviso (para César)</li>
+  <li><span class="n">B</span> Anexo B: guía rápida cuando algo falla</li>
+  <li><span class="n">C</span> Anexo C: dónde vive cada cosa en el código</li>
+</ol>
+
+<div class="box gray">
+  <p><strong>Cómo leerlo según quién eres.</strong> Raúl: secciones 4, 8, 9 y 10. Nancy: secciones 5, 6.2, 6.4, 6.8 y 9. César: secciones 3, 6.1 a 6.5, 8, y el Anexo A completo. Emilio: secciones 6.9, 6.10, 6.11, 9 y el Anexo B. Quien retome el código algún día: todo, y el Anexo C.</p>
+</div>
+
+<!-- ================= 1 ================= -->
+<h1 class="section">1. Para qué es este documento</h1>
+
+<p>Entre el 24 de agosto y el 2 de septiembre de 2026 la tienda pasó de ser una página que vendía a ser una tienda que <strong>avisa sola</strong>: le manda el acuse al cliente, le avisa a Nancy que hay que surtir, le recuerda al que dejó el carrito, le pide reseña al de hace diez días, mide cada visita y cada compra para Google, y le da a Google la lista de productos con precios para anunciarlos. Todo eso es lo que llamamos <strong>automatizaciones</strong>.</p>
+
+<p>Ese trabajo tuvo dos mitades que se hicieron en paralelo:</p>
+<ul>
+  <li><strong>La mitad del sitio</strong> (Memo): que la tienda <em>se entere</em> de cada cosa que pasa y <em>se lo cuente</em> a quien corresponde, en el momento correcto, sin equivocarse y sin cobrar de más.</li>
+  <li><strong>La mitad de las herramientas</strong> (César en GoHighLevel, Emilio en Google): que del otro lado haya alguien que reciba ese aviso y haga algo con él: mandar el correo, mandar el WhatsApp, contar la venta, publicar el anuncio.</li>
+</ul>
+
+<p>Este documento explica las dos mitades, pero a detalle la primera, porque es la que nadie más del equipo ha visto por dentro. El objetivo es que el proyecto se pueda <strong>dar por cerrado</strong> y que de aquí en adelante sea sólo <strong>supervisión</strong>: saber qué revisar, cada cuánto, y a quién avisarle cuando algo se vea raro.</p>
+
+<div class="box warn">
+  <p><strong>Una idea que atraviesa todo el documento.</strong> Casi nada de esto avisa cuando se rompe. Un correo que no sale no hace ruido. Una medición en cero no manda alerta. Un aviso que se pierde no deja error en ningún lado. En este proyecto <em>todas</em> las fallas graves se descubrieron porque una persona miró y dijo «esto no me llegó». Por eso la sección 9 (supervisión) es la más importante para el día a día.</p>
+</div>
+
+<!-- ================= 2 ================= -->
+<h1 class="section">2. Las palabras que vamos a usar</h1>
+
+<p>Se usan pocas palabras técnicas y siempre las mismas. Aquí están todas.</p>
+
+<table>
+  <thead><tr><th style="width:150pt">Palabra</th><th>Qué significa en esta tienda</th></tr></thead>
+  <tr><td><strong>El sitio</strong></td><td>La tienda en <strong>amanti.mx</strong>. Es un programa que corre en unos servidores rentados (Vercel). Es el único que <em>sabe</em> cuándo pasan las cosas: cuándo alguien compra, cuándo deja el carrito, cuándo Nancy marca un envío.</td></tr>
+  <tr><td><strong>La base de datos</strong></td><td>Donde el sitio guarda los pedidos, las direcciones, las reseñas y los carritos abandonados. Vive en un servicio llamado <strong>Supabase</strong>. Nadie del equipo tiene que entrar ahí: para eso existe la pantalla de pedidos de Nancy.</td></tr>
+  <tr><td><strong>Mercado Pago</strong></td><td>Quien cobra. El cliente paga en la pantalla de Mercado Pago (tarjeta, OXXO, transferencia, meses) y Mercado Pago le <em>avisa al sitio</em> cuando el pago se aprobó. Ese aviso es el que enciende casi todo lo demás.</td></tr>
+  <tr><td><strong>GoHighLevel (GHL)</strong></td><td>La herramienta de marketing que opera César. Ahí viven los <strong>correos</strong>, las <strong>secuencias</strong> (día 10, día 21, carrito 1h/24h/48h) y los <strong>mensajes de WhatsApp</strong> que salen automáticos. GHL no sabe nada de la tienda por sí solo: todo lo que sabe se lo cuenta el sitio.</td></tr>
+  <tr><td><strong>Workflow</strong></td><td>Dentro de GHL, una «receta» de César: <em>cuando llegue tal aviso, manda tal correo, espera tantos días, manda otro</em>. Hay un workflow por cada automatización.</td></tr>
+  <tr><td><strong>Webhook</strong></td><td>El <strong>buzón</strong> de un workflow. Es una dirección de internet (una URL larga) que GHL genera para cada workflow. Cuando el sitio quiere avisarle algo a GHL, le deja un mensaje en ese buzón. <strong>Cada buzón es una llave</strong>: quien tenga la dirección puede disparar el workflow y GHL lo cobra. Por eso no se comparten ni se escriben en el grupo.</td></tr>
+  <tr><td><strong>Evento / aviso</strong></td><td>Cada mensaje que el sitio deja en un buzón. Hay cinco tipos: compra confirmada, carrito abandonado, pedido para surtir, pedido enviado y reactivación (este último nunca se usa, se explica en 6.5).</td></tr>
+  <tr><td><strong>Variable de entorno</strong></td><td>Un ajuste que vive <em>fuera</em> del código, en el panel de Vercel. Es donde se guardan las direcciones de los buzones, el PIN de la pantalla de pedidos, el costo de envío. <strong>Si una variable está vacía, esa automatización está apagada</strong>, y el resto del sitio sigue igual. Cambiar una variable requiere que Memo vuelva a publicar el sitio.</td></tr>
+  <tr><td><strong>Desplegar / publicar</strong></td><td>Subir una versión nueva del sitio a Vercel. Tarda medio minuto. Lo hace Memo. Un cambio de código o de variable <em>no existe</em> para los clientes hasta que se despliega.</td></tr>
+  <tr><td><strong>GA4</strong> (Google Analytics)</td><td>Mide qué hace la gente en el sitio: visitas, qué producto vieron, qué agregaron al carrito, qué compraron. Lo revisa Emilio.</td></tr>
+  <tr><td><strong>Google Ads</strong></td><td>Los anuncios pagados. Tiene una «conversión de compra» que el sitio le manda cada vez que alguien paga, para que Ads sepa qué anuncio trajo la venta.</td></tr>
+  <tr><td><strong>Merchant Center / el feed</strong></td><td>Merchant Center es el catálogo de Google Shopping. El <strong>feed</strong> es la lista de productos con precio, foto y disponibilidad que el sitio le entrega a Google todos los días, generada sola.</td></tr>
+  <tr><td><strong>EROS</strong></td><td>El asistente de chat que aparece en la esquina del sitio. Vive fuera del sitio (en un servicio llamado n8n) y el sitio sólo le reenvía los mensajes y le da el catálogo.</td></tr>
+  <tr><td><strong>Consentimiento de cookies</strong></td><td>El aviso de «Aceptar / Rechazar» que sale abajo. Decide cuánto puede medir Google y si se cargan Meta Pixel y Clarity.</td></tr>
+</table>
+
+<!-- ================= 3 ================= -->
+<h1 class="section">3. El mapa: quién habla con quién</h1>
+
+<p>Lo primero que hay que tener claro es que el sitio está <strong>en el centro</strong>, y que casi todas las flechas salen de él. El sitio cuenta; los demás escuchan y actúan.</p>
+
+<div class="avoid" style="text-align:center;margin:8pt 0 12pt">
+<svg width="640" height="430" viewBox="0 0 640 430" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5E1B33"/></marker>
+    <marker id="g" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2e7d4f"/></marker>
+  </defs>
+  <!-- centro -->
+  <rect x="230" y="170" width="180" height="90" rx="8" fill="#5E1B33"/>
+  <text x="320" y="205" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">EL SITIO</text>
+  <text x="320" y="224" text-anchor="middle" fill="#f3e6eb" font-size="11">amanti.mx</text>
+  <text x="320" y="242" text-anchor="middle" fill="#f3e6eb" font-size="10">catálogo · carrito · pedidos</text>
+
+  <!-- cliente -->
+  <rect x="20" y="180" width="130" height="70" rx="8" fill="#fcf6f0" stroke="#dcc7cf"/>
+  <text x="85" y="208" text-anchor="middle" font-size="12" font-weight="700" fill="#5E1B33">CLIENTE</text>
+  <text x="85" y="226" text-anchor="middle" font-size="9.5" fill="#7a2b47">navega, compra,</text>
+  <text x="85" y="239" text-anchor="middle" font-size="9.5" fill="#7a2b47">deja el carrito</text>
+  <line x1="150" y1="215" x2="228" y2="215" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- mercado pago -->
+  <rect x="490" y="180" width="130" height="70" rx="8" fill="#fcf6f0" stroke="#dcc7cf"/>
+  <text x="555" y="208" text-anchor="middle" font-size="12" font-weight="700" fill="#5E1B33">MERCADO PAGO</text>
+  <text x="555" y="226" text-anchor="middle" font-size="9.5" fill="#7a2b47">cobra y avisa</text>
+  <text x="555" y="239" text-anchor="middle" font-size="9.5" fill="#7a2b47">«pago aprobado»</text>
+  <line x1="412" y1="205" x2="488" y2="205" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="488" y1="228" x2="412" y2="228" stroke="#2e7d4f" stroke-width="2" marker-end="url(#g)"/>
+
+  <!-- GHL -->
+  <rect x="20" y="20" width="230" height="90" rx="8" fill="#eef7f1" stroke="#2e7d4f"/>
+  <text x="135" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#2e7d4f">GOHIGHLEVEL (César)</text>
+  <text x="135" y="62" text-anchor="middle" font-size="9.5" fill="#2b1a22">correos al cliente · WhatsApp a Nancy</text>
+  <text x="135" y="76" text-anchor="middle" font-size="9.5" fill="#2b1a22">secuencias día 10 / día 21 / carrito</text>
+  <text x="135" y="94" text-anchor="middle" font-size="9.5" fill="#2b1a22">formulario de newsletter</text>
+  <line x1="250" y1="168" x2="160" y2="112" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+  <text x="150" y="150" text-anchor="middle" font-size="9" fill="#5E1B33">5 tipos de aviso</text>
+  <text x="150" y="162" text-anchor="middle" font-size="9" fill="#5E1B33">(sólo de ida)</text>
+
+  <!-- Google -->
+  <rect x="390" y="20" width="230" height="90" rx="8" fill="#eef2fb" stroke="#3b5bdb"/>
+  <text x="505" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#3b5bdb">GOOGLE (Emilio)</text>
+  <text x="505" y="62" text-anchor="middle" font-size="9.5" fill="#2b1a22">GA4 mide visitas y compras</text>
+  <text x="505" y="76" text-anchor="middle" font-size="9.5" fill="#2b1a22">Ads recibe la conversión de compra</text>
+  <text x="505" y="94" text-anchor="middle" font-size="9.5" fill="#2b1a22">Merchant Center recibe el feed</text>
+  <line x1="390" y1="168" x2="480" y2="112" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+  <text x="490" y="150" text-anchor="middle" font-size="9" fill="#5E1B33">medición + feed</text>
+  <text x="490" y="162" text-anchor="middle" font-size="9" fill="#5E1B33">de productos</text>
+
+  <!-- Nancy -->
+  <rect x="20" y="330" width="230" height="80" rx="8" fill="#fff7e8" stroke="#d98b1c"/>
+  <text x="135" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#b26a00">NANCY (surte)</text>
+  <text x="135" y="372" text-anchor="middle" font-size="9.5" fill="#2b1a22">recibe el WhatsApp de pedido nuevo</text>
+  <text x="135" y="386" text-anchor="middle" font-size="9.5" fill="#2b1a22">entra a amanti.mx/pedidos con su PIN</text>
+  <text x="135" y="400" text-anchor="middle" font-size="9.5" fill="#2b1a22">marca «enviado» con la guía</text>
+  <line x1="180" y1="328" x2="260" y2="262" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="240" y1="262" x2="160" y2="328" stroke="#2e7d4f" stroke-width="2" marker-end="url(#g)"/>
+
+  <!-- EROS -->
+  <rect x="390" y="330" width="230" height="80" rx="8" fill="#f6eef1" stroke="#7a2b47"/>
+  <text x="505" y="354" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2b47">EROS (chat)</text>
+  <text x="505" y="372" text-anchor="middle" font-size="9.5" fill="#2b1a22">vive en n8n, fuera del sitio</text>
+  <text x="505" y="386" text-anchor="middle" font-size="9.5" fill="#2b1a22">el sitio le pasa los mensajes</text>
+  <text x="505" y="400" text-anchor="middle" font-size="9.5" fill="#2b1a22">y el catálogo con lo agotado</text>
+  <line x1="390" y1="262" x2="470" y2="328" stroke="#5E1B33" stroke-width="2" marker-end="url(#a)"/>
+</svg>
+</div>
+
+<h2>Tres cosas del mapa que explican casi todos los problemas que hubo</h2>
+
+<ol>
+  <li><strong>La flecha hacia GoHighLevel es sólo de ida.</strong> El sitio le deja avisos a GHL, pero no puede preguntarle nada: ni si el correo salió, ni si el contacto existe, ni si el workflow corrió. Y GHL <strong>siempre contesta «recibido»</strong>, aunque el buzón esté muerto o ni siquiera exista (esto se comprobó a propósito: se mandó un aviso a una cuenta inventada y contestó igual que una real). La única forma de saber si un aviso hizo algo es entrar al panel de GHL y ver el <strong>historial de ejecuciones</strong> del workflow. Eso sólo lo puede hacer César, porque Memo no tiene acceso de lectura a GHL.</li>
+  <li><strong>Google mide desde el navegador del cliente.</strong> GA4 y Ads no reciben nada del servidor; reciben lo que el navegador del cliente les manda mientras navega. Si el cliente paga en OXXO y no vuelve a la página, o cierra la pestaña, esa venta existe para AMANTI pero no para Google Ads. Ads <strong>siempre va a contar de menos</strong>. No es una falla, es cómo está armado, y el arreglo (mandar las conversiones desde el servidor) es un proyecto aparte que no vale la pena todavía con el volumen actual.</li>
+  <li><strong>Lo que Google ve y lo que la tienda cobra tienen que salir del mismo cálculo.</strong> El feed de productos y el precio del carrito se generan del mismo archivo, con la misma regla de descuento. Si alguna vez se apaga la campaña en un lado y no en el otro, Google ve un precio y la tienda cobra otro, y Merchant Center suspende los productos. Por eso hay <em>un solo</em> interruptor de campaña (sección 6.11).</li>
+</ol>
+
+<!-- ================= 4 ================= -->
+<h1 class="section">4. Resumen en una página <small>Las automatizaciones que existen y en qué estado están hoy, 3 de septiembre de 2026</small></h1>
+
+<table>
+  <thead><tr><th style="width:26pt">#</th><th style="width:150pt">Automatización</th><th>Qué hace, en una frase</th><th style="width:70pt">Lado del sitio</th><th style="width:70pt">Lado de GHL / Google</th><th style="width:78pt">Estado real</th></tr></thead>
+  <tr><td>6.1</td><td>Postcompra (acuse, reseña día 10, cross-selling día 21)</td><td>Cuando un pago se aprueba, el sitio le manda a GHL el pedido completo con correo, nombre y teléfono; GHL manda el acuse y arranca la secuencia.</td><td>Listo</td><td>Workflows armados (César)</td><td><span class="pill ok">Conectado</span><br><span class="meta">falta cuadrar campos de plantillas</span></td></tr>
+  <tr><td>6.2</td><td>Aviso a Nancy de pedido nuevo</td><td>Mismo momento: GHL le manda a Nancy un WhatsApp con monto, artículos y dirección lista para copiar.</td><td>Listo</td><td>Workflow publicado y ejecutando</td><td><span class="pill ok">Conectado</span><br><span class="meta">llegada al teléfono sin confirmar por escrito</span></td></tr>
+  <tr><td>6.3</td><td>Carrito abandonado</td><td>Si alguien deja productos en el carrito y ya dio su correo, el sitio avisa una sola vez; GHL manda los correos de 1h / 24h / 48h.</td><td>Listo</td><td>Workflow armado</td><td><span class="pill ok">Conectado</span></td></tr>
+  <tr><td>6.4</td><td>Aviso al cliente de «tu pedido ya salió»</td><td>Cuando Nancy marca enviado, el sitio avisa a GHL con la guía; GHL manda el correo al cliente.</td><td>Listo y probado</td><td>Workflow publicado (31/08), una ejecución de prueba vista</td><td><span class="pill mid">Falta conectar</span><br><span class="meta">la variable sigue vacía a propósito</span></td></tr>
+  <tr><td>6.5</td><td>Reactivación (recompra a 60 días)</td><td>Reservado. El sitio no lo dispara; debe salir del calendario de GHL con la fecha de compra que ya recibe.</td><td>No aplica</td><td>Por definir</td><td><span class="pill off">No se usa</span></td></tr>
+  <tr><td>6.6</td><td>Newsletter</td><td>El formulario de suscripción del sitio es el de GHL: los correos caen directo en la lista de César.</td><td>Listo</td><td>Formulario de GHL</td><td><span class="pill ok">Funcionando</span></td></tr>
+  <tr><td>6.7</td><td>Reseñas sin cuenta</td><td>El correo del día 10 lleva un enlace firmado; el cliente deja reseña sin crear cuenta y sólo de lo que compró.</td><td>Listo</td><td>El enlace ya viaja en el aviso</td><td><span class="pill ok">Funcionando</span></td></tr>
+  <tr><td>6.8</td><td>Pantalla de pedidos para surtir</td><td>amanti.mx/pedidos con PIN: qué surtir, a dónde, copiar dirección, marcar enviado.</td><td>Listo</td><td>—</td><td><span class="pill ok">Funcionando</span></td></tr>
+  <tr><td>6.9</td><td>Medición: GA4 + consentimiento + conversión de Ads</td><td>Cada vista, carrito y compra se reporta a Google respetando el aviso de cookies.</td><td>Arreglado el 31/08</td><td>Cuentas de Emilio</td><td><span class="pill ok">GA4 recibe</span><br><span class="meta">conversión de Ads aún sin verse</span></td></tr>
+  <tr><td>6.10</td><td>Feed de Google Shopping</td><td>Lista de productos con precio tachado y disponibilidad, generada sola todos los días.</td><td>Listo</td><td>Merchant Center (Emilio)</td><td><span class="pill ok">Funcionando</span></td></tr>
+  <tr><td>6.11</td><td>Campaña 40% «AMANTI sin filtros»</td><td>Un solo interruptor baja todos los precios en tienda, carrito, cobro y feed a la vez.</td><td>Encendida desde 24/08</td><td>—</td><td><span class="pill mid">Encendida</span><br><span class="meta">se apaga a mano el 30/09</span></td></tr>
+  <tr><td>6.12</td><td>Producto agotado</td><td>Una marca por producto que lo quita de la venta, del feed, de la ficha y del chat.</td><td>Listo</td><td>—</td><td><span class="pill ok">Capacidad lista</span><br><span class="meta">hoy 0 productos marcados</span></td></tr>
+  <tr><td>6.13</td><td>Asistente EROS (chat)</td><td>Chat de recomendaciones que lee el catálogo real, incluido lo agotado.</td><td>Conectado desde junio</td><td>n8n (externo)</td><td><span class="pill ok">Funcionando</span></td></tr>
+  <tr><td>6.14</td><td>La base: cobro con Mercado Pago</td><td>Sin esto nada de arriba se dispara. Se arregló el 27/08 (los invitados no podían pagar).</td><td>Listo</td><td>Mercado Pago</td><td><span class="pill ok">Funcionando</span></td></tr>
+</table>
+
+<div class="box bad">
+  <p><strong>Lo único con fecha límite: 1 de octubre de 2026.</strong> La campaña del 40% es un interruptor manual sin caducidad. El equipo acordó dejarla todo septiembre. Si el 30 de septiembre nadie le dice a Memo que la apague, el 1 de octubre la tienda sigue regalando el 40% indefinidamente y nada avisa. Y se apaga <em>sólo</em> el interruptor; el feed de Google se ajusta solo. Detalle en 6.11.</p>
+</div>
+
+<!-- ================= 5 ================= -->
+<h1 class="section">5. El viaje de un pedido, paso a paso</h1>
+
+<p>La mejor forma de entender las automatizaciones es seguir a un cliente desde que llega hasta que recibe su paquete, y ver en cada paso qué pasa solo y qué sigue siendo trabajo de una persona. En verde lo automático, en naranja lo manual.</p>
+
+<ol class="steps">
+  <li><strong>El cliente llega al sitio.</strong> Si vino de un anuncio de Google, la dirección trae una marca del clic. El sitio la guarda durante la visita para poder «devolvérsela» a Google si el cliente termina comprando por WhatsApp.
+    <span class="auto">Automático: se guarda la marca del clic. Google recibe la visita (respetando el aviso de cookies).</span></li>
+  <li><strong>Ve productos y agrega al carrito.</strong> Cada ficha que abre y cada «agregar» se reporta a GA4 y, si aceptó cookies, a Meta.
+    <span class="auto">Automático: eventos «vio producto» y «agregó al carrito».</span></li>
+  <li><strong>En el carrito escribe su dirección y su correo.</strong> Desde el 27 de agosto los dos son obligatorios para pagar con tarjeta. El correo es la pieza clave: sin él no se puede cobrar en Mercado Pago, no se puede mandar el acuse, y no se puede recuperar el carrito.
+    <span class="auto">Automático: en cuanto escribe un correo válido, el sitio empieza a guardar una copia del carrito (para el paso 4).</span></li>
+  <li><strong>Si se va sin pagar.</strong> El sitio ya guardó su carrito con su correo y le avisa a GHL <strong>una sola vez</strong>. GHL manda los correos de «se te olvidó algo» a la 1 hora, 24 horas y 48 horas.
+    <span class="auto">Automático: aviso a GHL y secuencia de recuperación. Si después compra, GHL lo saca de la secuencia.</span></li>
+  <li><strong>Paga.</strong> El botón «Pagar» lo manda a Mercado Pago, donde elige tarjeta, OXXO, transferencia o meses. Al aprobarse el pago, Mercado Pago le avisa al sitio, y el sitio marca el pedido como pagado. Ese es <strong>el momento en que la compra es un hecho</strong>, y de ahí cuelga todo lo siguiente.
+    <span class="auto">Automático: el pedido queda como pagado en la base. El sitio verifica la firma de Mercado Pago y consulta el pago real antes de creerle a nadie.</span></li>
+  <li><strong>En ese mismo instante salen dos avisos a GHL.</strong> Uno de <em>marketing</em> (compra confirmada: correo, nombre, teléfono, artículos, total, enlace de reseña) y uno <em>operativo</em> (pedido para surtir: monto, artículos, dirección en una línea). Son dos buzones distintos a propósito: si uno se rompe, el otro sigue.
+    <span class="auto">Automático: GHL manda el acuse al cliente y el WhatsApp a Nancy. Arranca la cuenta de los 10 y 21 días.</span></li>
+  <li><strong>El cliente vuelve a la página de «gracias».</strong> Ahí el sitio le reporta a GA4 la compra con el monto realmente cobrado, y a Google Ads la conversión, con el número de pedido para que no se cuente dos veces si recarga.
+    <span class="auto">Automático. Ojo: si pagó en OXXO o transferencia y confirma horas después, ya no vuelve a esta página y Ads no se entera.</span></li>
+  <li><strong>Nancy surte.</strong> Recibe el WhatsApp, entra a amanti.mx/pedidos con su PIN, ve el pedido con los artículos, copia la dirección con un botón y la pega en la guía. Si el pedido es regalo, ahí lo dice. Si por alguna razón no trae dirección, la pantalla lo grita.
+    <span class="manual">Manual: empacar, generar la guía y enviar. El sitio no sabe de paqueterías.</span></li>
+  <li><strong>Nancy marca «enviado» y escribe la guía.</strong> El sitio guarda la fecha y la guía. Cuando esté conectado el último buzón, en ese momento GHL le mandará al cliente el correo «ya va en camino» con su número de rastreo.
+    <span class="manual">Hoy: el correo de envío lo manda Nancy a mano, por decisión de Raúl, hasta que se conecte (6.4).</span></li>
+  <li><strong>Día 10.</strong> GHL manda el correo pidiendo reseña. El enlace lleva una firma que sólo el sitio pudo generar: al abrirlo, el cliente deja su reseña sin crear cuenta, sólo del producto que compró, y el sitio nunca publica un nombre que él no haya escrito.
+    <span class="auto">Automático: correo (GHL) y validación del enlace (sitio).</span></li>
+  <li><strong>Día 21.</strong> GHL manda el correo de productos relacionados, usando los enlaces al catálogo que viajaron en el aviso del paso 6.
+    <span class="auto">Automático (GHL).</span></li>
+  <li><strong>Si el cliente prefiere WhatsApp.</strong> El botón «Ordenar por WhatsApp» primero registra el pedido en la base (para que Nancy lo vea) y luego abre el chat con el mensaje armado: artículos, envío, total, si es regalo y, si vino de un anuncio, la marca del clic. Este camino <strong>no</strong> pasa por Mercado Pago ni por la página de gracias, así que no dispara el acuse, ni el aviso a Nancy por GHL, ni la conversión de Ads.
+    <span class="manual">Manual: cobrar y cerrar por chat.</span></li>
+</ol>
+
+<!-- ================= 6 ================= -->
+<h1 class="section">6. Cada automatización a detalle</h1>
+
+<p>Cada una lleva la misma ficha: qué hace, cuándo se dispara, quién recibe, qué datos viajan, quién la opera, cómo se enciende o apaga, en qué estado está y cómo saber si se rompió. Los nombres de campos exactos están en el Anexo A.</p>
+
+<!-- 6.1 -->
+<h2>6.1 Postcompra: acuse, reseña al día 10, cross-selling al día 21</h2>
+<div class="ficha">
+  <div class="head"><span>Aviso «compra confirmada»</span><span class="pill ok">Conectado desde el 26 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Le cuenta a GHL que un pedido se pagó, con todo lo que las plantillas necesitan para escribirle al cliente. GHL, con eso, manda el acuse de compra, agenda la petición de reseña al día 10 y el correo de relacionados al día 21, y saca al cliente de la secuencia de carrito abandonado si estaba en ella.</div></div>
+  <div class="row"><div class="k">Cuándo se dispara</div><div class="v">En el instante en que Mercado Pago confirma el pago y el sitio marca el pedido como pagado. Nunca antes (un pedido pendiente no es una venta) y sólo una vez, aunque Mercado Pago repita el aviso.</div></div>
+  <div class="row"><div class="k">Quién recibe</div><div class="v">El cliente, por correo, desde GHL. Para eso GHL necesita crear un <em>contacto</em>: por eso desde el 31 de agosto el aviso lleva correo, nombre y teléfono, no sólo el correo.</div></div>
+  <div class="row"><div class="k">Qué datos viajan</div><div class="v">Número de pedido, correo, nombre, teléfono, total, número de artículos, lista de artículos (con nombre, precio, cantidad y enlace a la ficha), el producto principal aplanado, el enlace firmado de reseña del producto principal y un enlace de reseña por cada artículo.</div></div>
+  <div class="row"><div class="k">Quién opera</div><div class="v">César arma y mantiene el workflow y las plantillas. Memo mantiene el contenido del aviso.</div></div>
+  <div class="row"><div class="k">Encender / apagar</div><div class="v">Variable <code>NUXT_GHL_WEBHOOK_POSTCOMPRA</code> en Vercel. Con la dirección del buzón puesta, funciona; vacía, el sitio no manda nada y todo lo demás sigue igual.</div></div>
+  <div class="row"><div class="k">Estado hoy</div><div class="v"><p>Conectado. El 29 de agosto un cliente pagó y no recibió acuse: el sitio buscaba el correo sólo en las cuentas registradas y todos los pedidos hasta hoy son de invitados, así que GHL recibía «sin correo». Se arregló el 31 de agosto. Ese cliente, al no recibir nada, volvió a levantar el mismo pedido dos veces; estuvo a un clic del cobro doble. Es el mejor ejemplo de por qué el acuse importa.</p><p><strong>Pendiente:</strong> César confirmó que los workflows tienen su correo; falta cuadrar los nombres de los campos dinámicos de las plantillas contra la lista del Anexo A (por ejemplo, que el saludo use <code>nombre</code>).</p></div></div>
+  <div class="row"><div class="k">Cómo saber si se rompió</div><div class="v">Un cliente dice que pagó y no le llegó nada. Primer paso: Nancy ve en amanti.mx/pedidos si el pedido trae correo (aparece bajo la dirección). Si trae, César busca la ejecución en el historial del workflow de postcompra. Si el historial está vacío para ese pedido, lo más probable es que el buzón cambió de dirección (ver sección 8).</div></div>
+</div>
+
+<!-- 6.2 -->
+<h2>6.2 Aviso a Nancy de pedido nuevo (WhatsApp)</h2>
+<div class="ficha">
+  <div class="head"><span>Aviso «pedido para surtir»</span><span class="pill ok">Ejecutando desde el 28 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Le manda a Nancy, por WhatsApp, todo lo que necesita para surtir sin entrar a ningún lado: monto, artículos, si es regalo, la dirección en una sola línea lista para pegar en la guía, y el enlace a la pantalla de pedidos. Lo pidió Nancy el 27 de agosto: «que me llegue por whats por favor».</div></div>
+  <div class="row"><div class="k">Cuándo se dispara</div><div class="v">En el mismo instante que el aviso de postcompra: cuando el pago se aprueba.</div></div>
+  <div class="row"><div class="k">Quién recibe</div><div class="v">Nancy, a su número, fijo dentro del workflow de César. El cliente no recibe nada de este aviso.</div></div>
+  <div class="row"><div class="k">Qué datos viajan</div><div class="v">Número de pedido, total, artículos en texto («2x Jock 6, 1x Antifaz»), dirección formateada, una bandera «sin dirección», una bandera «es regalo», teléfono y correo del cliente (por si el paquete rebota), el mensaje ya redactado completo y el enlace a amanti.mx/pedidos.</div></div>
+  <div class="row"><div class="k">Encender / apagar</div><div class="v">Variable <code>NUXT_GHL_WEBHOOK_AVISO_PEDIDO</code>. Es un buzón <strong>separado</strong> del de postcompra a propósito: el 28 de agosto se encontró que el aviso a Nancy colgaba de que estuviera configurado el de marketing; se desacopló ese mismo día. Un aviso de marketing que no sale se arregla después; un pedido que nadie sabe que hay que surtir se queda sin enviar.</div></div>
+  <div class="row"><div class="k">Estado hoy</div><div class="v"><p>Del lado de GHL, César confirmó el 28 de agosto con capturas que los avisos entran, inscriben el contacto y aparecen en el historial de ejecuciones. Ese día se resolvió la falla de las 15 horas anteriores: GHL había <strong>regenerado la dirección del buzón</strong> al volver a guardar el trigger, y la dirección vieja seguía contestando «recibido» sin hacer nada.</p><p><strong>Sin confirmar por escrito:</strong> que el WhatsApp llegue físicamente al teléfono de Nancy en pedidos reales. Raúl lo preguntó en el grupo el 1 de septiembre a las 9:36 y no hubo respuesta. El 2 de septiembre, con la compra de práctica, Nancy escribió «sí aparece» (en la pantalla de pedidos) y «pero no le llegó el whats»; no queda claro si se refiere a ella o a la compradora. Es el primer punto de la lista de pendientes.</p></div></div>
+  <div class="row"><div class="k">Cómo saber si se rompió</div><div class="v">Aparece un pedido pagado en amanti.mx/pedidos y a Nancy no le llegó el WhatsApp. Ese par (aparece / no llegó) señala directo a GHL: César revisa el historial del workflow. Si está vacío, el buzón cambió de dirección; si hay corrida y falló, ahí dice en qué paso.</div></div>
+</div>
+
+<!-- 6.3 -->
+<h2>6.3 Carrito abandonado</h2>
+<div class="ficha">
+  <div class="head"><span>Aviso «carrito abandonado»</span><span class="pill ok">Conectado desde el 26 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Cuando alguien deja productos en el carrito y el sitio sabe su correo, le avisa a GHL una vez. GHL manda los correos de recuperación a la 1 hora, 24 horas y 48 horas. El contenido y los tiempos son de César; el sitio sólo dice «esta persona dejó esto».</div></div>
+  <div class="row"><div class="k">Cuándo se dispara</div><div class="v"><p>Sólo cuando el sitio conoce el correo. Eso pasa si el cliente tiene cuenta, o si escribió su correo en el carrito (el único lugar del sitio que se lo pide a un invitado). Y sólo en la <strong>transición</strong>: la primera vez que ese correo queda con carrito sin comprar. Si sigue moviendo el carrito, no se vuelve a avisar.</p><p>Cuando vacía el carrito o compra, el sitio cierra su registro. No le avisa a GHL: quien lo saca de la secuencia es el propio workflow de postcompra, al recibir la compra.</p></div></div>
+  <div class="row"><div class="k">Por qué hay un candado</div><div class="v">Los buzones de GHL <strong>se cobran por uso</strong> (César lo avisó; el 31 de agosto tuvo que esperar a que «se reactivaran unos créditos»). El sitio guarda el carrito unas 8 a 10 veces por comprador. Sin candado, cada guardado sería un cobro y el cliente entraría a la secuencia una y otra vez. Con el candado es un cobro por carrito, y si por alguna razón el sitio no puede leer su registro, prefiere <em>no</em> avisar antes que avisar de más.</div></div>
+  <div class="row"><div class="k">Qué datos viajan</div><div class="v">Correo, total, número de artículos, lista de artículos y el enlace al carrito.</div></div>
+  <div class="row"><div class="k">Encender / apagar</div><div class="v">Variable <code>NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO</code>.</div></div>
+  <div class="row"><div class="k">Estado hoy</div><div class="v">Conectado. Casi no corrió hasta el 27 de agosto porque el sitio no le pedía el correo a nadie sin cuenta; desde que el carrito lo pide, sí se dispara. Ese día se avisó al grupo que el gasto en GHL subiría por eso.</div></div>
+  <div class="row"><div class="k">Cómo saber si se rompió</div><div class="v">Es la más difícil de observar desde fuera. La señal buena la tiene César: contactos entrando a la secuencia en GHL. La señal mala: alguien que ya compró sigue recibiendo «se te olvidó algo». Eso indicaría que el extractor del workflow de postcompra no está sacando al contacto.</div></div>
+</div>
+
+<!-- 6.4 -->
+<h2>6.4 Aviso al cliente de «tu pedido ya salió»</h2>
+<div class="ficha">
+  <div class="head"><span>Aviso «pedido enviado»</span><span class="pill mid">Construido y probado; falta conectar</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Cuando Nancy marca un pedido como enviado, el sitio le avisa a GHL con la guía, y GHL le manda al cliente el correo «¡Ya va en camino!» con su número de rastreo. Lo pidió Raúl el 31 de agosto. Hasta ese día la respuesta era no, aunque la página de envíos del sitio ya lo prometía por escrito.</div></div>
+  <div class="row"><div class="k">Cuándo se dispara</div><div class="v">Sólo al marcar «enviado» en amanti.mx/pedidos. Nunca al deshacer: un «ya va en camino» seguido de nada es peor que no avisar.</div></div>
+  <div class="row"><div class="k">Qué datos viajan</div><div class="v">Número de pedido, correo, nombre, teléfono, guía (puede ir vacía si Nancy marca antes de tener el número, y va una bandera aparte «tiene guía» para que la plantilla elija entre «te pasamos la guía en cuanto la tengamos» y el mensaje con número), total, número de artículos, la lista de artículos y la <strong>misma lista ya en texto con saltos de línea</strong>, porque las plantillas de GHL no saben recorrer listas.</div></div>
+  <div class="row"><div class="k">Encender / apagar</div><div class="v">Variable <code>NUXT_GHL_WEBHOOK_PEDIDO_ENVIADO</code>. <strong>Hoy está vacía</strong>, así que el sitio no manda nada por más que Nancy marque envíos. No hay riesgo.</div></div>
+  <div class="row"><div class="k">Estado hoy</div><div class="v"><p>Del lado del sitio: listo y verificado de punta a punta el 31 de agosto contra la base real (el aviso llega completo; deshacer no dispara nada).</p><p>Del lado de GHL: César armó la plantilla «aviso de envío de pedido» con una rama para cuando hay guía y cuando no, y publicó el workflow el 31 de agosto a las 9:21 p.m. Memo hizo un disparo manual de prueba esa noche y el 1 de septiembre César confirmó con captura que la ejecución corrió hasta el paso «Enviar Email».</p><p><strong>Falta:</strong> (1) que César confirme cómo se ve el correo real de esa ejecución (asunto con número de pedido, lista de artículos en renglones usando <code>items_texto</code>); (2) que pase la dirección del buzón <em>como texto</em>; (3) que Memo la ponga en Vercel y despliegue; (4) verlo llegar con un pedido real. Mientras tanto, por decisión de Raúl, Nancy manda ese correo a mano.</p></div></div>
+</div>
+
+<!-- 6.5 -->
+<h2>6.5 Reactivación (recompra a 60 días)</h2>
+<div class="box gray">
+  <p>Existe el nombre del aviso y su variable (<code>NUXT_GHL_WEBHOOK_REACTIVACION</code>), pero <strong>el sitio nunca lo dispara</strong> y la variable nunca se ha puesto. La razón: el sitio no puede «agendar algo a 60 días». GHL sí: ya recibe la fecha de cada compra en el aviso de postcompra, así que la reactivación debe ser un workflow de César con su propio calendario, sin necesitar nada del sitio. Queda como decisión de César y Raúl si se arma y con qué mensaje.</p>
+</div>
+
+<!-- 6.6 -->
+<h2>6.6 Newsletter</h2>
+<div class="ficha">
+  <div class="head"><span>Formulario de suscripción</span><span class="pill ok">Funcionando desde el 19 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">El formulario que aparece en el aviso de bienvenida y al pie del sitio es un formulario de GHL incrustado. Quien se suscribe cae directo en la lista de César, de donde salen el correo de bienvenida y la newsletter.</div></div>
+  <div class="row"><div class="k">Qué había antes</div><div class="v">Dos formularios que no alimentaban a nadie: uno guardaba en la base del sitio y otro sólo abría el correo del visitante. Los dos se sustituyeron por el de GHL. El primer formulario que mandó César ofrecía 10% de descuento que no existía como cupón; se cambió el mismo día por uno que sólo invita a suscribirse.</div></div>
+  <div class="row"><div class="k">Quién opera</div><div class="v">César, dentro de GHL. Si cambia el formulario ahí, cambia en el sitio sin tocar código. Si crea uno nuevo (con otro identificador), hay que avisarle a Memo.</div></div>
+</div>
+
+<!-- 6.7 -->
+<h2>6.7 Reseñas sin cuenta (el enlace del día 10)</h2>
+<div class="ficha">
+  <div class="head"><span>Enlace firmado de reseña</span><span class="pill ok">Funcionando desde el 27 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">El correo del día 10 manda al cliente a la ficha del producto a dejar su reseña. Antes eso exigía crear cuenta e iniciar sesión, y la mayoría se iba. Ahora el enlace lleva una <strong>firma</strong> que sólo el sitio pudo generar (con una llave que vive en Vercel). Al abrirlo, el cliente califica y escribe sin cuenta.</div></div>
+  <div class="row"><div class="k">Tres candados</div><div class="v">(1) La firma es válida. (2) El pedido está pagado. (3) Ese pedido de verdad incluye ese producto. Sin los tres, la reseña se rechaza. Y sólo una reseña por producto y por compra. Es <em>más</em> estricto que reseñar con cuenta.</div></div>
+  <div class="row"><div class="k">Privacidad</div><div class="v">La ficha es pública y AMANTI vende con entrega discreta. Desde el 31 de agosto el sitio <strong>sólo publica el nombre que la persona teclea</strong>. Si lo deja vacío, aparece «Cliente AMANTI». Nunca el nombre del envío, nunca el correo.</div></div>
+  <div class="row"><div class="k">Encender / apagar</div><div class="v">Variable <code>NUXT_RESENA_SECRET</code> (la llave de firma). Sin ella, los enlaces salen sin firma y el sitio se comporta como antes.</div></div>
+</div>
+
+<!-- 6.8 -->
+<h2>6.8 Pantalla de pedidos para surtir</h2>
+<div class="ficha">
+  <div class="head"><span>amanti.mx/pedidos</span><span class="pill ok">Funcionando desde el 27 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Muestra los pedidos <strong>pagados</strong> (los pendientes no se surten y mostrarlos invita a mandar algo que nadie pagó), del más nuevo al más viejo: fecha, folio, monto, artículos, dirección, correo del cliente, si es regalo y con qué mensaje. Un botón copia la dirección lista para la guía. Abajo, un campo para la guía y el botón «Marcar enviado». Se puede deshacer. Un filtro oculta los ya enviados.</div></div>
+  <div class="row"><div class="k">Acceso</div><div class="v">Un PIN compartido. El navegador lo recuerda para no teclearlo cada vez. No es una cuenta: si se filtra, se cambia la variable en Vercel y listo. Sin PIN configurado la pantalla no existe (responde «no disponible»), para que un descuido nunca publique domicilios. La página está excluida de Google.</div></div>
+  <div class="row"><div class="k">Quién opera</div><div class="v">Nancy, desde el teléfono. Está pensada para leerse de un vistazo, no para verse bonita.</div></div>
+  <div class="row"><div class="k">Cuando crezca</div><div class="v">Con más gente surtiendo, esto debe pasar a cuentas con rol. Hoy no hace falta.</div></div>
+</div>
+
+<!-- 6.9 -->
+<h2>6.9 Medición: GA4, aviso de cookies y conversión de Google Ads</h2>
+<div class="ficha">
+  <div class="head"><span>Google Analytics 4 + Consent Mode v2 + conversión «Compra»</span><span class="pill ok">Recibiendo desde el 31 de agosto</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v"><p>El sitio le reporta a Google cinco cosas: visita de página, vio un producto, agregó al carrito, empezó a pagar y compró. La compra va con el monto <strong>realmente cobrado</strong> (con cupón y descuento aplicados, no el subtotal) y con el número de pedido, para no contarla dos veces si el cliente recarga. Además de la compra de GA4, se manda la <strong>conversión de compra de Google Ads</strong>, que es la que le permite a Ads saber qué anuncio trajo la venta.</p></div></div>
+  <div class="row"><div class="k">Cookies</div><div class="v">Google se carga siempre, pero en modo «denegado» hasta que la persona acepta: mide de forma agregada sin guardar identificadores. Al aceptar, sube a «concedido» y además se cargan Meta Pixel y Microsoft Clarity, que no tienen modo denegado (Clarity graba la sesión completa, y en una tienda íntima eso es material sensible; por eso sólo con aceptación explícita).</div></div>
+  <div class="row"><div class="k">Ventas por WhatsApp</div><div class="v">Ese camino no pasa por la página de gracias, así que Google no se entera. Lo único que se puede hacer, y se hace: si la visita vino de un anuncio, el mensaje de WhatsApp lleva al final una línea «ref:» con la marca del clic. Con eso Emilio puede subir esa venta a mano a Ads si algún día vale la pena.</div></div>
+  <div class="row"><div class="k">Lo que pasó</div><div class="v"><p><strong>GA4 estuvo en cero desde el primer día hasta el 31 de agosto.</strong> No era el aviso de cookies. Era un error de una línea en la pieza que le pasa los comandos a Google: le mandaba la información en un formato que Google ignora en silencio. El script cargaba, la consola estaba limpia, y no salía un solo dato. Una sola causa se llevó GA4 <em>y</em> la conversión de Ads a la vez, porque las dos viajan por la misma pieza. Emilio lo detectó el 31 en la mañana; se arregló ese día y se verificó en Tiempo Real con tráfico propio. Lo perdido no se recupera: Google no rellena hacia atrás.</p></div></div>
+  <div class="row"><div class="k">Estado hoy</div><div class="v">GA4 recibe (visitas, vistas de producto, y la capa de comercio). La conversión de Ads: la tubería está comprobada, pero Emilio reportó el 1 de septiembre a las 2:34 p.m. que seguía «inactiva». Ads tarda horas en mostrar una conversión y sólo cuenta compras que vuelven a la página de gracias; hay que verla con la próxima venta por Mercado Pago que regrese al sitio. No está confirmada.</div></div>
+  <div class="row"><div class="k">Cómo saber si se rompió</div><div class="v">Emilio abre GA4 → Tiempo Real mientras alguien navega el sitio. Deben aparecer visitas y al menos un «vio producto». Si está en cero con gente navegando, avisar a Memo el mismo día: cada día sin medición es un día de pauta a ciegas.</div></div>
+</div>
+
+<!-- 6.10 -->
+<h2>6.10 Feed de Google Shopping (Merchant Center)</h2>
+<div class="ficha">
+  <div class="head"><span>amanti.mx/feeds/google.xml</span><span class="pill ok">Funcionando desde el 30 de julio</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Genera, cada vez que Google lo pide, la lista completa de productos en el formato que Merchant Center exige: nombre, descripción, enlace, fotos, precio, precio de oferta, disponibilidad, marca, categoría, y los campos obligatorios de una tienda para adultos. Sale del <strong>mismo archivo</strong> que pinta la tienda, así que nunca se desincroniza. Google lo relee más o menos cada día.</div></div>
+  <div class="row"><div class="k">Detalles que importan</div><div class="v"><ul>
+    <li><strong>Precio tachado.</strong> Google quiere «precio de lista» y «precio de oferta» al revés de como lo guarda el sitio; el generador hace el cruce. Lo pidió Emilio el 26 de agosto para que el anuncio saliera con el $835 tachado y $501, y no con $501 a secas.</li>
+    <li><strong>Sin fecha de fin de la oferta, a propósito.</strong> Se iba a poner «vigente hasta el 30 de septiembre». Se descartó: si el feed caduca solo y el interruptor de la campaña sigue encendido, el 1 de octubre Google anuncia el precio de lista mientras la tienda cobra el rebajado; eso es discrepancia de precio y Merchant Center suspende. Sin la fecha, el descuento se ve exactamente igual. Los dos se apagan juntos o ninguno.</li>
+    <li><strong>Productos excluidos.</strong> Hay una marca por producto para sacarlo del feed sin quitarlo de la tienda. Hoy hay 5 excluidos: los que Google rechaza por política (réplicas realistas). Se venden en la tienda; no se anuncian.</li>
+    <li><strong>Títulos para Google.</strong> Cada producto puede tener un título y una descripción distintos para el feed (los de la tienda venden; los del feed cumplen política). Los pidió Emilio.</li>
+    <li><strong>Disponibilidad.</strong> Un producto marcado como agotado sale como «sin existencia» en el feed (6.12).</li>
+  </ul></div></div>
+  <div class="row"><div class="k">Quién opera</div><div class="v">Emilio en Merchant Center (dio de alta la dirección del feed a mano, revisa desaprobaciones). Memo en el generador.</div></div>
+  <div class="row"><div class="k">Cómo saber si se rompió</div><div class="v">Merchant Center avisa por su cuenta: productos desaprobados o «discrepancia de precio». Si dice discrepancia, lo primero que hay que revisar es si la campaña del 40% se apagó en la tienda sin redesplegar, o al revés.</div></div>
+</div>
+
+<!-- 6.11 -->
+<h2>6.11 La campaña del 40% «AMANTI sin filtros»</h2>
+<div class="ficha">
+  <div class="head"><span>Un solo interruptor</span><span class="pill mid">Encendida desde el 24 de agosto · acordado hasta el 30 de septiembre</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Con el interruptor encendido, <strong>todos</strong> los precios bajan 40% a la vez: la lista de productos, la ficha, el buscador, el carrito, lo que cobra Mercado Pago, lo que se guarda en el pedido, lo que ve EROS y lo que ve Google en el feed. El precio de lista aparece tachado. El banner de la venta sale en la portada.</div></div>
+  <div class="row"><div class="k">Por qué es un solo interruptor</div><div class="v">El riesgo de una campaña así no es que el banner se vea mal; es <strong>enseñar un precio y cobrar otro</strong>. Por eso el descuento no se aplica «en la pantalla» sino en el único lugar del que sale el precio que se cobra, y de ahí lo heredan los demás. Hay una prueba automática que compara producto por producto lo que ve el navegador contra lo que cobra el servidor; si alguien pone el descuento en un lado y lo olvida en el otro, truena antes de que un cliente pague de más.</div></div>
+  <div class="row"><div class="k">Cupones</div><div class="v">Mientras la campaña está encendida, el sitio <strong>no acepta cupones</strong> (un AMANTI15 encima del 40% dejaría la venta en 49% sin que nadie lo decidiera) y no los anuncia. Los cupones siguen existiendo; vuelven solos al apagar la campaña.</div></div>
+  <div class="row"><div class="k">Cómo se apaga</div><div class="v">Raúl le dice a Memo. Memo cambia una línea y despliega (minutos). Los precios vuelven a los de lista, el tachado desaparece, el feed se ajusta solo en su siguiente lectura. <strong>No hay que tocar Merchant Center ni el feed por separado.</strong></div></div>
+  <div class="row"><div class="k">El riesgo</div><div class="v">Es un interruptor manual sin caducidad. La fecha acordada (30 de septiembre) está escrita en el código junto al interruptor, pero nada lo apaga solo. <strong>Raúl es quien decide; Memo ejecuta; hay que ponerlo en un calendario.</strong></div></div>
+</div>
+
+<!-- 6.12 -->
+<h2>6.12 Producto agotado</h2>
+<div class="ficha">
+  <div class="head"><span>Marca «agotado» por producto</span><span class="pill ok">Listo desde el 31 de agosto · hoy 0 productos marcados</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">Con la marca puesta, el producto: (1) <strong>no se puede comprar</strong>, por ningún camino, ni con el carrito guardado de antes ni entrando por el enlace del anuncio: el servidor rechaza el pedido y dice cuál quitar; (2) en la ficha el botón dice «Agotado por ahora» y el de WhatsApp «Avísame cuando vuelva»; (3) en el feed sale «sin existencia», para que Google deje de anunciarlo y no pague clics a un carrito que no se puede cobrar; (4) el chat EROS deja de recomendarlo.</div></div>
+  <div class="row"><div class="k">Por qué así</div><div class="v">Raúl pidió el 31 de agosto que al agotarse algo se marque y se sustituya. César preguntó si el sitio lo soportaba; no lo soportaba: 152 productos fijos sin ningún dato de existencia. Se eligió que el rechazo viva en el servidor y no sólo escondiendo el botón, porque devolver un cobro cuesta más que perder la venta.</div></div>
+  <div class="row"><div class="k">Lo que NO es</div><div class="v">No hay conteo de inventario. El sitio no se entera solo de que algo se acabó; quien lo sabe es Nancy. Hoy la marca se pone a mano y requiere que Memo despliegue (minutos). El siguiente paso natural sería que Nancy pueda marcarlo sola.</div></div>
+  <div class="row"><div class="k">Cómo se usa hoy</div><div class="v">Nancy o Raúl escriben en el grupo «se acabó X». Memo lo marca y despliega. Al reponerse, lo mismo al revés.</div></div>
+</div>
+
+<!-- 6.13 -->
+<h2>6.13 El asistente EROS (chat)</h2>
+<div class="ficha">
+  <div class="head"><span>Chat de recomendaciones</span><span class="pill ok">Conectado desde el 22 de junio</span></div>
+  <div class="row"><div class="k">Qué hace</div><div class="v">El botón de chat de la esquina. El cliente escribe, el sitio reenvía el mensaje a EROS (que vive fuera del sitio, en un servicio llamado n8n, con inteligencia artificial) y muestra la respuesta. Para recomendar, EROS lee el catálogo real del sitio a través de una dirección pública que el sitio expone: nombres, precios vigentes con el 40%, categorías, enlaces y si está agotado.</div></div>
+  <div class="row"><div class="k">Si falla</div><div class="v">Si EROS no contesta en 30 segundos o está caído, el chat responde «escríbenos por WhatsApp» en vez de quedarse mudo.</div></div>
+  <div class="row"><div class="k">Nota de esta fase</div><div class="v">Al agregar la marca de agotado el 31 de agosto, la dirección que lee EROS se quedó diciendo «disponible» para todo. Se corrigió el mismo día. Era la peor de las cuatro superficies para equivocarse: las otras sólo <em>muestran</em> algo que ya no hay; ésta le decía a EROS que lo <em>recomendara</em> en una conversación.</div></div>
+</div>
+
+<!-- 6.14 -->
+<h2>6.14 La base de todo: el cobro con Mercado Pago</h2>
+<div class="ficha">
+  <div class="head"><span>Checkout + aviso de pago aprobado</span><span class="pill ok">Funcionando desde el 27 de agosto</span></div>
+  <div class="row"><div class="k">Por qué está aquí</div><div class="v">No es una automatización de marketing, pero es el <strong>detonador</strong> de casi todas: el acuse, el aviso a Nancy, la salida del carrito abandonado y la conversión de Ads cuelgan del momento en que Mercado Pago dice «aprobado».</div></div>
+  <div class="row"><div class="k">Cómo funciona</div><div class="v">Al dar «Pagar», el sitio registra el pedido como pendiente, con precios que calcula el servidor (nunca los que manda el navegador), y crea la orden en Mercado Pago. El cliente paga allá. Mercado Pago le avisa al sitio; el sitio <strong>verifica la firma</strong> del aviso, <strong>consulta el pago real</strong> en Mercado Pago (no le cree al aviso), y sólo entonces marca el pedido como pagado. Si Mercado Pago repite el aviso, no pasa nada dos veces. Un pago aprobado nunca se revierte por un aviso tardío de rechazo.</div></div>
+  <div class="row"><div class="k">Lo que estaba roto</div><div class="v">Hasta el 27 de agosto <strong>ningún cliente sin cuenta podía pagar</strong>: la orden se creaba sin el correo del comprador, y Mercado Pago pinta el checkout completo pero nunca habilita el botón de pagar, sin ningún mensaje. Raúl lo reportó dos veces (26 y 27) y las dos veces se asumió que el problema estaba de su lado. Es también la explicación de por qué la conversión de Ads llevaba en cero: no había compras que la dispararan. Ese día también se hizo obligatoria la dirección (había pedidos pagados sin a dónde enviar), se empezó a cobrar el envío ($70 debajo de $1,000, decisión comercial de Raúl; gratis arriba) y el botón pasó a decir sólo «Pagar», porque la gente creía que necesitaba cuenta de Mercado Pago.</div></div>
+  <div class="row"><div class="k">Otros caminos</div><div class="v">WhatsApp: registra el pedido y abre el chat; lo cobra Nancy. Stripe (tarjeta): está construido y apagado; se enciende con una variable el día que haga falta.</div></div>
+</div>
+
+<!-- ================= 7 ================= -->
+<h1 class="section">7. Qué está encendido hoy <small>Los interruptores del sitio, tal como están en Vercel al 3 de septiembre de 2026. Sólo los nombres; los valores son llaves y no van en ningún documento.</small></h1>
+
+<div class="box">
+  <p><strong>Regla de las variables.</strong> Una variable nueva o cambiada en Vercel <strong>no entra sola</strong>: hace falta desplegar el sitio otra vez. Por eso cada vez que César manda una dirección de buzón nueva, Memo la pone y despliega, y hasta que el despliegue termina la tienda sigue con la vieja.</p>
+</div>
+
+<table>
+  <thead><tr><th style="width:190pt">Interruptor (variable en Vercel)</th><th>Qué enciende</th><th style="width:70pt">Estado</th><th style="width:80pt">Desde</th></tr></thead>
+  <tr><td><code>NUXT_GHL_WEBHOOK_POSTCOMPRA</code></td><td>Aviso de compra confirmada a GHL (6.1)</td><td><span class="pill ok">Puesta</span></td><td>26 de agosto</td></tr>
+  <tr><td><code>NUXT_GHL_WEBHOOK_CARRITO_ABANDONADO</code></td><td>Aviso de carrito abandonado a GHL (6.3)</td><td><span class="pill ok">Puesta</span></td><td>26 de agosto</td></tr>
+  <tr><td><code>NUXT_GHL_WEBHOOK_AVISO_PEDIDO</code></td><td>Aviso a Nancy de pedido nuevo (6.2)</td><td><span class="pill ok">Puesta</span></td><td>27 de agosto; dirección sustituida el 28</td></tr>
+  <tr><td><code>NUXT_GHL_WEBHOOK_PEDIDO_ENVIADO</code></td><td>Aviso al cliente de pedido enviado (6.4)</td><td><span class="pill off">Vacía</span></td><td>Pendiente de conectar</td></tr>
+  <tr><td><code>NUXT_GHL_WEBHOOK_REACTIVACION</code></td><td>Reservada; el sitio no la usa (6.5)</td><td><span class="pill off">Vacía</span></td><td>—</td></tr>
+  <tr><td><code>NUXT_RESENA_SECRET</code></td><td>Firma de los enlaces de reseña (6.7)</td><td><span class="pill ok">Puesta</span></td><td>27 de agosto</td></tr>
+  <tr><td><code>NUXT_PEDIDOS_PIN</code></td><td>Pantalla de pedidos de Nancy (6.8)</td><td><span class="pill ok">Puesta</span></td><td>27 de agosto</td></tr>
+  <tr><td><code>NUXT_ENVIO_COSTO</code> y <code>NUXT_PUBLIC_ENVIO_COSTO</code></td><td>Cobro de envío ($70 debajo de $1,000). Vacías = envío gratis para todos.</td><td><span class="pill ok">Puestas</span></td><td>27 de agosto</td></tr>
+  <tr><td><code>NUXT_PROMO_VIGENCIA</code></td><td>Fecha de fin de la oferta en el feed de Google</td><td><span class="pill off">Vacía a propósito</span></td><td>Ver 6.10</td></tr>
+  <tr><td><code>NUXT_MP_ACCESS_TOKEN</code>, <code>NUXT_MP_WEBHOOK_SECRET</code></td><td>Cobro y verificación de avisos de Mercado Pago (6.14)</td><td><span class="pill ok">Puestas</span></td><td>Julio</td></tr>
+  <tr><td><code>NUXT_PUBLIC_STRIPE_ENABLED</code> y llaves de Stripe</td><td>Botón «Pagar con tarjeta» por Stripe</td><td><span class="pill off">Apagado</span></td><td>Construido el 30 de julio</td></tr>
+  <tr><td><code>NUXT_PUBLIC_WHATSAPP_PHONE</code></td><td>Número al que llegan los pedidos por WhatsApp</td><td><span class="pill ok">Puesta</span></td><td>Junio</td></tr>
+  <tr><td>Interruptor de campaña (en el código, no en Vercel)</td><td>El 40% en todo (6.11)</td><td><span class="pill mid">Encendido</span></td><td>24 de agosto; fin acordado 30 de septiembre</td></tr>
+</table>
+
+
+<!-- ================= 8 ================= -->
+<h1 class="section">8. Lo que se aprendió a golpes <small>Las fallas que costaron y las reglas que quedan para no repetirlas</small></h1>
+
+<p>Ninguna de estas fallas dio error. Todas se vieron porque alguien miró un tablero o porque un cliente dijo «no me llegó». Se cuentan aquí no para repartir culpas (varias fueron de Memo) sino porque cada una dejó una regla que el equipo tiene que conocer.</p>
+
+<h3>Semanas sin poder cobrarle a nadie sin cuenta (hasta el 27 de agosto)</h3>
+<p>Mercado Pago pintaba el checkout completo y nunca habilitaba el botón. Raúl lo reportó dos veces y se asumió que era de su lado. <strong>Regla:</strong> cuando el dueño dice «no me deja pagar», la primera sospecha es el sitio, no el cliente.</p>
+
+<h3>Un mes de pauta a ciegas: GA4 en cero desde el día uno (hasta el 31 de agosto)</h3>
+<p>Un error de formato de una línea. El script de Google cargaba, no había errores, y no llegaba un solo dato. Emilio lo vio en el tablero. <strong>Regla:</strong> el día que empieza la pauta, alguien abre GA4 en Tiempo Real con el sitio abierto y ve aparecer su propia visita. No la semana siguiente: ese mismo día.</p>
+
+<h3>El cliente que pagó, no recibió acuse y levantó el pedido tres veces (29 de agosto)</h3>
+<p>GHL recibía «sin correo» en cada compra de invitado. <strong>Regla:</strong> quien paga y no recibe nada cree que no pagó, y el siguiente clic es pagar otra vez. El acuse no es cortesía; evita cobros dobles.</p>
+
+<h3>Quince horas con pedidos entrando y Nancy sin enterarse (27–28 de agosto)</h3>
+<p>César volvió a guardar el trigger en GHL y GHL <strong>regeneró la dirección del buzón</strong> sin avisar. La vieja seguía contestando «recibido». <strong>Reglas:</strong> (1) cada vez que alguien toque un trigger en GHL, vuelve a copiar la dirección y se la manda a Memo, aunque crea que no cambió; (2) esa dirección se manda <strong>como texto, nunca en captura de pantalla</strong>: el 31 de agosto Memo transcribió una de una imagen, se comió un carácter (un cero por una O) y le hizo perder tres horas a César persiguiendo un problema que no existía.</p>
+
+<h3>El «recibido» que no significa nada</h3>
+<p>GHL contesta «recibido» a todo, exista o no el buzón. Se comprobó mandando un aviso a una cuenta inventada. <strong>Regla:</strong> desde fuera de GHL no hay forma de saber si un aviso hizo algo. Lo que cierra un diagnóstico es el historial de ejecuciones en GHL o un mensaje que de verdad llegue a un teléfono. Por eso Memo pide acceso de lectura a GHL desde el 28 de agosto: sin él, la mitad del sistema se supervisa de oídas.</p>
+
+<h3>Cada aviso a GHL cuesta dinero</h3>
+<p>Los buzones son una función premium que se cobra por uso. Por eso el carrito abandonado avisa una vez por carrito y no una por cada cambio, y por eso no se hacen disparos de prueba «para ver»: cuando hay una compra real en el horizonte, se espera; sale gratis y prueba más.</p>
+
+<h3>Contraseñas en el grupo</h3>
+<p>El 31 de agosto se escribió en el grupo el usuario y la contraseña de la cuenta compartida de Google. No se usaron; se pidió acceso por usuario y cambiar esa contraseña. <strong>Regla:</strong> accesos siempre por usuario, a nombre de cada quien. El historial del grupo conserva todo lo que se escribe ahí.</p>
+
+<h3>La promesa que nadie cumplía</h3>
+<p>La página de envíos decía «recibirás un número de rastreo por email» y nada lo hacía. <strong>Regla:</strong> cada cosa que el sitio promete (un descuento, un correo, un método de pago) tiene que tener a alguien o algo que la cumpla. Si no, se baja del sitio. Ya se bajaron dos financieras no contratadas y un 10% de newsletter que no existía.</p>
+
+<!-- ================= 9 ================= -->
+<h1 class="section">9. Supervisión: quién revisa qué y cada cuánto</h1>
+
+<p>A partir de aquí el proyecto no necesita construcción; necesita <strong>ojos</strong>. Esta es la lista mínima. Cada renglón responde a una falla que ya pasó una vez.</p>
+
+<h2>Con cada pedido pagado</h2>
+<table>
+  <thead><tr><th style="width:60pt">Quién</th><th>Qué revisar</th><th style="width:150pt">Si algo no cuadra</th></tr></thead>
+  <tr><td>Nancy</td><td>¿Me llegó el WhatsApp del pedido? ¿Aparece en amanti.mx/pedidos? ¿Trae dirección y correo?</td><td>Aparece pero no llegó el WhatsApp → César revisa el historial en GHL. No aparece → Memo.</td></tr>
+  <tr><td>Nancy</td><td>Al enviar: marcar «enviado» en la pantalla, con la guía. Mientras 6.4 no esté conectado, mandar el correo de envío a mano.</td><td>—</td></tr>
+  <tr><td>Nancy / Raúl</td><td>De vez en cuando, preguntarle a un cliente si le llegó el correo de confirmación.</td><td>No le llegó → Nancy confirma que el pedido trae correo; César revisa la ejecución de postcompra.</td></tr>
+</table>
+
+<h2>Mientras haya pauta encendida (cada día o cada dos días)</h2>
+<table>
+  <thead><tr><th style="width:60pt">Quién</th><th>Qué revisar</th><th style="width:150pt">Si algo no cuadra</th></tr></thead>
+  <tr><td>Emilio</td><td>GA4 → Tiempo Real muestra visitas mientras hay tráfico. Conversiones de Ads: aparecen compras hechas por Mercado Pago (no las de WhatsApp ni OXXO).</td><td>GA4 en cero con tráfico → avisar a Memo el mismo día.</td></tr>
+  <tr><td>Emilio</td><td>Merchant Center: productos desaprobados, discrepancias de precio.</td><td>Discrepancia → preguntar a Memo si la campaña cambió; no tocar el feed a mano.</td></tr>
+</table>
+
+<h2>Cada vez que alguien toque algo</h2>
+<table>
+  <thead><tr><th style="width:60pt">Quién</th><th>Qué hacer</th></tr></thead>
+  <tr><td>César</td><td>Si guarda, edita o republica un workflow con buzón: <strong>copiar de nuevo la dirección y mandársela a Memo como texto</strong>, aunque parezca la misma. Memo la compara; si cambió, la pone y despliega.</td></tr>
+  <tr><td>César</td><td>Si cambia una plantilla que usa campos del aviso, confirmar con el Anexo A que los nombres existen tal cual.</td></tr>
+  <tr><td>Nancy / Raúl</td><td>Si algo se agota o se repone: avisar en el grupo; Memo marca y despliega. Si se sube un producto nuevo: Nancy pasa nombre, precio, descripción y fotos; Memo lo da de alta.</td></tr>
+  <tr><td>Memo</td><td>Cada cambio de variable va acompañado de un despliegue, y se anota en la bitácora del proyecto con fecha.</td></tr>
+</table>
+
+<h2>Una vez al mes</h2>
+<table>
+  <thead><tr><th style="width:60pt">Quién</th><th>Qué revisar</th></tr></thead>
+  <tr><td>César</td><td>Créditos de GHL consumidos por los buzones contra el número de pedidos y carritos del mes. Si el consumo es mucho mayor que pedidos + carritos, algo está disparando de más.</td></tr>
+  <tr><td>Raúl / Memo</td><td>Pedidos pagados del mes contra avisos recibidos por Nancy y acuses enviados por GHL. Deben ser el mismo número.</td></tr>
+  <tr><td>Memo</td><td>Que las variables de Vercel sigan siendo las que documenta este apartado; que la suite de pruebas siga en verde.</td></tr>
+</table>
+
+<h2>Con fecha</h2>
+<div class="box bad">
+  <p><strong>30 de septiembre de 2026:</strong> Raúl decide si la campaña del 40% sigue o se apaga y se lo dice a Memo. Si se apaga, Memo cambia el interruptor y despliega ese día. Nadie toca el feed ni Merchant Center por separado. Recomendación: ponerlo en el calendario de Raúl y de Memo hoy.</p>
+</div>
+
+<!-- ================= 10 ================= -->
+<h1 class="section">10. Pendientes al cierre <small>Lo que falta para que todo lo descrito esté al 100%, y de quién depende cada cosa</small></h1>
+
+<table>
+  <thead><tr><th style="width:24pt">#</th><th>Pendiente</th><th style="width:75pt">Depende de</th><th style="width:150pt">Qué hace falta</th></tr></thead>
+  <tr><td>1</td><td><strong>Aclarar el reporte del 2 de septiembre.</strong> Nancy escribió «sí aparece, pero no le llegó el whats» sobre la compra de práctica. ¿Le faltó el WhatsApp a Nancy o un mensaje a la compradora?</td><td>Nancy</td><td>Una respuesta en el grupo. Si es el aviso a Nancy, César revisa el historial de ese pedido en GHL.</td></tr>
+  <tr><td>2</td><td><strong>Confirmar que el WhatsApp de pedido nuevo llega al teléfono de Nancy</strong> con pedidos reales (Raúl lo preguntó el 1 de septiembre, sin respuesta).</td><td>Nancy</td><td>Un «sí me llegó» sobre el próximo pedido real.</td></tr>
+  <tr><td>3</td><td><strong>Conectar el aviso de «pedido enviado» al cliente.</strong> El workflow está publicado y ejecutó una prueba.</td><td>César → Memo</td><td>César confirma cómo se ve el correo real (asunto con número de pedido, lista en renglones con <code>items_texto</code>) y manda la dirección del buzón como texto. Memo la pone en Vercel, despliega, y se verifica con el siguiente envío real.</td></tr>
+  <tr><td>4</td><td><strong>Cuadrar las plantillas de postcompra</strong> contra los campos del Anexo A.</td><td>César</td><td>Revisar que el acuse use nombre, artículos y enlace de reseña con los nombres exactos.</td></tr>
+  <tr><td>5</td><td><strong>Ver la primera conversión de compra en Google Ads.</strong> Al 1 de septiembre seguía inactiva.</td><td>Emilio</td><td>Esperar la próxima compra por Mercado Pago que regrese a la página de gracias y revisar Ads horas después. Si con dos o tres compras así sigue en cero, avisar a Memo.</td></tr>
+  <tr><td>6</td><td><strong>Accesos.</strong> Google Ads y Merchant Center: invitaciones enviadas el 31 de agosto al correo de Memo, pendientes de aceptar. GHL: acceso de lectura para Memo, pedido desde el 28 de agosto. Tag Manager: falta saber quién lo tiene.</td><td>Memo (Google) · César / Emilio (GHL, TM)</td><td>Aceptar las invitaciones; crear el usuario en GHL; ubicar el contenedor de Tag Manager si existe.</td></tr>
+  <tr><td>7</td><td><strong>Apagar la campaña el 30 de septiembre</strong> (o decidir extenderla).</td><td>Raúl → Memo</td><td>Un mensaje ese día. Calendario.</td></tr>
+  <tr><td>8</td><td><strong>Reactivación a 60 días.</strong> Decidir si se arma en GHL y con qué mensaje.</td><td>Raúl / César</td><td>No necesita nada del sitio.</td></tr>
+</table>
+
+<h2>Mejoras que quedan para después, cuando el volumen lo pida</h2>
+<ul>
+  <li><strong>Que Nancy marque «agotado» sola</strong>, sin depender de Memo ni de un despliegue.</li>
+  <li><strong>Conversiones de Ads desde el servidor</strong>, para contar también OXXO, transferencias y a quien cierra la pestaña. Hoy Ads reporta de menos y eso es estructural.</li>
+  <li><strong>Meta Pixel del lado del servidor</strong> (Conversions API): con bloqueadores e iPhone, compras reales no llegan a Meta.</li>
+  <li><strong>Cuentas con rol para la pantalla de pedidos</strong> cuando haya más de una persona surtiendo.</li>
+  <li><strong>Un mismo formato de artículos</strong> en los cinco avisos (hoy varían por evento; funciona, pero le complica a César el mapeo).</li>
+</ul>
+
+<!-- ================= ANEXO A ================= -->
+<h1 class="section">Anexo A. Los datos que viajan en cada aviso <small>Para César: los nombres exactos de los campos que llegan a cada buzón. Todo aviso lleva además <code>evento</code> (el nombre del aviso) y <code>enviado_en</code> (fecha y hora).</small></h1>
+
+<h3>compra_confirmada → buzón de postcompra</h3>
+<table>
+  <thead><tr><th style="width:140pt">Campo</th><th>Qué trae</th></tr></thead>
+  <tr><td><code>pedido_id</code></td><td>Identificador del pedido (largo). En la pantalla de Nancy aparece como folio con sus primeros 8 caracteres.</td></tr>
+  <tr><td><code>email</code></td><td>Correo del cliente: el de su cuenta si tiene, si no el que escribió en el carrito. Puede ser nulo sólo si ninguno existe.</td></tr>
+  <tr><td><code>nombre</code></td><td>Nombre de quien recibe (el del formulario de envío). Nulo si no hay.</td></tr>
+  <tr><td><code>telefono</code></td><td>Teléfono del formulario de envío. Nulo si no hay.</td></tr>
+  <tr><td><code>total</code></td><td>Total cobrado, en pesos, ya con descuento y envío.</td></tr>
+  <tr><td><code>num_articulos</code></td><td>Cantidad total de piezas.</td></tr>
+  <tr><td><code>items</code></td><td>Lista. Cada elemento: <code>slug</code>, <code>nombre</code>, <code>precio</code>, <code>cantidad</code>, <code>url_producto</code>.</td></tr>
+  <tr><td><code>producto_principal</code></td><td>Nombre del primer artículo, aplanado para plantillas que no recorren listas.</td></tr>
+  <tr><td><code>producto_principal_slug</code></td><td>Su identificador en la tienda.</td></tr>
+  <tr><td><code>url_producto</code></td><td>Enlace a la ficha del producto principal.</td></tr>
+  <tr><td><code>url_resena</code></td><td>Enlace <strong>firmado</strong> para dejar reseña del producto principal sin cuenta. Es el que va en el correo del día 10.</td></tr>
+  <tr><td><code>urls_resena</code></td><td>Lista con un enlace firmado por artículo: <code>producto</code>, <code>slug</code>, <code>url</code>.</td></tr>
+</table>
+
+<h3>carrito_abandonado → buzón de carrito</h3>
+<table>
+  <thead><tr><th style="width:140pt">Campo</th><th>Qué trae</th></tr></thead>
+  <tr><td><code>email</code></td><td>Correo del cliente (siempre presente; sin correo no se manda el aviso).</td></tr>
+  <tr><td><code>total</code></td><td>Total del carrito en pesos.</td></tr>
+  <tr><td><code>num_articulos</code></td><td>Cantidad total de piezas.</td></tr>
+  <tr><td><code>items</code></td><td>Lista. Cada elemento: <code>slug</code>, <code>name</code>, <code>price</code>, <code>quantity</code> (en inglés: llegan tal cual del navegador).</td></tr>
+  <tr><td><code>url_carrito</code></td><td>Enlace al carrito en amanti.mx.</td></tr>
+</table>
+
+<h3>pedido_para_surtir → buzón de aviso a Nancy</h3>
+<table>
+  <thead><tr><th style="width:140pt">Campo</th><th>Qué trae</th></tr></thead>
+  <tr><td><code>pedido_id</code></td><td>Identificador del pedido.</td></tr>
+  <tr><td><code>total</code></td><td>Total cobrado en pesos.</td></tr>
+  <tr><td><code>articulos</code></td><td>Texto: «2x Jock 6, 1x Antifaz Princesa».</td></tr>
+  <tr><td><code>direccion</code></td><td>Dirección completa en una sola línea, separada por «·», lista para pegar en la guía. Vacía si no hay.</td></tr>
+  <tr><td><code>sin_direccion</code></td><td>Verdadero/falso. Verdadero = hay que pedírsela al cliente.</td></tr>
+  <tr><td><code>es_regalo</code></td><td>Verdadero/falso (caja neutra, sin precios).</td></tr>
+  <tr><td><code>telefono</code></td><td>Teléfono del cliente. Nulo si no hay.</td></tr>
+  <tr><td><code>email</code></td><td>Correo del cliente, por si el paquete rebota. Nulo si no hay.</td></tr>
+  <tr><td><code>mensaje</code></td><td>El WhatsApp completo ya redactado, en varias líneas: monto, artículos, regalo, «Enviar a: …» o la alerta de sin dirección, y el enlace a la pantalla de pedidos. Se puede mandar tal cual.</td></tr>
+  <tr><td><code>url_pedidos</code></td><td>https://amanti.mx/pedidos</td></tr>
+</table>
+
+<h3>pedido_enviado → buzón de aviso de envío al cliente</h3>
+<table>
+  <thead><tr><th style="width:140pt">Campo</th><th>Qué trae</th></tr></thead>
+  <tr><td><code>pedido_id</code></td><td>Identificador del pedido.</td></tr>
+  <tr><td><code>email</code>, <code>nombre</code>, <code>telefono</code></td><td>Del formulario de envío. Nulos si no hay.</td></tr>
+  <tr><td><code>guia</code></td><td>Número de guía que escribió Nancy. <strong>Nulo</strong> (no cadena vacía) si marcó sin guía.</td></tr>
+  <tr><td><code>tiene_guia</code></td><td>Verdadero/falso. Para que la plantilla elija entre «te pasamos la guía en cuanto la tengamos» y el mensaje con número.</td></tr>
+  <tr><td><code>total</code></td><td>Total cobrado en pesos.</td></tr>
+  <tr><td><code>num_articulos</code></td><td>Cantidad total de piezas.</td></tr>
+  <tr><td><code>items</code></td><td>Lista. Cada elemento: <code>nombre</code>, <code>cantidad</code>.</td></tr>
+  <tr><td><code>items_texto</code></td><td>La misma lista en texto, una línea por artículo («2 × Jock 6»). <strong>Es el que hay que usar en el correo</strong>: con <code>items</code> a secas, GHL imprime «[object Object]».</td></tr>
+</table>
+
+<div class="box">
+  <p><strong>Dos notas para las plantillas.</strong> (1) Cuando un dato no existe llega como <em>nulo</em>, nunca como texto vacío: así la plantilla puede distinguir «no hay» y no pintar un hueco. (2) El sitio no manda nada que no esté en estas tablas; si una plantilla necesita otro dato, se pide a Memo y se agrega, pero no se inventa el nombre del campo.</p>
+</div>
+
+<!-- ================= ANEXO B ================= -->
+<h1 class="section">Anexo B. Guía rápida cuando algo falla <small>Síntoma → primera sospecha → quién revisa</small></h1>
+
+<table>
+  <thead><tr><th style="width:170pt">Síntoma</th><th>Primera sospecha</th><th style="width:110pt">Quién y dónde</th></tr></thead>
+  <tr><td>Un cliente dice que no pudo pagar.</td><td>Antes de culpar a su tarjeta: que intente de nuevo escribiendo correo y dirección completos. Si el botón de Mercado Pago no se habilita, es del sitio.</td><td>Memo, con el correo del cliente y la hora.</td></tr>
+  <tr><td>Un cliente pagó y no recibió correo de confirmación.</td><td>¿El pedido trae correo? (pantalla de pedidos). Si sí, ¿hay ejecución de postcompra en GHL para ese pedido? Si no hay, el buzón cambió de dirección.</td><td>Nancy (pantalla) → César (historial de GHL) → Memo (variable).</td></tr>
+  <tr><td>Hay un pedido pagado y Nancy no recibió WhatsApp.</td><td>Igual que arriba, con el workflow del aviso a Nancy. Historial vacío = dirección regenerada.</td><td>César → Memo.</td></tr>
+  <tr><td>Alguien que ya compró sigue recibiendo «se te olvidó algo».</td><td>El extractor del workflow de postcompra no lo está sacando de la secuencia de carrito.</td><td>César.</td></tr>
+  <tr><td>GA4 dice «no se han recibido datos» o está en cero con tráfico.</td><td>La medición del sitio. No esperar: avisar el mismo día.</td><td>Emilio detecta → Memo.</td></tr>
+  <tr><td>Ads no muestra conversiones.</td><td>Primero: ¿hubo compras por Mercado Pago que regresaran a la página de gracias? Las de WhatsApp, OXXO y transferencia no cuentan. Segundo: Ads tarda horas.</td><td>Emilio; Memo si tras varias compras así sigue en cero.</td></tr>
+  <tr><td>Merchant Center: «discrepancia de precio».</td><td>La campaña se movió en un lado y no en el otro, o hay un despliegue a medias.</td><td>Emilio detecta → Memo.</td></tr>
+  <tr><td>Merchant Center desaprueba un producto.</td><td>Política de Google (título, imagen, tipo de producto). Se ajusta el título del feed o se excluye del feed sin quitarlo de la tienda.</td><td>Emilio → Memo.</td></tr>
+  <tr><td>La pantalla de pedidos dice «PIN incorrecto» o «no disponible».</td><td>PIN cambiado o variable vacía.</td><td>Memo.</td></tr>
+  <tr><td>El chat EROS contesta «escríbenos por WhatsApp» siempre.</td><td>EROS (n8n) caído o sin credencial. El sitio está bien; es el servicio externo.</td><td>Quien opere n8n; Memo puede confirmar que el sitio lo llama.</td></tr>
+  <tr><td>Un producto se vendió y ya no hay.</td><td>No es falla: no hay inventario. Marcarlo agotado.</td><td>Nancy avisa → Memo marca y despliega.</td></tr>
+</table>
+
+<div class="box warn">
+  <p><strong>Antes de mandar a otro a buscar,</strong> revisar lo propio. En este proyecto dos veces se culpó a un servicio ajeno (GHL) por un problema que estaba de este lado (una terminal colgada; una dirección mal transcrita). Y al revés: dos veces se asumió que el cliente hacía algo mal cuando el sitio no dejaba pagar.</p>
+</div>
+
+<!-- ================= ANEXO C ================= -->
+<h1 class="section">Anexo C. Dónde vive cada cosa en el código <small>Para quien retome el proyecto. El repositorio es <code>memorx/amanti-store</code>; producción en Vercel, proyecto <code>amanti-store-cake</code>. La bitácora completa está en <code>BITACORA.md</code>.</small></h1>
+
+<table>
+  <thead><tr><th style="width:230pt">Archivo</th><th>Qué hace</th></tr></thead>
+  <tr><td><code>server/utils/ghl.ts</code></td><td>El puente a GoHighLevel: los cinco avisos, el mapa aviso → variable, las tres reglas (sin dirección no hace nada; nunca truena; no bloquea al cliente), el candado del carrito y el armado de los datos de compra y de envío.</td></tr>
+  <tr><td><code>server/utils/avisoPedido.ts</code></td><td>El aviso a Nancy: la dirección en una línea y el mensaje redactado.</td></tr>
+  <tr><td><code>server/api/mp-webhook.post.ts</code></td><td>Recibe el aviso de Mercado Pago, verifica firma y pago real, marca el pedido pagado una sola vez y dispara postcompra y aviso a Nancy.</td></tr>
+  <tr><td><code>server/api/checkout.post.ts</code></td><td>Crea el pedido pendiente y la orden en Mercado Pago (con correo del comprador y envío como línea aparte).</td></tr>
+  <tr><td><code>server/api/cart-save.post.ts</code> · <code>plugins/cart-recovery.client.ts</code></td><td>Guardado del carrito abandonado y el aviso único a GHL.</td></tr>
+  <tr><td><code>server/api/pedidos.get.ts</code> · <code>server/api/pedido-enviado.post.ts</code> · <code>pages/pedidos.vue</code></td><td>La pantalla de Nancy, el PIN, marcar enviado y el aviso de envío al cliente.</td></tr>
+  <tr><td><code>server/utils/resenaToken.ts</code> · <code>server/api/resena.post.ts</code> · <code>utils/nombreResena.ts</code></td><td>Enlaces firmados de reseña, sus tres candados y la regla del nombre.</td></tr>
+  <tr><td><code>utils/gtag.ts</code> · <code>plugins/tracking.client.ts</code> · <code>composables/useAnalytics.ts</code> · <code>utils/gclid.ts</code> · <code>components/CookieConsent.vue</code></td><td>Toda la medición: el empujador de comandos a Google (donde vivió el error de GA4), Consent Mode v2, los cinco eventos, la conversión de Ads y la marca del clic para WhatsApp.</td></tr>
+  <tr><td><code>server/routes/feeds/google.xml.get.ts</code></td><td>El generador del feed de Merchant Center.</td></tr>
+  <tr><td><code>utils/campana.ts</code></td><td>El interruptor de la campaña, con la fecha acordada escrita al lado.</td></tr>
+  <tr><td><code>server/utils/orderItems.ts</code></td><td>Precios autoritativos del servidor, la campaña aplicada al cobro y el rechazo de lo agotado.</td></tr>
+  <tr><td><code>data/products.json</code></td><td>El catálogo: 152 productos. Ahí se pone <code>"agotado": true</code> o <code>"excludeFromFeed": true</code>.</td></tr>
+  <tr><td><code>server/api/catalog.get.ts</code> · <code>server/api/chat.post.ts</code> · <code>components/ChatWidget.vue</code></td><td>El catálogo que lee EROS y el puente al chat.</td></tr>
+  <tr><td><code>components/NewsletterForm.vue</code></td><td>El formulario de GHL incrustado.</td></tr>
+  <tr><td><code>.env.example</code></td><td>La lista de todas las variables con qué pasa si falta cada una.</td></tr>
+  <tr><td><code>test/</code></td><td>244 pruebas automáticas al 31 de agosto, incluidas las que sostienen los puntos delicados: que cada aviso vaya a su buzón y no a otro, el candado del carrito, que el descuento sea el mismo en navegador y servidor, que el feed mande el precio correcto, que el empujador de Google no vuelva a romperse.</td></tr>
+</table>
+
+<p class="foot">AMANTI · Automatizaciones de la tienda · Estado al 3 de septiembre de 2026 · Preparado por Memo (Izalith). Este documento no contiene direcciones de buzones, llaves, PIN ni contraseñas; esos valores viven únicamente en Vercel.</p>
+
+</body>
+</html>
