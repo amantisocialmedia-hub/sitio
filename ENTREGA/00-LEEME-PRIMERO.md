@@ -73,6 +73,31 @@ GoHighLevel con su propio calendario. No la confundas con un hueco.
 
 ---
 
+## Antes de buscarlo: la tienda no tiene panel de administración
+
+No hay un login de administrador como el de Wix, WordPress o Shopify, y no es un olvido: el sitio
+está hecho así. **La administración está repartida en varios lugares, cada uno con su acceso:**
+
+| Lo que quieres hacer | Dónde se hace | Qué acceso necesitas |
+|---|---|---|
+| Ver qué pedidos surtir y marcarlos enviados | `amanti.mx/pedidos` | El PIN de la pantalla (lo tiene Nancy; vive en `NUXT_PEDIDOS_PIN`) |
+| Dar de alta productos, cambiar precios, marcar agotados | Editar `data/products.json` en el repo y desplegar | GitHub con permiso de escritura |
+| Publicar un artículo del blog | Editar `data/articles.json` y desplegar | GitHub |
+| Encender o apagar la promoción | Editar `utils/campana.ts` y desplegar | GitHub |
+| Cambiar el costo del envío | Dos variables en Vercel, y redesplegar | Vercel |
+| Ver pedidos, clientes y cupones en crudo | Panel de Supabase | Supabase |
+| Dominio, despliegues, variables | Panel de Vercel | Vercel |
+| Cobros y reembolsos | Panel de Mercado Pago | La cuenta de Mercado Pago |
+| Correos y automatizaciones | GoHighLevel | Lo opera César |
+
+Cada receta está paso a paso en `10-operacion.md`.
+
+**Por qué hoy parece que no hay accesos:** GitHub, Vercel y Supabase siguen en cuentas del
+desarrollador saliente (punto 2 de arriba). Nadie de AMANTI puede administrar la tienda hasta que se
+haga el traspaso de `14-traspaso-de-infraestructura.md`. Esa es la llave de todo lo demás.
+
+---
+
 ## Cómo está armado el paquete
 
 Puedes leerlo de corrido, pero no hace falta. Según lo que necesites:
