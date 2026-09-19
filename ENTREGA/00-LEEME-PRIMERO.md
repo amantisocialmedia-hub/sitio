@@ -10,7 +10,7 @@ está mal escrito: repórtalo como defecto de esta documentación.
 
 ---
 
-## Lo primero: cuatro cosas que no pueden esperar
+## Lo primero: cinco cosas que no pueden esperar
 
 Están en orden de qué te muerde primero. Las cuatro vienen explicadas a detalle más adelante; aquí
 va el aviso para que no te enteres tarde.
@@ -70,6 +70,17 @@ declarado en `server/utils/ghl.ts` y ningún código lo emite. La reactivación 
 GoHighLevel con su propio calendario. No la confundas con un hueco.
 
 → Detalle en `04-automatizaciones-ghl.md` y en `12-pendientes-y-riesgos.md`.
+
+### 5. El dominio vence el 16 de octubre de 2026
+
+Consultado el 18 de septiembre en el whois de NIC México (`whois.mx`, puerto 43): `amanti.mx` se
+registró el 16/10/2025 por un año, a través de **Registrar.eu**, y **vence el 16/10/2026**. El DNS
+lo sirve Hostinger. Si el dominio vence, la tienda, el correo de `contacto@` y el formulario de
+GoHighLevel dejan de funcionar a la vez.
+
+No se sabe si tiene renovación automática ni a nombre de quién está: se confirma en Hostinger.
+
+→ Detalle en `12-pendientes-y-riesgos.md` §17.
 
 ---
 

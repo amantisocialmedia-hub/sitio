@@ -94,8 +94,10 @@ contradice este paquete, **el panel manda** y el paquete se corrige.
 
 ## Dominio y correo
 
+- [ ] **El dominio vence el 16 de octubre de 2026** (whois de NIC México, consultado el 18/09).
+      Confirmar que tenga renovación automática con un medio de pago de AMANTI (`12` §17).
 - [ ] **A nombre de quién está la cuenta de Hostinger**, donde viven los servidores de nombres.
-- [ ] El registrador del `.mx` y a nombre de quién está el dominio.
+- [ ] A nombre de quién está el dominio. El registrador es Registrar.eu.
 - [ ] En Vercel, si `amanti.mx` está dado de alta como raíz, como `www` o ambos.
 - [ ] Crear el registro DMARC (`12` §15). Cinco minutos una vez que haya acceso a Hostinger.
 - [ ] La cuenta de Zoho Mail (correo de `contacto@amanti.mx`): a nombre de quién está.

@@ -82,6 +82,7 @@ verificar desde el repo.)*
 | 13 | Higiene de secretos antes de que el repo cambie de manos | Seguridad | Antes de entregar | Dev + César + Emilio |
 | 15 | El dominio no tiene DMARC | Correos a spam; suplantación del dominio | — | Acceso a Hostinger |
 | 16 | `public/sitemap.xml` es estático y está desfasado | SEO: productos y artículos que Google no descubre | — | Dev solo |
+| 17 | El dominio `amanti.mx` vence | Todo: tienda, correo y formularios fuera de línea | **16-oct-2026** | Quien tenga la cuenta de Hostinger |
 
 ---
 
@@ -721,6 +722,35 @@ producto o un artículo, y meterlo en la receta de alta de `10-operacion.md`. Lo
 desde `data/products.json` y `data/articles.json`, como ya se hace con el feed en
 `server/routes/feeds/google.xml.get.ts`, para que no se pueda volver a desfasar. Lo puede hacer el
 dev solo.
+
+---
+
+## 17. El dominio vence el 16 de octubre de 2026
+
+**Qué es.** Consultado el 18/09/2026 directamente en el whois de NIC México (`whois.mx`, puerto 43;
+el `.mx` no tiene servicio RDAP):
+
+| Campo | Valor |
+|---|---|
+| Creado | 2025-10-16 |
+| **Vence** | **2026-10-16** |
+| Última actualización | 2026-08-04 |
+| Registrador | Registrar.eu |
+| Servidores de nombres | `ns1.dns-parking.com`, `ns2.dns-parking.com` (Hostinger) |
+
+El propio registro advierte que esa es la fecha que el registrador tiene contratada con NIC México
+y que puede no coincidir con lo que el titular contrató con el registrador. En la práctica es la
+fecha que manda: si llega sin renovar, el dominio deja de resolver.
+
+**Por qué importa.** Si `amanti.mx` vence, se cae todo lo que cuelga de él al mismo tiempo: la
+tienda, el correo `contacto@amanti.mx` (Zoho), los correos de marketing que salen por
+`mail.amanti.mx` y el formulario de newsletter servido desde `link.amanti.mx`. Y un `.mx` vencido
+no se recupera al instante.
+
+**Qué habría que hacer.** Entrar a Hostinger, confirmar a nombre de quién está el dominio, activar
+la renovación automática con un medio de pago de AMANTI y, de preferencia, renovarlo desde ya por
+más de un año. Mientras no se pueda confirmar, ponerlo en el calendario de alguien con una alarma
+una semana antes.
 
 ---
 
