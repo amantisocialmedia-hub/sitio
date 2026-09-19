@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AMANTI — Tu sitio: dónde está y cómo se administra</title>
+<style>
+  @page { size: A4; margin: 17mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 10.6pt; line-height: 1.5; color: #2b1a22; margin: 0; }
+  h1, h2, h3, h4 { font-family: Georgia, "Times New Roman", serif; color: #5E1B33; line-height: 1.2; }
+  h1 { font-size: 22pt; margin: 0 0 6pt; }
+  h1.section { page-break-before: always; border-bottom: 2px solid #5E1B33; padding-bottom: 6pt; margin-bottom: 12pt; }
+  h1.section small { display: block; font-family: "Segoe UI", Arial, sans-serif; font-weight: normal; font-size: 10pt; color: #8a5a6c; margin-top: 3pt; }
+  h2 { font-size: 14.5pt; margin: 18pt 0 6pt; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 14pt 0 4pt; color: #7a2b47; page-break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  ul, ol { margin: 0 0 8pt 0; padding-left: 20pt; }
+  li { margin-bottom: 3pt; }
+  strong { color: #3f1224; }
+  code, .mono { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: #f6eef1; padding: 1px 4px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.6pt; page-break-inside: auto; }
+  tr { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  th, td { border: 1px solid #dcc7cf; padding: 5pt 6pt; vertical-align: top; text-align: left; }
+  th { background: #5E1B33; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #fbf6f8; }
+  .box { border: 1px solid #dcc7cf; border-left: 5px solid #5E1B33; background: #fcf6f0; padding: 8pt 10pt; margin: 8pt 0 10pt; page-break-inside: avoid; border-radius: 4px; }
+  .box.ok { border-left-color: #2e7d4f; background: #eef7f1; }
+  .box.warn { border-left-color: #d98b1c; background: #fff7e8; }
+  .box.bad { border-left-color: #C0341B; background: #fdf0ed; }
+  .box.gray { border-left-color: #888; background: #f5f5f5; }
+  .box p:last-child { margin-bottom: 0; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 8.8pt; font-weight: 600; color: #fff; white-space: nowrap; }
+  .pill.ok { background: #2e7d4f; } .pill.mid { background: #d98b1c; } .pill.bad { background: #C0341B; } .pill.off { background: #777; }
+  .meta { color: #8a5a6c; font-size: 9.3pt; }
+  .cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; }
+  .cover .brand { font-family: Georgia, serif; letter-spacing: .35em; font-size: 13pt; color: #C0341B; margin-bottom: 30pt; }
+  .cover h1 { font-size: 34pt; margin-bottom: 14pt; }
+  .cover .sub { font-size: 15pt; color: #7a2b47; font-family: Georgia, serif; margin-bottom: 40pt; }
+  .cover .info { border-top: 1px solid #dcc7cf; padding-top: 14pt; font-size: 10.5pt; }
+  .toc li { margin-bottom: 4pt; }
+  .toc .n { display: inline-block; width: 22pt; color: #C0341B; font-weight: 700; }
+  .steps { counter-reset: paso; list-style: none; padding-left: 0; }
+  .steps li { position: relative; padding-left: 30pt; margin-bottom: 9pt; page-break-inside: avoid; }
+  .steps li::before { counter-increment: paso; content: counter(paso); position: absolute; left: 0; top: 1pt; width: 20pt; height: 20pt; border-radius: 50%; background: #5E1B33; color: #fff; font-weight: 700; font-size: 10pt; text-align: center; line-height: 20pt; }
+  .steps li .auto { display: block; color: #2e7d4f; font-size: 9.4pt; margin-top: 2pt; }
+  .steps li .manual { display: block; color: #b26a00; font-size: 9.4pt; margin-top: 2pt; }
+  .avoid { page-break-inside: avoid; }
+  .foot { margin-top: 24pt; font-size: 9pt; color: #8a5a6c; border-top: 1px solid #dcc7cf; padding-top: 6pt; }
+</style>
+</head>
+<body>
+
+<!-- ================= PORTADA ================= -->
+<div class="cover">
+  <div class="brand">AMANTI</div>
+  <h1>Tu sitio: dónde está y cómo se administra</h1>
+  <div class="sub">Qué es cada pieza de la tienda, quién hace qué, cómo se hacen los cambios y qué falta para que todo quede a nombre de AMANTI</div>
+  <div class="info">
+    <p><strong>Estado al 18 de septiembre de 2026.</strong></p>
+    <p>Preparado por Memo (Izalith) para AMANTI.</p>
+    <p>Escrito para leerse sin saber nada de sistemas. Todo lo que dice aquí se comprobó ese día contra el código de la tienda, sus paneles y los registros públicos del dominio. Donde algo <em>no</em> se pudo comprobar, dice «por confirmar».</p>
+  </div>
+</div>
+
+<!-- ================= ÍNDICE ================= -->
+<h1 class="section">Índice</h1>
+<ol class="toc" style="list-style:none;padding-left:0">
+  <li><span class="n">1</span> Lo más importante, en una página</li>
+  <li><span class="n">2</span> Dónde está tu sitio: las piezas y a nombre de quién están</li>
+  <li><span class="n">3</span> Quién administra qué</li>
+  <li><span class="n">4</span> Cómo se hacen los cambios</li>
+  <li><span class="n">5</span> Qué falta para que el sitio quede a nombre de AMANTI</li>
+  <li><span class="n">6</span> Lo que no puede esperar</li>
+  <li><span class="n">7</span> Para el desarrollador que llegue</li>
+</ol>
+
+<!-- ================= 1 ================= -->
+<h1 class="section">1. Lo más importante, en una página</h1>
+
+<div class="box">
+  <p><strong>Tu tienda es <span class="mono">amanti.mx</span>, y está funcionando.</strong> El 18 de septiembre la página principal, la tienda, el carrito, la pantalla de pedidos y la lista de productos que se le da a Google respondían bien. Hay 152 productos a la venta.</p>
+</div>
+
+<div class="box warn">
+  <p><strong>No tiene un panel de administración como el de Wix.</strong> No hay una pantalla con usuario y contraseña donde entres a mover precios o subir productos. No es un olvido: la tienda está construida así. La administración está repartida en varios lugares, cada uno con su acceso, y los cambios de productos, precios y promociones los hace un desarrollador. La sección 3 dice qué se hace dónde, y la sección 4 cómo se pide un cambio.</p>
+</div>
+
+<div class="box bad">
+  <p><strong>Hoy, varias piezas clave están a nombre de Memo y no de AMANTI.</strong> El código de la tienda está en una cuenta personal de Memo, el servidor donde vive el sitio está en la cuenta de su empresa, y la medición de Google Analytics también está en una cuenta suya. Mientras eso no cambie, nadie de AMANTI puede administrar la tienda. Pasarlas a nombre de AMANTI es lo primero que hay que hacer; el orden está en la sección 5.</p>
+</div>
+
+<div class="box bad">
+  <p><strong>La promoción del 40% no se apaga sola.</strong> Se acordó que dura hasta el <strong>30 de septiembre</strong>, pero nada en el sistema la apaga ese día: alguien tiene que hacerlo. Y hay que apagar también el precio que se le da a Google Shopping ese mismo día, o Google puede suspender los productos por anunciar un precio distinto al de la tienda. Sección 6.</p>
+</div>
+
+<!-- ================= 2 ================= -->
+<h1 class="section">2. Dónde está tu sitio <small>Las piezas de la tienda, qué es cada una en palabras simples, y a nombre de quién está hoy</small></h1>
+
+<p>Una tienda en línea como la tuya no es una sola cosa: son varias piezas que trabajan juntas, cada una en un servicio distinto. Esta es la lista completa.</p>
+
+<table>
+  <thead>
+    <tr><th style="width:22%">Pieza</th><th style="width:34%">Qué es</th><th style="width:16%">Dónde vive</th><th style="width:28%">A nombre de quién está hoy</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>La dirección</strong><br><span class="mono">amanti.mx</span></td><td>El nombre con el que la gente encuentra la tienda. Se renueva cada año.</td><td>Hostinger</td><td>Por confirmar. <strong>Tiene que estar a nombre de AMANTI.</strong></td></tr>
+    <tr><td><strong>El código</strong></td><td>La «receta» de la tienda: cómo se ve, qué productos tiene, cómo cobra. Aquí viven también los productos y los precios.</td><td>GitHub</td><td><span class="pill bad">Cuenta personal de Memo</span></td></tr>
+    <tr><td><strong>El servidor</strong></td><td>Donde la tienda está «encendida» las 24 horas. Cada vez que se publica un cambio, aquí se actualiza.</td><td>Vercel</td><td><span class="pill bad">Cuenta de Izalith, la empresa de Memo</span></td></tr>
+    <tr><td><strong>La base de datos</strong></td><td>Donde se guardan los pedidos, las cuentas de los clientes, sus direcciones, las reseñas y los carritos abandonados.</td><td>Supabase</td><td>Por confirmar</td></tr>
+    <tr><td><strong>Los cobros</strong></td><td>La pasarela que cobra con tarjeta, OXXO y transferencia. El dinero llega aquí.</td><td>Mercado Pago</td><td>Por confirmar</td></tr>
+    <tr><td><strong>La medición</strong></td><td>Cuántas personas entran, qué ven y cuántas compran.</td><td>Google Analytics</td><td><span class="pill bad">Cuenta personal de Memo</span></td></tr>
+    <tr><td><strong>Correos y avisos automáticos</strong></td><td>El acuse de compra, el aviso a Nancy, el carrito abandonado, la reseña al día 10, el formulario de newsletter.</td><td>GoHighLevel</td><td>Lo opera César. Titular por confirmar.</td></tr>
+    <tr><td><strong>Anuncios y Google Shopping</strong></td><td>Las campañas pagadas y la lista de productos que Google muestra con precio.</td><td>Google Ads y Merchant Center</td><td>Cuenta <span class="mono">amanti.socialmedia@gmail.com</span>, la opera Emilio</td></tr>
+    <tr><td><strong>El correo del dominio</strong></td><td><span class="mono">contacto@amanti.mx</span></td><td>Zoho Mail</td><td>Por confirmar</td></tr>
+    <tr><td><strong>El asistente EROS</strong></td><td>El chat que recomienda productos dentro del sitio.</td><td>n8n</td><td>Por confirmar</td></tr>
+    <tr><td><strong>El WhatsApp de pedidos</strong></td><td>El número al que llegan los pedidos por WhatsApp y el botón verde del sitio.</td><td>WhatsApp</td><td>Por confirmar</td></tr>
+  </tbody>
+</table>
+
+<div class="box gray">
+  <p><strong>Una regla para todas las piezas:</strong> cada cuenta debe estar a nombre de AMANTI, con un correo de la empresa, y cada persona que trabaje en ella debe entrar con su propio usuario. Nunca compartir una contraseña por el grupo: ya pasó una vez y esa contraseña hay que cambiarla (sección 5).</p>
+</div>
+
+<!-- ================= 3 ================= -->
+<h1 class="section">3. Quién administra qué <small>Lo que se hace en la tienda, dónde se hace y quién lo hace</small></h1>
+
+<table>
+  <thead>
+    <tr><th style="width:36%">Lo que hay que hacer</th><th style="width:34%">Dónde se hace</th><th style="width:30%">Quién</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Ver qué pedidos surtir, copiar la dirección y marcarlos enviados</td><td>La pantalla <span class="mono">amanti.mx/pedidos</span>, con un PIN</td><td>Nancy. No necesita desarrollador.</td></tr>
+    <tr><td>Correos, avisos por WhatsApp, newsletter y sus textos</td><td>GoHighLevel</td><td>César. No necesita desarrollador.</td></tr>
+    <tr><td>Anuncios y Google Shopping</td><td>Google Ads y Merchant Center</td><td>Emilio. No necesita desarrollador.</td></tr>
+    <tr><td>Cobros, devoluciones y reembolsos</td><td>El panel de Mercado Pago</td><td>Quien tenga la cuenta. Un reembolso hecho ahí se refleja solo en el pedido.</td></tr>
+    <tr><td>Dar de alta un producto, cambiar un precio o una foto</td><td>El código</td><td>Desarrollador</td></tr>
+    <tr><td>Marcar un producto como agotado, o volver a tenerlo</td><td>El código</td><td>Desarrollador</td></tr>
+    <tr><td>Encender o apagar una promoción</td><td>El código</td><td>Desarrollador</td></tr>
+    <tr><td>Publicar un artículo en el blog</td><td>El código</td><td>Desarrollador</td></tr>
+    <tr><td>Cambiar el costo del envío</td><td>El servidor (Vercel), sin tocar código</td><td>Quien tenga acceso a Vercel</td></tr>
+    <tr><td>Ver los pedidos y clientes en bruto, o sacar un reporte</td><td>La base de datos (Supabase)</td><td>Desarrollador o quien tenga acceso</td></tr>
+    <tr><td>Renovar el dominio</td><td>Hostinger</td><td>Quien tenga la cuenta</td></tr>
+  </tbody>
+</table>
+
+<div class="box">
+  <p><strong>En resumen:</strong> lo del día a día —surtir, cobrar, anunciar, mandar correos— lo hace cada quien en su herramienta y no depende de nadie. Lo que cambia <em>lo que la tienda muestra</em> —productos, precios, promociones, blog— pasa por un desarrollador.</p>
+</div>
+
+<!-- ================= 4 ================= -->
+<h1 class="section">4. Cómo se hacen los cambios <small>Qué pasa desde que pides un cambio hasta que lo ves en la tienda</small></h1>
+
+<p>En Wix entrabas, cambiabas un precio y guardabas. Aquí los productos y los precios viven dentro del código de la tienda, así que un cambio sigue este camino:</p>
+
+<ol class="steps">
+  <li><strong>Pides el cambio.</strong> Por escrito y concreto: qué producto, qué precio, desde cuándo. Si es un producto nuevo: nombre, precio, descripción y fotos.</li>
+  <li><strong>El desarrollador lo hace en el código.</strong> Para cambios sencillos, como un precio o un agotado, es cuestión de minutos.</li>
+  <li><strong>Lo publica.</strong> En cuanto lo sube, el servidor actualiza la tienda solo.
+    <span class="auto">Automático: en alrededor de un minuto ya se ve en amanti.mx.</span></li>
+  <li><strong>Lo revisas en la tienda.</strong> Abre el producto y confirma que quedó como lo pediste.</li>
+</ol>
+
+<div class="box ok">
+  <p><strong>Si algo sale mal al publicar, la tienda no se cae.</strong> Si la publicación falla, el sitio se queda con la versión anterior. Y si se publica un cambio que resultó equivocado, se puede regresar a la versión anterior en minutos.</p>
+</div>
+
+<div class="box warn">
+  <p><strong>Un cambio que parece de la tienda puede tocar a Google.</strong> Cambiar un precio o marcar algo agotado también cambia lo que Google Shopping anuncia, y Google tarda hasta un día en enterarse. Si Emilio tiene anuncios corriendo sobre ese producto, avísale.</p>
+</div>
+
+<h2>Si algún día quieres hacer estos cambios sin desarrollador</h2>
+<p>Hoy no se puede: no existe una pantalla para eso. La opción sería construir un <strong>panel de administración</strong> —una página con usuario y contraseña donde tú o alguien del equipo suba productos, cambie precios y encienda promociones—. Es un proyecto de desarrollo aparte. Vale la pena considerarlo si los cambios de catálogo se vuelven frecuentes.</p>
+
+<!-- ================= 5 ================= -->
+<h1 class="section">5. Qué falta para que el sitio quede a nombre de AMANTI <small>El traspaso, en el orden que no tumba la tienda</small></h1>
+
+<p>El orden importa: está pensado para que la tienda siga vendiendo durante todo el traspaso.</p>
+
+<ol class="steps">
+  <li><strong>Crear las cuentas de AMANTI</strong> con un correo de la empresa: una organización en GitHub, un equipo en Vercel y una organización en Supabase.
+    <span class="manual">Lo hace AMANTI, con su propio medio de pago: a partir del traspaso, cada servicio se le cobra a AMANTI directamente. El desarrollador puede decir qué plan conviene en cada uno.</span></li>
+  <li><strong>Google Analytics: primero agregar, después quitar.</strong> Se nombra administrador a una cuenta de AMANTI, y solo después se retira la de Memo.
+    <span class="manual">Es el único paso sin vuelta atrás: al revés, se pierde la medición y todo su historial, y no se recupera.</span></li>
+  <li><strong>Pasar el código</strong> de la cuenta de Memo a la organización de AMANTI en GitHub.</li>
+  <li><strong>Pasar el servidor</strong> del equipo de Izalith al de AMANTI en Vercel.</li>
+  <li><strong>Pasar la base de datos</strong> a la organización de AMANTI en Supabase, con un respaldo antes.</li>
+  <li><strong>Confirmar a nombre de quién están</strong> el dominio y Hostinger, Mercado Pago, el correo de Zoho, GoHighLevel, el asistente EROS y el WhatsApp de pedidos. Lo que no esté a nombre de AMANTI, se pasa.</li>
+  <li><strong>Cambiar todas las contraseñas y llaves de acceso.</strong> Todas las que se usaron durante la construcción de la tienda se reemplazan por nuevas, para que solo AMANTI y quien AMANTI decida puedan entrar.
+    <span class="manual">Incluida la contraseña de la cuenta de Google de AMANTI, que se escribió en el grupo de WhatsApp el 31 de agosto y no hay constancia de que se haya cambiado. Esta es la más urgente.</span></li>
+</ol>
+
+<div class="box gray">
+  <p>Los pasos 3 a 7 los ejecuta un desarrollador, y el procedimiento técnico detallado —incluido el orden exacto para cambiar las llaves sin que la tienda deje de cobrar— está en el paquete de entrega que va dentro del código (sección 7).</p>
+</div>
+
+<!-- ================= 6 ================= -->
+<h1 class="section">6. Lo que no puede esperar</h1>
+
+<table>
+  <thead>
+    <tr><th style="width:28%">Qué</th><th style="width:47%">Por qué importa</th><th style="width:25%">Cuándo y quién</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Apagar la promoción del 40%</strong></td><td>No se apaga sola. Si nadie la apaga, la tienda sigue vendiendo con 40% de descuento sin límite. Y se tiene que apagar <strong>el mismo día</strong> en la tienda y en Google Shopping: si quedan distintos, Google suspende los productos.</td><td><span class="pill bad">30 de septiembre</span><br>Desarrollador, avisando a Emilio</td></tr>
+    <tr><td><strong>El aviso «tu pedido ya salió»</strong></td><td>La página de envíos le promete por escrito al cliente que le va a llegar su número de rastreo cuando su pedido salga. Hoy no le llega: el sitio lo manda y del otro lado no hay nada conectado para recibirlo. Mientras tanto, Nancy tiene que avisar a mano.</td><td><span class="pill mid">Lo antes posible</span><br>César arma el aviso; un desarrollador lo conecta</td></tr>
+    <tr><td><strong>La contraseña de la cuenta de Google</strong></td><td>Quedó escrita en el grupo de WhatsApp. Esa cuenta maneja los anuncios y Google Shopping.</td><td><span class="pill bad">Ya</span><br>Quien administre esa cuenta</td></tr>
+    <tr><td><strong>La protección del correo</strong></td><td>Al dominio le falta un registro de seguridad del correo (se llama DMARC). Sin él, los correos de la tienda caen en spam con más facilidad, y alguien podría mandar correos haciéndose pasar por AMANTI.</td><td><span class="pill mid">Pronto</span><br>Cinco minutos en Hostinger</td></tr>
+  </tbody>
+</table>
+
+<!-- ================= 7 ================= -->
+<h1 class="section">7. Para el desarrollador que llegue</h1>
+
+<p>Toda la documentación técnica viaja dentro del código de la tienda, en una carpeta llamada <span class="mono">ENTREGA</span>. Son dieciséis documentos escritos para que alguien que nunca vio el proyecto pueda hacerse cargo solo: cómo está construida la tienda, cómo se publica un cambio, cómo se prueba, qué ha fallado antes y por qué, qué está pendiente, y el procedimiento completo del traspaso de la sección 5.</p>
+
+<div class="box">
+  <p><strong>Lo único que hay que decirle:</strong> que empiece por el archivo <span class="mono">ENTREGA/00-LEEME-PRIMERO.md</span>. Ahí está lo urgente, y le dice qué leer después según lo que necesite hacer.</p>
+</div>
+
+<p>Junto a esa carpeta van también el documento de las automatizaciones de la tienda, del 3 de septiembre, y la bitácora del proyecto, que es el registro de todo lo que se hizo y por qué.</p>
+
+<div class="foot">
+  AMANTI — Tu sitio: dónde está y cómo se administra · Estado al 18 de septiembre de 2026 · Preparado por Memo (Izalith).<br>
+  Este documento no contiene contraseñas, llaves ni PIN; esos valores viven únicamente en los paneles de cada servicio.
+</div>
+
+</body>
+</html>

@@ -148,6 +148,18 @@ primeras semanas: habla de cupones que ya no existen, dice que no hay descuentos
 cuando hay una campaña global activa, y llama «stub» a la página de cuenta, que hoy es funcional.
 Se conserva por historia. **Lo vigente es `01-panorama.md`.**
 
+### Y dos documentos para el equipo, no para ti
+
+En la raíz del repo hay dos documentos en HTML y PDF escritos para gente que no programa. No son
+referencia técnica, pero conviene leerlos una vez para saber qué se le dijo a quién:
+
+- **`AMANTI-Administracion-2026-09-18`** — para el dueño. Dónde está cada pieza de la tienda, quién
+  administra qué, cómo se pide un cambio y el traspaso contado sin tecnicismos. Si Raúl te pregunta
+  algo de eso, ésa es la versión que él leyó.
+- **`AMANTI-Automatizaciones-2026-09-03`** — para el grupo de trabajo. Cómo funcionan los correos,
+  los avisos y la medición, y quién supervisa qué. Está fechado: lo de GoHighLevel cambió después
+  (ver `04-automatizaciones-ghl.md`).
+
 ---
 
 ## Quién es quién
