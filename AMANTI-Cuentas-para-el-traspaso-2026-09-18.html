@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>AMANTI — Qué necesitamos de AMANTI para pasarle su tienda</title>
+<style>
+  @page { size: A4; margin: 17mm 16mm 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; font-size: 10.6pt; line-height: 1.5; color: #2b1a22; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; color: #5E1B33; line-height: 1.2; }
+  h1 { font-size: 20pt; margin: 18pt 0 8pt; border-bottom: 2px solid #5E1B33; padding-bottom: 5pt; page-break-after: avoid; }
+  h1.nueva { page-break-before: always; margin-top: 0; }
+  h2 { font-size: 13.5pt; margin: 14pt 0 5pt; page-break-after: avoid; }
+  p { margin: 0 0 7pt; }
+  ul { margin: 0 0 8pt 0; padding-left: 20pt; }
+  li { margin-bottom: 3pt; }
+  strong { color: #3f1224; }
+  .mono { font-family: Consolas, "Courier New", monospace; font-size: 9.4pt; background: #f6eef1; padding: 1px 4px; border-radius: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; font-size: 9.8pt; }
+  tr { page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  th, td { border: 1px solid #dcc7cf; padding: 5pt 6pt; vertical-align: top; text-align: left; }
+  th { background: #5E1B33; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #fbf6f8; }
+  .box { border: 1px solid #dcc7cf; border-left: 5px solid #5E1B33; background: #fcf6f0; padding: 8pt 10pt; margin: 8pt 0 10pt; page-break-inside: avoid; border-radius: 4px; }
+  .box.ok { border-left-color: #2e7d4f; background: #eef7f1; }
+  .box.warn { border-left-color: #d98b1c; background: #fff7e8; }
+  .box.bad { border-left-color: #C0341B; background: #fdf0ed; }
+  .box p:last-child { margin-bottom: 0; }
+  .head { border-bottom: 1px solid #dcc7cf; padding-bottom: 10pt; margin-bottom: 6pt; }
+  .head .brand { font-family: Georgia, serif; letter-spacing: .35em; font-size: 11pt; color: #C0341B; margin-bottom: 8pt; }
+  .head h1 { font-size: 24pt; border: none; margin: 0 0 6pt; padding: 0; }
+  .head .sub { font-size: 12.5pt; color: #7a2b47; font-family: Georgia, serif; margin-bottom: 8pt; }
+  .meta { color: #8a5a6c; font-size: 9.4pt; }
+  .steps { counter-reset: paso; list-style: none; padding-left: 0; }
+  .steps li { position: relative; padding-left: 28pt; margin-bottom: 7pt; page-break-inside: avoid; }
+  .steps li::before { counter-increment: paso; content: counter(paso); position: absolute; left: 0; top: 1pt; width: 19pt; height: 19pt; border-radius: 50%; background: #5E1B33; color: #fff; font-weight: 700; font-size: 9.5pt; text-align: center; line-height: 19pt; }
+  .card { border: 1px solid #dcc7cf; border-radius: 5px; margin: 10pt 0 14pt; page-break-inside: avoid; }
+  .card .top { background: #f3e6eb; padding: 6pt 10pt; font-weight: 700; color: #5E1B33; border-bottom: 1px solid #dcc7cf; font-size: 11.5pt; }
+  .card .inner { padding: 8pt 10pt 4pt; }
+  .card .send { background: #eef7f1; border-top: 1px solid #cfe6d7; padding: 6pt 10pt; font-size: 9.9pt; }
+  .card .send strong { color: #2e7d4f; }
+  .check td:first-child { width: 22pt; text-align: center; font-size: 12pt; }
+  .foot { margin-top: 18pt; font-size: 9pt; color: #8a5a6c; border-top: 1px solid #dcc7cf; padding-top: 6pt; }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <div class="brand">AMANTI</div>
+  <h1>Qué necesitamos de AMANTI para pasarle su tienda</h1>
+  <div class="sub">Las cuentas que hay que crear, qué hay que mandarle a Memo, y cómo va a ser el traspaso</div>
+  <p class="meta">18 de septiembre de 2026 · Preparado por Memo (Izalith). Acompaña a la guía «Tu sitio: dónde está y cómo se administra».</p>
+</div>
+
+<h1>En corto</h1>
+
+<p>Hoy tres piezas de la tienda están en cuentas de Memo: <strong>el código</strong> (GitHub), <strong>el servidor</strong> (Vercel) y <strong>la base de datos</strong> (Supabase). Para pasárselas a AMANTI, AMANTI tiene que tener <strong>sus propias cuentas</strong> en esos tres servicios, y dejar entrar a Memo solo el tiempo que dura el traspaso.</p>
+
+<p>No se entrega ninguna contraseña: Memo <strong>mueve</strong> cada pieza de su cuenta a la de AMANTI, y al terminar AMANTI lo saca de todo. Está planeado para que la tienda siga funcionando mientras tanto.</p>
+
+<div class="box">
+  <p><strong>Lo que tiene que hacer AMANTI son cuatro cosas:</strong> elegir un correo dueño de todo, crear tres cuentas (GitHub, Vercel y Supabase), invitar a Memo a cada una, y confirmar a nombre de quién están otros servicios. Cada una viene paso a paso abajo. Al final hay una lista para ir palomeando.</p>
+</div>
+
+<h1>Paso 1 · Un solo correo, dueño de todo</h1>
+
+<p>Antes de crear nada, decidan <strong>con qué correo</strong> se van a crear las cuentas. Ese correo va a ser el dueño de la tienda en internet, así que tiene que cumplir tres cosas:</p>
+<ul>
+  <li><strong>Que lo controle Raúl</strong>, o quien vaya a ser el responsable de la tienda.</li>
+  <li><strong>Que no se comparta.</strong> Si otras personas necesitan entrar a una cuenta, se les invita con su propio usuario; nunca se les pasa la contraseña de este correo.</li>
+  <li><strong>Que tenga verificación en dos pasos</strong> con el celular de Raúl.</li>
+</ul>
+
+<div class="box warn">
+  <p><strong>No usen <span class="mono">amanti.socialmedia@gmail.com</span>.</strong> Su contraseña ya circula en documentos y en el grupo de WhatsApp. Lo más limpio es abrir un correo nuevo solo para esto, o usar uno de la empresa que controle Raúl.</p>
+</div>
+
+<h1 class="nueva">Paso 2 · Las tres cuentas que hay que crear</h1>
+
+<p>Las tres se crean con el correo del paso 1. Cada una tarda unos minutos.</p>
+
+<div class="card">
+  <div class="top">GitHub — donde vive el código de la tienda</div>
+  <div class="inner">
+    <ol class="steps">
+      <li>Entren a <span class="mono">github.com</span>, den clic en <strong>Sign up</strong> y creen la cuenta con el correo del paso 1.</li>
+      <li>Ya dentro, creen una <strong>organización</strong> (en inglés, <em>New organization</em>) con el plan gratuito. Pónganle un nombre como <span class="mono">amanti-mx</span>.</li>
+      <li>Dentro de la organización, en <em>People</em>, <strong>inviten a Memo</strong>: su usuario de GitHub es <span class="mono">memorx</span>. Denle el rol de <em>Owner</em>; es solo mientras mueve el código, después lo quitan.</li>
+    </ol>
+  </div>
+  <div class="send"><strong>Qué le mandan a Memo:</strong> el nombre de la organización.</div>
+</div>
+
+<div class="card">
+  <div class="top">Vercel — el servidor donde la tienda está encendida</div>
+  <div class="inner">
+    <ol class="steps">
+      <li>Entren a <span class="mono">vercel.com</span> y creen la cuenta. Lo más fácil es elegir <strong>Continue with GitHub</strong> y entrar con la cuenta de GitHub que acaban de crear.</li>
+      <li>Creen un <strong>equipo</strong> (en inglés, <em>Team</em>) a nombre de AMANTI.</li>
+      <li>Vercel les va a pedir <strong>elegir un plan</strong>. Su plan gratuito es para uso personal, no comercial, así que a una tienda que vende le corresponde un plan de pago. Revisen el precio en <span class="mono">vercel.com/pricing</span> y, si tienen duda, pregúntenle a Memo antes de pagar.</li>
+      <li>En el equipo, en <em>Members</em>, <strong>inviten a Memo</strong> con el correo que él les indique. Es solo mientras mueve el servidor.</li>
+    </ol>
+  </div>
+  <div class="send"><strong>Qué le mandan a Memo:</strong> el nombre del equipo, y avisarle que ya lo invitaron.</div>
+</div>
+
+<div class="card">
+  <div class="top">Supabase — la base de datos con los pedidos y los clientes</div>
+  <div class="inner">
+    <ol class="steps">
+      <li>Entren a <span class="mono">supabase.com</span> y creen la cuenta. También pueden entrar con la cuenta de GitHub.</li>
+      <li>Creen una <strong>organización</strong> a nombre de AMANTI. <strong>No creen ningún proyecto</strong>: el proyecto de la tienda lo mueve Memo con todos sus datos.</li>
+      <li>Supabase también pide un plan. El gratuito tiene límites que no le convienen a una tienda que ya vende; pregúntenle a Memo cuál conviene antes de pagar.</li>
+      <li>En la organización, <strong>inviten a Memo como <em>Owner</em></strong>, con el correo que él les indique. Supabase exige ese rol para poder mover un proyecto. Es solo mientras dura el traspaso.</li>
+    </ol>
+  </div>
+  <div class="send"><strong>Qué le mandan a Memo:</strong> el nombre de la organización, y avisarle que ya lo invitaron.</div>
+</div>
+
+<h1>Paso 3 · Lo que no se crea, solo se confirma</h1>
+
+<p>Estos servicios no necesitan cuenta nueva: hay que confirmar a nombre de quién están y, si no están a nombre de AMANTI, pasarlos.</p>
+
+<table>
+  <thead><tr><th style="width:24%">Servicio</th><th style="width:48%">Qué hay que hacer</th><th style="width:28%">Qué le mandan a Memo</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Google Analytics</strong><br>(cuántas visitas y ventas)</td><td>Hoy está en una cuenta de Memo. Memo agrega como administrador el correo de Google que le digan, y <strong>solo después</strong> se quita él. Al revés se pierde todo el historial.</td><td>El correo de Google que será administrador. Tiene que ser una cuenta de Google.</td></tr>
+    <tr><td><strong>El dominio</strong> <span class="mono">amanti.mx</span></td><td><strong>Vence el 16 de octubre de 2026.</strong> Confirmen quién tiene la cuenta de Hostinger, que el dominio esté a nombre de AMANTI y que se renueve solo con una tarjeta de AMANTI.</td><td>Quién tiene la cuenta de Hostinger.</td></tr>
+    <tr><td><strong>Mercado Pago</strong></td><td>Ahí llega el dinero de las ventas. Confirmen que la cuenta es de AMANTI y quién tiene el acceso.</td><td>La confirmación.</td></tr>
+    <tr><td><strong>Correo</strong> <span class="mono">contacto@amanti.mx</span></td><td>Vive en Zoho. Confirmen a nombre de quién está.</td><td>La confirmación.</td></tr>
+    <tr><td><strong>Microsoft Clarity</strong><br>(cómo navegan las visitas)</td><td>Confirmen a nombre de quién está. Si es de Memo, se pasa como Google Analytics.</td><td>El correo que será administrador.</td></tr>
+    <tr><td><strong>El chat EROS</strong></td><td>Vive en un servicio llamado n8n. Hay que confirmar de quién es la cuenta y decidir si se pasa a una cuenta de AMANTI o se apaga el chat.</td><td>La decisión.</td></tr>
+  </tbody>
+</table>
+
+<h1>Paso 4 · Cómo va a ser el traspaso</h1>
+
+<ol class="steps">
+  <li><strong>Memo respalda la base de datos</strong> antes de mover nada.</li>
+  <li><strong>Memo mueve el código, el servidor y la base de datos</strong> a las cuentas de AMANTI, en ese orden y de forma que la tienda siga vendiendo.</li>
+  <li><strong>Se agrega a AMANTI en Google Analytics</strong> y se confirma que ya lo ven antes de quitar a Memo.</li>
+  <li><strong>Se cambian todas las llaves de acceso</strong> de la tienda, para que solo AMANTI y quien AMANTI decida puedan entrar. Esto conviene hacerlo en un horario de poco movimiento, porque la tienda puede dejar de cobrar unos minutos mientras se cambian. Lo ideal es que lo haga el desarrollador que se va a quedar a cargo, para que las llaves nuevas solo las conozca él.</li>
+  <li><strong>AMANTI saca a Memo de todas las cuentas.</strong> Con eso el traspaso queda cerrado.</li>
+</ol>
+
+<div class="box">
+  <p><strong>Para ponerle fecha:</strong> los pasos 1 a 3 se pueden hacer cualquier día, sin que nadie note nada. El paso 4 hay que agendarlo. Y conviene definir antes <strong>quién va a ser el desarrollador</strong> que se queda con la tienda, porque es quien recibe las llaves nuevas y el paquete técnico.</p>
+</div>
+
+<h1 class="nueva">Lista para palomear</h1>
+
+<table class="check">
+  <thead><tr><th></th><th style="width:58%">Qué</th><th>Quién</th></tr></thead>
+  <tbody>
+    <tr><td>☐</td><td>Elegir el correo dueño de todo, con verificación en dos pasos</td><td>Raúl</td></tr>
+    <tr><td>☐</td><td>Crear la cuenta y la organización de GitHub, e invitar a <span class="mono">memorx</span></td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Crear la cuenta y el equipo de Vercel, elegir plan e invitar a Memo</td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Crear la cuenta y la organización de Supabase, elegir plan e invitar a Memo como Owner</td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Mandarle a Memo el correo que será administrador de Google Analytics</td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Confirmar quién tiene Hostinger y que el dominio se renueve antes del 16 de octubre</td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Confirmar de quién son Mercado Pago, Zoho, Clarity y el chat EROS</td><td>AMANTI</td></tr>
+    <tr><td>☐</td><td>Definir quién es el desarrollador que se queda con la tienda</td><td>Raúl</td></tr>
+    <tr><td>☐</td><td>Agendar el día del cambio de llaves</td><td>Raúl y Memo</td></tr>
+    <tr><td>☐</td><td>Memo mueve código, servidor y base de datos</td><td>Memo</td></tr>
+    <tr><td>☐</td><td>Se cambian las llaves y se saca a Memo de todas las cuentas</td><td>Desarrollador y AMANTI</td></tr>
+  </tbody>
+</table>
+
+<div class="foot">
+  AMANTI — Qué necesitamos de AMANTI para pasarle su tienda · 18 de septiembre de 2026 · Preparado por Memo (Izalith).<br>
+  Este documento no contiene contraseñas, llaves ni PIN. Ninguna de estas cuentas se entrega con contraseña: se crean a nombre de AMANTI y Memo mueve las piezas.
+</div>
+
+</body>
+</html>
