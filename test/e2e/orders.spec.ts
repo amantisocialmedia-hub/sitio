@@ -83,6 +83,23 @@ test.describe('pedidos · Etapa 3', () => {
     await admin.from('orders').delete().eq('id', orders[0].id)
   })
 
+  test('FASE A · checkout PayPal de invitado crea order pending con payment_method paypal', async ({ request }) => {
+    test.skip(!guestOk, 'orders.user_id es NOT NULL — corre el ALTER')
+    // Con dirección y correo, porque sin ellos el servidor frena con 400 antes de llegar a PayPal.
+    const res = await request.post('/api/paypal-checkout', { data: {
+      items: [{ slug: 'denzel', name: 'Denzel', price: 400, quantity: 1 }],
+      envio: { email: 'amanti.qa.pp@gmail.com', recipient: 'QA PayPal', phone: '4431112233', line1: 'Calle 1 #2', city: 'Morelia', state: 'Michoacán', postal_code: '58000' },
+    } })
+    expect(res.status()).toBe(502) // credenciales dummy: PayPal rechaza el token, pero el order ya se creó
+    const { data: orders } = await admin.from('orders')
+      .select('*').is('user_id', null).eq('payment_method', 'paypal')
+      .order('created_at', { ascending: false }).limit(1)
+    expect(orders.length).toBe(1)
+    expect(orders[0].status).toBe('pending')
+    expect(orders[0].shipping_address?.postal_code).toBe('58000')
+    await admin.from('orders').delete().eq('id', orders[0].id)
+  })
+
   test('FASE B · webhook MP: aprobado -> paid (idempotente, forward-only) y pending -> cancelled', async ({ request }) => {
     // dos orders pending de prueba (con user_id para no depender del ALTER)
     const { data: o1 } = await admin.from('orders')

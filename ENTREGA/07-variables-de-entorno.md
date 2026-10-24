@@ -21,6 +21,11 @@ todo lo que el código lee. Son **nombres**, no valores.
 |---|---|---|
 | `NUXT_MP_ACCESS_TOKEN` | Production, Preview | 55 días |
 | `NUXT_MP_WEBHOOK_SECRET` | Production, Preview | 50 días |
+| `NUXT_PAYPAL_CLIENT_ID` | Production | 24-oct-2026 |
+| `NUXT_PAYPAL_CLIENT_SECRET` | Production | 24-oct-2026 |
+| `NUXT_PAYPAL_WEBHOOK_ID` | Production | 24-oct-2026 |
+| `NUXT_PAYPAL_ENV` | Production | 24-oct-2026 |
+| `NUXT_PUBLIC_PASARELA` | Production | 24-oct-2026 |
 | `SUPABASE_URL` | Production | 95 días |
 | `SUPABASE_KEY` | Production | 95 días |
 | `SUPABASE_SERVICE_ROLE_KEY` | Production | 94 días |
@@ -129,6 +134,11 @@ Columna «Dónde vive»: **Local** = tu archivo `.env`; **Vercel** = variables d
 |---|---|---|---|---|---|
 | `NUXT_MP_ACCESS_TOKEN` | Token de Mercado Pago. Crea la preferencia de pago y luego re-consulta el pago real en la API de MP. | **Privada** (`nuxt.config.ts:90`) | Ambas | Sí, si se cobra con MP | `/api/checkout` responde **400** con «Falta configurar el token de MercadoPago» (`server/api/checkout.post.ts:65-67`): el botón de pagar truena. Y el webhook responde 400 (`server/api/mp-webhook.post.ts:87`), así que ningún pedido pasa nunca a `paid`. |
 | `NUXT_MP_WEBHOOK_SECRET` | Secreto con el que se valida la firma HMAC `x-signature` de las notificaciones de MP. | **Privada** (`nuxt.config.ts:92`) | Ambas | Recomendada en prod | Nada visible: sin secreto, el bloque de validación de firma **se salta entero** (`server/api/mp-webhook.post.ts:65-66`). El pago sigue verificándose contra la API de MP, pero pierdes la capa que impide que alguien golpee el webhook a mano. Falla en silencio, que es lo peligroso. |
+| `NUXT_PAYPAL_CLIENT_ID` | Client ID de la app Live de PayPal (developer.paypal.com → Apps & Credentials). Crea y captura las órdenes. Desde el 24-oct-2026 es la pasarela del botón «Pagar». | **Privada** (`nuxt.config.ts`) | Ambas | **Sí** | `/api/paypal-checkout` responde **400** «Falta configurar PayPal»: el botón de pagar truena. |
+| `NUXT_PAYPAL_CLIENT_SECRET` | Secret de esa misma app. | **Privada** | Ambas | **Sí** | Igual que arriba. |
+| `NUXT_PAYPAL_WEBHOOK_ID` | Id del webhook registrado en PayPal (URL `https://amanti.mx/api/paypal-webhook`). Con él se valida la firma. | **Privada** | Production | Recomendada | El webhook **no valida la firma** (lo avisa en el log), pero sigue re-consultando la captura en la API de PayPal antes de tocar nada. |
+| `NUXT_PAYPAL_ENV` | `live` o `sandbox`. | **Privada** | Ambas | No | Vacía = `live` en el deploy de producción de Vercel, `sandbox` en local y previews. |
+| `NUXT_PUBLIC_PASARELA` | `paypal` (predeterminado) o `mercadopago`: a dónde manda el botón «Pagar». | **Pública** | Ambas | No | Vacía = PayPal. |
 | `NUXT_STRIPE_SECRET_KEY` | Llave secreta de Stripe (`sk_…`). Crea la Checkout Session. | **Privada** (`nuxt.config.ts:94`) | Ambas | Sí, si el botón de tarjeta está encendido | `/api/stripe-checkout` responde **400** «Falta configurar la llave de Stripe» (`server/api/stripe-checkout.post.ts:18-20`). Además, en un reembolso el webhook no puede resolver a qué pedido pertenece el cargo (`server/api/stripe-webhook.post.ts:85-89`). |
 | `NUXT_STRIPE_WEBHOOK_SECRET` | Signing secret (`whsec_…`) con el que se verifica la firma de los eventos de Stripe. | **Privada** (`nuxt.config.ts:96`) | Ambas | **Sí, sin excepción** si Stripe está encendido | **Todos** los eventos de Stripe se rechazan con 400 (`server/api/stripe-webhook.post.ts:67`). El cliente paga con tarjeta, Stripe cobra, y el pedido se queda en `pending` para siempre. Nadie lo surte y nadie se entera. Ver la advertencia de abajo. |
 

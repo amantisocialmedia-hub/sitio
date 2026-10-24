@@ -38,6 +38,10 @@ export default defineConfig({
       // Token MP dummy: deja pasar el check y ejercita la creación del order; la llamada a MP
       // falla (401) y el order queda 'pending'. En prod el token real va en NUXT_MP_ACCESS_TOKEN.
       NUXT_MP_ACCESS_TOKEN: 'TEST-MP-INVALID',
+      // Igual para PayPal: credenciales dummy en sandbox. El token falla (401), el order queda 'pending'.
+      NUXT_PAYPAL_CLIENT_ID: 'TEST-PAYPAL-INVALID',
+      NUXT_PAYPAL_CLIENT_SECRET: 'TEST-PAYPAL-INVALID',
+      NUXT_PAYPAL_ENV: 'sandbox',
       // Modo test del webhook: SOLO se activa fuera de producción. Por eso forzamos NODE_ENV!=production
       // aquí; en prod (Vercel) NODE_ENV='production' deshabilita el bypass aunque la var existiera.
       NODE_ENV: 'test',

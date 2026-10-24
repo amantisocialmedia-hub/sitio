@@ -19,6 +19,11 @@ const errorMsg = ref('')
 // Muestra el botón "Pagar con tarjeta" (Stripe) solo si NUXT_PUBLIC_STRIPE_ENABLED está activo.
 const stripeEnabled = computed(() => !!useRuntimeConfig().public.stripeEnabled)
 
+// A dónde manda el botón "Pagar". Desde el 24-oct-2026 va a PayPal, a pedido de
+// AMANTI; Mercado Pago sigue en el código detrás de NUXT_PUBLIC_PASARELA=mercadopago.
+const pasarela = computed(() => (String(useRuntimeConfig().public.pasarela || 'paypal') === 'mercadopago' ? 'mercadopago' : 'paypal'))
+const nombrePasarela = computed(() => (pasarela.value === 'mercadopago' ? 'Mercado Pago' : 'PayPal'))
+
 // --- Cupón de descuento ---
 const couponInput = ref('')
 const couponBusy = ref(false)
@@ -85,7 +90,7 @@ onMounted(() => {
 
 // Costo de envio. El valor autoritativo es el del servidor (NUXT_ENVIO_COSTO);
 // esto solo lo pinta para que el cliente lo vea ANTES de pagar y no se lleve la
-// sorpresa en Mercado Pago.
+// sorpresa ya dentro de la pasarela.
 const cfgEnvio = useRuntimeConfig().public
 const costoEnvio = computed(() => Number(cfgEnvio.envioCosto || 0) || 0)
 const envioACobrar = computed(() =>
@@ -142,8 +147,9 @@ function guardarEnvio() {
 
 /** Lo minimo para que la paqueteria pueda entregar. */
 const envioCompleto = computed(() =>
-  // El correo es tan obligatorio como la calle: sin el, Mercado Pago pinta el
-  // checkout pero nunca habilita el boton de pagar. Ver server/api/checkout.post.ts.
+  // El correo es tan obligatorio como la calle: sin el no hay a quien avisarle
+  // que su compra salio (y con Mercado Pago ni se habilitaba el boton de pagar).
+  // Ver server/utils/comprador.ts.
   (CORREO.test(envio.value.email.trim()) || !!usuario.value?.email) &&
   !!envio.value.recipient.trim() && !!envio.value.phone.trim() && !!envio.value.line1.trim() &&
   !!envio.value.city.trim() && !!envio.value.state.trim() && /^\d{5}$/.test(envio.value.postal_code.trim()),
@@ -173,24 +179,29 @@ async function checkout() {
   errorMsg.value = ''
   loading.value = true
   try {
-    // El correo viaja dentro de `envio` y el servidor lo pasa al `payer` de
-    // Mercado Pago. SIN el, MP pinta el checkout completo pero nunca habilita el
-    // boton de pagar -- el cliente llega hasta el final y no puede cerrar la
-    // compra, sin mensaje de error. Si hay sesion, el servidor usa el de la
-    // cuenta y este se ignora.
-    const res = await $fetch<{ init_point: string }>('/api/checkout', {
-      method: 'POST',
-      body: {
-        items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
-        gift: cart.gift,
-        coupon: cart.coupon?.code,
-        envio: envio.value,
-      },
-    })
-    if (res?.init_point) window.location.href = res.init_point
-    else errorMsg.value = 'No se recibió el enlace de pago.'
+    // El correo viaja dentro de `envio`: el servidor lo necesita para avisarle
+    // al cliente que su compra salió, y con Mercado Pago ademas va al `payer`
+    // (sin el, MP pinta el checkout completo pero nunca habilita el boton de
+    // pagar). Si hay sesion, el servidor usa el de la cuenta y este se ignora.
+    const body = {
+      items: cart.items.map(i => ({ slug: i.slug, name: i.name, price: i.price, quantity: i.quantity })),
+      gift: cart.gift,
+      coupon: cart.coupon?.code,
+      envio: envio.value,
+    }
+    if (pasarela.value === 'paypal') {
+      // El servidor crea el pedido y la orden de PayPal; el cliente aprueba en
+      // PayPal y regresa a /api/paypal-return, que cobra y lo trae a /carrito.
+      const res = await $fetch<{ url: string }>('/api/paypal-checkout', { method: 'POST', body })
+      if (res?.url) window.location.href = res.url
+      else errorMsg.value = 'No se recibió el enlace de pago.'
+    } else {
+      const res = await $fetch<{ init_point: string }>('/api/checkout', { method: 'POST', body })
+      if (res?.init_point) window.location.href = res.init_point
+      else errorMsg.value = 'No se recibió el enlace de pago.'
+    }
   } catch (e: any) {
-    errorMsg.value = e?.data?.message || 'No se pudo iniciar el pago. Configura MercadoPago o usa WhatsApp.'
+    errorMsg.value = e?.data?.message || 'No se pudo iniciar el pago. Intenta de nuevo o usa WhatsApp.'
   } finally {
     loading.value = false
   }
@@ -416,12 +427,13 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <span class="pt-disc">🕵️ Entrega 100% discreta · caja sin logo</span>
           <div class="pay-icons" aria-hidden="true">
             <span class="pi pi-visa">Visa</span><span class="pi pi-mc">MC</span><span class="pi pi-amex">Amex</span>
-            <span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span><span class="pi pi-msi">MSI</span>
+            <template v-if="pasarela === 'paypal'"><span class="pi pi-pp">PayPal</span></template>
+            <template v-else><span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span><span class="pi pi-msi">MSI</span></template>
           </div>
           <!-- Raul (27-ago-2026): la gente le pica a "Visa" creyendo que es un
                boton y no pasa nada. Los logos dicen QUE se acepta, no COMO se
-               paga: todo entra por Mercado Pago y ahi se elige. -->
-          <p class="pt-como">Eliges cuál al pagar, dentro de Mercado Pago.</p>
+               paga: todo entra por la pasarela y ahi se elige. -->
+          <p class="pt-como">Eliges cuál al pagar, dentro de {{ nombrePasarela }}.</p>
         </div>
 
         <button ref="payBtnEl" class="btn magenta block" :disabled="loading" @click="checkout">

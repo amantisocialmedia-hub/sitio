@@ -289,7 +289,7 @@ useSeoMeta({
       <div class="sec-head" v-reveal><h2>Preguntas frecuentes</h2></div>
       <div class="faq">
         <details open><summary>¿Hacen entregas discretas en todo México?</summary><p>Sí. Tu pedido llega en empaque neutro, sin marcas ni nada que revele el contenido.</p></details>
-        <details><summary>¿Es seguro comprar aquí?</summary><p>Totalmente. Pago seguro con MercadoPago, y también puedes ordenar por WhatsApp con cero juicios.</p></details>
+        <details><summary>¿Es seguro comprar aquí?</summary><p>Totalmente. Pago seguro con PayPal, y también puedes ordenar por WhatsApp con cero juicios.</p></details>
         <details><summary>¿Tienen opciones para principiantes?</summary><p>¡Claro! Revisa el Kit Ritual Completo o escríbenos por WhatsApp y te orientamos sin pena.</p></details>
         <details><summary>¿Puedo regalar un juguete sin que se note qué es?</summary><p>Sí, el empaque es 100% discreto — perfecto para regalar(te).</p></details>
       </div>

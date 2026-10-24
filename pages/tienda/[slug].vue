@@ -3,7 +3,7 @@ import reviewsData from '~/data/reviews.json'
 import { nombreResena } from '~/utils/nombreResena'
 const route = useRoute()
 const config = useRuntimeConfig()
-const { getBySlug, related, peso, msi, categoryName } = useProducts()
+const { getBySlug, related, peso, categoryName } = useProducts()
 const cart = useCartStore()
 const wishlist = useWishlistStore()
 const { openCart } = useCartUI()
@@ -412,19 +412,17 @@ useSeoMeta({
             <div class="lbl">Formas de Pago:</div>
             <div class="pay-icons">
               <span class="pi pi-amex">AMEX</span><span class="pi pi-visa">VISA</span><span class="pi pi-mc">MC</span>
-              <span class="pi pi-mp">MercadoPago</span><span class="pi pi-oxxo">OXXO</span>
-              <span class="pi pi-spei">SPEI</span><span class="pi pi-msi">Meses sin intereses</span>
+              <span class="pi pi-pp">PayPal</span>
             </div>
             <!-- Aclaración: los logos son informativos, no botones. Raúl reportó que
                  les daba clic esperando que abrieran algo. -->
-            <p class="paynote">Eliges cuál al pagar, dentro de Mercado Pago.</p>
+            <p class="paynote">Eliges cuál al pagar, dentro de PayPal.</p>
           </div>
 
-          <div class="msi-note" v-if="product.price >= 300">
-            <b>3 meses sin intereses</b> de {{ msi(product.price) }} con tarjetas participantes
-          </div>
-          <div class="msi-note" v-else>
-            Pago 100% seguro con MercadoPago · tarjetas, OXXO y transferencia
+          <!-- Con Mercado Pago aquí se anunciaban 3 meses sin intereses, OXXO y
+               SPEI. PayPal no los garantiza, así que no se prometen (24-oct-2026). -->
+          <div class="msi-note">
+            Pago 100% seguro con PayPal · tarjeta de crédito, débito o saldo PayPal
           </div>
 
           <div class="qtybox">
@@ -486,7 +484,7 @@ useSeoMeta({
               </div>
             </div>
             <div v-else-if="tab === 'pol'" key="pol">
-              <p>Compra 100% segura. Aceptamos tarjetas, MercadoPago y pago en OXXO. Puedes pagar a 3 meses sin intereses con tarjetas participantes.</p>
+              <p>Compra 100% segura. El cobro lo procesa PayPal: puedes pagar con tarjeta de crédito o débito, o con tu saldo de PayPal.</p>
               <p>Si tienes dudas antes de comprar, escríbenos por WhatsApp y te orientamos sin juicios.</p>
             </div>
             <div v-else-if="tab === 'env'" key="env">

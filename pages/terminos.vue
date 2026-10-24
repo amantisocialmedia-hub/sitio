@@ -18,7 +18,7 @@ const wa = `https://wa.me/${config.public.whatsappPhone}`
     <p>Al realizar un pedido recibirás una confirmación. El contrato de compraventa se forma cuando AMANTI confirma el envío. AMANTI puede rechazar o cancelar pedidos por falta de existencias, errores de precio/información o sospecha de fraude.</p>
 
     <h2>Precios, pagos y facturación</h2>
-    <p>Aceptamos pago con MercadoPago (tarjetas de crédito y débito, y meses sin intereses cuando aplique) y pedidos por WhatsApp. Los pagos se procesan mediante plataformas de terceros sujetas a sus propios términos. Para factura, escríbenos a hola@amanti.mx con tu pedido y tus datos fiscales dentro del mismo mes de la compra.</p>
+    <p>Aceptamos pago con PayPal (tarjetas de crédito y débito, o saldo de PayPal) y pedidos por WhatsApp. Los pagos se procesan mediante plataformas de terceros sujetas a sus propios términos. Para factura, escríbenos a hola@amanti.mx con tu pedido y tus datos fiscales dentro del mismo mes de la compra.</p>
 
     <h2>Envíos</h2>
     <p>Los envíos se rigen por la Política de Envíos del sitio y se entregan en empaque discreto. Los tiempos son estimados y pueden variar por causas ajenas a AMANTI.</p>

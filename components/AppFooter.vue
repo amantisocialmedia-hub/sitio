@@ -68,7 +68,7 @@
         <span>© 2026 AMANTI · Hecho en México 🇲🇽 · +18</span>
         <div class="pays">
           <span class="pp">Visa</span><span class="pp">Mastercard</span><span class="pp">Amex</span>
-          <span class="pp">MercadoPago</span><span class="pp">OXXO</span><span class="pp">MSI</span>
+          <span class="pp">PayPal</span>
         </div>
       </div>
     </div>

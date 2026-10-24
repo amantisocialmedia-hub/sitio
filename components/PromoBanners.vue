@@ -8,11 +8,14 @@ withDefaults(defineProps<{ show?: 'all' | 'mp' | 'aplazo' }>(), { show: 'all' })
 
 <template>
   <div>
+    <!-- Hasta el 24-oct-2026 esta banda anunciaba el «hasta 15% OFF» de los
+         bancos de Mercado Pago. Con PayPal esa promoción no existe: queda el
+         cupón, que sí es nuestro. -->
     <div v-if="show !== 'aplazo'" class="mpband">
-      <span class="mp">Mercado Pago</span>
-      <span class="off">Hasta 15% OFF</span>
-      <span class="sub">al pagar con Mercado Pago</span>
-      <span class="banks">BBVA · HSBC · Amex · Afirme · Inbursa · y más</span>
+      <span class="mp">PayPal</span>
+      <span class="off">15% OFF</span>
+      <span class="sub">con el cupón al pagar</span>
+      <span class="banks">Tarjeta de crédito, débito o saldo PayPal</span>
       <span class="cup">Cupón AMANTI15</span>
     </div>
   </div>

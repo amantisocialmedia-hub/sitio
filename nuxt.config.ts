@@ -94,6 +94,14 @@ export default defineNuxtConfig({
     stripeSecretKey: '',
     // privado (servidor) — NUXT_STRIPE_WEBHOOK_SECRET (Stripe → Developers → Webhooks → Signing secret, whsec_…). Valida la firma.
     stripeWebhookSecret: '',
+    // privado (servidor) — PayPal (developer.paypal.com → Apps & Credentials → app Live).
+    // NUXT_PAYPAL_CLIENT_ID y NUXT_PAYPAL_CLIENT_SECRET: crean y capturan las órdenes.
+    paypalClientId: '',
+    paypalClientSecret: '',
+    // NUXT_PAYPAL_WEBHOOK_ID: id del webhook registrado en PayPal; con él se valida la firma.
+    paypalWebhookId: '',
+    // NUXT_PAYPAL_ENV: 'live' o 'sandbox'. Vacío = live en producción de Vercel, sandbox en todo lo demás.
+    paypalEnv: '',
     // privado (servidor) — webhook del agente EROS en n8n. /api/chat hace de proxy (evita CORS,
     // oculta la URL al cliente). Sobreescribible por NUXT_N8N_CHAT_WEBHOOK.
     n8nChatWebhook: 'https://madebyhumano.app.n8n.cloud/webhook/amanti-chat',
@@ -118,6 +126,10 @@ export default defineNuxtConfig({
       publicBaseUrl: 'http://localhost:3000',
       // NUXT_PUBLIC_STRIPE_ENABLED — "1" para mostrar el botón "Pagar con tarjeta" (Stripe); vacío = oculto.
       stripeEnabled: '',
+      // NUXT_PUBLIC_PASARELA — a dónde manda el botón "Pagar": 'paypal' (desde el
+      // 24-oct-2026, a pedido de AMANTI) o 'mercadopago' (lo anterior; sigue en el
+      // código por si hay que regresar sin tocar nada más que esta variable).
+      pasarela: 'paypal',
       // NUXT_PUBLIC_ENVIO_COSTO — lo que se cobra de envío bajo los $1,000.
       // Vacío o "0" = envío gratis para todos, que es como estaba el sitio.
       // El servidor lee NUXT_ENVIO_COSTO (sin PUBLIC) y ESE es el autoritativo:

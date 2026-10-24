@@ -6,6 +6,28 @@ Todo lo que sigue está verificado leyendo el repo. Lo que no se puede leer desd
 
 ---
 
+## 0. Desde el 24 de octubre de 2026: PayPal
+
+A pedido de AMANTI, el botón «Pagar» del carrito ya no manda a Mercado Pago sino a **PayPal** (Checkout Orders v2, cobro inmediato). Mercado Pago sigue en el código y se vuelve a activar con `NUXT_PUBLIC_PASARELA=mercadopago`, sin tocar nada más.
+
+| Archivo | Qué hace |
+|---|---|
+| `server/api/paypal-checkout.post.ts` | Crea el pedido `pending` y la orden de PayPal (`custom_id` = id del pedido). Devuelve la URL de aprobación |
+| `server/api/paypal-return.get.ts` | A donde PayPal regresa al cliente. **Aquí se cobra** (captura) y se marca el pedido; luego manda a `/carrito?status=…` |
+| `server/api/paypal-webhook.post.ts` | Respaldo: cobra si el cliente cerró la pestaña después de aprobar, y aplica rechazos y reembolsos. Valida la firma con PayPal y re-consulta la captura antes de tocar nada |
+| `server/utils/paypal.ts` | Lo puro: montos en centavos, desglose, dirección, lectura de respuestas, mapeo de estados. Pruebas en `test/unit/paypal.test.ts` |
+| `server/utils/paypalPedido.ts` | Captura + marcado del pedido, compartido por el regreso y el webhook |
+| `server/utils/pagoConfirmado.ts` | **La autoridad sobre el estado del pedido**, ahora compartida por las dos pasarelas: idempotente, solo hacia adelante, atómica, y el aviso a GoHighLevel |
+| `server/utils/comprador.ts` | Correo y nombre del comprador (regla compartida) |
+| `supabase/orders-paypal.sql` | Dos columnas opcionales: `paypal_order_id`, `paypal_capture_id` |
+| `server/api/keepalive.get.ts` | Toque diario a Supabase (cron de Vercel) para que el plan Free no pause el proyecto |
+
+Variables: `NUXT_PAYPAL_CLIENT_ID`, `NUXT_PAYPAL_CLIENT_SECRET`, `NUXT_PAYPAL_WEBHOOK_ID`, `NUXT_PAYPAL_ENV` (`live`/`sandbox`) y `NUXT_PUBLIC_PASARELA`. Ver la sección 07.
+
+El flujo: carrito → `POST /api/paypal-checkout` → el cliente aprueba en PayPal → `GET /api/paypal-return?order=…&token=…` cobra y redirige a `/carrito?status=success|pending|failure`. El webhook (`CHECKOUT.ORDER.APPROVED`, `PAYMENT.CAPTURE.*`) llega aparte y termina igual. Lo que sigue describe el camino de Mercado Pago; las reglas de dinero (precios del servidor, cupón re-validado, sin dirección no se cobra, el total cuadra al centavo) son las mismas.
+
+---
+
 ## 1. Mapa de archivos
 
 | Archivo | Qué hace |

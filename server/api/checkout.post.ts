@@ -4,60 +4,16 @@
 // 3) Guarda el mp_preference_id en el order y devuelve el init_point.
 // Requiere NUXT_MP_ACCESS_TOKEN (token MP) y SUPABASE_SERVICE_ROLE_KEY (server).
 import { defineEventHandler, readBody, createError } from 'h3'
-import { serverSupabaseUser } from '#supabase/server'
 import { createPendingOrder } from '../utils/orders'
 import { round2 } from '../utils/orderItems'
 import type { InCartItem } from '../utils/orderItems'
 import { supabaseAdmin } from '../utils/supabaseAdmin'
-import { correoValido } from '../utils/envio'
 import { baseParaPasarela } from '../utils/baseUrl'
+import { datosDelComprador } from '../utils/comprador'
 
-/**
- * Datos del comprador para la preferencia de Mercado Pago.
- *
- * POR QUE ESTO IMPORTA: sin `payer.email`, MP pinta el checkout completo
- * --tarjeta, mensualidades, todo-- pero el boton de pagar NUNCA se habilita.
- * El cliente llega hasta el final y no puede cerrar la compra, sin mensaje de
- * error. Raul lo reporto el 26-ago-2026 con dos tarjetas distintas: "Solo
- * ingreso el tipo de pago pero no me deja pagar".
- *
- * Es tambien la explicacion de por que la conversion de compra de Google Ads
- * llevaba en 0: no es que no disparara, es que nunca hubo una compra que la
- * disparara.
- *
- * De donde sale el correo, en orden: la sesion de Supabase si la hay, y si no
- * el que el cliente escribio en el carrito (compra de invitado). Si no hay
- * ninguno, se manda sin `payer` -- MP deja que el comprador lo teclee en su
- * pantalla, que es peor experiencia pero no bloquea.
- */
-async function datosDelComprador(event: any, body: any) {
-  let email: string | null = null
-  try {
-    const u = (await serverSupabaseUser(event)) as any
-    email = u?.email ?? null
-  } catch { /* sin sesion: compra de invitado */ }
-
-  // Sin sesion, el correo sale del formulario de envio. Antes se leia de
-  // localStorage ('amanti_email'), pero ese dato lo escribia el modal de
-  // bienvenida y ese modal se sustituyo por el formulario de GoHighLevel: la
-  // llave quedo huerfana y para un invitado SIEMPRE era null. Resultado: la
-  // preferencia se creaba sin `payer` y Mercado Pago pintaba el checkout
-  // completo sin habilitar nunca el boton de pagar. Lo reporto Raul el
-  // 27-ago-2026: «me comentan que no pidio correo electronico solo la
-  // direccion».
-  email = email || correoValido(body?.envio?.email) || correoValido(body?.payer?.email) || null
-  if (!email) return undefined
-
-  // El nombre de quien recibe sirve tambien como nombre del pagador: es la
-  // misma persona en la practica y MP muestra el checkout mas completo.
-  const nombre = String(body?.payer?.name || body?.envio?.recipient || '').trim().split(/\s+/)[0] || ''
-  const apellido = String(body?.payer?.surname || '').trim()
-  return {
-    email,
-    ...(nombre ? { name: nombre } : {}),
-    ...(apellido ? { surname: apellido } : {}),
-  }
-}
+// Datos del comprador (correo y nombre): la regla vive en server/utils/comprador.ts,
+// compartida con PayPal. Sin correo el checkout se detiene aqui, porque alla MP
+// pintaria el checkout entero sin habilitar nunca el boton de pagar.
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()

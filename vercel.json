@@ -745,5 +745,11 @@
       "destination": "/tienda?cat=lubricantes",
       "statusCode": 301
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/keepalive",
+      "schedule": "0 13 * * *"
+    }
   ]
 }
