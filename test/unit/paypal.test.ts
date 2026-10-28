@@ -164,6 +164,10 @@ describe('cuerpo de la orden', () => {
     expect(ctx.locale).toBe('es-MX')
   })
 
+  it('abre el formulario de tarjeta sin pedir iniciar sesión en PayPal', () => {
+    expect(armarOrdenPaypal(base).payment_source.paypal.experience_context.landing_page).toBe('GUEST_CHECKOUT')
+  })
+
   it('con dirección la fija; sin dirección no pide ninguna', () => {
     expect(armarOrdenPaypal(base).payment_source.paypal.experience_context.shipping_preference).toBe('SET_PROVIDED_ADDRESS')
     expect(armarOrdenPaypal({ ...base, conDireccion: false }).payment_source.paypal.experience_context.shipping_preference).toBe('NO_SHIPPING')

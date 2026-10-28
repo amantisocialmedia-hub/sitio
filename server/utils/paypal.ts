@@ -206,7 +206,11 @@ export function armarOrdenPaypal(params: {
         experience_context: {
           brand_name: 'AMANTI',
           locale: 'es-MX',
-          landing_page: 'NO_PREFERENCE',
+          // Abre directo el formulario de tarjeta, sin pedir iniciar sesión en
+          // PayPal (AMANTI lo pidió el 27/10). Quien tenga cuenta puede entrar
+          // desde ahí. Requiere «Pago como usuario no registrado» activado en
+          // su cuenta de PayPal; si se apaga, PayPal vuelve a pedir el login.
+          landing_page: 'GUEST_CHECKOUT',
           // Con dirección: PayPal la muestra tal cual y no deja cambiarla (es la
           // que el cliente acaba de escribir en el carrito y la que se guarda).
           shipping_preference: unit.shipping ? 'SET_PROVIDED_ADDRESS' : 'NO_SHIPPING',
