@@ -1,10 +1,10 @@
-// Campaña de descuento global ("AMANTI sin filtros", 40% en todo el catálogo).
+// Campaña de descuento global ("AMANTI sin filtros", porcentaje vigente en todo el catálogo).
 //
 // POR QUÉ VIVE AQUÍ Y NO EN UNA VARIABLE DE ENTORNO:
 // el precio que ve el cliente y el precio que se le cobra TIENEN que salir del
 // mismo cálculo. Si el interruptor viviera en el entorno, el navegador y el
 // servidor podrían leer valores distintos durante un despliegue y acabaríamos
-// enseñando 40% y cobrando el precio completo. Un flag en el código viaja en el
+// anunciando un descuento y cobrando el precio completo. Un flag en el código viaja en el
 // mismo bundle para los dos lados: o está encendido en todos, o en ninguno.
 //
 // PARA ENCENDER LA CAMPAÑA: cambia `activa` a true y despliega. Eso es todo.
@@ -21,7 +21,7 @@ export interface CampanaCfg {
   nombre: string
   /** Frase corta bajo el título del banner. */
   gancho: string
-  /** Fracción de descuento: 0.4 = 40%. */
+  /** Fracción de descuento: 0.2 = 20%. */
   descuento: number
 }
 
@@ -31,7 +31,7 @@ export interface CampanaCfg {
 // el 40%». Cesar: «yo lo dejaria todo septiembre».
 //
 // NO se apaga solo. Esto es un booleano y alguien tiene que venir a ponerlo en
-// false. Si el 1 de octubre nadie lo hace, la tienda sigue regalando el 40%
+// false. Si nadie lo hace, la tienda sigue aplicando el descuento configurado
 // indefinidamente y nada avisa.
 //
 // Por eso tampoco se le puso `sale_price_effective_date` al feed de Google (ver
@@ -42,8 +42,8 @@ export interface CampanaCfg {
 export const CAMPANA: CampanaCfg = {
   activa: true,
   nombre: 'AMANTI sin filtros',
-  gancho: '40% de descuento en toda la tienda',
-  descuento: 0.4,
+  gancho: '20% de descuento en toda la tienda',
+  descuento: 0.2,
 }
 
 // ---------------------------------------------------------------------------
@@ -53,9 +53,9 @@ export const CAMPANA: CampanaCfg = {
 // una fecha concreta (fiestas patrias 2026) y que tiene que desaparecer sin que
 // nadie se acuerde de venir a apagarla.
 //
-// Va atado a `CAMPANA.activa` a propósito: el banner anuncia el mismo 40%, así que
-// si la campaña se apagara antes, el banner no puede quedarse prometiendo un
-// descuento que la tienda ya no da.
+// El banner patrio es histórico (septiembre 2026) y su imagen anuncia 40%.
+// Está expirado; no reutilizarlo sin renovar imagen y texto. La condición
+// `CAMPANA.activa` evita mostrarlo si se apaga la promoción.
 //
 // PARA CAMBIAR LAS FECHAS: `desde` y `hasta` son días de calendario en hora de
 // México, los dos INCLUSIVE. Con `hasta: '2026-09-16'` el banner se ve todo el 16 y
@@ -125,19 +125,19 @@ const ANUNCIAR_CUPONES = false
 
 /**
  * Si el sitio anuncia cupones ahora mismo.
- * Durante la campaña siempre es false aunque se prenda arriba: el 40% es el
- * mensaje, y dos descuentos encimados confunden y se restan entre sí.
+ * Durante la campaña siempre es false aunque se prenda arriba: el descuento
+ * global es el mensaje, y dos descuentos encimados confunden y se restan entre sí.
  */
 export const MOSTRAR_CUPONES = ANUNCIAR_CUPONES && !CAMPANA.activa
 
 /**
  * Si el servidor acepta cupones al cobrar.
- * Con la campaña encendida NO: el catálogo ya trae el 40% y un AMANTI15 encima
- * dejaría la venta en 49% de descuento sin que nadie lo haya decidido.
+ * Con la campaña encendida NO: el catálogo ya trae el descuento global,
+ * y no se deben acumular cupones sin una decisión comercial.
  */
 export const CUPONES_ACEPTADOS = !CAMPANA.activa
 
-/** El 40% en número entero, para los textos ("40% OFF"). */
+/** Porcentaje vigente en número entero para los textos (p. ej. "20% OFF"). */
 export const CAMPANA_PCT = Math.round(CAMPANA.descuento * 100)
 
 /**
