@@ -4,9 +4,7 @@ import { aplicarCampana } from '~/utils/campana'
 import { useAnalytics } from '~/composables/useAnalytics'
 import { waRef } from '~/utils/gclid'
 
-/** Umbral de envío gratis (MXN). Fuente única de verdad para carrito, drawer y textos.
- *  El envío gratis aplica con SUBTOTAL (no número de artículos) >= este monto. */
-export const FREE_SHIPPING_THRESHOLD = 1000
+import { calcularEnvio, FREE_SHIPPING_THRESHOLD } from '~/utils/shipping'
 
 const round2 = (n: number) => Math.round(n * 100) / 100
 
@@ -63,6 +61,12 @@ export const useCartStore = defineStore('cart', {
     // modos — el cliente vería un total y pagaría otro.
     freeShipping(): boolean {
       return this.totalWithDiscount >= FREE_SHIPPING_THRESHOLD
+    },
+    shippingCost(): number {
+      return this.isEmpty ? 0 : calcularEnvio(this.totalWithDiscount)
+    },
+    totalToPay(): number {
+      return round2(this.totalWithDiscount + this.shippingCost)
     },
     // Cuánto falta para alcanzar el envío gratis (0 si ya califica).
     freeShippingRemaining(): number {
@@ -136,8 +140,8 @@ export const useCartStore = defineStore('cart', {
       // El envio se desglosa aqui igual que en el resumen del carrito. Este mensaje
       // y el pedido que /api/order-whatsapp guarda son la MISMA venta: si aqui
       // dijera un total y en la pantalla de Nancy apareciera otro, alguien acaba
-      // cobrando de menos. El monto sale de la misma variable que usa el servidor.
-      const envio = this.freeShipping ? 0 : Number(config.public.envioCosto || 0) || 0
+      // cobrando de menos. El monto sale de la misma regla que usa el servidor.
+      const envio = this.shippingCost
       if (this.coupon && this.discount > 0) {
         msg += `\nSubtotal: $${this.totalPrice.toLocaleString('es-MX')} MXN`
         msg += `\nCupón ${this.coupon.code}: −$${this.discount.toLocaleString('es-MX')} MXN`

@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { FREE_SHIPPING_THRESHOLD } from '~/stores/cart'
+import { FREE_SHIPPING_THRESHOLD } from '~/utils/shipping'
 const route = useRoute()
 const cart = useCartStore()
-const { bestsellers, peso } = useProducts()
+const { bestsellers } = useProducts()
+// Conserva centavos del cupón: el total visible debe coincidir con la pasarela.
+const peso = (n: number) => '$ ' + n.toLocaleString('es-MX', { maximumFractionDigits: 2 })
 const masVendido = bestsellers()
 const analytics = useAnalytics()
 // Con sesion el correo sale de la cuenta; sin ella, del formulario de envio.
 const usuario = useSupabaseUser()
 
-// Umbral de envío gratis (fuente única en el store): barra de progreso motivacional.
+// Umbral de envío gratis (regla compartida con el servidor): barra de progreso motivacional.
 const freeLeft = computed(() => cart.freeShippingRemaining)
-const freePct = computed(() => Math.min(100, Math.round((cart.totalPrice / FREE_SHIPPING_THRESHOLD) * 100)))
+const freePct = computed(() => Math.min(100, Math.round((cart.totalWithDiscount / FREE_SHIPPING_THRESHOLD) * 100)))
 
 const loading = ref(false)
 const stripeLoading = ref(false)
@@ -88,20 +90,9 @@ onMounted(() => {
   else cart.refreshPrices()
 })
 
-// Costo de envio. El valor autoritativo es el del servidor (NUXT_ENVIO_COSTO);
-// esto solo lo pinta para que el cliente lo vea ANTES de pagar y no se lleve la
-// sorpresa ya dentro de la pasarela.
-const cfgEnvio = useRuntimeConfig().public
-const costoEnvio = computed(() => Number(cfgEnvio.envioCosto || 0) || 0)
-const envioACobrar = computed(() =>
-  costoEnvio.value > 0 && !cart.freeShipping ? costoEnvio.value : 0,
-)
-const totalAPagar = computed(() => cart.totalWithDiscount + envioACobrar.value)
-const envioTexto = computed(() => {
-  if (cart.freeShipping) return 'Gratis'
-  if (envioACobrar.value > 0) return peso(envioACobrar.value)
-  return 'Gratis'  // costo no configurado: se comporta como antes
-})
+// Mismo cálculo que el pedido del servidor y WhatsApp.
+const totalAPagar = computed(() => cart.totalToPay)
+const envioTexto = computed(() => cart.shippingCost > 0 ? peso(cart.shippingCost) : 'Gratis')
 
 /**
  * Direccion de envio.
@@ -455,7 +446,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
       <div v-if="showPayBar && !cart.isEmpty" class="stickybuy cartbar">
         <div class="sb-info">
           <span class="sb-meta">Total</span>
-          <b class="cb-total">{{ peso(cart.totalWithDiscount) }}</b>
+          <b class="cb-total">{{ peso(totalAPagar) }}</b>
         </div>
         <button class="btn magenta sb-btn" :disabled="loading" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar' }}

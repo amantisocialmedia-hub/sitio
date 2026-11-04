@@ -4,7 +4,8 @@ import { setActivePinia, createPinia } from 'pinia'
 // useRuntimeConfig es un auto-import de Nuxt; lo stubeamos para el entorno de test.
 vi.stubGlobal('useRuntimeConfig', () => ({ public: { whatsappPhone: '5214431112233' } }))
 
-import { useCartStore, FREE_SHIPPING_THRESHOLD } from '~/stores/cart'
+import { useCartStore } from '~/stores/cart'
+import { FREE_SHIPPING_THRESHOLD } from '~/utils/shipping'
 
 const P = (over = {}) => ({ slug: 'vibrating-g', name: 'Vibrating G', price: 1013, emoji: '🪐', bg: '#fff', ...over })
 
@@ -162,13 +163,13 @@ describe('cart store', () => {
     })
 
     it('desglosa el envío y suma el total bajo el umbral', () => {
-      conEnvio(70)
+      conEnvio(70) // Una variable antigua ya no altera la regla de $80
       const c = useCartStore()
       c.addItem(P({ price: 412 }), 2) // subtotal 824
       const text = decodeURIComponent(c.whatsappOrderUrl().split('text=')[1])
       expect(text).toContain('Subtotal: $824 MXN')
-      expect(text).toContain('Envío: $70 MXN')
-      expect(text).toContain('Total: $894 MXN')
+      expect(text).toContain('Envío: $80 MXN')
+      expect(text).toContain('Total: $904 MXN')
     })
 
     it('sobre el umbral no menciona envío y el total es el subtotal', () => {
@@ -180,12 +181,12 @@ describe('cart store', () => {
       expect(text).toContain('Total: $1,200 MXN')
     })
 
-    it('con la variable sin poner el mensaje queda como antes', () => {
+    it('sin variable también cobra $80', () => {
       const c = useCartStore()
       c.addItem(P({ price: 412 }), 2)
       const text = decodeURIComponent(c.whatsappOrderUrl().split('text=')[1])
-      expect(text).not.toContain('Envío:')
-      expect(text).toContain('Total: $824 MXN')
+      expect(text).toContain('Envío: $80 MXN')
+      expect(text).toContain('Total: $904 MXN')
     })
   })
 
