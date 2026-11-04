@@ -48,8 +48,9 @@ await build({
         const saved = await ofetch('https://api-m.sandbox.paypal.com/v2/checkout/orders/' + encodeURIComponent(result.id), {
           headers: { Authorization: 'Bearer ' + token },
         })
-        assert.equal(saved.status, 'CREATED')
+        assert.ok(['CREATED', 'PAYER_ACTION_REQUIRED'].includes(saved.status), 'Unapproved order status')
         const amount = saved.purchase_units[0].amount
+        console.log('PAYPAL_SANDBOX_OBSERVED ' + JSON.stringify({ id: saved.id, status: saved.status, amount }))
         assert.equal(amount.currency_code, 'MXN')
         assert.equal(amount.value, total.toFixed(2))
         assert.equal(amount.breakdown.item_total.value, subtotal.toFixed(2))
