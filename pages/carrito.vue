@@ -158,7 +158,14 @@ const faltaEnvio = computed(() => {
   return f
 })
 
+function checkAvailability() {
+  if (!cart.hasUnavailableItems) return true
+  errorMsg.value = 'Hay productos agotados. Retíralos del carrito para continuar.'
+  return false
+}
+
 async function checkout() {
+  if (!checkAvailability()) return
   // Frenar ANTES de cobrar. Cobrar y no poder enviar es peor que no vender.
   if (!envioCompleto.value) {
     errorMsg.value = `Falta ${faltaEnvio.value.join(', ')} para poder enviarte el pedido.`
@@ -198,6 +205,7 @@ async function checkout() {
   }
 }
 async function checkoutStripe() {
+  if (!checkAvailability()) return
   // Mismo freno que el pago con Mercado Pago: cobrar y no poder enviar es peor
   // que no vender. Este camino esta apagado hoy (NUXT_PUBLIC_STRIPE_ENABLED),
   // pero el dia que lo enciendan tiene que pedir lo mismo que el otro.
@@ -229,6 +237,7 @@ async function checkoutStripe() {
   }
 }
 async function orderWhatsApp() {
+  if (!checkAvailability()) return
   if (envioCompleto.value) guardarEnvio()
   const url = cart.whatsappOrderUrl()
   // Abrimos la ventana dentro del gesto del clic para que no la bloquee el navegador.
@@ -246,7 +255,13 @@ async function orderWhatsApp() {
         ...(envioCompleto.value ? { envio: envio.value } : {}),
       },
     })
-  } catch (e) {
+  } catch (e: any) {
+    // Un rechazo del catálogo nunca debe convertirse en un pedido por chat.
+    if ([400, 409].includes(Number(e?.statusCode || e?.status || e?.response?.status))) {
+      win?.close()
+      errorMsg.value = e?.data?.message || 'Revisa los productos del carrito antes de continuar.'
+      return
+    }
     // Degrada con gracia: si la escritura falla, el usuario igual manda su pedido.
     console.error('No se pudo registrar el pedido (se abre WhatsApp de todos modos):', e)
   }
@@ -309,6 +324,12 @@ useHead({ title: 'Tu carrito — AMANTI' })
     <!-- cart -->
     <div v-else class="cartlayout">
       <div>
+        <div v-if="cart.hasUnavailableItems" class="statusmsg bad" role="alert">
+          <strong>Hay productos agotados en tu carrito.</strong>
+          <p>Retíralos para continuar con el pedido.</p>
+          <ul><li v-for="item in cart.unavailableItems" :key="item.slug">{{ item.name }}</li></ul>
+          <button class="btn light" @click="cart.unavailableItems.forEach(item => cart.removeItem(item.slug))">Retirar productos agotados</button>
+        </div>
         <table class="carttable">
           <thead><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Total</th><th></th></tr></thead>
           <TransitionGroup name="cartrow" tag="tbody">
@@ -318,6 +339,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
                   <div class="th" :style="{ background: i.bg }">{{ i.emoji }}</div>
                   <div>
                     <div class="nm">{{ i.name }}</div>
+                    <strong v-if="cart.isUnavailable(i.slug)">Agotado</strong>
                     <div class="br">AMANTI</div>
                   </div>
                 </div>
@@ -327,7 +349,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
                 <div class="cqty">
                   <button @click="cart.updateQuantity(i.slug, i.quantity - 1)" aria-label="Quitar uno">−</button>
                   <span>{{ i.quantity }}</span>
-                  <button @click="cart.updateQuantity(i.slug, i.quantity + 1)" aria-label="Agregar uno">+</button>
+                  <button @click="cart.updateQuantity(i.slug, i.quantity + 1)" :disabled="cart.isUnavailable(i.slug)" aria-label="Agregar uno">+</button>
                 </div>
               </td>
               <td data-label="Total">{{ peso(i.price * i.quantity) }}</td>
@@ -427,13 +449,13 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <p class="pt-como">Eliges cuál al pagar, dentro de {{ nombrePasarela }}.</p>
         </div>
 
-        <button ref="payBtnEl" class="btn magenta block" :disabled="loading" @click="checkout">
+        <button ref="payBtnEl" class="btn magenta block" :disabled="loading || cart.hasUnavailableItems" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar' }}
         </button>
-        <button v-if="stripeEnabled" class="btn block" style="background:var(--purple,#5E1B33);color:#fff" :disabled="stripeLoading" @click="checkoutStripe">
+        <button v-if="stripeEnabled" class="btn block" style="background:var(--purple,#5E1B33);color:#fff" :disabled="stripeLoading || cart.hasUnavailableItems" @click="checkoutStripe">
           {{ stripeLoading ? 'Redirigiendo…' : 'Pagar con tarjeta 💳' }}
         </button>
-        <button class="btn wa block" @click="orderWhatsApp">Ordenar por WhatsApp</button>
+        <button class="btn wa block" :disabled="cart.hasUnavailableItems" @click="orderWhatsApp">Ordenar por WhatsApp</button>
         <NuxtLink to="/tienda" class="btn light block">Seguir Comprando</NuxtLink>
       </aside>
     </div>
@@ -448,7 +470,7 @@ useHead({ title: 'Tu carrito — AMANTI' })
           <span class="sb-meta">Total</span>
           <b class="cb-total">{{ peso(totalAPagar) }}</b>
         </div>
-        <button class="btn magenta sb-btn" :disabled="loading" @click="checkout">
+        <button class="btn magenta sb-btn" :disabled="loading || cart.hasUnavailableItems" @click="checkout">
           {{ loading ? 'Redirigiendo…' : 'Pagar' }}
         </button>
       </div>

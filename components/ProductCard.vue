@@ -10,6 +10,7 @@ const justAdded = ref(false)
 const popped = ref(false)
 
 function add() {
+  if (props.product.agotado) return
   cart.addItem({
     slug: props.product.slug,
     name: props.product.name,
@@ -41,7 +42,8 @@ function toggleWish() {
                  format="webp" width="400" height="400" sizes="(max-width:560px) 50vw, 240px" loading="lazy" />
       </template>
       <span v-else class="d">{{ product.emoji }}</span>
-      <span v-if="onSale" class="pbadge">rebaja</span>
+      <span v-if="product.agotado" class="pbadge">Agotado</span>
+      <span v-else-if="onSale" class="pbadge">rebaja</span>
       <span v-else-if="isNew" class="pbadge pbadge-new">nuevo</span>
       <span v-else-if="product.hot" class="pbadge pbadge-gold">★ Top ventas</span>
     </NuxtLink>
@@ -58,7 +60,7 @@ function toggleWish() {
         <span v-if="onSale" class="was">{{ peso(product.compareAt) }}</span>
         <span class="now" :class="{ red: onSale }">{{ peso(product.price) }}</span>
       </div>
-      <button class="btn magenta addmini" :class="{ added: justAdded }" @click="add">{{ justAdded ? '✓ Añadido' : 'Añadir 🛍️' }}</button>
+      <button class="btn magenta addmini" :class="{ added: justAdded }" :disabled="product.agotado" @click="add">{{ product.agotado ? 'Agotado' : justAdded ? '✓ Añadido' : 'Añadir 🛍️' }}</button>
     </div>
   </div>
 </template>
