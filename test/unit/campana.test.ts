@@ -69,6 +69,17 @@ describe('bannerVigente — caducidad por fecha', () => {
   })
 })
 
+describe('campaña vigente al 20%', () => {
+  it('mantiene el descuento activo y la comunicación coherente con el cobro', () => {
+    expect(CAMPANA.activa).toBe(true)
+    expect(CAMPANA.descuento).toBe(0.2)
+    expect(CAMPANA.gancho).toBe('20% de descuento en toda la tienda')
+    expect(CAMPANA_PCT).toBe(20)
+    expect(precioCampana(501)).toBe(401)
+    expect(precioCampana(1213)).toBe(970)
+  })
+})
+
 describe('precioCampana', () => {
   it('descuenta el porcentaje y redondea al peso', () => {
     expect(precioCampana(1000, encendida)).toBe(600)
