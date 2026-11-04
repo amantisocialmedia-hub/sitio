@@ -24,6 +24,10 @@ const priceBySlug: Record<string, number> = Object.fromEntries(
   aplicarCampana(productsData.products as { slug: string; price: number }[]).map((p) => [p.slug, p.price]),
 )
 
+const agotados = new Set(
+  (productsData.products as { slug: string; agotado?: boolean }[]).filter(p => p.agotado).map(p => p.slug),
+)
+
 export interface CartItem {
   slug: string
   name: string
@@ -51,6 +55,8 @@ export const useCartStore = defineStore('cart', {
     totalItems: (state) => state.items.reduce((s, i) => s + i.quantity, 0),
     totalPrice: (state) => state.items.reduce((s, i) => s + i.price * i.quantity, 0),
     isEmpty: (state) => state.items.length === 0,
+    unavailableItems: (state) => state.items.filter(i => agotados.has(i.slug)),
+    hasUnavailableItems(): boolean { return this.unavailableItems.length > 0 },
     // Envío gratis: SOLO cuando el SUBTOTAL (no el número de artículos) alcanza el umbral.
     // Comparación >= : con subtotal exactamente igual al umbral, ya es gratis.
     //
@@ -85,7 +91,9 @@ export const useCartStore = defineStore('cart', {
   },
 
   actions: {
+    isUnavailable(slug: string) { return agotados.has(slug) },
     addItem(item: Omit<CartItem, 'quantity'>, quantity = 1) {
+      if (agotados.has(item.slug)) return false
       const existing = this.items.find(i => i.slug === item.slug)
       if (existing) existing.quantity += quantity
       else this.items.push({ ...item, quantity })
@@ -102,7 +110,7 @@ export const useCartStore = defineStore('cart', {
       // Coacciona a entero; valores no finitos o <= 0 eliminan la línea.
       const q = Math.floor(Number(quantity))
       if (!Number.isFinite(q) || q <= 0) this.removeItem(slug)
-      else it.quantity = q
+      else if (!agotados.has(slug)) it.quantity = q
       this.coupon = null
     },
     clearCart() {
@@ -131,6 +139,7 @@ export const useCartStore = defineStore('cart', {
 
     /** Arma el link wa.me con el pedido completo. El numero sale de runtimeConfig. */
     whatsappOrderUrl() {
+      if (this.hasUnavailableItems) throw new Error('Retira los productos agotados antes de pedir por WhatsApp.')
       const config = useRuntimeConfig()
       const phone = config.public.whatsappPhone
       let msg = '¡Hola AMANTI! Me gustaría ordenar:\n\n'

@@ -238,7 +238,9 @@ watch(lightbox, (v) => {
 const waUrl = computed(() => {
   const p = product.value
   if (!p) return '#'
-  const msg = `¡Hola AMANTI! Me interesa el ${p.name} (${peso(p.price)}). ¿Me ayudan? 💜${waRef()}`
+  const msg = p.agotado
+    ? `¡Hola AMANTI! Quisiera consultar cuándo vuelve a estar disponible ${p.name}. 💜${waRef()}`
+    : `¡Hola AMANTI! Me interesa el ${p.name} (${peso(p.price)}). ¿Me ayudan? 💜${waRef()}`
   return `https://wa.me/${config.public.whatsappPhone}?text=${encodeURIComponent(msg)}`
 })
 
@@ -441,7 +443,7 @@ useSeoMeta({
           <div class="buyrow" ref="buyrowEl">
             <button v-if="!product.agotado" class="btn magenta block" @click="addToCart">Añadir al carrito 🛍️</button>
             <button v-else class="btn block btn-agotado" disabled>Agotado por ahora</button>
-            <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">{{ product.agotado ? 'Avísame cuando vuelva' : 'Pedir por WhatsApp' }}</a>
+            <a :href="waUrl" target="_blank" rel="noopener" class="btn wa block">{{ product.agotado ? 'Consultar disponibilidad' : 'Pedir por WhatsApp' }}</a>
             <!-- Favoritos del producto principal. ClientOnly: la wishlist vive en localStorage
                  (igual que en ProductCard); evita el desajuste de hidratación ♡→♥. -->
             <ClientOnly>
