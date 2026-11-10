@@ -74,6 +74,7 @@
   "products": [
     {
       "slug": "tiny-teasers-nubby",
+      "agotado": true,
       "name": "Mini Antojo Nubby",
       "brand": "CalExotics",
       "category": "vibradores",
@@ -415,6 +416,7 @@
     },
     {
       "slug": "neon-xl-bullet",
+      "agotado": true,
       "name": "Chispa Neón XL",
       "brand": "Pipedream",
       "category": "vibradores",
