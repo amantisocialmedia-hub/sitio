@@ -5444,6 +5444,40 @@
       ],
       "feedTitle": "Power Play Dual Silver Bullets — CalExotics",
       "feedDescription": "Vibrador doble tipo bala CalExotics con tres velocidades, control ergonómico y dos balas plateadas. Usa cuatro baterías AAA. Resistencia IPX6; no sumergible."
+    },
+    {
+      "slug": "sterling-silver-bullet",
+      "name": "Sterling Silver Bullet",
+      "brand": "CalExotics",
+      "category": "vibradores",
+      "price": 497,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "✨",
+      "bg": "#FFFFFF",
+      "subtitle": "Bala vibradora plateada CalExotics con control de 2 velocidades",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto"
+      ],
+      "description": "Pequeño en tamaño, grande en sensaciones. ✨\n\nSterling Silver Bullet de CalExotics combina un diseño compacto y elegante con dos intensidades de vibración para disfrutar de una experiencia personalizada.\n\nSu acabado plateado, control con cable y funda suave texturizada permiten descubrir diferentes sensaciones de manera cómoda y sencilla. 💜",
+      "features": [
+        "2 velocidades de vibración",
+        "Bala vibradora de acabado plateado",
+        "Control con cable y botón",
+        "Funda suave con textura",
+        "Funciona con 2 baterías AA",
+        "Diseño compacto y ligero"
+      ],
+      "images": [
+        "/products/sterling-silver-bullet_1.png",
+        "/products/sterling-silver-bullet_2.png"
+      ],
+      "feedTitle": "Sterling Silver Bullet — CalExotics",
+      "feedDescription": "Bala vibradora plateada CalExotics con control por cable de dos velocidades, funda suave texturizada y diseño compacto. Funciona con dos baterías AA."
     }
   ]
 }
