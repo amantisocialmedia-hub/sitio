@@ -5300,6 +5300,41 @@
         "/products/royal-honey-vip_1.jpg",
         "/products/royal-honey-vip_2.jpg"
       ]
+    },
+    {
+      "slug": "rosa-loving-joy",
+      "name": "Rosa Loving Joy",
+      "brand": "Loving Joy",
+      "category": "vibradores",
+      "price": 995,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "🌹",
+      "bg": "#FFFFFF",
+      "subtitle": "Succionador tipo rosa con caja de regalo blanca",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable"
+      ],
+      "description": "Rosa Loving Joy es un succionador de color rojo con diseño de rosa y presentación en caja de regalo blanca. Su exterior de silicona suave y control de un botón permiten elegir entre 10 modos de succión. Cuenta con batería recargable y carga USB magnética.",
+      "features": [
+        "Diseño de rosa en color rojo",
+        "Exterior de silicona suave",
+        "10 modos de succión",
+        "Control con un botón frontal",
+        "Batería recargable",
+        "Carga USB magnética",
+        "Caja de regalo blanca"
+      ],
+      "images": [
+        "/products/rosa-loving-joy_1.png"
+      ],
+      "feedTitle": "Succionador Loving Joy tipo rosa",
+      "feedDescription": "Succionador Loving Joy de color rojo, recargable, con 10 modos de succión y caja de regalo blanca."
     }
   ]
 }
