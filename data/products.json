@@ -5336,6 +5336,41 @@
       ],
       "feedTitle": "Succionador Loving Joy tipo rosa",
       "feedDescription": "Succionador Loving Joy de color rojo, recargable, con 10 modos de succión y caja de regalo blanca."
+    },
+    {
+      "slug": "tamina-majestic",
+      "name": "Tamina Majestic",
+      "brand": "CamToyz",
+      "category": "vibradores",
+      "price": 1596,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "💜",
+      "bg": "#FFFFFF",
+      "subtitle": "Varita vibradora con función de calor y pantalla digital",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable"
+      ],
+      "description": "Un toque de calor, intensidad y nuevas sensaciones. 💜\n\nTamina Majestic es un vibrador tipo varita que combina tecnología, comodidad y diseño elegante. Sus vibraciones ajustables y función de calor te permiten explorar diferentes sensaciones a tu propio ritmo.\n\nCon cabezal de silicona suave, pantalla digital y batería recargable, es el complemento perfecto para transformar tus momentos de autocuidado en una experiencia diferente.",
+      "features": [
+        "Vibraciones ajustables",
+        "Función de calor",
+        "Cabezal de silicona suave",
+        "Pantalla digital",
+        "Batería recargable",
+        "Carga magnética"
+      ],
+      "images": [
+        "/products/tamina-majestic_1.png",
+        "/products/tamina-majestic_2.png"
+      ],
+      "feedTitle": "Vibrador tipo varita CamToyz Tamina Majestic",
+      "feedDescription": "Varita vibradora CamToyz con función de calor, vibraciones ajustables, cabezal de silicona suave, pantalla digital, batería recargable y carga magnética."
     }
   ]
 }
