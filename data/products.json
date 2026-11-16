@@ -5478,6 +5478,42 @@
       ],
       "feedTitle": "Sterling Silver Bullet — CalExotics",
       "feedDescription": "Bala vibradora plateada CalExotics con control por cable de dos velocidades, funda suave texturizada y diseño compacto. Funciona con dos baterías AA."
+    },
+    {
+      "slug": "ovo-s2",
+      "name": "OVO S2 – Estimulador Recargable",
+      "brand": "OVO Lifestyle Toys",
+      "category": "vibradores",
+      "price": 1437,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "💜",
+      "bg": "#FFFFFF",
+      "subtitle": "Estimulador externo de silicona suave con 7 modos de vibración",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto",
+        "Recargable"
+      ],
+      "description": "Pequeño, discreto y lleno de posibilidades. 💜\n\nOVO S2 combina un diseño moderno y ergonómico con vibraciones ajustables para que descubras nuevas sensaciones a tu propio ritmo.\n\nSu acabado de silicona aterciopelada, motor silencioso y tamaño compacto lo convierten en un compañero ideal para disfrutar de tus momentos de bienestar íntimo.",
+      "features": [
+        "7 modos de vibración",
+        "Silicona suave al tacto",
+        "Batería recargable",
+        "Carga mediante USB",
+        "Motor silencioso",
+        "Resistente a salpicaduras",
+        "Diseño compacto y ergonómico"
+      ],
+      "images": [
+        "/products/ovo-s2_1.png",
+        "/products/ovo-s2_2.png"
+      ],
+      "feedTitle": "OVO S2 — Estimulador Recargable OVO Lifestyle Toys",
+      "feedDescription": "Estimulador externo OVO S2 de silicona suave con siete modos de vibración, batería recargable por USB, motor silencioso y resistencia a salpicaduras."
     }
   ]
 }
