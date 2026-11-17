@@ -5696,7 +5696,7 @@
     },
     {
       "slug": "stella-iii",
-      "name": "Bolas Kegel – Stella III",
+      "name": "Trío de Sensaciones – Stella III",
       "brand": "Key by Jopen",
       "category": "kegel",
       "price": 999,
@@ -5704,7 +5704,7 @@
       "rating": 0,
       "emoji": "💜",
       "bg": "#FFFFFF",
-      "subtitle": "Tres esferas graduadas de silicona con pesos internos móviles",
+      "subtitle": "Bolas Kegel de silicona · Key by Jopen",
       "badge": "nuevo",
       "hot": false,
       "featured": false,
@@ -5725,8 +5725,9 @@
       "images": [
         "/products/stella-iii_1.png"
       ],
-      "feedTitle": "Bolas Kegel Stella III – Key by Jopen",
-      "feedDescription": "Stella III de Key by Jopen: tres esferas graduadas de silicona con pesos internos móviles y lazo de extracción. Sin baterías ni recargas."
+      "feedTitle": "Trío de Sensaciones – Stella III | Bolas Kegel Key by Jopen",
+      "feedDescription": "Stella III de Key by Jopen: tres esferas graduadas de silicona con pesos internos móviles y lazo de extracción. Sin baterías ni recargas.",
+      "seoTitle": "Trío de Sensaciones – Stella III | Bolas Kegel Key by Jopen"
     }
   ]
 }

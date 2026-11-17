@@ -296,7 +296,7 @@ const seo = computed(() => {
 })
 
 useHead(() => ({
-  title: seo.value ? `${seo.value.p.name} — AMANTI` : 'Producto — AMANTI',
+  title: seo.value ? `${seo.value.p.seoTitle || seo.value.p.name} — AMANTI` : 'Producto — AMANTI',
   script: seo.value
     ? [{
         type: 'application/ld+json',

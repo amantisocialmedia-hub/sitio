@@ -2,6 +2,7 @@ import data from '~/data/products.json'
 import { aplicarCampana } from '~/utils/campana'
 
 export interface Product {
+  seoTitle?: string
   slug: string
   name: string
   brand: string
