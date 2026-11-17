@@ -47,7 +47,7 @@ const whyItems = [
 // ese valor (por eso useState y no una llamada directa). Si cada lado consultara su propio
 // reloj, un visitante con la computadora en otra zona horaria podría recibir un HTML con el
 // banner y quitarlo al hidratar, o al revés.
-const bannerTemporada = useState('banner-temporada', () => bannerVigente())
+
 
 // SEO de la home: og/twitter + reafirma título/descripción. El canonical lo pone app.vue.
 const config = useRuntimeConfig()
@@ -67,44 +67,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- Banner de temporada (fiestas patrias 2026). Ocupa el lugar del bloque de la
-       venta mientras esté vigente y se apaga solo por fecha: ver BANNER_TEMPORADA
-       en utils/campana.ts. Anuncia el mismo 40%, así que no cambia ningún precio. -->
-  <div v-if="bannerTemporada" class="wrap salewrap-top">
-    <NuxtLink :to="BANNER_TEMPORADA.href" class="bantemp">
-      <picture>
-        <source media="(max-width:640px)" :srcset="BANNER_TEMPORADA.imagenMovil" width="940" height="900">
-        <img :src="BANNER_TEMPORADA.imagen" :alt="BANNER_TEMPORADA.alt" width="1600" height="900" fetchpriority="high">
-      </picture>
-    </NuxtLink>
-  </div>
-
-  <!-- Venta especial, ANTES del hero: César la pidió pegada a la barra de
-       búsqueda para que sea lo primero que se ve (mockup del 25-ago-2026).
-       Con la campaña apagada este bloque no existe y el hero vuelve a ser lo
-       primero, igual que antes. -->
-  <div v-else-if="CAMPANA.activa" class="wrap salewrap-top">
-    <div class="salehero">
-      <div class="flame">VENTA<br>ESPECIAL</div>
-      <div class="mid">
-        <div class="gd">{{ CAMPANA.nombre.toUpperCase() }}</div>
-        <div class="pct">{{ CAMPANA_PCT }}% OFF</div>
-        <div class="emo">🌙 💞 🌿 🚀 💧</div>
-        <div class="valid">En toda la tienda · el precio que ves ya trae el descuento</div>
-      </div>
-    </div>
-  </div>
-
-  <HeroEditorial :products="populares" />
+  <HomeFloral />
 
   <div class="wrap">
-    <!-- benefit pills -->
-    <div class="benefits">
-      <div class="b"><span class="e">🚚</span> Envíos Gratis desde $1,000</div>
-      <div class="b"><span class="e">🕵️</span> 100% Discreto</div>
-      <div class="b"><span class="e">💳</span> Facilidades de Pago</div>
-    </div>
-
     <!-- Promo de cupones. Bajada mientras César prepara el relanzamiento; se
          vuelve a prender desde utils/campana.ts. Nunca coincide con la venta:
          MOSTRAR_CUPONES ya es false mientras la campaña esté encendida. -->
@@ -123,7 +88,7 @@ useSeoMeta({
 
   <!-- categorías (mosaico) — subido arriba para que las secciones se vean al ENTRAR, no hasta
        el fondo (reporte de Raúl, jul-2026). -->
-  <section class="section" style="padding-top:34px">
+  <section id="categorias" class="section" style="padding-top:34px;scroll-margin-top:110px">
     <div class="wrap">
       <div class="sec-head" v-reveal><h2>Explora por categoría</h2><NuxtLink to="/tienda" class="link-all">Ver todo</NuxtLink></div>
       <div class="mosaic">
@@ -221,7 +186,7 @@ useSeoMeta({
   </section>
 
   <!-- novedades -->
-  <section class="section" style="padding-top:0">
+  <section id="novedades" class="section" style="padding-top:0;scroll-margin-top:110px">
     <div class="wrap">
       <div class="sec-head" v-reveal><h2>Novedades</h2><NuxtLink to="/tienda" class="link-all">Ver todos</NuxtLink></div>
       <div class="rail">
