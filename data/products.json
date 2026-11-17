@@ -5615,6 +5615,42 @@
       ],
       "feedTitle": "Dúo Rosa — Huevo Vibrador Doble USB",
       "feedDescription": "Dos huevos vibradores de color rosa con vibración simultánea, alimentación mediante USB, control de encendido y diseño compacto."
+    },
+    {
+      "slug": "ceres-lace",
+      "name": "Encanto Azul – Ceres Lace",
+      "brand": "Key by Jopen",
+      "category": "vibradores",
+      "price": 1194,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "💙",
+      "bg": "#FFFFFF",
+      "subtitle": "Vibrador Key by Jopen con textura de encaje y 7 patrones de vibración",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua"
+      ],
+      "description": "Elegancia que se siente en cada detalle. 💙\n\nEncanto Azul es el modelo Ceres Lace de Key by Jopen. Combina un diseño sofisticado con una delicada textura de encaje que añade una sensación diferente al tacto. Sus siete patrones de vibración permiten explorar distintas intensidades y ritmos a tu propio ritmo.\n\nSu acabado de silicona suave, cuerpo ergonómico y discreto sistema de control lo convierten en una excelente opción para disfrutar de momentos de bienestar íntimo.",
+      "features": [
+        "7 patrones de vibración",
+        "Textura en relieve tipo encaje",
+        "Silicona suave al tacto",
+        "Control mediante un botón",
+        "Funciona con 2 pilas AA",
+        "Resistente al agua",
+        "Color azul turquesa"
+      ],
+      "images": [
+        "/products/ceres-lace_1.png",
+        "/products/ceres-lace_2.png"
+      ],
+      "feedTitle": "Encanto Azul — Ceres Lace Key by Jopen",
+      "feedDescription": "Vibrador Ceres Lace de Key by Jopen con textura de encaje, silicona suave, siete patrones y control de un botón. Funciona con dos pilas AA. Color azul turquesa."
     }
   ]
 }
