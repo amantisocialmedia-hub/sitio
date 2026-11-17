@@ -69,6 +69,12 @@
       "emoji": "💧",
       "blurb": "Lubricantes saborizados y de sensación para todo tipo de juego.",
       "image": "/categories/lubricantes.png"
+    },
+    {
+      "slug": "kegel",
+      "name": "Kegel",
+      "emoji": "💜",
+      "blurb": "Explora nuestra selección de bolas Kegel y accesorios para el bienestar íntimo."
     }
   ],
   "products": [
@@ -5687,6 +5693,41 @@
       ],
       "feedTitle": "Giro Travieso — Jack Rabbit Advanced CalExotics",
       "feedDescription": "Vibrador tipo conejo Jack Rabbit Advanced de CalExotics con siete funciones, seis velocidades de rotación, cinco filas de perlas giratorias y controles independientes. Funciona con pilas."
+    },
+    {
+      "slug": "stella-iii",
+      "name": "Trío de Sensaciones – Stella III",
+      "brand": "Key by Jopen",
+      "category": "kegel",
+      "price": 999,
+      "compareAt": 0,
+      "rating": 0,
+      "emoji": "💜",
+      "bg": "#FFFFFF",
+      "subtitle": "Bolas Kegel de silicona · Key by Jopen",
+      "badge": "nuevo",
+      "hot": false,
+      "featured": false,
+      "agotado": false,
+      "badges": [
+        "Envío Discreto",
+        "Resistente al agua"
+      ],
+      "description": "Hay sensaciones que comienzan desde adentro… 💜\n\nDescubre el placer de conocer tu cuerpo de una forma diferente con Stella III. Su elegante diseño de tres esferas graduadas y pesos internos móviles te invita a explorar sensaciones sutiles mientras ejercitas tu suelo pélvico.\n\nSu textura de silicona suave y sus delicadas curvas hacen de cada momento una experiencia íntima, discreta y personal.\n\nPorque conocerte mejor también puede ser parte del placer. ✨",
+      "features": [
+        "Tres esferas de peso graduado",
+        "Pesos internos móviles",
+        "Silicona suave al tacto",
+        "Resistente al agua",
+        "Lazo de extracción integrado",
+        "Sin baterías ni recargas"
+      ],
+      "images": [
+        "/products/stella-iii_1.png"
+      ],
+      "feedTitle": "Trío de Sensaciones – Stella III | Bolas Kegel Key by Jopen",
+      "feedDescription": "Stella III de Key by Jopen: tres esferas graduadas de silicona con pesos internos móviles y lazo de extracción. Sin baterías ni recargas.",
+      "seoTitle": "Trío de Sensaciones – Stella III | Bolas Kegel Key by Jopen"
     }
   ]
 }

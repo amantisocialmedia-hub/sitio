@@ -2,6 +2,7 @@ import data from '~/data/products.json'
 import { aplicarCampana } from '~/utils/campana'
 
 export interface Product {
+  seoTitle?: string
   slug: string
   name: string
   brand: string
@@ -74,6 +75,7 @@ export function matchesSub(p: Product, sub: SubCategory): boolean {
 
 // Taxonomía de subcategorías. El `label` coincide con el rótulo del mega-menú.
 export const subcategories: SubCategory[] = [
+  { slug: 'kegel', label: 'Kegel', category: 'kegel' },
   // "Juguetes Sexuales" → categorías completas + algunos tipos.
   { slug: 'jt-vibradores', label: 'Vibradores', category: 'vibradores' },
   { slug: 'jt-masturbadores', label: 'Masturbadores', category: 'masturbadores' },
