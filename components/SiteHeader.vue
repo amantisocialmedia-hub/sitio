@@ -1,4 +1,6 @@
 <script setup lang="ts">
+const route = useRoute()
+const isFloralHome = computed(() => route.path === '/')
 const cart = useCartStore()
 const wishlist = useWishlistStore()
 const router = useRouter()
@@ -144,8 +146,9 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
 </script>
 
 <template>
-  <div class="strip0"></div>
-  <header class="nav" :class="{ 'nav--hidden': navHidden }">
+  <div v-if="isFloralHome && CAMPANA.activa" class="floral-announcement">{{ CAMPANA_PCT }}% de descuento · Tu precio ya lo incluye</div>
+  <div v-else class="strip0"></div>
+  <header class="nav" :class="{ 'nav--hidden': navHidden, 'nav--floral': isFloralHome }">
     <div class="nav-in">
       <NuxtLink to="/" class="logo" aria-label="AMANTI — Inicio">
         <span class="logo-iso" aria-hidden="true"></span>
@@ -209,7 +212,7 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
     </Transition>
   </header>
 
-  <div v-if="showDiscreta" class="discreta">
+  <div v-if="showDiscreta && !isFloralHome" class="discreta">
     <Transition name="drot" mode="out-in">
       <span class="discreta-rot" :key="discretaIdx">{{ discretaMsgs[discretaIdx] }}</span>
     </Transition>
@@ -261,6 +264,11 @@ function itemHref(m: { label: string; to: string; blog?: boolean }, it: string) 
 </template>
 
 <style scoped>
+.floral-announcement{background:#710b2a;color:#fff8f0;text-align:center;padding:9px 16px;font-size:clamp(12px,1.3vw,18px)}
+.nav.nav--floral{background:#fff8f0}
+.nav--floral .logo,.nav--floral .logo-word,.nav--floral .menu>li>a,.nav--floral .nav-right>a,.nav--floral .ic,.nav--floral .burger{color:#710b2a}
+.nav--floral .logo-iso{background-color:#710b2a}
+
 @media(max-width:560px){ .hide-sm{display:none} }
 /* acordeón del drawer */
 .drawer-group details summary{
