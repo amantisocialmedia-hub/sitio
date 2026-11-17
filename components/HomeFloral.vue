@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const collections = [
   { title: 'Novedades', to: '#novedades', image: 'collection-0.jpg', alt: 'Rosa Loving Joy sobre un fondo floral rosa' },
-  { title: 'Más por descubrir', to: '#categorias', image: 'collection-1.jpg', alt: 'Bolas Kegel moradas con detalles de lavanda' },
-  { title: 'Toda la colección', to: '/tienda', image: 'collection-2.jpg', alt: 'Lubricante Sunny Side Up junto a una rosa' },
+  { title: 'Más por descubrir', to: '#categorias', image: 'collection-1-v3.jpg', alt: 'Bolas Kegel moradas con detalles de lavanda' },
+  { title: 'Toda la colección', to: '/tienda', image: 'collection-2-v3.jpg', alt: 'Unicornio en tonos pastel con control junto a una rosa' },
 ]
 </script>
 
